@@ -1,6 +1,6 @@
 /* ==========================================================================
-   PRINT STYLESHEET - DUAL JAIN ROYAL WEDDING INVITATION
-   Formats the digital invitation into a luxury multi-page printable card
+   PRINT STYLESHEET - ROYAL WEDDING INVITATION WEBSITE
+   Formats the digital website cleanly for print / PDF generation
    ========================================================================== */
 
 @media print {
@@ -9,83 +9,76 @@
     margin: 1.2cm;
   }
 
-  body {
+  body.site-body {
     background: #ffffff !important;
     color: #1a1612 !important;
     font-size: 11pt !important;
   }
 
-  /* Hide interactive floating and non-printable elements */
-  #openingScreen,
-  .floating-action-bar,
-  .countdown-section,
-  .cal-btn,
-  .maps-btn,
-  .contact-buttons-grid,
-  #toastNotification {
+  /* Hide interactive, floating and background canvas elements */
+  #mainNavbar,
+  .hero-particle-canvas,
+  .hero-cta-wrap,
+  .hero-scroll-prompt,
+  .nav-music-control,
+  .mobile-hamburger-btn,
+  .mobile-nav-drawer,
+  .countdown-marquee-section,
+  .events-filter-bar,
+  .add-cal-btn,
+  .reception-buttons,
+  .venue-actions-row,
+  .rsvp-interactive-section,
+  .website-toast,
+  .back-to-top-btn {
     display: none !important;
   }
 
-  .page-wrapper {
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    gap: 1.5cm !important;
-  }
-
-  /* Royal Card Sections */
-  .royal-header,
-  .couples-master-container,
-  .events-section,
-  .reception-grand-section,
-  .letter-section,
-  .family-master-section,
-  .footer-section {
+  .hero-cinematic-section {
+    min-height: auto !important;
     background: #ffffff !important;
     color: #1a1612 !important;
-    border: 2px solid #826017 !important;
-    box-shadow: none !important;
-    page-break-inside: avoid;
-    break-inside: avoid;
-    margin-bottom: 1.2cm;
-    border-radius: 6px !important;
+    padding: 1cm 0 !important;
   }
 
-  .couples-grid {
-    grid-template-columns: 1fr auto 1fr !important;
-  }
-
-  .events-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 0.8cm !important;
-  }
-
-  .event-card {
-    border: 1px solid #826017 !important;
-    box-shadow: none !important;
-    page-break-inside: avoid;
-  }
-
-  .family-category-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 0.8cm !important;
-  }
-
-  .footer-section {
-    background: #ffffff !important;
+  .hero-celebration-text,
+  .hero-couple-names,
+  .hero-subdate {
     color: #1a1612 !important;
   }
 
-  .residence-head,
-  .residence-lineage,
-  .residence-address,
-  .footer-welcome-line {
-    color: #1a1612 !important;
-  }
-
-  .gold-text {
+  .gold-gradient-text {
     background: none !important;
     -webkit-text-fill-color: initial !important;
     color: #826017 !important;
+  }
+
+  .website-section {
+    padding: 1.5cm 0 !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .couple-editorial-card,
+  .story-article-card,
+  .family-directory-card,
+  .venue-card,
+  .reception-palace-banner {
+    box-shadow: none !important;
+    border: 1.5px solid #826017 !important;
+    background: #ffffff !important;
+    page-break-inside: avoid;
+  }
+
+  .website-royal-footer {
+    background: #ffffff !important;
+    color: #1a1612 !important;
+    border-top: 2px solid #826017 !important;
+  }
+
+  .footer-royal-names,
+  .footer-sub-details,
+  .footer-appreciation-msg {
+    color: #1a1612 !important;
   }
 }

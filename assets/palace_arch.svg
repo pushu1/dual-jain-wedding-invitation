@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" fill="none">
+  <defs>
+    <linearGradient id="palaceGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.35"/>
+      <stop offset="70%" stop-color="#AA7C11" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#1A1612" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="skyGlow" cx="50%" cy="25%" r="60%">
+      <stop offset="0%" stop-color="#651E2B" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#211D1B" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0F0D0B" stop-opacity="1"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#skyGlow)"/>
+  <!-- Central Grand Scalloped Rajasthani Arch -->
+  <path d="M150 600 L150 320 C150 200 320 80 600 80 C880 80 1050 200 1050 320 L1050 600" stroke="url(#palaceGrad)" stroke-width="4" fill="none"/>
+  <!-- Inner Scallops (Multi-foil Arch) -->
+  <path d="M220 600 L220 340 
+           C220 280 270 230 330 230 
+           C370 190 440 170 500 170 
+           C540 130 660 130 700 170 
+           C760 170 830 190 870 230 
+           C930 230 980 280 980 340 L980 600" stroke="url(#palaceGrad)" stroke-width="2.5" fill="none"/>
+  <!-- Left Chhatri (Pavilion) Silhouette -->
+  <path d="M40 380 L80 380 L80 440 L40 440 Z M60 380 C40 350 45 320 60 300 C75 320 80 350 60 380 Z" stroke="url(#palaceGrad)" stroke-width="2" fill="none"/>
+  <!-- Right Chhatri (Pavilion) Silhouette -->
+  <path d="M1120 380 L1160 380 L1160 440 L1120 440 Z M1140 380 C1120 350 1125 320 1140 300 C1155 320 1160 350 1140 380 Z" stroke="url(#palaceGrad)" stroke-width="2" fill="none"/>
+  <!-- Decorative Jharokha Windows -->
+  <path d="M540 100 C540 70 660 70 660 100 L650 140 L550 140 Z" stroke="url(#palaceGrad)" stroke-width="2" fill="none"/>
+  <!-- Hanging Lantern / Chandelier Motif -->
+  <line x1="600" y1="140" x2="600" y2="240" stroke="url(#palaceGrad)" stroke-width="1.5" stroke-dasharray="4 2"/>
+  <circle cx="600" cy="255" r="15" stroke="url(#palaceGrad)" stroke-width="2" fill="#D4AF37" fill-opacity="0.1"/>
+  <circle cx="600" cy="255" r="6" fill="#F3E5AB" fill-opacity="0.7"/>
+</svg>
