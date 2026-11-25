@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 130" fill="none">
+  <defs>
+    <linearGradient id="woodGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8B1E2E"/>
+      <stop offset="50%" stop-color="#B71C1C"/>
+      <stop offset="100%" stop-color="#4A0E17"/>
+    </linearGradient>
+    <linearGradient id="brassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#8B6508"/>
+    </linearGradient>
+  </defs>
+  <!-- Dhol Barrel Body -->
+  <path d="M45 25 C80 15 120 15 155 25 C165 45 165 75 155 95 C120 105 80 105 45 95 C35 75 35 45 45 25 Z" fill="url(#woodGrad)" stroke="#1A1612" stroke-width="2"/>
+  <!-- Left Drum Head -->
+  <ellipse cx="45" cy="60" rx="14" ry="35" fill="#FDF7EE" stroke="#1A1612" stroke-width="2"/>
+  <ellipse cx="45" cy="60" rx="7" ry="18" fill="#3E2723"/>
+  <!-- Right Drum Head Rim -->
+  <path d="M155 25 C165 45 165 75 155 95 C150 75 150 45 155 25 Z" fill="#D4AF37" stroke="#1A1612" stroke-width="1.5"/>
+  <!-- Tension Ropes (Lacing in zigzag) -->
+  <path d="M45 25 L80 98 L110 20 L135 98 L155 25 M45 95 L80 20 L110 98 L135 20 L155 95" stroke="url(#brassGrad)" stroke-width="2"/>
+  <!-- Center Decorative Belt -->
+  <path d="M96 18 C102 18 104 100 98 100" stroke="#D4AF37" stroke-width="3"/>
+  <!-- Beaters (Dagga curved stick & Teeli thin stick) -->
+  <path d="M25 110 C40 85 65 60 75 45 C80 38 85 45 80 50 C70 65 45 95 32 115 Z" fill="url(#brassGrad)" stroke="#1A1612" stroke-width="1.5"/>
+  <path d="M175 110 L130 55" stroke="#1A1612" stroke-width="3" stroke-linecap="round"/>
+</svg>

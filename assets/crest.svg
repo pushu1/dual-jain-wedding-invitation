@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 220" fill="none">
+  <defs>
+    <linearGradient id="crestGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5C158"/>
+      <stop offset="50%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#8B6508"/>
+    </linearGradient>
+  </defs>
+  <!-- Radiant Sun God (Suryavanshi Crest at Top) -->
+  <circle cx="120" cy="38" r="14" fill="url(#crestGold)" stroke="#1A1612" stroke-width="1.5"/>
+  <!-- Sun Face features -->
+  <circle cx="116" cy="36" r="1.5" fill="#1A1612"/>
+  <circle cx="124" cy="36" r="1.5" fill="#1A1612"/>
+  <path d="M117 42 C119 44 121 44 123 42" stroke="#1A1612" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Sun Rays -->
+  <g stroke="url(#crestGold)" stroke-width="2" stroke-linecap="round">
+    <line x1="120" y1="18" x2="120" y2="10"/>
+    <line x1="120" y1="58" x2="120" y2="66"/>
+    <line x1="100" y1="38" x2="92" y2="38"/>
+    <line x1="140" y1="38" x2="148" y2="38"/>
+    <line x1="106" y1="24" x2="100" y2="18"/>
+    <line x1="134" y1="24" x2="140" y2="18"/>
+    <line x1="106" y1="52" x2="100" y2="58"/>
+    <line x1="134" y1="52" x2="140" y2="58"/>
+  </g>
+  <!-- Central Royal Escutcheon / Shield -->
+  <path d="M96 72 C110 68 130 68 144 72 C146 100 144 128 120 144 C96 128 94 100 96 72 Z" fill="#FFFDF8" stroke="#1A1612" stroke-width="2"/>
+  <!-- Fortress silhouette inside shield -->
+  <path d="M104 116 L104 98 L110 98 L110 102 L116 102 L116 98 L124 98 L124 102 L130 102 L130 98 L136 98 L136 116 Z" fill="url(#crestGold)" stroke="#1A1612" stroke-width="1"/>
+  <path d="M116 116 L116 108 C116 106 124 106 124 108 L124 116 Z" fill="#8B1E2E"/>
+  <!-- Left Rajput Warrior -->
+  <!-- Turban & Head -->
+  <circle cx="68" cy="80" r="7" fill="#FDF7EE" stroke="#1A1612" stroke-width="1.2"/>
+  <path d="M62 76 C64 70 74 70 76 76 Z" fill="#8B1E2E"/>
+  <!-- Body & Dhoti -->
+  <path d="M62 88 L74 88 L76 124 L60 124 Z" fill="#FFFDF8" stroke="#1A1612" stroke-width="1.2"/>
+  <!-- Spear / Talwar in hand -->
+  <line x1="52" y1="62" x2="56" y2="140" stroke="#1A1612" stroke-width="2"/>
+  <polygon points="52,62 49,70 55,70" fill="url(#crestGold)"/>
+  <!-- Shield on arm -->
+  <ellipse cx="78" cy="100" rx="6" ry="12" fill="url(#crestGold)" stroke="#1A1612" stroke-width="1.2"/>
+
+  <!-- Right Rajput Warrior -->
+  <circle cx="172" cy="80" r="7" fill="#FDF7EE" stroke="#1A1612" stroke-width="1.2"/>
+  <path d="M166 76 C168 70 178 70 180 76 Z" fill="#8B1E2E"/>
+  <path d="M166 88 L178 88 L180 124 L164 124 Z" fill="#FFFDF8" stroke="#1A1612" stroke-width="1.2"/>
+  <!-- Sword / Bow -->
+  <path d="M185 86 C190 98 190 114 186 130" stroke="#1A1612" stroke-width="2" fill="none"/>
+  <ellipse cx="162" cy="100" rx="6" ry="12" fill="url(#crestGold)" stroke="#1A1612" stroke-width="1.2"/>
+
+  <!-- Royal Banner Ribbon at Bottom -->
+  <path d="M40 162 C80 152 160 152 200 162 L192 182 C155 174 85 174 48 182 Z" fill="url(#crestGold)" stroke="#1A1612" stroke-width="1.5"/>
+  <text x="120" y="172" font-family="'Cinzel', 'Playfair Display', serif" font-size="9" font-weight="bold" fill="#1A1612" text-anchor="middle" letter-spacing="1.5">GEHLOT PARIVAR</text>
+  <!-- Motto under banner -->
+  <text x="120" y="196" font-family="'Cormorant Garamond', serif" font-size="8.5" font-style="italic" fill="#666" text-anchor="middle">Suryavanshi Rajput Heritage</text>
+</svg>

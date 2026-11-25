@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 160" fill="none">
+  <defs>
+    <linearGradient id="kalashGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5C158"/>
+      <stop offset="50%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#8B6508"/>
+    </linearGradient>
+  </defs>
+  <!-- Coconut (Nariyal) at Top -->
+  <ellipse cx="70" cy="40" rx="15" ry="18" fill="#5D4037" stroke="#1A1612" stroke-width="1.5"/>
+  <path d="M66 22 L70 14 L74 22 Z" fill="#3E2723"/>
+  <!-- Mango Leaves (Amra Pallava) -->
+  <path d="M56 46 C45 36 34 38 28 32 C38 48 48 54 58 52 Z" fill="#2E7D32" stroke="#1A1612" stroke-width="1"/>
+  <path d="M84 46 C95 36 106 38 112 32 C102 48 92 54 82 52 Z" fill="#2E7D32" stroke="#1A1612" stroke-width="1"/>
+  <path d="M62 42 C56 26 50 20 46 16 C56 26 62 36 65 42 Z" fill="#388E3C"/>
+  <path d="M78 42 C84 26 90 20 94 16 C84 26 78 36 75 42 Z" fill="#388E3C"/>
+  <!-- Pot Neck & Rim -->
+  <ellipse cx="70" cy="56" rx="24" ry="7" fill="url(#kalashGold)" stroke="#1A1612" stroke-width="1.5"/>
+  <!-- Sacred Red Thread (Mouli / Kalava) around neck -->
+  <rect x="52" y="60" width="36" height="6" rx="2" fill="#8B1E2E"/>
+  <line x1="52" y1="63" x2="88" y2="63" stroke="#D4AF37" stroke-width="1.5"/>
+  <!-- Pot Body (Kumbha) -->
+  <path d="M50 66 C32 78 28 108 42 124 C52 134 88 134 98 124 C112 108 108 78 90 66 Z" fill="url(#kalashGold)" stroke="#1A1612" stroke-width="2"/>
+  <!-- Auspicious Sacred Mark / Emblem on Pot -->
+  <circle cx="70" cy="95" r="14" fill="#FFFDF8" stroke="#8B1E2E" stroke-width="1"/>
+  <!-- Auspicious Sun / Floral Cross -->
+  <path d="M70 85 L70 105 M60 95 L80 95 M64 89 L76 101 M64 101 L76 89" stroke="#8B1E2E" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- Base Pedestal -->
+  <path d="M52 130 C60 134 80 134 88 130 L90 138 C80 142 60 142 50 138 Z" fill="url(#kalashGold)" stroke="#1A1612" stroke-width="1.5"/>
+</svg>

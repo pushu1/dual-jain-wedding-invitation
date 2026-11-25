@@ -1,0 +1,91 @@
+/* ==========================================================================
+   PRINT STYLESHEET - DUAL JAIN ROYAL WEDDING INVITATION
+   Formats the digital invitation into a luxury multi-page printable card
+   ========================================================================== */
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 1.2cm;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #1a1612 !important;
+    font-size: 11pt !important;
+  }
+
+  /* Hide interactive floating and non-printable elements */
+  #openingScreen,
+  .floating-action-bar,
+  .countdown-section,
+  .cal-btn,
+  .maps-btn,
+  .contact-buttons-grid,
+  #toastNotification {
+    display: none !important;
+  }
+
+  .page-wrapper {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 1.5cm !important;
+  }
+
+  /* Royal Card Sections */
+  .royal-header,
+  .couples-master-container,
+  .events-section,
+  .reception-grand-section,
+  .letter-section,
+  .family-master-section,
+  .footer-section {
+    background: #ffffff !important;
+    color: #1a1612 !important;
+    border: 2px solid #826017 !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-bottom: 1.2cm;
+    border-radius: 6px !important;
+  }
+
+  .couples-grid {
+    grid-template-columns: 1fr auto 1fr !important;
+  }
+
+  .events-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.8cm !important;
+  }
+
+  .event-card {
+    border: 1px solid #826017 !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+  }
+
+  .family-category-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.8cm !important;
+  }
+
+  .footer-section {
+    background: #ffffff !important;
+    color: #1a1612 !important;
+  }
+
+  .residence-head,
+  .residence-lineage,
+  .residence-address,
+  .footer-welcome-line {
+    color: #1a1612 !important;
+  }
+
+  .gold-text {
+    background: none !important;
+    -webkit-text-fill-color: initial !important;
+    color: #826017 !important;
+  }
+}

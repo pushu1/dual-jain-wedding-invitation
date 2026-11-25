@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220" fill="none">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="50%" stop-color="#AA7C11"/>
+      <stop offset="100%" stop-color="#D4AF37"/>
+    </linearGradient>
+  </defs>
+  <!-- Crown / Mukut -->
+  <path d="M100 12 L116 35 L124 25 L128 45 L138 48 L100 68 L62 48 L72 45 L76 25 L84 35 Z" fill="url(#goldGrad)" stroke="#1a1612" stroke-width="2"/>
+  <circle cx="100" cy="22" r="3" fill="#8B1E2E"/>
+  <circle cx="88" cy="38" r="2.5" fill="#8B1E2E"/>
+  <circle cx="112" cy="38" r="2.5" fill="#8B1E2E"/>
+  <!-- Forehead & Trishul Tilak -->
+  <path d="M68 62 C78 54 122 54 132 62 C135 74 133 86 128 96 C115 116 112 135 114 155 C115 168 108 178 98 178 C88 178 84 168 85 152 C87 132 82 112 72 96 C67 86 65 74 68 62 Z" fill="#1a1612"/>
+  <path d="M100 68 L100 102 M93 76 C93 88 107 88 107 76 M90 84 C90 95 110 95 110 84" stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="100" cy="108" r="4" fill="#C62828"/>
+  <!-- Ears -->
+  <!-- Left Ear -->
+  <path d="M68 66 C42 66 30 82 32 105 C34 124 48 135 68 132 C72 131 72 120 68 120 C52 120 44 112 42 98 C40 85 48 76 66 76 Z" fill="url(#goldGrad)" stroke="#1a1612" stroke-width="1.5"/>
+  <!-- Right Ear -->
+  <path d="M132 66 C158 66 170 82 168 105 C166 124 152 135 132 132 C128 131 128 120 132 120 C148 120 156 112 158 98 C160 85 152 76 134 76 Z" fill="url(#goldGrad)" stroke="#1a1612" stroke-width="1.5"/>
+  <!-- Tusk (Ekdanta) -->
+  <path d="M84 130 L74 135 L83 140 Z" fill="#FFFDF8" stroke="#1a1612" stroke-width="1.5"/>
+  <path d="M116 130 L123 133 L117 136 Z" fill="#FFFDF8" stroke="#1a1612" stroke-width="1.5"/>
+  <!-- Trunk Curve and Modak -->
+  <path d="M96 166 C96 174 102 178 110 178 C122 178 128 168 128 156 C128 146 120 142 114 146" stroke="url(#goldGrad)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <!-- Hand with Modak / Blessing -->
+  <ellipse cx="146" cy="158" rx="14" ry="10" fill="url(#goldGrad)" stroke="#1a1612" stroke-width="1.5"/>
+  <circle cx="146" cy="152" r="5" fill="#D4AF37"/>
+  <circle cx="146" cy="148" r="2.5" fill="#C62828"/>
+  <!-- Base Aura / Lotus Pedestal -->
+  <path d="M50 196 C70 188 130 188 150 196 C160 200 140 210 100 210 C60 210 40 200 50 196 Z" fill="url(#goldGrad)"/>
+</svg>

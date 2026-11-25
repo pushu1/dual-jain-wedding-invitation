@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 90" fill="none">
+  <defs>
+    <linearGradient id="toranGold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="50%" stop-color="#FFFDF8"/>
+      <stop offset="100%" stop-color="#D4AF37"/>
+    </linearGradient>
+  </defs>
+  <!-- Top Ornamental Header Band -->
+  <rect x="10" y="8" width="780" height="20" rx="4" fill="#1A1612"/>
+  <!-- Floral Rosettes in Top Band -->
+  <g fill="#D4AF37">
+    <circle cx="50" cy="18" r="4"/><circle cx="100" cy="18" r="4"/><circle cx="150" cy="18" r="4"/><circle cx="200" cy="18" r="4"/>
+    <circle cx="250" cy="18" r="4"/><circle cx="300" cy="18" r="4"/><circle cx="350" cy="18" r="4"/><circle cx="400" cy="18" r="4"/>
+    <circle cx="450" cy="18" r="4"/><circle cx="500" cy="18" r="4"/><circle cx="550" cy="18" r="4"/><circle cx="600" cy="18" r="4"/>
+    <circle cx="650" cy="18" r="4"/><circle cx="700" cy="18" r="4"/><circle cx="750" cy="18" r="4"/>
+  </g>
+  <!-- Scalloped Swags -->
+  <path d="M10 28 Q 60 52 110 28 Q 160 52 210 28 Q 260 52 310 28 Q 360 52 410 28 Q 460 52 510 28 Q 560 52 610 28 Q 660 52 710 28 Q 760 52 790 28" stroke="#D4AF37" stroke-width="2.5" fill="none"/>
+  <!-- Hanging Marigold & Pearl Drops -->
+  <g fill="#8B1E2E">
+    <circle cx="60" cy="62" r="5"/><circle cx="160" cy="62" r="5"/><circle cx="260" cy="62" r="5"/><circle cx="360" cy="62" r="5"/>
+    <circle cx="460" cy="62" r="5"/><circle cx="560" cy="62" r="5"/><circle cx="660" cy="62" r="5"/><circle cx="760" cy="62" r="5"/>
+  </g>
+  <g stroke="#D4AF37" stroke-width="1.5">
+    <line x1="60" y1="45" x2="60" y2="57"/>
+    <line x1="160" y1="45" x2="160" y2="57"/>
+    <line x1="260" y1="45" x2="260" y2="57"/>
+    <line x1="360" y1="45" x2="360" y2="57"/>
+    <line x1="460" y1="45" x2="460" y2="57"/>
+    <line x1="560" y1="45" x2="560" y2="57"/>
+    <line x1="660" y1="45" x2="660" y2="57"/>
+    <line x1="760" y1="45" x2="760" y2="57"/>
+  </g>
+  <!-- Golden Bells at tip -->
+  <g fill="#D4AF37">
+    <polygon points="56,70 64,70 60,78"/>
+    <polygon points="156,70 164,70 160,78"/>
+    <polygon points="256,70 264,70 260,78"/>
+    <polygon points="356,70 364,70 360,78"/>
+    <polygon points="456,70 464,70 460,78"/>
+    <polygon points="556,70 564,70 560,78"/>
+    <polygon points="656,70 664,70 660,78"/>
+    <polygon points="756,70 764,70 760,78"/>
+  </g>
+</svg>

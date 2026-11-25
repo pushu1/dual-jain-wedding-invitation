@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  
+  <title>The Royal Wedding Celebration 2026 — Akash &amp; Reena | Shivani &amp; Dheeraj</title>
+
+  <!-- SEO & Social Sharing Meta Tags -->
+  <meta name="description" content="Cordially inviting you and your family to celebrate the auspicious royal wedding of Akash & Reena and Shivani & Dheeraj. Saturday, 12 December 2026 • Pali, Rajasthan.">
+  <meta property="og:title" content="The Royal Wedding Celebration — Akash & Reena | Shivani & Dheeraj">
+  <meta property="og:description" content="Dual Royal Wedding Celebration of Akash & Reena and Shivani & Dheeraj. 12 December 2026 at Pali, Rajasthan.">
+  <meta property="og:image" content="assets/crest.svg">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0f0d0b">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/ganesha.svg">
+
+  <!-- Google Fonts: Cinzel, Cormorant Garamond, Playfair Display, Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Main & Print Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="print.css" media="print">
+</head>
+<body>
+
+  <!-- =========================================================================
+       1. OPENING SPLASH SCREEN / CEREMONIAL ENTRANCE
+       ========================================================================= -->
+  <div id="openingScreen">
+    <div class="splash-container">
+      <div class="corner-flourish corner-tl"></div>
+      <div class="corner-flourish corner-tr"></div>
+      <div class="corner-flourish corner-bl"></div>
+      <div class="corner-flourish corner-br"></div>
+
+      <img src="assets/ganesha.svg" alt="Lord Ganesha" class="splash-ganesha">
+
+      <div class="splash-invocation">With Divine Blessings of Lord Ganesha</div>
+      <h1 class="splash-heading gold-text">THE WEDDING INVITATION</h1>
+
+      <div class="splash-divider">✦ ✦ ✦</div>
+
+      <!-- Both Couples Showcased with Equal Prominence -->
+      <div class="splash-couples-showcase">
+        <div class="splash-couple-item">
+          <span class="splash-role">Groom &amp; Bride</span>
+          <span class="splash-couple-name">AYUSHMAN AKASH</span>
+          <span class="splash-and">&amp;</span>
+          <span class="splash-couple-name">AYUSHMATI REENA</span>
+        </div>
+
+        <div class="splash-divider">✧ SACRED WEDDING UNION ✧</div>
+
+        <div class="splash-couple-item">
+          <span class="splash-role">Bride &amp; Groom</span>
+          <span class="splash-couple-name">AYUSHMATI SHIVANI (JEENU)</span>
+          <span class="splash-and">&amp;</span>
+          <span class="splash-couple-name">AYUSHMAN DHEERAJ JI</span>
+        </div>
+      </div>
+
+      <div class="splash-date">
+        <span>SATURDAY, 12 DECEMBER 2026</span>
+      </div>
+
+      <button id="enterInvitationBtn" class="enter-btn">
+        <span>ENTER INVITATION</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       2. FLOATING ACTION & MUSIC CONTROLS
+       ========================================================================= -->
+  <nav class="floating-action-bar" aria-label="Quick Actions">
+    <button id="musicToggleBtn" class="bar-btn music-btn" title="Toggle Wedding Music">
+      <div class="music-wave">
+        <span></span><span></span><span></span>
+      </div>
+      <span class="btn-text" id="musicStatusText">Play Music</span>
+    </button>
+
+    <button id="downloadPdfBtn" class="bar-btn" title="Download or Print Invitation">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+      </svg>
+      <span class="btn-text">Save PDF</span>
+    </button>
+
+    <button id="shareInvitationBtn" class="bar-btn" title="Share Invitation">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+      </svg>
+      <span class="btn-text">Share</span>
+    </button>
+
+    <button id="copyLinkBtn" class="bar-btn" title="Copy Invitation Link">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+      </svg>
+      <span class="btn-text">Copy Link</span>
+    </button>
+  </nav>
+
+  <!-- =========================================================================
+       3. TOAST NOTIFICATION CONTAINER
+       ========================================================================= -->
+  <div id="toastNotification" role="alert">Invitation link copied!</div>
+
+  <!-- =========================================================================
+       4. MAIN PAGE INVITATION WRAPPER
+       ========================================================================= -->
+  <main class="page-wrapper">
+
+    <!-- Top Invocations & Header -->
+    <header class="royal-header">
+      <div class="corner-flourish corner-tl"></div>
+      <div class="corner-flourish corner-tr"></div>
+      <div class="corner-flourish corner-bl"></div>
+      <div class="corner-flourish corner-br"></div>
+
+      <div class="invocations-list">
+        <span class="invocation-pill">Salutations to Shri Baan Mataji</span>
+        <span class="invocation-pill">Salutations to Lord Shri Ganesha</span>
+        <span class="invocation-pill">Salutations to Shri Majisa &amp; Holy Ancestors</span>
+      </div>
+
+      <img src="assets/ganesha.svg" alt="Lord Ganesha Emblem" class="header-ganesha">
+
+      <div class="verse-box">
+        <p>"O Lord Ganesha, Remover of All Obstacles and Harbinger of Auspicious Fortune; Graced by Divine Riddhi and Siddhi, kindly arrive and fulfill our sacred celebration."</p>
+        <p class="rhyme-box">"Written with heartfelt love, please honor our call;<br>this priceless moment beckons, bestow your blessings on all."</p>
+      </div>
+
+      <!-- Guest Personalization Display (shown if query param is set) -->
+      <div id="guestCardContainer" class="guest-personalization-card" style="display: none;">
+        <span class="guest-label">Cordially Invited Guest of Honor</span>
+        <span id="guestNameTarget" class="guest-name-display">Respected Family</span>
+      </div>
+    </header>
+
+    <!-- Section 1: Main Wedding Invitation & Dual Couples Display -->
+    <section class="couples-master-container" id="mainInvitationSection">
+      <div class="corner-flourish corner-tl"></div>
+      <div class="corner-flourish corner-tr"></div>
+      <div class="corner-flourish corner-bl"></div>
+      <div class="corner-flourish corner-br"></div>
+
+      <div class="section-title-wrap">
+        <div class="section-eyebrow">Auspicious Matrimonial Celebration</div>
+        <h2 class="section-main-title gold-text">THE WEDDING INVITATION</h2>
+        <div class="section-gold-divider"></div>
+        <p class="section-desc">By the boundless grace and divine blessings of Lord Shri Vinayak Ji Maharaj, we cordially invite you and your family to grace the auspicious wedding celebration of our beloved children.</p>
+      </div>
+
+      <!-- Dual Couples Prominent Display -->
+      <div class="couples-grid">
+        <!-- Couple 1 Card -->
+        <article class="couple-box">
+          <div class="couple-badge">First Couple</div>
+          
+          <div class="person-role">Groom</div>
+          <h3 class="person-name">AYUSHMAN AKASH</h3>
+          <p class="person-parents">Son of Mrs. Anuradha &amp; Mr. Kailash Gehlot</p>
+
+          <div class="couple-connector">
+            <span>&amp;</span>
+          </div>
+
+          <div class="person-role">Bride</div>
+          <h3 class="person-name">AYUSHMATI REENA</h3>
+          <p class="person-parents">Daughter of Mrs. Jashoda Devi &amp; Mr. Gopalji Chauhan</p>
+
+          <div class="couple-date-tag">
+            <div class="couple-date-text">Thursday, 10 December 2026</div>
+            <div class="couple-calendar-text">Vikram Samvat 2083 Margashirsha Shukla Paksha</div>
+          </div>
+        </article>
+
+        <!-- Center Hastamelap Graphic -->
+        <div class="hastamelap-divider">
+          <img src="assets/hastamelap.svg" alt="Hastamelap Sacred Union" class="hastamelap-img">
+          <span class="hastamelap-caption">Sacred Nuptial Union</span>
+        </div>
+
+        <!-- Couple 2 Card -->
+        <article class="couple-box">
+          <div class="couple-badge">Second Couple</div>
+
+          <div class="person-role">Bride</div>
+          <h3 class="person-name">AYUSHMATI SHIVANI (JEENU)</h3>
+          <p class="person-parents">Daughter of Mrs. Anuradha &amp; Mr. Kailash Gehlot</p>
+
+          <div class="couple-connector">
+            <span>&amp;</span>
+          </div>
+
+          <div class="person-role">Groom</div>
+          <h3 class="person-name">AYUSHMAN DHEERAJ JI</h3>
+          <p class="person-parents">Son of Mrs. Renu Ji &amp; Mr. Mukeshji Parihar</p>
+
+          <div class="couple-date-tag">
+            <div class="couple-date-text">Saturday, 12 December 2026</div>
+            <div class="couple-calendar-text">Vikram Samvat 2083 Margashirsha Shukla Paksha 3</div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Ancestral Lineage Information -->
+      <div class="lineage-card">
+        <div class="lineage-title">✦ Revered Ancestral Lineage ✦</div>
+        <div class="lineage-grid">
+          <div class="lineage-col">
+            <h4>Paternal Great-Grandparents</h4>
+            <p>Late Mrs. Lehari Bai &amp; Late Mr. Gyarsilalji</p>
+          </div>
+          <div class="lineage-col">
+            <h4>Beloved Grandparents</h4>
+            <p>Mrs. Durga Bai &amp; Late Mr. Madanlalji Gehlot</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Real-time Wedding Countdown Timer -->
+    <section class="countdown-section" aria-label="Wedding Countdown">
+      <h3 class="countdown-title gold-text">COUNTING DOWN TO THE AUSPICIOUS MOMENT</h3>
+      <p class="countdown-subtitle">Saturday, 12 December 2026 • Kumawat Vatika, Pali</p>
+      
+      <div class="timer-grid">
+        <div class="timer-card">
+          <div id="timerDays" class="timer-value">00</div>
+          <div class="timer-label">Days</div>
+        </div>
+        <div class="timer-card">
+          <div id="timerHours" class="timer-value">00</div>
+          <div class="timer-label">Hours</div>
+        </div>
+        <div class="timer-card">
+          <div id="timerMinutes" class="timer-value">00</div>
+          <div class="timer-label">Minutes</div>
+        </div>
+        <div class="timer-card">
+          <div id="timerSeconds" class="timer-value">00</div>
+          <div class="timer-label">Seconds</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Complete Wedding Events Schedule (9 Events) -->
+    <section class="events-section" id="eventsScheduleSection">
+      <div class="corner-flourish corner-tl"></div>
+      <div class="corner-flourish corner-tr"></div>
+      <div class="corner-flourish corner-bl"></div>
+      <div class="corner-flourish corner-br"></div>
+
+      <div class="section-title-wrap">
+        <div class="section-eyebrow">Traditional Ceremonial Timeline</div>
+        <h2 class="section-main-title gold-text">WEDDING EVENTS SCHEDULE</h2>
+        <div class="section-gold-divider"></div>
+        <p class="section-desc">Join us across every sacred ritual, musical celebration, and joyful milestone as we celebrate this dual wedding.</p>
+      </div>
+
+      <div class="events-grid">
+        <!-- Event 1 -->
+        <article class="event-card">
+          <div>
+            <div class="event-header">
+              <span class="event-number">Event 01</span>
+              <span class="event-time-badge">3:15 PM</span>
+            </div>
+            <h4 class="event-title">Ghritpaan Ceremony</h4>
+            <div class="event-subtitle">Auspicious Ghee &amp; Sanctification Ritual</div>
+            <div class="event-date-row">
+              <span class="event-day-pill">Monday</span>
+              <span>7 December 2026</span>
+            </div>
+            <p class="event-description">The sacred ritual signifying purity, divine blessings, and auspicious initiation into the wedding celebrations.</p>
+          </div>
+          <div class="event-action-row">
+            <button class="cal-btn" onclick="downloadCalendarEvent('Ghritpaan Ceremony', '2026-12-07', '15:15', 'Ghritpaan Ceremony at Pali')">
+              <span>+ Add to Calendar</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Event 2 -->
+        <article class="event-card">
+          <div>
+            <div class="event-header">
+              <span class="event-number">Event 02</span>
+              <span class="event-time-badge">5:15 PM</span>
+            </div>
+            <h4 class="event-title">Vinayak Ceremony</h4>
+            <div class="event-subtitle">Lord Ganesha Auspicious Invocation</div>
+            <div class="event-date-row">
+              <span class="event-day-pill">Monday</span>
+              <span>7 December 2026</span>
+            </div>
+            <p class="event-description">Ceremonial invocation of Lord Ganesha to bless the family, consecrate the home, and remove all obstacles.</p>
+          </div>
+          <div class="event-action-row">
+            <button class="cal-btn" onclick="downloadCalendarEvent('Vinayak Ceremony', '2026-12-07', '17:15', 'Vinayak Ceremony at Pali')">
+              <span>+ Add to Calendar</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Event 3 -->
+        <article class="event-card">
+          <div>
+            <div class="event-header">
+              <span class="event-number">Event 03</span>
+              <span class="event-time-badge">1:15 PM</span>
+            </div>
+            <h4 class="event-title">Haldi &amp; Mehendi</h4>
+            <div class="event-subtitle">Turmeric Blessings &amp; Henna Artistry</div>
+            <div class="event-date-row">
+              <span class="event-day-pill">Tuesday</span>
+              <span>8 December 2026</span>
+            </div>
+            <p class="event-description">An afternoon filled with radiant golden turmeric paste, intricate henna artwork, melodious songs, and cheerful laughter.</p>
+          </div>
+          <div class="event-action-row">
+            <button class="cal-btn" onclick="downloadCalendarEvent('Haldi & Mehendi', '2026-12-08', '13:15', 'Haldi and Mehendi at Pali')">
+              <span>+ Add to Calendar</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Event 4 -->
+        <article class="event-card">
+          <div>
+            <div class="event-header">
+              <span class="event-number">Event 04</span>
+              <span class="event-time-badge">12:15 PM</span>
+            </div>
+            <h4 class="event-title">Mayra Ceremony</h4>
+            <div class="event-subtitle">Maternal Uncle's Traditional Offerings</div>
+            <div class="event-date-row">
+              <span class="event-day-pill">Wednesday</span>
+              <span>9 December 2026</span>
+            </div>
+            <p class="event-description">The grand Bhat/Mayra ceremony where respected maternal uncles arrive with ceremonial wedding garments, jewels, and blessings.</p>
+          </div>
+          <div class="event-action-row">
+            <button class="cal-btn" onclick="downloadCalendarEvent('Mayra Ceremony', '2026-12-09', '12:15', 'Mayra Ceremony at Pali')">
+              <span>+ Add to Calendar</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Event 5 -->
+        <article class="event-card">
+          <div>
+            <div class="event-header">
+              <span class="event-number">Event 05</span>
+              <span class="event-time-badge">5:15 PM</span>
+            </div>
+            <h4 class="event-title">Bandoli Ceremony</h4>
+            <div class="event-subtitle">Royal Wedding Procession &amp; Folk Rejoicing</div>
+            <div class="event-date-row">
+              <span class="event-day-pill">Wednesday</span>
+              <span>9 December 2026</span>
+            </div>
+            <p class="event-description">An exuberant traditional procession celebrating the couple with royal pomp, music, folk instruments, and sweets.</p>
+          </div>
+          <div class="event-action-row">
+            <button class="cal-btn" onclick="downloadCalendarEvent('Bandoli Ceremony', '2026-12-09', '17:15', 'Bandoli Ceremony at Pali')">
+              <span>+ Add to Calendar</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Event 6 -->
+        <article class="event-card">
+          <div>
+            <div class="event-header">
+              <span class="event-number">Event 06</span>
+              <span class="event-time-badge">8:00 PM</span>
+            </div>
+            <h4 class="event-title">Ladies Sangeet</h4>
+            <div class="event-subtitle">Musical Evening &amp; Traditional Folk Dances</div>
+            <div class="event-date-row">
+              <span class="event-day-pill">Wednesday</span>
+              <span>9 December 2026</span>
+            </div>
+            <p class="event-description">A spectacular musical night featuring vibrant Rajasthani folk dances, family performances, and festive harmony.</p>
+          </div>
+          <div class="event-action-row">
+            <button class="cal-btn" onclick="downloadCalendarEvent('Ladies Sangeet', '2026-12-09', '20:00', 'Ladies Sangeet at Pali')">
+              <span>+ Add to Calendar</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Event 7 -->
+        <article class="event-card">
+          <div>
+            <div class="event-header">
+              <span class="event-number">Event 07</span>
+              <span class="event-time-badge">12:15 PM</span>
+            </div>
+            <h4 class="event-title">Departure of Baraat</h4>
+            <div class="event-subtitle">Groom's Royal Wedding Procession Departs</div>
+            <div class="event-date-row">
+              <span class="event-day-pill">Thursday</span>
+              <span>10 December 2026</span>
+            </div>
+            <p class="event-description">The grand ceremonial departure of the groom's procession accompanied by joyous dhol beats, brass bands, and relatives.</p>
+          </div>
+          <div class="event-action-row">
+            <button class="cal-btn" onclick="downloadCalendarEvent('Departure of Baraat', '2026-12-10', '12:15', 'Departure of Baraat at Pali')">
+              <span>+ Add to Calendar</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Event 8 -->
+        <article class="event-card">
+          <div>
+            <div class="event-header">
+              <span class="event-number">Event 08</span>
+              <span class="event-time-badge">5:15 PM</span>
+            </div>
+            <h4 class="event-title">Welcome of Baraat</h4>
+            <div class="event-subtitle">Grand Royal Reception of Baraat</div>
+            <div class="event-date-row">
+              <span class="event-day-pill">Saturday</span>
+              <span>12 December 2026</span>
+            </div>
+            <p class="event-description">Warm traditional greeting with flower showers, rosewater essence, ceremonial aarti, and joyful welcoming of the baraat.</p>
+          </div>
+          <div class="event-action-row">
+            <button class="cal-btn" onclick="downloadCalendarEvent('Welcome of Baraat', '2026-12-12', '17:15', 'Welcome of Baraat at Pali')">
+              <span>+ Add to Calendar</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Event 9 -->
+        <article class="event-card">
+          <div>
+            <div class="event-header">
+              <span class="event-number">Event 09</span>
+              <span class="event-time-badge">10:15 PM</span>
+            </div>
+            <h4 class="event-title">Wedding Ceremony</h4>
+            <div class="event-subtitle">Sacred Vedic Nuptials (Panigrahan Sanskar)</div>
+            <div class="event-date-row">
+              <span class="event-day-pill">Saturday</span>
+              <span>12 December 2026</span>
+            </div>
+            <p class="event-description">The sacred nuptial rites around the holy fire where both couples take the sacred vows of eternal union and companionship.</p>
+          </div>
+          <div class="event-action-row">
+            <button class="cal-btn" onclick="downloadCalendarEvent('Wedding Ceremony', '2026-12-12', '22:15', 'Wedding Ceremony at Pali')">
+              <span>+ Add to Calendar</span>
+            </button>
+          </div>
+        </article>
+      </div>
+
+      <!-- Baraat Transport Arrangements Notice -->
+      <div class="baraat-notes-card">
+        <div class="baraat-notes-header">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/>
+          </svg>
+          <span>Special Baraat Transportation Arrangements</span>
+        </div>
+        <div class="travel-item">
+          <span class="travel-icon">✦</span>
+          <div><strong>Samdari Route:</strong> The Baraat of respected Samdhi Shri Chhagan ji, Kishan ji, Nandkishor ji, Gopal ji (son of Dhanraj ji Chauhan) will proceed to Samdari by Bus.</div>
+        </div>
+        <div class="travel-item">
+          <span class="travel-icon">✦</span>
+          <div><strong>Balotra Route:</strong> The Baraat of respected Samdhi Shri Bhanwarlal ji, Gopal ji, Murli ji, Manohar ji, Mukesh ji (son of Madanlal ji) will arrive from Balotra by Bus.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Blessing Ceremony & Grand Wedding Reception (Highlighted Section) -->
+    <section class="reception-grand-section" id="receptionSection">
+      <div class="corner-flourish corner-tl"></div>
+      <div class="corner-flourish corner-tr"></div>
+      <div class="corner-flourish corner-bl"></div>
+      <div class="corner-flourish corner-br"></div>
+
+      <!-- Toran Floral Garland Top Banner -->
+      <img src="assets/toran.svg" alt="Traditional Toran Garland" class="toran-banner-img">
+
+      <div class="reception-content-wrap">
+        <!-- Left Shehnai Musician -->
+        <img src="assets/shehnai_musician.svg" alt="Rajasthani Shehnai Musician" class="shehnai-side-img">
+
+        <!-- Center Reception Details -->
+        <div class="reception-main-block">
+          <div class="section-eyebrow">Grand Wedding Feast &amp; Felicitation</div>
+          <h2 class="reception-big-title">BLESSING CEREMONY &amp; WEDDING RECEPTION</h2>
+          <div class="reception-tagline">Ashirwad Samaroh &amp; Grand Wedding Feast (Pritibhoj)</div>
+
+          <div class="reception-datetime-card">
+            <div class="reception-date-text">SATURDAY, 12 DECEMBER 2026</div>
+            <div class="reception-time-text">From 6:15 PM Onwards until your gracious arrival</div>
+          </div>
+
+          <div class="venue-box">
+            <div class="venue-label">Venue Location</div>
+            <h3 class="venue-name">KUMAWAT VATIKA</h3>
+            <p class="venue-address">Punayata Road, Pali, Rajasthan – 306401, India</p>
+          </div>
+
+          <!-- Dhol Wedding Drums Icon -->
+          <img src="assets/dhol.svg" alt="Indian Wedding Dhol" class="dhol-center-img">
+
+          <p style="font-family: var(--font-serif-elegant); font-size: 1.15rem; color: var(--color-text-muted); margin-bottom: 1.5rem;">
+            We humbly request the pleasure of your esteemed company to shower your heartfelt blessings upon both couples and enjoy a sumptuous traditional royal dinner.
+          </p>
+
+          <a href="https://www.google.com/maps/search/?api=1&query=Kumawat+Vatika+Punayata+Road+Pali+Rajasthan" target="_blank" rel="noopener noreferrer" class="maps-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            <span>Navigate on Google Maps</span>
+          </a>
+        </div>
+
+        <!-- Right Shehnai Musician (Mirrored) -->
+        <img src="assets/shehnai_musician.svg" alt="Rajasthani Shehnai Musician" class="shehnai-side-img shehnai-flipped">
+      </div>
+    </section>
+
+    <!-- Section 5: Traditional Family Invitation Letter -->
+    <section class="letter-section" id="invitationLetterSection">
+      <div class="corner-flourish corner-tl"></div>
+      <div class="corner-flourish corner-tr"></div>
+      <div class="corner-flourish corner-bl"></div>
+      <div class="corner-flourish corner-br"></div>
+
+      <div class="letter-content">
+        <div class="letter-top-row">
+          <img src="assets/kalash.svg" alt="Holy Kalash" class="kalash-icon-img">
+          <div class="letter-heading-block">
+            <div class="section-eyebrow">Heartfelt Cordial Invitation</div>
+            <h2 class="section-main-title gold-text" style="font-size: 1.8rem;">TRADITIONAL INVITATION LETTER</h2>
+            <div class="section-gold-divider"></div>
+          </div>
+          <img src="assets/kalash.svg" alt="Holy Kalash" class="kalash-icon-img" style="transform: scaleX(-1);">
+        </div>
+
+        <p class="letter-body-p">
+          <strong>Respected Kinfolk, Elders, and Esteemed Friends,</strong>
+        </p>
+        <p class="letter-body-p">
+          By the divine grace and supreme benevolence of <em>Lord Shri Vinayak Ji Maharaj</em> and our revered ancestral deities, our home is blessed with boundless joy and celebration. Two sacred weddings are taking place together in our family, uniting two lovely couples in eternal companionship.
+        </p>
+        <p class="letter-body-p">
+          On this momentous occasion, we cordially extend our warmest invitation to you and your family. Kindly grace the celebrations with your presence, bestow your pious blessings upon the young couples, and join us in sharing sweet memories and traditional hospitality.
+        </p>
+
+        <!-- Sweet Child's Plea (Meethi Manuhar) -->
+        <div class="child-plea-card">
+          <div class="child-plea-quote">
+            "Please do come and celebrate my dearest Uncle and Aunt's wedding with lots of fun and joy!"
+          </div>
+          <div class="child-plea-author">— Sweet Affectionate Request by Kunwar Raj Solanki (Ladu)</div>
+        </div>
+
+        <!-- Eagerly Awaiting Children (Niharati Palke) -->
+        <div class="awaiting-eyes-block">
+          <div class="awaiting-title">✦ Eagerly Awaiting Your Gracious Arrival ✦</div>
+          <div class="awaiting-names-list">
+            <span class="child-pill">Jaanvi</span>
+            <span class="child-pill">Pihu</span>
+            <span class="child-pill">Adhishree</span>
+            <span class="child-pill">Swaroopa</span>
+            <span class="child-pill">Yakshita</span>
+            <span class="child-pill">Pari</span>
+            <span class="child-pill">Yashvi</span>
+            <span class="child-pill">Tanushree</span>
+            <span class="child-pill">Komal</span>
+            <span class="child-pill">Veera</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Family Members, Relatives & Special Blessings -->
+    <section class="family-master-section" id="familyDetailsSection">
+      <div class="corner-flourish corner-tl"></div>
+      <div class="corner-flourish corner-tr"></div>
+      <div class="corner-flourish corner-bl"></div>
+      <div class="corner-flourish corner-br"></div>
+
+      <div class="section-title-wrap">
+        <div class="section-eyebrow">Cherished Family &amp; Elders</div>
+        <h2 class="section-main-title gold-text">FAMILY MEMBERS &amp; BLESSINGS</h2>
+        <div class="section-gold-divider"></div>
+        <p class="section-desc">Preserving every name, elder blessing, and family branch with profound respect and cultural heritage.</p>
+      </div>
+
+      <div class="family-category-grid">
+        <!-- 1. Special Blessings -->
+        <div class="family-category-card">
+          <h3 class="family-cat-header">
+            <span>✦ Special Blessings (Vishesh Ashirwad)</span>
+          </h3>
+          <ul class="members-name-list">
+            <li class="member-item">Mrs. Durga Devi</li>
+            <li class="member-item">Mrs. Kamla Devi</li>
+            <li class="member-item">Mrs. Annu Devi</li>
+          </ul>
+        </div>
+
+        <!-- 2. Special Guests & Dignitaries -->
+        <div class="family-category-card">
+          <h3 class="family-cat-header">
+            <span>✦ Special Guests (Vishesh Atithi)</span>
+          </h3>
+          <ul class="members-name-list">
+            <li class="member-item">Mr. Dineshji (Bhopaji)</li>
+            <li class="member-item">Mr. Sanjay ji Rathore</li>
+          </ul>
+
+          <h3 class="family-cat-header" style="margin-top: 1.5rem;">
+            <span>✦ Special Sincere Request</span>
+          </h3>
+          <ul class="members-name-list">
+            <li class="member-item">Mr. Rakeshji</li>
+            <li class="member-item">Mr. Rajeshji</li>
+            <li class="member-item">Mr. Vinodji</li>
+          </ul>
+        </div>
+
+        <!-- 3. Welcoming with Warmth (Swagatatur) -->
+        <div class="family-category-card">
+          <h3 class="family-cat-header">
+            <span>✦ Welcoming You With Warmth (Swagatatur)</span>
+          </h3>
+          <ul class="members-name-list">
+            <li class="member-item">Mrs. Kamla Devi - Late Banshilalji</li>
+            <li class="member-item">Mrs. Bhaga Bai - Ishwarlalji</li>
+          </ul>
+        </div>
+
+        <!-- 4. Hosts & Welcome Committee (Swagatkarta) -->
+        <div class="family-category-card">
+          <h3 class="family-cat-header">
+            <span>✦ Hosts &amp; Welcome Committee (Swagatkarta)</span>
+          </h3>
+          <ul class="members-name-list">
+            <li class="member-item">Mrs. Santosh - Advocate Kishorji Gehlot</li>
+            <li class="member-item">Mrs. Sunita - Mr. Umesh ji</li>
+            <li class="member-item">Mrs. Taroona - Mr. Shekhar</li>
+            <li class="member-item">Mrs. Kaushalya - Mr. Ramesh</li>
+            <li class="member-item">Mrs. Poonam - Late Ashok ji</li>
+            <li class="member-item">Mrs. Kashak - Mr. Mahadev</li>
+            <li class="member-item">Mrs. Deepika - Mr. Tarun ji</li>
+            <li class="member-item">Mrs. Rajeshwari - Mr. Dev ji</li>
+          </ul>
+        </div>
+
+        <!-- 5. Humble Solicitations (Vineet & Entire Gehlot Family) -->
+        <div class="family-category-card">
+          <h3 class="family-cat-header">
+            <span>✦ Humble Solicitations (Vineet)</span>
+          </h3>
+          <ul class="members-name-list">
+            <li class="member-item">Mr. Banshilalji, Mr. Punamchandji</li>
+            <li class="member-item">Mr. Kanhaiyalalji, Mr. Lalchandji</li>
+            <li class="member-item">Mr. Ranchhodji, Mr. Kailashji, Mr. Mukeshji</li>
+            <li class="member-item">Mr. Kishorji, Mr. Ratanji, Mr. Shekharji</li>
+            <li class="member-item">Mr. Jitendraji, Mr. Gresik, Mr. Krishna, Mr. Jay</li>
+            <li class="member-item">Mr. Siddharth</li>
+            <li class="member-item" style="font-weight: 700; color: var(--color-crimson);">&amp; Entire Gehlot Family</li>
+          </ul>
+        </div>
+
+        <!-- 6. Sons-in-law & Daughters' Side (Javai Paksh) -->
+        <div class="family-category-card">
+          <h3 class="family-cat-header">
+            <span>✦ Daughters &amp; Sons-in-law (Javai Paksh)</span>
+          </h3>
+          <ul class="members-name-list">
+            <li class="member-item">Mrs. Kamla Devi - Late Devkishanji Parihar</li>
+            <li class="member-item">Mrs. Gayatri - Mr. Chandraprakash ji</li>
+            <li class="member-item">Mrs. Premlata - Mr. Ashok ji</li>
+            <li class="member-item">Mrs. Rekha - Mr. Susheel ji</li>
+            <li class="member-item">Mrs. Bhagwanti - Mr. Dilip ji</li>
+            <li class="member-item">Mrs. Deepika - Mr. Mahendra ji</li>
+            <li class="member-item">Mrs. Rekha - Mr. Manish ji</li>
+            <li class="member-item">Mrs. Pooja - Mr. Laxman ji</li>
+            <li class="member-item">Mrs. Taroona - Mr. Tarun ji</li>
+            <li class="member-item">Mrs. Pramila - Mr. Ashok ji</li>
+            <li class="member-item">Mrs. Manju - Mr. Gajendra ji</li>
+            <li class="member-item">Mrs. Khushboo - Mr. Prateek ji</li>
+          </ul>
+        </div>
+
+        <!-- 7. Maternal Family (Nanihal Paksh) -->
+        <div class="family-category-card">
+          <h3 class="family-cat-header">
+            <span>✦ Maternal Family (Nanihal Paksh)</span>
+          </h3>
+          <ul class="members-name-list">
+            <li class="member-item">Mr. Ashok ji Bhomiya, Late Banshilalji</li>
+            <li class="member-item">Mr. Kailashji, Mr. Rameshwarji, Mr. Chandraprakashji</li>
+            <li class="member-item">Mr. Nathulalji, Mr. Dineshji, Mr. Rajendraji</li>
+            <li class="member-item">Mr. Chandraprakashji, Mr. Rakeshji</li>
+            <li class="member-item">Mr. Rameshji, Mr. Pintu ji, Mr. Vikramji, Mr. Manohar ji</li>
+            <li class="member-item">Mr. Rameshji, Mr. Himmat, Mr. Mahadev, Mr. Bhavesh</li>
+            <li class="member-item">Mr. Naresh, Mr. Dhiraj, Mr. Rajendra</li>
+            <li class="member-item" style="font-weight: 700; color: var(--color-crimson);">&amp; Entire Parihar Family (Jodhpur)</li>
+          </ul>
+        </div>
+
+        <!-- 8. Nephews & Sister's Family (Bhanej Paksh) -->
+        <div class="family-category-card">
+          <h3 class="family-cat-header">
+            <span>✦ Nephews &amp; Sister's Family (Bhanej Paksh)</span>
+          </h3>
+          <ul class="members-name-list">
+            <li class="member-item">Arun, Gaurav, Bhavya</li>
+            <li class="member-item">Jayesh, Raunak, Vaibhav (Kanha), Bhavya</li>
+            <li class="member-item">Raghuvir, Kunwar Raj Solanki</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Residence, Royal Crest & Contact Details -->
+    <footer class="footer-section" id="residenceSection">
+      <div class="corner-flourish corner-tl"></div>
+      <div class="corner-flourish corner-tr"></div>
+      <div class="corner-flourish corner-bl"></div>
+      <div class="corner-flourish corner-br"></div>
+
+      <!-- Royal Family Crest -->
+      <img src="assets/crest.svg" alt="Gehlot Parivar Royal Crest" class="crest-footer-img">
+
+      <div class="footer-welcome-line">GEHLOT PARIVAR CORDIALLY EXTENDS A WARM ROYAL WELCOME</div>
+
+      <div class="residence-details-card">
+        <h3 class="residence-head">MR. KAILASHCHAND GEHLOT</h3>
+        <div class="residence-lineage">Son of Late Shri Madanlalji Gehlot (Lohar)</div>
+        <p class="residence-address">
+          162, Pancham Nagar, Near Khetaramji Pyau Wali Gali,<br>
+          Ramdev Road, Pali-Marwar, Rajasthan – 306401, India
+        </p>
+
+        <!-- Direct Click-to-Call & WhatsApp Contact Buttons -->
+        <div class="contact-buttons-grid">
+          <a href="tel:+919214537106" class="contact-action-btn btn-call">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <span>Call: +91 9214537106</span>
+          </a>
+
+          <a href="tel:+918824338255" class="contact-action-btn btn-call">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <span>Call Akash: +91 8824338255</span>
+          </a>
+
+          <a href="https://wa.me/919214537106?text=Hello%20Gehlot%20Family,%20Heartiest%20congratulations%20on%20the%20royal%20wedding%20of%20Akash%20%26%20Reena%20and%20Shivani%20%26%20Dheeraj!%20We%20are%20delighted%20to%20attend." target="_blank" rel="noopener noreferrer" class="contact-action-btn btn-whatsapp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.071.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/>
+            </svg>
+            <span>WhatsApp RSVP</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Family Enterprises & Establishments -->
+      <div class="enterprises-badge">
+        <span>✦ Family Establishments &amp; Enterprises ✦</span>
+        <div class="enterprise-tags">
+          <span class="enterprise-tag">Gehlot Dhaar Center</span>
+          <span>•</span>
+          <span class="enterprise-tag">Jasol Maa Hastkala Udyog</span>
+        </div>
+      </div>
+
+      <div class="copyright-subtext">
+        © 2026 Gehlot Parivar • Royal Wedding Invitation • Pali-Marwar, Rajasthan
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Application Logic -->
+  <script src="weddingData.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

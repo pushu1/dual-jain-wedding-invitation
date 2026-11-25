@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 160" fill="none">
+  <defs>
+    <linearGradient id="goldH" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="50%" stop-color="#F3E5AB"/>
+      <stop offset="100%" stop-color="#AA7C11"/>
+    </linearGradient>
+  </defs>
+  <!-- Groom Sleeve (Left) -->
+  <path d="M10 50 L50 65 L45 105 L10 100 Z" fill="#1A1612" stroke="#AA7C11" stroke-width="2"/>
+  <path d="M48 65 L56 68 L52 103 L44 105 Z" fill="url(#goldH)"/>
+  <!-- Groom Hand -->
+  <path d="M54 70 C70 70 88 72 105 76 C115 78 128 82 140 90 C146 94 156 94 165 90 C175 85 185 86 195 90 L190 98 C180 94 172 95 162 100 C150 106 135 104 120 100 C105 96 85 95 65 95 L52 102 Z" fill="#FDF7EE" stroke="#1A1612" stroke-width="2"/>
+  <!-- Bride Sleeve (Right) -->
+  <path d="M270 50 L230 65 L235 105 L270 100 Z" fill="#8B1E2E" stroke="#AA7C11" stroke-width="2"/>
+  <path d="M232 65 L224 68 L228 103 L236 105 Z" fill="url(#goldH)"/>
+  <!-- Bride Bangles (Chooda) -->
+  <rect x="215" y="70" width="4" height="28" rx="2" fill="#C62828" stroke="#AA7C11" stroke-width="1"/>
+  <rect x="210" y="71" width="4" height="26" rx="2" fill="#FFFDF8" stroke="#AA7C11" stroke-width="1"/>
+  <rect x="205" y="72" width="4" height="24" rx="2" fill="#C62828" stroke="#AA7C11" stroke-width="1"/>
+  <!-- Bride Hand & Fingers Clasping -->
+  <path d="M205 75 C190 76 175 78 160 82 C148 85 138 88 125 82 C115 78 105 82 98 88 L104 94 C112 88 120 86 130 90 C142 94 155 92 170 88 C182 85 195 84 205 85 Z" fill="#FDF7EE" stroke="#1A1612" stroke-width="2"/>
+  <!-- Henna / Mehndi Patterns on Bride's hand -->
+  <circle cx="150" cy="85" r="4" fill="none" stroke="#8B1E2E" stroke-width="1.5"/>
+  <path d="M146 85 C146 82 154 82 154 85 C154 88 146 88 146 85 Z" fill="#8B1E2E"/>
+  <circle cx="170" cy="83" r="2.5" fill="#8B1E2E"/>
+  <circle cx="132" cy="86" r="2.5" fill="#8B1E2E"/>
+  <!-- Sacred Wedding Cord (Kautuka / Mouli thread) -->
+  <path d="M115 65 C125 95 155 95 165 65" stroke="#C62828" stroke-width="3" stroke-dasharray="6 3" fill="none"/>
+  <path d="M118 68 C128 98 158 98 168 68" stroke="#D4AF37" stroke-width="2" fill="none"/>
+  <!-- Auspicious Flower Petals -->
+  <circle cx="140" cy="115" r="4" fill="#E65100"/>
+  <circle cx="135" cy="120" r="3" fill="#D4AF37"/>
+  <circle cx="145" cy="121" r="3.5" fill="#C62828"/>
+  <circle cx="152" cy="116" r="3" fill="#D4AF37"/>
+</svg>

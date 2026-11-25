@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 200" fill="none">
+  <defs>
+    <linearGradient id="goldS" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#8B6508"/>
+    </linearGradient>
+  </defs>
+  <!-- Rajasthani Royal Turban (Pagri) -->
+  <path d="M55 42 C48 30 55 18 75 14 C95 10 115 16 112 30 C110 38 100 44 90 46 C78 48 60 48 55 42 Z" fill="#8B1E2E" stroke="#1A1612" stroke-width="1.5"/>
+  <path d="M60 22 C75 22 95 24 105 28 M58 30 C72 30 92 32 108 36 M55 38 C70 38 90 40 102 44" stroke="url(#goldS)" stroke-width="1.5"/>
+  <!-- Turban plume (Kalgi) -->
+  <path d="M82 14 C84 6 88 4 90 2 C92 5 90 10 86 14 Z" fill="url(#goldS)"/>
+  <!-- Face & Beard / Moustache -->
+  <path d="M68 44 C72 44 78 45 82 48 C85 52 86 60 84 66 C80 72 70 74 65 70 C60 66 62 50 68 44 Z" fill="#FDF7EE" stroke="#1A1612" stroke-width="1.5"/>
+  <path d="M72 58 C78 56 86 58 92 64" stroke="#1A1612" stroke-width="2.5" stroke-linecap="round"/> <!-- Moustache -->
+  <!-- Kurta / Royal Angrakha Attire -->
+  <path d="M62 72 C50 78 42 90 40 108 L38 150 C38 158 55 162 75 162 C95 162 105 158 105 150 L102 105 C100 88 90 76 75 72 Z" fill="#FFFDF8" stroke="#1A1612" stroke-width="1.5"/>
+  <path d="M72 74 L70 155" stroke="url(#goldS)" stroke-width="1.5"/>
+  <!-- Shehnai Instrument -->
+  <!-- Reed and tube -->
+  <path d="M84 58 L122 42 L128 32 L132 30 L136 44 L130 46 L124 45 L86 63 Z" fill="url(#goldS)" stroke="#1A1612" stroke-width="1.5"/>
+  <!-- Flared Bell of Shehnai -->
+  <path d="M128 28 C134 18 142 16 148 20 C154 24 150 36 142 46 C138 50 132 46 128 42 Z" fill="url(#goldS)" stroke="#1A1612" stroke-width="1.5"/>
+  <circle cx="140" cy="30" r="3" fill="#8B1E2E"/>
+  <!-- Hands holding shehnai -->
+  <ellipse cx="98" cy="56" rx="5" ry="3.5" fill="#FDF7EE" stroke="#1A1612" stroke-width="1.5"/>
+  <ellipse cx="112" cy="50" rx="5" ry="3.5" fill="#FDF7EE" stroke="#1A1612" stroke-width="1.5"/>
+  <!-- Legs in traditional dhoti sitting pose -->
+  <path d="M35 150 C30 162 38 175 60 176 C85 178 115 178 120 165 C122 155 110 148 100 148" fill="#FFFDF8" stroke="#1A1612" stroke-width="1.5"/>
+</svg>
