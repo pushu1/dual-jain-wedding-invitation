@@ -219,6 +219,15 @@ try:
             const venueSection = document.getElementById('venue-section');
             const countdownSection = document.getElementById('countdown-section');
             const familySection = document.getElementById('family-section');
+            const familyText = familySection ? familySection.innerText : '';
+            const hasVisheshAshirwad = familyText.includes('VISHESH ASHIRWAD');
+            const hasSwagatatur = familyText.includes('SWAGATATUR');
+            const hasJavaiPaksh = familyText.includes('JAVAI PAKSH');
+            const hasNanihalPaksh = familyText.includes('NANIHAL PAKSH');
+            const hasBhanejPaksh = familyText.includes('BHANEJ PAKSH');
+            const hasVineet = familyText.includes('VINEET');
+            const hasBalManuhar = familyText.includes('BAL MANUHAR');
+            const hasFirmResidence = familyText.includes('FIRM & RESIDENCE DETAILS');
             const canvas = document.querySelector('canvas');
 
             return {
@@ -245,13 +254,21 @@ try:
                 hasVenue: Boolean(venueSection),
                 hasCountdown: Boolean(countdownSection),
                 hasFamily: Boolean(familySection),
+                hasVisheshAshirwad,
+                hasSwagatatur,
+                hasJavaiPaksh,
+                hasNanihalPaksh,
+                hasBhanejPaksh,
+                hasVineet,
+                hasBalManuhar,
+                hasFirmResidence,
                 hasCanvasOverlay: Boolean(canvas)
             };
         })()""",
         "returnByValue": True
     })
     res_val = check_eval.get('result', {}).get('result', {}).get('value', {})
-    print("Opening Screen, Couples & Events Section Checks:", json.dumps(res_val, indent=2))
+    print("Opening Screen, Couples, Events & Family Section Checks:", json.dumps(res_val, indent=2))
     assert res_val.get('hasGanesha'), "Ganesha image is missing from opening screen!"
     assert not res_val.get('hasHeroOpenBtn'), "CLICK HERE TO OPEN INVITATION button is still present on first page!"
     assert not res_val.get('hasHeroViewCard'), "VIEW DIGITAL CARD button is still present on first page!"
@@ -269,6 +286,17 @@ try:
     assert res_val.get('hasBaraatSwagat'), "Baraat Swagat not found in events!"
     assert not res_val.get('hasVaratInEvents'), "Varat still found in events section!"
     assert res_val.get('hasVenue'), "Venue section missing!"
+    assert res_val.get('hasCountdown'), "Countdown section missing!"
+    assert res_val.get('hasFamily'), "Family section missing!"
+    # Assert all 8 cards are removed
+    assert not res_val.get('hasVisheshAshirwad'), "VISHESH ASHIRWAD is still present!"
+    assert not res_val.get('hasSwagatatur'), "SWAGATATUR is still present!"
+    assert not res_val.get('hasJavaiPaksh'), "JAVAI PAKSH is still present!"
+    assert not res_val.get('hasNanihalPaksh'), "NANIHAL PAKSH is still present!"
+    assert not res_val.get('hasBhanejPaksh'), "BHANEJ PAKSH is still present!"
+    assert not res_val.get('hasVineet'), "VINEET is still present!"
+    assert not res_val.get('hasBalManuhar'), "BAL MANUHAR is still present!"
+    assert not res_val.get('hasFirmResidence'), "FIRM & RESIDENCE DETAILS is still present!"
     assert not res_val.get('hasCanvasOverlay'), "Unexpected canvas overlay detected!"
 
     # Test all viewports

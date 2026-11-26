@@ -545,61 +545,7 @@ Looking forward to celebrating this grand royal Jain wedding at Kumawat Vatika, 
       },
       /* @__PURE__ */ import_react6.default.createElement("span", { className: "action-icon" }, "\u{1F4AC}"),
       /* @__PURE__ */ import_react6.default.createElement("span", { className: "action-text" }, "WhatsApp")
-    )))), /* @__PURE__ */ import_react6.default.createElement("div", { style: {
-      display: "grid",
-      gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-      gap: "18px",
-      maxWidth: "1050px",
-      margin: "0 auto 32px"
-    } }, /* @__PURE__ */ import_react6.default.createElement("div", { style: {
-      background: "rgba(21, 19, 19, 0.75)",
-      border: "1px solid rgba(212, 175, 101, 0.35)",
-      borderRadius: "10px",
-      padding: "16px",
-      textAlign: "center"
-    } }, /* @__PURE__ */ import_react6.default.createElement("h4", { style: { color: "var(--c-gold)", fontSize: "13px", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "8px" } }, "\u2726 VISHESH ASHIRWAD (SPECIAL BLESSINGS) \u2726"), /* @__PURE__ */ import_react6.default.createElement("p", { style: { color: "var(--c-ivory)", fontSize: "13px", lineHeight: 1.6 } }, "Durga Devi, Kamla Devi, Annu Devi")), /* @__PURE__ */ import_react6.default.createElement("div", { style: {
-      background: "rgba(21, 19, 19, 0.75)",
-      border: "1px solid rgba(212, 175, 101, 0.35)",
-      borderRadius: "10px",
-      padding: "16px",
-      textAlign: "center"
-    } }, /* @__PURE__ */ import_react6.default.createElement("h4", { style: { color: "var(--c-gold)", fontSize: "13px", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "8px" } }, "\u2726 SWAGATATUR & SWAGATKARTA \u2726"), /* @__PURE__ */ import_react6.default.createElement("p", { style: { color: "var(--c-ivory)", fontSize: "13px", lineHeight: 1.6 } }, /* @__PURE__ */ import_react6.default.createElement("strong", null, "Welcoming Hosts:"), " Kamla Devi - Late Banshilalji, Bhaga Bai - Ishwarlalji", /* @__PURE__ */ import_react6.default.createElement("br", null), /* @__PURE__ */ import_react6.default.createElement("strong", null, "Reception Hosts:"), " Santosh - Advocate Kishorji Gehlot, Sunita - Umesh Ji, Taroona - Shekhar, Kaushalya - Ramesh, Punam - Late Ashok Ji, Kashak - Mahadev, Deepika - Tarun Ji, Rajeshwari - Dev Ji")), /* @__PURE__ */ import_react6.default.createElement("div", { style: {
-      background: "rgba(21, 19, 19, 0.75)",
-      border: "1px solid rgba(212, 175, 101, 0.35)",
-      borderRadius: "10px",
-      padding: "16px",
-      textAlign: "center"
-    } }, /* @__PURE__ */ import_react6.default.createElement("h4", { style: { color: "var(--c-gold)", fontSize: "13px", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "8px" } }, "\u2726 JAVAI PAKSH (SONS-IN-LAW & DAUGHTERS) \u2726"), /* @__PURE__ */ import_react6.default.createElement("p", { style: { color: "var(--c-ivory)", fontSize: "12.5px", lineHeight: 1.6 } }, "Kamla Devi - Late Devkishanji Parihar, Gayatri - Chandraprakash Ji, Premlata - Ashok Ji, Rekha - Sushil Ji, Bhagwanti - Dilip Ji, Deepika - Mahendra Ji, Rekha - Manish Ji, Pooja - Laxman Ji, Taroona - Tarun Ji, Pramila - Ashok Ji, Manju - Gajendra Ji, Khushboo - Pratik Ji")), /* @__PURE__ */ import_react6.default.createElement("div", { style: {
-      background: "rgba(21, 19, 19, 0.75)",
-      border: "1px solid rgba(212, 175, 101, 0.35)",
-      borderRadius: "10px",
-      padding: "16px",
-      textAlign: "center"
-    } }, /* @__PURE__ */ import_react6.default.createElement("h4", { style: { color: "var(--c-gold)", fontSize: "13px", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "8px" } }, "\u2726 NANIHAL PAKSH (MATERNAL KINFOLK) \u2726"), /* @__PURE__ */ import_react6.default.createElement("p", { style: { color: "var(--c-ivory)", fontSize: "12.5px", lineHeight: 1.6 } }, "Ashok Ji Bhomiya, Late Banshilalji, Kailashji, Rameshwarji, Chandraprakashji, Nathulalji, Dineshji, Rajendraji, Chandraprakashji, Rakeshji, Rameshji, Pintu Ji, Vikramji, Manoharji, Rameshji, Himmat, Mahadev, Bhavesh, Naresh, Dhiraj, Rajendra and Entire Parihar Family (Jodhpur)")), /* @__PURE__ */ import_react6.default.createElement("div", { style: {
-      background: "rgba(21, 19, 19, 0.75)",
-      border: "1px solid rgba(212, 175, 101, 0.35)",
-      borderRadius: "10px",
-      padding: "16px",
-      textAlign: "center"
-    } }, /* @__PURE__ */ import_react6.default.createElement("h4", { style: { color: "var(--c-gold)", fontSize: "13px", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "8px" } }, "\u2726 BHANEJ PAKSH (NEPHEWS & NIECES) \u2726"), /* @__PURE__ */ import_react6.default.createElement("p", { style: { color: "var(--c-ivory)", fontSize: "13px", lineHeight: 1.6 } }, "Arun, Gaurav, Bhavya, Jayesh, Raunak, Vaibhav (Kanha), Bhavya, Raghuvir, Kunwarraj Solanki")), /* @__PURE__ */ import_react6.default.createElement("div", { style: {
-      background: "rgba(21, 19, 19, 0.75)",
-      border: "1px solid rgba(212, 175, 101, 0.35)",
-      borderRadius: "10px",
-      padding: "16px",
-      textAlign: "center"
-    } }, /* @__PURE__ */ import_react6.default.createElement("h4", { style: { color: "var(--c-gold)", fontSize: "13px", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "8px" } }, "\u2726 VINEET (HUMBLE INVITERS) \u2726"), /* @__PURE__ */ import_react6.default.createElement("p", { style: { color: "var(--c-ivory)", fontSize: "12.5px", lineHeight: 1.6 } }, "Banshilalji, Punamchandji, Kanhaiyalalji, Lalchandji, Ranchhodji, Kailashji, Mukeshji, Kishorji, Ratanji, Shekharji, Jitendraji, Gresik, Krishna, Jai, Siddharth & Entire Gehlot Family")), /* @__PURE__ */ import_react6.default.createElement("div", { style: {
-      background: "rgba(21, 19, 19, 0.75)",
-      border: "1px solid rgba(212, 175, 101, 0.35)",
-      borderRadius: "10px",
-      padding: "16px",
-      textAlign: "center"
-    } }, /* @__PURE__ */ import_react6.default.createElement("h4", { style: { color: "var(--c-gold)", fontSize: "13px", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "8px" } }, "\u2726 BAL MANUHAR & EAGERLY AWAITING \u2726"), /* @__PURE__ */ import_react6.default.createElement("p", { style: { color: "var(--c-ivory)", fontSize: "13px", lineHeight: 1.6 } }, /* @__PURE__ */ import_react6.default.createElement("strong", null, "Sweet Child Inviter:"), " Kunwar Raj Solanki (Ladu) \u2014 ", /* @__PURE__ */ import_react6.default.createElement("em", null, "\u201CPlease definitely attend my Mama and Masi's wedding!\u201D"), /* @__PURE__ */ import_react6.default.createElement("br", null), /* @__PURE__ */ import_react6.default.createElement("strong", null, "Awaiting With Eager Eyes:"), " Janvi, Pihu, Adhishri, Swaroopa, Yakshita, Pari, Yashwi, Tanushri, Komal, Veera")), /* @__PURE__ */ import_react6.default.createElement("div", { style: {
-      background: "rgba(21, 19, 19, 0.75)",
-      border: "1px solid rgba(212, 175, 101, 0.35)",
-      borderRadius: "10px",
-      padding: "16px",
-      textAlign: "center"
-    } }, /* @__PURE__ */ import_react6.default.createElement("h4", { style: { color: "var(--c-gold)", fontSize: "13px", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "8px" } }, "\u2726 FIRM & RESIDENCE DETAILS \u2726"), /* @__PURE__ */ import_react6.default.createElement("p", { style: { color: "var(--c-ivory)", fontSize: "12.5px", lineHeight: 1.6 } }, /* @__PURE__ */ import_react6.default.createElement("strong", null, "Establishment:"), " Gehlot Dhar Center, Jasol Ma Hastkala Udyog", /* @__PURE__ */ import_react6.default.createElement("br", null), /* @__PURE__ */ import_react6.default.createElement("strong", null, "Residence:"), " Kailashchandra S/o Late Mr. Madanlalji Gehlot (Lohar), 162, Pancham Nagar, Opposite Khetaramji Pyau Street, Ramdev Road, Pali-Marwar 306401", /* @__PURE__ */ import_react6.default.createElement("br", null), /* @__PURE__ */ import_react6.default.createElement("strong", null, "Phone:"), " 9214537106, 8824338255, 7014922660"))), /* @__PURE__ */ import_react6.default.createElement("div", { className: "direct-blessings-card", style: { maxWidth: "680px", margin: "0 auto" } }, /* @__PURE__ */ import_react6.default.createElement("div", { className: "blessings-card-header" }, /* @__PURE__ */ import_react6.default.createElement("h4", { className: "blessings-title" }, "\u{1F48C} Send Your RSVP & Blessings to the Family"), /* @__PURE__ */ import_react6.default.createElement("p", { className: "blessings-subtitle" }, "Send your personal congratulations and arrival confirmation directly to the hosts on WhatsApp.")), /* @__PURE__ */ import_react6.default.createElement("div", { className: "blessings-inputs-form" }, /* @__PURE__ */ import_react6.default.createElement("div", { className: "form-row-dual" }, /* @__PURE__ */ import_react6.default.createElement("div", { className: "form-input-group" }, /* @__PURE__ */ import_react6.default.createElement("label", { className: "input-label" }, "Your Name / Family Name"), /* @__PURE__ */ import_react6.default.createElement(
+    )))), /* @__PURE__ */ import_react6.default.createElement("div", { className: "direct-blessings-card", style: { maxWidth: "680px", margin: "0 auto" } }, /* @__PURE__ */ import_react6.default.createElement("div", { className: "blessings-card-header" }, /* @__PURE__ */ import_react6.default.createElement("h4", { className: "blessings-title" }, "\u{1F48C} Send Your RSVP & Blessings to the Family"), /* @__PURE__ */ import_react6.default.createElement("p", { className: "blessings-subtitle" }, "Send your personal congratulations and arrival confirmation directly to the hosts on WhatsApp.")), /* @__PURE__ */ import_react6.default.createElement("div", { className: "blessings-inputs-form" }, /* @__PURE__ */ import_react6.default.createElement("div", { className: "form-row-dual" }, /* @__PURE__ */ import_react6.default.createElement("div", { className: "form-input-group" }, /* @__PURE__ */ import_react6.default.createElement("label", { className: "input-label" }, "Your Name / Family Name"), /* @__PURE__ */ import_react6.default.createElement(
       "input",
       {
         type: "text",
