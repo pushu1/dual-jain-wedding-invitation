@@ -291,7 +291,7 @@ var RoyalWeddingApp = (() => {
         events: [
           {
             num: "07",
-            title: "Varat Prasthan (Departure of Baraat to Samdari)",
+            title: "Baraat Prasthan (Departure of Baraat to Samdari)",
             time: "12:15 PM",
             icon: "\u{1F68C}",
             desc: "Festive departure of Groom Ayushman Akash\u2019s wedding procession to Samdari by bus to the residence of Shriman Byaiji Dhanraj Ji Chauhan\u2019s family."
@@ -307,7 +307,7 @@ var RoyalWeddingApp = (() => {
         events: [
           {
             num: "08",
-            title: "Varat Swagat (Welcome of Baraat from Balotra)",
+            title: "Baraat Swagat (Welcome of Baraat from Balotra)",
             time: "5:15 PM",
             icon: "\u{1F3BA}",
             desc: "Ceremonial welcome of Groom Ayushman Dheeraj Ji\u2019s Baraat arriving from Balotra by bus to Kumawat Vatika, Pali."

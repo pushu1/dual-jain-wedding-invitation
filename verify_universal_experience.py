@@ -211,6 +211,11 @@ try:
             const hasBalotraNoteInCouples = couplesText.includes('Welcome of Baraat arriving from Balotra');
 
             const eventsSection = document.getElementById('events-section');
+            const eventsText = eventsSection ? eventsSection.innerText : '';
+            const hasBaraatPrasthan = eventsText.includes('Baraat Prasthan');
+            const hasBaraatSwagat = eventsText.includes('Baraat Swagat');
+            const hasVaratInEvents = eventsText.includes('Varat');
+
             const venueSection = document.getElementById('venue-section');
             const countdownSection = document.getElementById('countdown-section');
             const familySection = document.getElementById('family-section');
@@ -234,6 +239,9 @@ try:
                 hasSamdariNoteInCouples,
                 hasBalotraNoteInCouples,
                 hasEvents: Boolean(eventsSection),
+                hasBaraatPrasthan,
+                hasBaraatSwagat,
+                hasVaratInEvents,
                 hasVenue: Boolean(venueSection),
                 hasCountdown: Boolean(countdownSection),
                 hasFamily: Boolean(familySection),
@@ -243,7 +251,7 @@ try:
         "returnByValue": True
     })
     res_val = check_eval.get('result', {}).get('result', {}).get('value', {})
-    print("Opening Screen & Couples Section Checks:", json.dumps(res_val, indent=2))
+    print("Opening Screen, Couples & Events Section Checks:", json.dumps(res_val, indent=2))
     assert res_val.get('hasGanesha'), "Ganesha image is missing from opening screen!"
     assert not res_val.get('hasHeroOpenBtn'), "CLICK HERE TO OPEN INVITATION button is still present on first page!"
     assert not res_val.get('hasHeroViewCard'), "VIEW DIGITAL CARD button is still present on first page!"
@@ -257,6 +265,9 @@ try:
     assert not res_val.get('hasSamdariNoteInCouples'), "Samdari bus note is still present in couples section!"
     assert not res_val.get('hasBalotraNoteInCouples'), "Balotra bus note is still present in couples section!"
     assert res_val.get('hasEvents'), "Events section missing!"
+    assert res_val.get('hasBaraatPrasthan'), "Baraat Prasthan not found in events!"
+    assert res_val.get('hasBaraatSwagat'), "Baraat Swagat not found in events!"
+    assert not res_val.get('hasVaratInEvents'), "Varat still found in events section!"
     assert res_val.get('hasVenue'), "Venue section missing!"
     assert not res_val.get('hasCanvasOverlay'), "Unexpected canvas overlay detected!"
 

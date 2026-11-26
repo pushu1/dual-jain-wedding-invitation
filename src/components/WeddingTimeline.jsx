@@ -82,7 +82,7 @@ export default function WeddingTimeline() {
       events: [
         {
           num: '07',
-          title: 'Varat Prasthan (Departure of Baraat to Samdari)',
+          title: 'Baraat Prasthan (Departure of Baraat to Samdari)',
           time: '12:15 PM',
           icon: '🚌',
           desc: 'Festive departure of Groom Ayushman Akash’s wedding procession to Samdari by bus to the residence of Shriman Byaiji Dhanraj Ji Chauhan’s family.'
@@ -98,7 +98,7 @@ export default function WeddingTimeline() {
       events: [
         {
           num: '08',
-          title: 'Varat Swagat (Welcome of Baraat from Balotra)',
+          title: 'Baraat Swagat (Welcome of Baraat from Balotra)',
           time: '5:15 PM',
           icon: '🎺',
           desc: 'Ceremonial welcome of Groom Ayushman Dheeraj Ji’s Baraat arriving from Balotra by bus to Kumawat Vatika, Pali.'
