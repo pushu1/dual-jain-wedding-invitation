@@ -48,7 +48,7 @@ export default function VenueSection() {
                 </linearGradient>
               </defs>
 
-              <rect x="50" y="40" width="400" height="110" rx="8" fill="rgba(100, 27, 46, 0.3)" />
+              <rect x="50" y="40" width="400" height="110" rx="8" fill="rgba(139, 48, 56, 0.08)" />
 
               <path
                 d="M 250,15 C 240,35 210,40 190,60 C 180,70 180,85 180,120 L 320,120 C 320,85 320,70 310,60 C 290,40 260,35 250,15 Z"

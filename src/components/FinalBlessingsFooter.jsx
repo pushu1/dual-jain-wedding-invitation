@@ -60,9 +60,9 @@ export default function FinalBlessingsFooter({ onOpenCardViewer, onDownloadPDF }
             onClick={scrollToTop}
             style={{
               background: 'transparent',
-              border: '1px solid var(--c-gold)',
+              border: '1px solid var(--c-border-gold)',
               borderRadius: '20px',
-              color: 'var(--c-gold-light)',
+              color: 'var(--c-headings)',
               fontFamily: 'Roboto Slab, serif',
               fontSize: '11px',
               padding: '4px 16px',

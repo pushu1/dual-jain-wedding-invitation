@@ -24,20 +24,20 @@ export default function CouplesSection() {
 
         {/* Ancestral Inscription Card */}
         <div style={{
-          background: 'rgba(100, 27, 46, 0.25)',
-          border: '1px solid rgba(212, 175, 101, 0.4)',
+          background: 'rgba(139, 48, 56, 0.06)',
+          border: '1px solid var(--c-border-gold)',
           borderRadius: '10px',
           padding: '14px 20px',
           maxWidth: '680px',
           margin: '0 auto 28px',
           textAlign: 'center'
         }}>
-          <span style={{ fontSize: '11px', letterSpacing: '2px', color: 'var(--c-gold-light)', textTransform: 'uppercase' }}>
+          <span style={{ fontSize: '11px', letterSpacing: '2px', color: 'var(--c-leaf-green)', textTransform: 'uppercase', fontWeight: 700 }}>
             Sacred Ancestral Blessings
           </span>
           <p style={{
             fontSize: '14px',
-            color: 'var(--c-ivory)',
+            color: 'var(--c-text-primary)',
             margin: '6px 0 0',
             lineHeight: 1.6,
             fontFamily: 'Roboto Slab, serif'
@@ -65,7 +65,7 @@ export default function CouplesSection() {
             <div className="profile-frame-jharokha">
               <div className="avatar-art-container">
                 <svg viewBox="0 0 140 140" className="avatar-silhouette-svg">
-                  <circle cx="70" cy="70" r="65" fill="#3B101C" stroke="#D4AF65" strokeWidth="2" />
+                  <circle cx="70" cy="70" r="65" fill="#FFF5E6" stroke="#C9A45C" strokeWidth="2" />
                   <circle cx="70" cy="70" r="60" fill="none" stroke="rgba(212, 175, 101, 0.4)" strokeWidth="1" strokeDasharray="3 3" />
                   {/* Groom Safa & Face */}
                   <path d="M70 38 C60 38 52 46 52 56 C52 66 60 72 70 72 C80 72 88 66 88 56 C88 46 80 38 70 38 Z" fill="#E8D5A3" />
@@ -125,17 +125,17 @@ export default function CouplesSection() {
               </p>
 
               <div style={{
-                background: 'rgba(21, 19, 19, 0.6)',
-                border: '1px solid rgba(212, 175, 101, 0.3)',
+                background: 'linear-gradient(135deg, rgba(139, 48, 56, 0.95) 0%, rgba(118, 45, 50, 0.95) 100%)',
+                border: '1px solid var(--c-border-gold)',
                 borderRadius: '8px',
                 padding: '12px 14px',
                 marginTop: '14px',
                 textAlign: 'center'
               }}>
-                <div style={{ fontSize: '11px', color: 'var(--c-gold-light)', fontWeight: 700, letterSpacing: '1px' }}>
+                <div style={{ fontSize: '11px', color: '#FFF5E6', fontWeight: 700, letterSpacing: '1px' }}>
                   🗓️ WEDDING CEREMONY DATE:
                 </div>
-                <div style={{ fontSize: '13.5px', color: 'var(--c-ivory)', fontWeight: 600, marginTop: '4px' }}>
+                <div style={{ fontSize: '13.5px', color: '#FFF5E6', fontWeight: 700, marginTop: '4px' }}>
                   Thursday, 10 December 2026 (Margashirsha Shukla Paksh)
                 </div>
               </div>
@@ -149,7 +149,7 @@ export default function CouplesSection() {
             <div className="profile-frame-jharokha">
               <div className="avatar-art-container">
                 <svg viewBox="0 0 140 140" className="avatar-silhouette-svg">
-                  <circle cx="70" cy="70" r="65" fill="#641B2E" stroke="#D4AF65" strokeWidth="2" />
+                  <circle cx="70" cy="70" r="65" fill="#FFF5E6" stroke="#C9A45C" strokeWidth="2" />
                   <circle cx="70" cy="70" r="60" fill="none" stroke="rgba(212, 175, 101, 0.4)" strokeWidth="1" strokeDasharray="3 3" />
                   {/* Bride Face & Maang Tikka */}
                   <path d="M70 30 C58 30 50 38 50 50 C50 62 58 68 70 68 C82 68 90 62 90 50 C90 38 82 30 70 30 Z" fill="#E8D5A3" />
@@ -208,17 +208,17 @@ export default function CouplesSection() {
               </p>
 
               <div style={{
-                background: 'rgba(21, 19, 19, 0.6)',
-                border: '1px solid rgba(212, 175, 101, 0.3)',
+                background: 'linear-gradient(135deg, rgba(139, 48, 56, 0.95) 0%, rgba(118, 45, 50, 0.95) 100%)',
+                border: '1px solid var(--c-border-gold)',
                 borderRadius: '8px',
                 padding: '12px 14px',
                 marginTop: '14px',
                 textAlign: 'center'
               }}>
-                <div style={{ fontSize: '11px', color: 'var(--c-gold-light)', fontWeight: 700, letterSpacing: '1px' }}>
+                <div style={{ fontSize: '11px', color: '#FFF5E6', fontWeight: 700, letterSpacing: '1px' }}>
                   🗓️ WEDDING CEREMONY DATE:
                 </div>
-                <div style={{ fontSize: '13.5px', color: 'var(--c-ivory)', fontWeight: 600, marginTop: '4px' }}>
+                <div style={{ fontSize: '13.5px', color: '#FFF5E6', fontWeight: 700, marginTop: '4px' }}>
                   Saturday, 12 December 2026 (Margashirsha Shukla Paksh 3)
                 </div>
               </div>

@@ -29,12 +29,12 @@ export default function WeddingHero({ onExplore }) {
         <svg viewBox="0 0 400 120" className="hero-arch-svg" preserveAspectRatio="none">
           <path
             d="M 0,0 L 400,0 L 400,30 Q 300,30 250,70 Q 200,110 150,70 Q 100,30 0,30 Z"
-            fill="rgba(100, 27, 46, 0.45)"
+            fill="rgba(139, 48, 56, 0.15)"
           />
           <path
             d="M 0,0 L 400,0 L 400,20 Q 300,20 250,55 Q 200,95 150,55 Q 100,20 0,20 Z"
             fill="none"
-            stroke="#D4AF65"
+            stroke="#C9A45C"
             strokeWidth="1.5"
           />
         </svg>

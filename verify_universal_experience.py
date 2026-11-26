@@ -336,6 +336,14 @@ try:
                 const scrollInd = document.querySelector('.hero-scroll-indicator');
                 const scrollIndBox = scrollInd ? scrollInd.getBoundingClientRect() : null;
 
+                const overEl = [];
+                document.querySelectorAll('*').forEach(el => {
+                    const r = el.getBoundingClientRect();
+                    if (r.right > clientW + 2) {
+                        overEl.push({ tag: el.tagName, cls: el.className, w: Math.round(r.width), right: Math.round(r.right) });
+                    }
+                });
+
                 return {
                     scrollW,
                     clientW,
@@ -343,13 +351,16 @@ try:
                     heroTop: heroBox ? heroBox.top : null,
                     heroHeight: heroBox ? heroBox.height : null,
                     ganeshaTop: ganeshaBox ? ganeshaBox.top : null,
-                    scrollIndTop: scrollIndBox ? scrollIndBox.top : null
+                    scrollIndTop: scrollIndBox ? scrollIndBox.top : null,
+                    overEl: overEl.slice(0, 10)
                 };
             })()""",
             "returnByValue": True
         })
         val = layout_res.get('result', {}).get('result', {}).get('value', {})
         print(f"[{vp['name']}] ScrollW: {val.get('scrollW')}px | ClientW: {val.get('clientW')}px | HeroTop: {val.get('heroTop')}px | HeroHeight: {val.get('heroHeight')}px | Overflow: {val.get('hasOverflow')}")
+        if val.get('hasOverflow'):
+            print("Overflowing elements:", json.dumps(val.get('overEl'), indent=2))
         assert not val.get('hasOverflow'), f"Horizontal overflow detected on {vp['name']}!"
         assert val.get('heroTop') is not None and val.get('heroTop') < 180, f"Hero is pushed down too far on {vp['name']} ({val.get('heroTop')}px)!"
 
