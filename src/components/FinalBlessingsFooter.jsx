@@ -54,7 +54,7 @@ export default function FinalBlessingsFooter({ onOpenCardViewer, onDownloadPDF }
         {/* Bottom Year & Traditional Copyright */}
         <div className="footer-sub-bar">
           <p className="sub-bar-text">
-            The Royal Wedding Celebration 2026 • Dual Jain Wedding • Pali, Rajasthan
+            The Royal Wedding Celebration 2026 • Dual Wedding • Pali, Rajasthan
           </p>
           <button
             onClick={scrollToTop}

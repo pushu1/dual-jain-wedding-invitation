@@ -1,7 +1,7 @@
 {
   "name": "dual-jain-wedding-invitation",
   "version": "1.0.0",
-  "description": "Premium digital wedding invitation card in English for two Jain couples: Ayushman Akash & Ayushmati Reena and Ayushmati Shivani (Jeenu) & Ayushman Dheeraj Ji.",
+  "description": "Premium digital wedding invitation card in English for two couples: Ayushman Akash & Ayushmati Reena and Ayushmati Shivani (Jeenu) & Ayushman Dheeraj Ji.",
   "main": "app.js",
   "scripts": {
     "start": "python -m http.server 3000",
@@ -10,7 +10,7 @@
   "keywords": [
     "wedding-invitation",
     "dual-wedding",
-    "jain-wedding",
+    "royal-wedding",
     "rajasthani-wedding",
     "digital-invitation",
     "english"

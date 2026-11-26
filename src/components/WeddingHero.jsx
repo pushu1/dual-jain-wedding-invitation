@@ -53,7 +53,7 @@ export default function WeddingHero({ onExplore }) {
             />
           </div>
           <div className="hero-shloka-text">|| SHREE GANESHAY NAMAH ||</div>
-          <div className="hero-shubh-vivah">Auspicious Jain Wedding Celebration</div>
+          <div className="hero-shubh-vivah">Auspicious Wedding Celebration</div>
         </div>
 
         {/* Grand Wedding Heading */}

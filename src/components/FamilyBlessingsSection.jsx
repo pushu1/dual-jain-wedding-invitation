@@ -11,7 +11,7 @@ export default function FamilyBlessingsSection() {
   const phone3 = '+917014922660';
 
   const handleSendWhatsApp = (phoneTarget) => {
-    const formattedText = `Namaste! 🙏\n\n*Wedding Blessings for Akash & Reena and Shivani & Dheeraj*\nFrom: ${guestName || 'Well-Wisher'}${guestCity ? ` (${guestCity})` : ''}\n\n"${blessingMsg}"\n\nLooking forward to celebrating this grand royal Jain wedding at Kumawat Vatika, Pali!`;
+    const formattedText = `Namaste! 🙏\n\n*Wedding Blessings for Akash & Reena and Shivani & Dheeraj*\nFrom: ${guestName || 'Well-Wisher'}${guestCity ? ` (${guestCity})` : ''}\n\n"${blessingMsg}"\n\nLooking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!`;
     const cleanPhone = phoneTarget.replace(/[^0-9]/g, '');
     const url = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(formattedText)}`;
     window.open(url, '_blank');

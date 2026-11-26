@@ -1,6 +1,6 @@
-# Dual Jain Wedding Invitation (English Version)
+# Dual Wedding Invitation (English Version)
 
-A luxury, interactive, English-language digital wedding invitation card for two Jain couples celebrating their sacred union together:
+A luxury, interactive, English-language digital wedding invitation card for two couples celebrating their sacred union together:
 
 - **Couple 1**: **Ayushman Akash** & **Ayushmati Reena**
 - **Couple 2**: **Ayushmati Shivani (Jeenu)** & **Ayushman Dheeraj Ji**

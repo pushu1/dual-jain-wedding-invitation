@@ -78,6 +78,10 @@ for a in annots:
 
 assert found_target_url, f"Expected URI {expected_url} not found in PDF annotations!"
 
+pdf_text = page.extract_text() or ''
+assert not re.search(r'\bjain\b', pdf_text, re.I), f"Word 'Jain' found in PDF text! Content: {pdf_text}"
+print("PASSED: Single-page PDF text contains 0 occurrences of 'Jain'.")
+
 # -----------------------------------------------------------------------------
 # 3. VERIFY IMMEDIATE FIRST-FRAME INVITATION ACROSS ALL 6 VIEWPORTS
 # -----------------------------------------------------------------------------
@@ -230,10 +234,18 @@ try:
             const hasFirmResidence = familyText.includes('FIRM & RESIDENCE DETAILS');
             const canvas = document.querySelector('canvas');
 
+            // Check for any occurrence of the word "Jain" across the entire document
+            const entireBodyText = document.body.innerText;
+            const hasJainInBody = /\bjain\b/i.test(entireBodyText);
+            const shubhVivahEl = document.querySelector('.hero-shubh-vivah');
+            const shubhVivahText = shubhVivahEl ? shubhVivahEl.innerText.trim() : '';
+
             return {
                 hasGanesha: Boolean(ganesha),
                 shlokaText: shloka ? shloka.innerText : null,
                 headingText: heading ? heading.innerText : null,
+                shubhVivahText,
+                hasJainInBody,
                 hasDateBadge: Boolean(dateBadge),
                 dateText: dateBadge ? dateBadge.innerText : null,
                 hasScrollIndicator: Boolean(scrollIndicator),
@@ -270,6 +282,8 @@ try:
     res_val = check_eval.get('result', {}).get('result', {}).get('value', {})
     print("Opening Screen, Couples, Events & Family Section Checks:", json.dumps(res_val, indent=2))
     assert res_val.get('hasGanesha'), "Ganesha image is missing from opening screen!"
+    assert not res_val.get('hasJainInBody'), f"Found unwanted 'Jain' in rendered body text! Body check failed."
+    assert res_val.get('shubhVivahText') == "Auspicious Wedding Celebration", f"Unexpected shubh vivah text: {res_val.get('shubhVivahText')}"
     assert not res_val.get('hasHeroOpenBtn'), "CLICK HERE TO OPEN INVITATION button is still present on first page!"
     assert not res_val.get('hasHeroViewCard'), "VIEW DIGITAL CARD button is still present on first page!"
     assert not res_val.get('hasHeroDownloadPdf'), "DOWNLOAD PDF button is still present on first page!"
