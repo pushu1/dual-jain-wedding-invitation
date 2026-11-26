@@ -204,6 +204,12 @@ try:
             const navDownloadPdf = document.querySelector('.nav-btn-download-pdf');
 
             const couplesSection = document.getElementById('couples-section');
+            const couplesText = couplesSection ? couplesSection.innerText : '';
+            const hasVaratPrasthanInCouples = couplesText.includes('VARAT PRASTHAN');
+            const hasVaratSwagatInCouples = couplesText.includes('VARAT SWAGAT');
+            const hasSamdariNoteInCouples = couplesText.includes('Departure to Samdari by bus');
+            const hasBalotraNoteInCouples = couplesText.includes('Welcome of Baraat arriving from Balotra');
+
             const eventsSection = document.getElementById('events-section');
             const venueSection = document.getElementById('venue-section');
             const countdownSection = document.getElementById('countdown-section');
@@ -223,6 +229,10 @@ try:
                 hasNavViewCard: Boolean(navViewCard),
                 hasNavDownloadPdf: Boolean(navDownloadPdf),
                 hasCouples: Boolean(couplesSection),
+                hasVaratPrasthanInCouples,
+                hasVaratSwagatInCouples,
+                hasSamdariNoteInCouples,
+                hasBalotraNoteInCouples,
                 hasEvents: Boolean(eventsSection),
                 hasVenue: Boolean(venueSection),
                 hasCountdown: Boolean(countdownSection),
@@ -233,7 +243,7 @@ try:
         "returnByValue": True
     })
     res_val = check_eval.get('result', {}).get('result', {}).get('value', {})
-    print("Opening Screen Checks:", json.dumps(res_val, indent=2))
+    print("Opening Screen & Couples Section Checks:", json.dumps(res_val, indent=2))
     assert res_val.get('hasGanesha'), "Ganesha image is missing from opening screen!"
     assert not res_val.get('hasHeroOpenBtn'), "CLICK HERE TO OPEN INVITATION button is still present on first page!"
     assert not res_val.get('hasHeroViewCard'), "VIEW DIGITAL CARD button is still present on first page!"
@@ -242,6 +252,10 @@ try:
     assert res_val.get('hasNavViewCard'), "Nav View Card functionality missing!"
     assert res_val.get('hasNavDownloadPdf'), "Nav Download PDF functionality missing!"
     assert res_val.get('hasCouples'), "Couples section missing!"
+    assert not res_val.get('hasVaratPrasthanInCouples'), "VARAT PRASTHAN is still present in couples section!"
+    assert not res_val.get('hasVaratSwagatInCouples'), "VARAT SWAGAT is still present in couples section!"
+    assert not res_val.get('hasSamdariNoteInCouples'), "Samdari bus note is still present in couples section!"
+    assert not res_val.get('hasBalotraNoteInCouples'), "Balotra bus note is still present in couples section!"
     assert res_val.get('hasEvents'), "Events section missing!"
     assert res_val.get('hasVenue'), "Venue section missing!"
     assert not res_val.get('hasCanvasOverlay'), "Unexpected canvas overlay detected!"

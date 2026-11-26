@@ -128,22 +128,15 @@ export default function CouplesSection() {
                 background: 'rgba(21, 19, 19, 0.6)',
                 border: '1px solid rgba(212, 175, 101, 0.3)',
                 borderRadius: '8px',
-                padding: '10px',
-                marginTop: '12px',
-                textAlign: 'left'
+                padding: '12px 14px',
+                marginTop: '14px',
+                textAlign: 'center'
               }}>
                 <div style={{ fontSize: '11px', color: 'var(--c-gold-light)', fontWeight: 700, letterSpacing: '1px' }}>
                   🗓️ WEDDING CEREMONY DATE:
                 </div>
-                <div style={{ fontSize: '13px', color: 'var(--c-ivory)', marginTop: '2px' }}>
+                <div style={{ fontSize: '13.5px', color: 'var(--c-ivory)', fontWeight: 600, marginTop: '4px' }}>
                   Thursday, 10 December 2026 (Margashirsha Shukla Paksh)
-                </div>
-
-                <div style={{ fontSize: '11px', color: 'var(--c-gold-light)', fontWeight: 700, letterSpacing: '1px', marginTop: '8px' }}>
-                  🚌 VARAT PRASTHAN (BARAAT DEPARTURE):
-                </div>
-                <div style={{ fontSize: '12px', color: '#D4AF65', marginTop: '2px', lineHeight: 1.4 }}>
-                  Departure to Samdari by bus to the residence of Shriman Byaiji Dhanraj Ji Chauhan’s family (Chhaganji, Kishanji, Nandkishorji, Gopalji).
                 </div>
               </div>
             </div>
@@ -218,22 +211,15 @@ export default function CouplesSection() {
                 background: 'rgba(21, 19, 19, 0.6)',
                 border: '1px solid rgba(212, 175, 101, 0.3)',
                 borderRadius: '8px',
-                padding: '10px',
-                marginTop: '12px',
-                textAlign: 'left'
+                padding: '12px 14px',
+                marginTop: '14px',
+                textAlign: 'center'
               }}>
                 <div style={{ fontSize: '11px', color: 'var(--c-gold-light)', fontWeight: 700, letterSpacing: '1px' }}>
                   🗓️ WEDDING CEREMONY DATE:
                 </div>
-                <div style={{ fontSize: '13px', color: 'var(--c-ivory)', marginTop: '2px' }}>
+                <div style={{ fontSize: '13.5px', color: 'var(--c-ivory)', fontWeight: 600, marginTop: '4px' }}>
                   Saturday, 12 December 2026 (Margashirsha Shukla Paksh 3)
-                </div>
-
-                <div style={{ fontSize: '11px', color: 'var(--c-gold-light)', fontWeight: 700, letterSpacing: '1px', marginTop: '8px' }}>
-                  🎺 VARAT SWAGAT (BARAAT WELCOME):
-                </div>
-                <div style={{ fontSize: '12px', color: '#D4AF65', marginTop: '2px', lineHeight: 1.4 }}>
-                  Welcome of Baraat arriving from Balotra by bus from the residence of Shriman Byaiji Madanlalji Parihar’s family (Bhanwarlalji, Gopalji, Murliji, Manoharji, Mukeshji).
                 </div>
               </div>
             </div>
