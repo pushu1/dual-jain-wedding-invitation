@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Royal Jain Wedding Invitation — Akash &amp; Reena | Shivani &amp; Dheeraj</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: 210mm 297mm; /* Standard A4 */
+      margin: 0;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      width: 210mm;
+      margin: 0;
+      padding: 0;
+      background-color: #FAF7F0;
+      color: #211D1B;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* Page Container */
+    .pdf-page {
+      width: 210mm;
+      height: 297mm;
+      position: relative;
+      background: #FFFDF9;
+      padding: 12mm 14mm;
+      page-break-after: always;
+      break-after: page;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .pdf-page:last-child {
+      page-break-after: auto;
+      break-after: auto;
+    }
+
+    /* Outer & Inner Gold Foil Borders */
+    .page-border-outer {
+      position: absolute;
+      top: 6mm;
+      bottom: 6mm;
+      left: 6mm;
+      right: 6mm;
+      border: 2pt solid #C6A15B;
+      border-radius: 4mm;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .page-border-inner {
+      position: absolute;
+      top: 8mm;
+      bottom: 8mm;
+      left: 8mm;
+      right: 8mm;
+      border: 1pt dashed #C6A15B;
+      border-radius: 3mm;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .corner-ornament {
+      position: absolute;
+      width: 14mm;
+      height: 14mm;
+      pointer-events: none;
+      z-index: 11;
+    }
+    .c-tl { top: 9mm; left: 9mm; border-top: 2.5pt solid #8B1E2E; border-left: 2.5pt solid #8B1E2E; }
+    .c-tr { top: 9mm; right: 9mm; border-top: 2.5pt solid #8B1E2E; border-right: 2.5pt solid #8B1E2E; }
+    .c-bl { bottom: 9mm; left: 9mm; border-bottom: 2.5pt solid #8B1E2E; border-left: 2.5pt solid #8B1E2E; }
+    .c-br { bottom: 9mm; right: 9mm; border-bottom: 2.5pt solid #8B1E2E; border-right: 2.5pt solid #8B1E2E; }
+
+    /* Header Elements */
+    .page-header-block {
+      text-align: center;
+      margin-top: 4mm;
+      position: relative;
+      z-index: 5;
+    }
+
+    .invocations-text {
+      font-family: 'Cinzel', serif;
+      font-size: 8.5pt;
+      font-weight: 700;
+      letter-spacing: 2.5pt;
+      text-transform: uppercase;
+      color: #651E2B;
+      margin-bottom: 2mm;
+    }
+
+    .ganesha-svg-img {
+      width: 20mm;
+      height: 22mm;
+      margin: 0 auto 2mm;
+      display: block;
+    }
+
+    .card-verse {
+      font-size: 10pt;
+      font-style: italic;
+      color: #4A423D;
+      line-height: 1.4;
+      max-width: 155mm;
+      margin: 0 auto 3mm;
+    }
+
+    .main-title-gold {
+      font-family: 'Cinzel', serif;
+      font-size: 21pt;
+      font-weight: 800;
+      letter-spacing: 3pt;
+      text-transform: uppercase;
+      color: #651E2B;
+      border-top: 1pt solid #C6A15B;
+      border-bottom: 1pt solid #C6A15B;
+      padding: 2.5mm 0;
+      margin: 2mm auto 4mm;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .wedding-date-banner {
+      font-family: 'Cinzel', serif;
+      font-size: 11pt;
+      font-weight: 700;
+      letter-spacing: 2pt;
+      color: #916F2E;
+      margin-bottom: 4mm;
+    }
+
+    /* Page 1: Both Couples Layout */
+    .couples-p1-grid {
+      display: grid;
+      grid-template-columns: 1fr 18mm 1fr;
+      align-items: center;
+      gap: 3mm;
+      margin: 3mm 0;
+      position: relative;
+      z-index: 5;
+    }
+
+    .couple-p1-card {
+      background: #FAF6EF;
+      border: 1.2pt solid #C6A15B;
+      border-radius: 3mm;
+      padding: 5mm 4mm;
+      text-align: center;
+    }
+
+    .couple-badge-p1 {
+      font-family: 'Inter', sans-serif;
+      font-size: 6.5pt;
+      font-weight: 700;
+      letter-spacing: 1.5pt;
+      text-transform: uppercase;
+      background: #211D1B;
+      color: #FAF7F0;
+      padding: 1.5mm 4mm;
+      border-radius: 10mm;
+      display: inline-block;
+      margin-bottom: 3mm;
+    }
+
+    .role-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 7.5pt;
+      font-weight: 600;
+      letter-spacing: 1pt;
+      text-transform: uppercase;
+      color: #916F2E;
+      margin-bottom: 1mm;
+    }
+
+    .p-name {
+      font-family: 'Cinzel', serif;
+      font-size: 13pt;
+      font-weight: 800;
+      letter-spacing: 1pt;
+      color: #211D1B;
+      margin-bottom: 1mm;
+    }
+
+    .p-parents {
+      font-size: 9pt;
+      color: #5E554E;
+      margin-bottom: 2mm;
+    }
+
+    .and-connector {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 13pt;
+      color: #651E2B;
+      margin: 1.5mm 0;
+    }
+
+    .date-tag-p1 {
+      font-family: 'Cinzel', serif;
+      font-size: 8pt;
+      font-weight: 700;
+      color: #651E2B;
+      background: #FFFDF9;
+      border: 0.8pt solid #C6A15B;
+      border-radius: 2mm;
+      padding: 1.5mm 2mm;
+      margin-top: 2.5mm;
+    }
+
+    .hastamelap-center {
+      text-align: center;
+    }
+
+    .hastamelap-center img {
+      width: 17mm;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    /* Ancestral Lineage & Residence P1 */
+    .lineage-p1-box {
+      background: #FAF6EF;
+      border: 1pt solid #C6A15B;
+      border-radius: 2mm;
+      padding: 3mm 4mm;
+      margin: 2mm 0;
+      text-align: center;
+      position: relative;
+      z-index: 5;
+    }
+
+    .lineage-title-p1 {
+      font-family: 'Cinzel', serif;
+      font-size: 8pt;
+      font-weight: 700;
+      letter-spacing: 1.5pt;
+      color: #651E2B;
+      margin-bottom: 1.5mm;
+    }
+
+    .lineage-row-p1 {
+      display: flex;
+      justify-content: space-around;
+      font-size: 8.5pt;
+      color: #211D1B;
+    }
+
+    .residence-p1-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4mm;
+      background: #211D1B;
+      color: #FAF7F0;
+      border: 1.5pt solid #C6A15B;
+      border-radius: 3mm;
+      padding: 3.5mm 6mm;
+      position: relative;
+      z-index: 5;
+      margin-bottom: 3mm;
+    }
+
+    .crest-p1-img {
+      width: 18mm;
+      height: auto;
+      flex-shrink: 0;
+    }
+
+    .residence-text-p1 {
+      flex: 1;
+      text-align: left;
+    }
+
+    .res-head {
+      font-family: 'Cinzel', serif;
+      font-size: 10pt;
+      font-weight: 700;
+      letter-spacing: 1pt;
+      color: #EBD49B;
+    }
+
+    .res-sub {
+      font-size: 8pt;
+      color: #D1C7BA;
+      margin-top: 0.5mm;
+    }
+
+    .res-contact {
+      font-family: 'Inter', sans-serif;
+      font-size: 7.5pt;
+      font-weight: 600;
+      color: #FAF7F0;
+      margin-top: 1mm;
+    }
+
+    /* PAGE 2: EVENTS SCHEDULE */
+    .p2-events-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3.5mm;
+      margin: 3mm 0;
+      position: relative;
+      z-index: 5;
+    }
+
+    .event-p2-card {
+      background: #FAF6EF;
+      border: 1pt solid #C6A15B;
+      border-radius: 2.5mm;
+      padding: 3.5mm 3mm;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .ev-num {
+      font-family: 'Inter', sans-serif;
+      font-size: 6.5pt;
+      font-weight: 700;
+      letter-spacing: 1pt;
+      color: #916F2E;
+      margin-bottom: 1mm;
+    }
+
+    .ev-title {
+      font-family: 'Cinzel', serif;
+      font-size: 10pt;
+      font-weight: 700;
+      color: #211D1B;
+      margin-bottom: 1mm;
+      line-height: 1.2;
+    }
+
+    .ev-time-date {
+      font-family: 'Inter', sans-serif;
+      font-size: 7.5pt;
+      font-weight: 600;
+      color: #651E2B;
+      margin-bottom: 1mm;
+    }
+
+    .ev-desc {
+      font-size: 8pt;
+      color: #5E554E;
+      line-height: 1.35;
+    }
+
+    .baraat-notice-p2 {
+      background: #FAF6EF;
+      border: 1pt dashed #C6A15B;
+      border-radius: 2mm;
+      padding: 3mm 5mm;
+      margin: 3mm 0;
+      font-size: 8pt;
+      color: #211D1B;
+      line-height: 1.4;
+      position: relative;
+      z-index: 5;
+    }
+
+    /* PAGE 3: RECEPTION & FAMILY DETAILS */
+    .reception-p3-banner {
+      background: #FAF6EF;
+      border: 1.5pt solid #C6A15B;
+      border-radius: 3mm;
+      padding: 4mm 6mm;
+      text-align: center;
+      margin-bottom: 4mm;
+      position: relative;
+      z-index: 5;
+    }
+
+    .toran-p3-img {
+      width: 90mm;
+      height: auto;
+      margin: 0 auto 2mm;
+      display: block;
+    }
+
+    .rec-heading {
+      font-family: 'Cinzel', serif;
+      font-size: 14pt;
+      font-weight: 800;
+      letter-spacing: 2pt;
+      color: #651E2B;
+      margin-bottom: 1mm;
+    }
+
+    .rec-time {
+      font-family: 'Cinzel', serif;
+      font-size: 10pt;
+      font-weight: 700;
+      color: #916F2E;
+      margin-bottom: 2mm;
+    }
+
+    .rec-venue {
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: #211D1B;
+    }
+
+    .family-p3-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3.5mm;
+      position: relative;
+      z-index: 5;
+      margin-bottom: 3mm;
+    }
+
+    .fam-box-p3 {
+      background: #FAF6EF;
+      border: 0.8pt solid #C6A15B;
+      border-radius: 2mm;
+      padding: 3mm 3.5mm;
+      font-size: 8pt;
+      line-height: 1.35;
+    }
+
+    .fam-title-p3 {
+      font-family: 'Cinzel', serif;
+      font-size: 8pt;
+      font-weight: 700;
+      letter-spacing: 1pt;
+      color: #651E2B;
+      border-bottom: 0.8pt solid #C6A15B;
+      padding-bottom: 1mm;
+      margin-bottom: 1.5mm;
+    }
+
+    .child-plea-p3 {
+      background: #FFFDF9;
+      border: 1pt dashed #C6A15B;
+      border-radius: 2mm;
+      padding: 2.5mm 4mm;
+      text-align: center;
+      font-size: 8pt;
+      font-style: italic;
+      color: #651E2B;
+      margin-bottom: 3mm;
+      position: relative;
+      z-index: 5;
+    }
+
+    .p3-footer-enterprises {
+      text-align: center;
+      font-family: 'Cinzel', serif;
+      font-size: 7.5pt;
+      letter-spacing: 1pt;
+      color: #916F2E;
+      margin-bottom: 3mm;
+      position: relative;
+      z-index: 5;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================================================
+       PAGE 1: TRADITIONAL ROYAL INVITATION COVER
+       ========================================================================= -->
+  <div class="pdf-page">
+    <div class="page-border-outer"></div>
+    <div class="page-border-inner"></div>
+    <div class="corner-ornament c-tl"></div>
+    <div class="corner-ornament c-tr"></div>
+    <div class="corner-ornament c-bl"></div>
+    <div class="corner-ornament c-br"></div>
+
+    <div class="page-header-block">
+      <div class="invocations-text">|| Shri Baan Mataji Namah || &bull; || Shri Ganeshay Namah || &bull; || Shri Majisa Namah ||</div>
+      <img src="assets/ganesha.svg" alt="Lord Ganesha" class="ganesha-svg-img">
+      <div class="card-verse">
+        "O Lord Ganesha, Remover of All Obstacles and Harbinger of Auspicious Fortune;<br>
+        Graced by Divine Riddhi and Siddhi, kindly arrive and fulfill our sacred celebration."
+      </div>
+      <div class="main-title-gold">THE WEDDING INVITATION</div>
+      <div class="wedding-date-banner">SATURDAY, 12 DECEMBER 2026</div>
+    </div>
+
+    <!-- Both Couples Prominently Displayed with Equal Importance -->
+    <div class="couples-p1-grid">
+      <div class="couple-p1-card">
+        <div class="couple-badge-p1">First Couple</div>
+        <div class="role-sub">Groom</div>
+        <div class="p-name">AYUSHMAN AKASH</div>
+        <div class="p-parents">Son of Mrs. Anuradha &amp; Mr. Kailash Gehlot</div>
+        <div class="and-connector">&amp;</div>
+        <div class="role-sub">Bride</div>
+        <div class="p-name">AYUSHMATI REENA</div>
+        <div class="p-parents">Daughter of Mrs. Jashoda Devi &amp; Mr. Gopalji Chauhan</div>
+        <div class="date-tag-p1">Wedding Date: 10 December 2026</div>
+      </div>
+
+      <div class="hastamelap-center">
+        <img src="assets/hastamelap.svg" alt="Hastamelap">
+      </div>
+
+      <div class="couple-p1-card">
+        <div class="couple-badge-p1">Second Couple</div>
+        <div class="role-sub">Bride</div>
+        <div class="p-name">AYUSHMATI SHIVANI (JEENU)</div>
+        <div class="p-parents">Daughter of Mrs. Anuradha &amp; Mr. Kailash Gehlot</div>
+        <div class="and-connector">&amp;</div>
+        <div class="role-sub">Groom</div>
+        <div class="p-name">AYUSHMAN DHEERAJ JI</div>
+        <div class="p-parents">Son of Mrs. Renu Ji &amp; Mr. Mukeshji Parihar</div>
+        <div class="date-tag-p1">Wedding Date: 12 December 2026</div>
+      </div>
+    </div>
+
+    <!-- Revered Ancestral Lineage -->
+    <div class="lineage-p1-box">
+      <div class="lineage-title-p1">✦ Revered Ancestral Lineage &amp; Blessings ✦</div>
+      <div class="lineage-row-p1">
+        <div><strong>Paternal Great-Grandparents:</strong> Late Mrs. Lehari Bai &amp; Late Mr. Gyarsilalji</div>
+        <div><strong>Beloved Grandparents:</strong> Mrs. Durga Bai &amp; Late Mr. Madanlalji Gehlot</div>
+      </div>
+    </div>
+
+    <!-- Gehlot Parivar Crest & Residence -->
+    <div class="residence-p1-footer">
+      <img src="assets/crest.svg" alt="Gehlot Crest" class="crest-p1-img">
+      <div class="residence-text-p1">
+        <div class="res-head">GEHLOT PARIVAR &bull; CORDIALLY WELCOMES YOU</div>
+        <div class="res-sub">Residence: Mr. Kailashchand, Son of Late Shri Madanlalji Gehlot (Lohar)</div>
+        <div class="res-sub">162, Pancham Nagar, Near Khetaramji Pyau Wali Gali, Ramdev Road, Pali-Marwar, Rajasthan – 306401</div>
+        <div class="res-contact">Helpline: +91 9214537106 &bull; +91 8824338255 &bull; +91 7014922660</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       PAGE 2: COMPLETE WEDDING EVENTS SCHEDULE (ALL 9 CEREMONIES)
+       ========================================================================= -->
+  <div class="pdf-page">
+    <div class="page-border-outer"></div>
+    <div class="page-border-inner"></div>
+    <div class="corner-ornament c-tl"></div>
+    <div class="corner-ornament c-tr"></div>
+    <div class="corner-ornament c-bl"></div>
+    <div class="corner-ornament c-br"></div>
+
+    <div class="page-header-block">
+      <div class="invocations-text">✦ Traditional Ceremonial Timeline ✦</div>
+      <div class="main-title-gold" style="font-size: 18pt;">WEDDING EVENTS SCHEDULE</div>
+      <div class="card-verse">
+        "Written with heartfelt love, please honor our call; this priceless moment beckons, bestow your blessings on all."
+      </div>
+    </div>
+
+    <!-- All 9 Wedding Ceremonies -->
+    <div class="p2-events-grid">
+      <!-- 1. Bhootpaan -->
+      <div class="event-p2-card">
+        <div class="ev-num">Event 01</div>
+        <div class="ev-title">Bhootpaan (Ghritpaan)</div>
+        <div class="ev-time-date">Monday, 7 Dec 2026 • 3:15 PM</div>
+        <div class="ev-desc">Sacred ritual symbolizing divine purity, sanctification, and auspicious beginnings.</div>
+      </div>
+
+      <!-- 2. Vinayak -->
+      <div class="event-p2-card">
+        <div class="ev-num">Event 02</div>
+        <div class="ev-title">Vinayak Ceremony</div>
+        <div class="ev-time-date">Monday, 7 Dec 2026 • 5:15 PM</div>
+        <div class="ev-desc">Ceremonial invocation of Lord Ganesha to bless the home and remove all obstacles.</div>
+      </div>
+
+      <!-- 3. Haldi & Mehendi -->
+      <div class="event-p2-card">
+        <div class="ev-num">Event 03</div>
+        <div class="ev-title">Haldi &amp; Mehendi</div>
+        <div class="ev-time-date">Tuesday, 8 Dec 2026 • 1:15 PM</div>
+        <div class="ev-desc">Turmeric blessings, intricate bridal henna artistry, melodious folk songs, and joy.</div>
+      </div>
+
+      <!-- 4. Mayra -->
+      <div class="event-p2-card">
+        <div class="ev-num">Event 04</div>
+        <div class="ev-title">Mayra Ceremony (Bhat)</div>
+        <div class="ev-time-date">Wednesday, 9 Dec 2026 • 12:15 PM</div>
+        <div class="ev-desc">Traditional offerings where maternal uncles shower blessings and wedding garments.</div>
+      </div>
+
+      <!-- 5. Bannoli -->
+      <div class="event-p2-card">
+        <div class="ev-num">Event 05</div>
+        <div class="ev-title">Bannoli Ceremony</div>
+        <div class="ev-time-date">Wednesday, 9 Dec 2026 • 5:15 PM</div>
+        <div class="ev-desc">Royal celebratory procession honoring the couple with traditional folk pomp and sweets.</div>
+      </div>
+
+      <!-- 6. Ladies Sangeet -->
+      <div class="event-p2-card">
+        <div class="ev-num">Event 06</div>
+        <div class="ev-title">Ladies Sangeet</div>
+        <div class="ev-time-date">Wednesday, 9 Dec 2026 • 8:00 PM</div>
+        <div class="ev-desc">Vibrant musical night with Rajasthani folk dances, family performances, and festive joy.</div>
+      </div>
+
+      <!-- 7. Baraat Departure -->
+      <div class="event-p2-card">
+        <div class="ev-num">Event 07</div>
+        <div class="ev-title">Baraat Departure</div>
+        <div class="ev-time-date">Thursday, 10 Dec 2026 • 12:15 PM</div>
+        <div class="ev-desc">Grand ceremonial departure of the groom's procession with dholak beats and royal music.</div>
+      </div>
+
+      <!-- 8. Baraat Welcome -->
+      <div class="event-p2-card">
+        <div class="ev-num">Event 08</div>
+        <div class="ev-title">Baraat Welcome</div>
+        <div class="ev-time-date">Saturday, 12 Dec 2026 • 5:15 PM</div>
+        <div class="ev-desc">Traditional greeting with rose petal showers, rosewater essence, and ceremonial aarti.</div>
+      </div>
+
+      <!-- 9. Wedding Ceremony -->
+      <div class="event-p2-card" style="border: 1.5pt solid #8B1E2E;">
+        <div class="ev-num" style="color: #8B1E2E;">Event 09 &bull; Vedic Nuptials</div>
+        <div class="ev-title">Panigrahan Sanskar</div>
+        <div class="ev-time-date">Saturday, 12 Dec 2026 • 10:15 PM</div>
+        <div class="ev-desc">The sacred seven vows around the holy fire uniting both couples in eternal union.</div>
+      </div>
+    </div>
+
+    <!-- Special Transportation Notice -->
+    <div class="baraat-notice-p2">
+      <strong>Special Baraat Transportation Arrangements:</strong><br>
+      &bull; <strong>Samdari Route:</strong> Baraat of respected Samdhi Shri Chhagan ji, Kishan ji, Nandkishor ji, Gopal ji (son of Dhanraj ji Chauhan) will proceed to Samdari by Bus.<br>
+      &bull; <strong>Balotra Route:</strong> Baraat of respected Samdhi Shri Bhanwarlal ji, Gopal ji, Murli ji, Manohar ji, Mukesh ji (son of Madanlal ji) will arrive from Balotra by Bus.
+    </div>
+
+    <div class="p3-footer-enterprises" style="margin-bottom: 2mm;">
+      Gehlot Dhaar Center &bull; Jasol Maa Hastkala Udyog &bull; Pali-Marwar, Rajasthan
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       PAGE 3: BLESSING CEREMONY, RECEPTION & FAMILY DIRECTORY
+       ========================================================================= -->
+  <div class="pdf-page">
+    <div class="page-border-outer"></div>
+    <div class="page-border-inner"></div>
+    <div class="corner-ornament c-tl"></div>
+    <div class="corner-ornament c-tr"></div>
+    <div class="corner-ornament c-bl"></div>
+    <div class="corner-ornament c-br"></div>
+
+    <!-- Highlighted Reception Box -->
+    <div class="reception-p3-banner">
+      <img src="assets/toran.svg" alt="Toran" class="toran-p3-img">
+      <div class="rec-heading">BLESSING CEREMONY &amp; GRAND WEDDING RECEPTION</div>
+      <div class="rec-time">Saturday, 12 December 2026 &bull; From 6:15 PM onwards until your arrival</div>
+      <div class="rec-venue">Venue: KUMAWAT VATIKA, Punayata Road, Pali, Rajasthan – 306401, India</div>
+    </div>
+
+    <!-- Family Details Grid -->
+    <div class="family-p3-grid">
+      <!-- Special Blessings & Dignitaries -->
+      <div class="fam-box-p3">
+        <div class="fam-title-p3">Special Blessings &amp; Guests</div>
+        <strong>Special Blessings:</strong> Mrs. Durga Devi, Mrs. Kamla Devi, Mrs. Annu Devi<br>
+        <strong>Special Guests:</strong> Mr. Dineshji (Bhopaji), Mr. Sanjay ji Rathore<br>
+        <strong>Special Request:</strong> Mr. Rakeshji, Mr. Rajeshji, Mr. Vinodji
+      </div>
+
+      <!-- Welcomers & Hosts -->
+      <div class="fam-box-p3">
+        <div class="fam-title-p3">Welcomers &amp; Welcome Committee</div>
+        <strong>Swagatatur:</strong> Mrs. Kamla Devi - Late Banshilalji, Mrs. Bhaga Bai - Ishwarlalji<br>
+        <strong>Swagatkarta:</strong> Mrs. Santosh - Adv. Kishorji Gehlot, Sunita - Umesh ji, Taroona - Shekhar, Kaushalya - Ramesh, Poonam - Late Ashok ji, Kashak - Mahadev, Deepika - Tarun ji, Rajeshwari - Dev ji
+      </div>
+
+      <!-- Humble Solicitations -->
+      <div class="fam-box-p3">
+        <div class="fam-title-p3">Humble Solicitations (Vineet)</div>
+        Mr. Banshilalji, Mr. Punamchandji, Mr. Kanhaiyalalji, Mr. Lalchandji, Mr. Ranchhodji, Mr. Kailashji, Mr. Mukeshji, Mr. Kishorji, Mr. Ratanji, Mr. Shekharji, Mr. Jitendraji, Mr. Gresik, Mr. Krishna, Mr. Jay, Mr. Siddharth &amp; <strong>Entire Gehlot Family</strong>
+      </div>
+
+      <!-- Daughters & Sons-in-law (Javai Paksh) -->
+      <div class="fam-box-p3">
+        <div class="fam-title-p3">Daughters &amp; Sons-in-law (Javai Paksh)</div>
+        Kamla Devi - Late Devkishanji Parihar, Gayatri - Chandraprakash ji, Premlata - Ashok ji, Rekha - Susheel ji, Bhagwanti - Dilip ji, Deepika - Mahendra ji, Rekha - Manish ji, Pooja - Laxman ji, Taroona - Tarun ji, Pramila - Ashok ji, Manju - Gajendra ji, Khushboo - Prateek ji
+      </div>
+
+      <!-- Maternal Family (Nanihal Paksh) -->
+      <div class="fam-box-p3">
+        <div class="fam-title-p3">Maternal Family (Nanihal Paksh)</div>
+        Ashok ji Bhomiya, Late Banshilalji, Kailashji, Rameshwarji, Chandraprakashji, Nathulalji, Dineshji, Rajendraji, Rakeshji, Rameshji, Pintu ji, Vikramji, Manohar ji, Himmat, Mahadev, Bhavesh, Naresh, Dhiraj, Rajendra &amp; <strong>Samast Parihar Family (Jodhpur)</strong>
+      </div>
+
+      <!-- Nephews (Bhanej Paksh) -->
+      <div class="fam-box-p3">
+        <div class="fam-title-p3">Nephews (Bhanej Paksh)</div>
+        Arun, Gaurav, Bhavya, Jayesh, Raunak, Vaibhav (Kanha), Bhavya, Raghuvir, Kunwar Raj Solanki
+      </div>
+    </div>
+
+    <!-- Child's Sweet Request -->
+    <div class="child-plea-p3">
+      "Please do come and celebrate my dearest Uncle and Aunt's wedding with lots of fun and joy!"<br>
+      <strong>— Affectionate Request by Kunwar Raj Solanki (Ladu)</strong><br>
+      <span style="font-size: 7.5pt; color: #555;">Awaiting Eyes: Jaanvi, Pihu, Adhishree, Swaroopa, Yakshita, Pari, Yashvi, Tanushree, Komal, Veera</span>
+    </div>
+
+    <div class="p3-footer-enterprises">
+      © 2026 Gehlot Parivar &bull; Royal Wedding Invitation &bull; Pali-Marwar, Rajasthan
+    </div>
+  </div>
+
+</body>
+</html>

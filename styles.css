@@ -1596,240 +1596,779 @@ button {
 }
 
 /* ==========================================================================
-   SECTION 7: EDITORIAL INVITATION STORY & TRADITIONS
-   ========================================================================= */
+   SECTION 7: TRADITIONAL WEDDING INVITATION OPENING COVER
+   Aesthetic: Traditional Printed Royal Jain Wedding Invitation Card
+   Warm Ivory, Antique Gold, Deep Maroon, Ornate Borders, Ganesha & Both Couples
+   ========================================================================== */
 
-.story-editorial-section {
+.invitation-cover-section {
   background: var(--color-ivory);
+  padding: 90px 20px 100px;
+  position: relative;
+  overflow: hidden;
 }
 
-.story-article-card {
-  max-width: 900px;
+.invitation-cover-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gold-gradient);
+}
+
+/* Outer Card Container */
+.traditional-invitation-cover-card {
+  max-width: 880px;
   margin: 0 auto;
-  background: #fff;
-  border: 1.5px solid var(--color-border-gold);
-  border-radius: 18px;
-  padding: 4rem 3.5rem;
-  box-shadow: var(--shadow-card);
+  background: #FFFDF9;
+  border: 3px solid #C6A15B;
+  box-shadow: 0 15px 45px rgba(33, 29, 27, 0.12), 0 0 0 6px #FAF7F0, 0 0 0 8px #C6A15B;
+  border-radius: 14px;
+  padding: 12px;
+  position: relative;
 }
 
-.story-kalash-header {
+/* Inner Gold Border with Corner Flourishes */
+.traditional-invitation-inner-border {
+  position: relative;
+  border: 1.5px solid rgba(198, 161, 91, 0.7);
+  border-radius: 9px;
+  padding: 42px 36px;
+  background: #FFFDF9;
+}
+
+/* Corner Filigrees */
+.traditional-corner-flourish {
+  position: absolute;
+  font-size: 1.6rem;
+  color: #C6A15B;
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+}
+.traditional-corner-flourish.corner-tl {
+  top: 8px;
+  left: 10px;
+}
+.traditional-corner-flourish.corner-tr {
+  top: 8px;
+  right: 10px;
+  transform: scaleX(-1);
+}
+.traditional-corner-flourish.corner-bl {
+  bottom: 8px;
+  left: 10px;
+  transform: scaleY(-1);
+}
+.traditional-corner-flourish.corner-br {
+  bottom: 8px;
+  right: 10px;
+  transform: scale(-1);
+}
+
+/* Header & Divine Invocations */
+.traditional-invitation-top-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.traditional-shree-invocations {
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--color-maroon);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.traditional-shree-invocations .inv-sep {
+  color: var(--color-gold);
+}
+
+.traditional-ganesha-badge {
+  width: 90px;
+  height: 90px;
+  margin: 8px auto 14px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 2.5rem;
+  justify-content: center;
 }
 
-.story-kalash-icon {
-  width: 65px;
-  height: auto;
+.traditional-ganesha-img {
+  width: 82px;
+  height: 82px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(198, 161, 91, 0.45));
 }
 
-.story-header-text {
+.traditional-couplets-wrap {
+  max-width: 680px;
+  margin: 0 auto 14px;
   text-align: center;
 }
 
-.story-couplet-box {
-  background: var(--color-cream);
-  border: 1px solid rgba(198, 161, 91, 0.4);
-  border-radius: 12px;
-  padding: 1.8rem 2.2rem;
-  margin-bottom: 2.8rem;
-  text-align: center;
-}
-
-.couplet-line {
-  font-family: var(--font-serif);
-  font-size: 1.25rem;
+.traditional-couplet-text {
+  font-family: 'Cormorant Garamond', Georgia, serif;
   font-style: italic;
-  color: var(--color-charcoal);
-  line-height: 1.7;
-  margin-bottom: 0.8rem;
-}
-
-.couplet-rhyme {
-  font-family: var(--font-serif);
-  font-size: 1.25rem;
-  font-style: italic;
-  font-weight: 700;
-  color: var(--color-maroon);
-  line-height: 1.7;
-}
-
-.story-body-editorial {
-  font-family: var(--font-serif);
-  font-size: 1.35rem;
-  line-height: 1.85;
-  color: var(--color-charcoal);
-  margin-bottom: 2.8rem;
-}
-
-.story-p {
-  margin-bottom: 1.5rem;
-}
-
-.drop-cap {
-  font-family: var(--font-display);
-  font-size: 4rem;
-  line-height: 0.85;
-  float: left;
-  margin-right: 0.8rem;
-  color: var(--color-maroon);
-  font-weight: 700;
-}
-
-/* Child Plea */
-.child-plea-editorial {
-  background: var(--color-cream-light);
-  border: 2px dashed var(--color-gold);
-  border-radius: 14px;
-  padding: 2.2rem 2.5rem;
-  margin-bottom: 2.8rem;
-  text-align: center;
-}
-
-.child-quote-mark {
-  font-family: var(--font-display);
-  font-size: 3rem;
-  line-height: 1;
-  color: var(--color-gold);
-  display: block;
-  margin-bottom: -0.5rem;
-}
-
-.child-quote-text {
-  font-family: var(--font-serif);
-  font-size: 1.45rem;
-  font-style: italic;
+  font-size: 1.15rem;
   font-weight: 600;
   color: var(--color-maroon);
-  line-height: 1.6;
-  margin-bottom: 0.8rem;
+  line-height: 1.45;
 }
 
-.child-signature {
-  font-family: var(--font-royal);
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  color: var(--color-charcoal);
+.traditional-couplet-sub {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.0rem;
+  color: var(--color-maroon-dark);
+  margin-top: 4px;
+  line-height: 1.4;
 }
 
-/* Awaiting Children */
-.awaiting-children-wrap {
+.traditional-toran-motif {
+  margin: 12px auto 0;
+  max-width: 460px;
+}
+
+.toran-svg-motif {
+  width: 100%;
+  max-height: 36px;
+  object-fit: contain;
+}
+
+/* Card Main Heading & Date */
+.traditional-card-main-heading-block {
   text-align: center;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--color-border-gold);
+  margin: 28px 0 24px;
 }
 
-.awaiting-heading {
-  font-family: var(--font-royal);
-  font-size: 0.85rem;
+.card-super-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--color-gold-dark);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.traditional-card-title {
+  font-family: 'Cinzel', serif;
+  font-size: 2.3rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: var(--color-maroon);
+  margin: 0 0 10px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.traditional-date-ribbon {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #F5EBDD;
+  border: 1px solid var(--color-gold);
+  border-radius: 20px;
+  padding: 6px 22px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--color-maroon);
+}
+
+.date-calendar-icon {
+  font-size: 1.05rem;
+}
+
+/* Both Couples Balanced Editorial Showcase */
+.traditional-couples-layout {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 22px;
+  margin: 32px 0;
+  background: rgba(245, 235, 221, 0.45);
+  border: 1px dashed rgba(198, 161, 91, 0.6);
+  border-radius: 12px;
+  padding: 24px 20px;
+}
+
+.traditional-couple-card {
+  background: #FFFDF9;
+  border: 1.5px solid var(--color-gold);
+  border-radius: 10px;
+  padding: 22px 18px;
+  text-align: center;
+  box-shadow: 0 4px 18px rgba(33, 29, 27, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.traditional-couple-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(198, 161, 91, 0.25);
+}
+
+.couple-card-gold-head {
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: var(--color-gold-dark);
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(198, 161, 91, 0.35);
+  padding-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.traditional-person-block {
+  margin: 6px 0;
+}
+
+.traditional-person-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 2px;
   color: var(--color-gold-dark);
   display: block;
-  margin-bottom: 1.2rem;
+  margin-bottom: 2px;
 }
 
-.children-badges-list {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.8rem 1.2rem;
+.traditional-person-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-maroon);
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
 }
 
-.child-tag {
-  background: var(--color-cream);
-  border: 1px solid rgba(198, 161, 91, 0.4);
-  border-radius: 20px;
-  padding: 0.4rem 1rem;
-  font-size: 0.9rem;
-  font-weight: 600;
+.traditional-parents-info {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.95rem;
+  color: var(--color-maroon-dark);
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+
+.traditional-parents-info strong {
   color: var(--color-charcoal);
 }
 
-/* ==========================================================================
-   SECTION 8: FAMILY & BLESSINGS DIRECTORY
-   ========================================================================= */
-
-.family-directory-section {
-  background: var(--color-cream-light);
-}
-
-.family-directory-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-}
-
-.family-directory-card {
-  background: #fff;
-  border: 1.5px solid var(--color-border-gold);
-  border-radius: 14px;
-  padding: 2.2rem 2rem;
-  box-shadow: var(--shadow-card);
-  transition: transform var(--transition-fast);
-}
-
-.family-directory-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
-}
-
-.card-gold-ribbon {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-family: var(--font-royal);
-  font-size: 1.05rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: var(--color-maroon);
-  padding-bottom: 0.8rem;
-  border-bottom: 1.5px solid var(--color-gold);
-  margin-bottom: 1.2rem;
-}
-
-.card-gold-ribbon.sub-ribbon {
-  margin-top: 1.8rem;
-  font-size: 0.95rem;
-}
-
-.family-names-list {
-  list-style: none;
+.traditional-sang-symbol {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  align-items: center;
+  gap: 3px;
+  margin: 10px 0;
 }
 
-.family-names-list li {
-  font-family: var(--font-serif);
-  font-size: 1.15rem;
+.traditional-hastamelap-icon {
+  width: 48px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.traditional-sang-symbol .sang-text {
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: var(--color-gold);
+}
+
+.traditional-couple-date-badge {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(198, 161, 91, 0.4);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.76rem;
+  color: var(--color-maroon);
+}
+
+.traditional-couple-date-badge strong {
   color: var(--color-charcoal);
+}
+
+/* Center Separator between Couples */
+.traditional-couples-separator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.traditional-couples-separator .sep-line {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(180deg, transparent, var(--color-gold), transparent);
+}
+
+.sep-crest-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.sep-crest-img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.sep-crest-txt {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--color-gold);
+}
+
+/* Recipient Space & Family Signature */
+.traditional-recipient-box {
+  margin: 24px 0 18px;
+  padding: 16px 22px;
+  border: 1px solid rgba(198, 161, 91, 0.45);
+  border-radius: 8px;
+  background: #FAF7F0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.recipient-lines-wrap {
+  flex: 1;
+  min-width: 250px;
+}
+
+.recipient-label {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--color-maroon);
+  margin-bottom: 6px;
+}
+
+.calligraphy-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.calligraphy-lines .c-line {
+  height: 1px;
+  background: var(--color-gold);
+  width: 100%;
+  opacity: 0.65;
+}
+
+.recipient-family-sign {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 12px;
+  padding-left: 18px;
+  border-left: 1px solid rgba(198, 161, 91, 0.45);
 }
 
-.family-names-list li::before {
-  content: '✦';
-  color: var(--color-gold);
+.sign-crest {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.sign-family-title {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--color-maroon);
+  letter-spacing: 1.5px;
+}
+
+.sign-welcome-note {
+  display: block;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.92rem;
+  color: var(--color-maroon-dark);
+  font-style: italic;
+}
+
+/* Residence & Contact Verification */
+.traditional-residence-snippet {
+  margin: 14px 0 24px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  color: #554D48;
+  line-height: 1.6;
+}
+
+.traditional-residence-snippet strong {
+  color: var(--color-charcoal);
+}
+
+/* ===================================================================
+   PROMINENT "CLICK HERE TO OPEN INVITATION" CALL-TO-ACTION BUTTON
+   =================================================================== */
+.traditional-cta-container {
+  margin-top: 28px;
+  text-align: center;
+}
+
+.traditional-click-btn {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  max-width: 520px;
+  padding: 18px 28px;
+  background: linear-gradient(135deg, #EBD49B 0%, #C6A15B 45%, #916F2E 100%);
+  color: #141110;
+  border: 2px solid #FFF2CC;
+  border-radius: 40px;
+  box-shadow: 0 10px 30px rgba(198, 161, 91, 0.4), 0 0 0 2px rgba(198, 161, 91, 0.35);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+}
+
+.traditional-click-btn .btn-stars {
   font-size: 0.75rem;
+  letter-spacing: 4px;
+  color: var(--color-maroon-dark);
 }
 
-.family-names-list.two-col-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.6rem;
+.traditional-click-btn .btn-label-primary {
+  font-family: 'Cinzel', serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  color: #141110;
 }
 
-.highlight-family-item {
-  font-weight: 700 !important;
-  color: var(--color-maroon) !important;
-  margin-top: 0.4rem;
+.traditional-click-btn .btn-subtext {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #332B25;
+  letter-spacing: 0.5px;
 }
 
+.traditional-click-btn .btn-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  animation: traditionalShine 3.5s infinite ease-in-out;
+}
+
+@keyframes traditionalShine {
+  0% { left: -100%; }
+  40%, 100% { left: 180%; }
+}
+
+.traditional-click-btn:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 16px 40px rgba(198, 161, 91, 0.55), 0 0 0 3px #FFF2CC;
+}
+
+.traditional-click-btn:active {
+  transform: translateY(0) scale(0.99);
+}
+
+/* Secondary Actions */
+.traditional-secondary-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+.traditional-pdf-pill,
+.traditional-html-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: 1.5px solid var(--color-gold);
+  background: #FAF7F0;
+  color: var(--color-maroon);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.traditional-pdf-pill:hover,
+.traditional-html-pill:hover {
+  background: #F5EBDD;
+  border-color: var(--color-maroon);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(198, 161, 91, 0.2);
+}
+
+/* ===================================================================
+   ROYAL WEDDING INVITATION LIGHTBOX MODAL
+   =================================================================== */
+.invitation-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(18, 15, 14, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.invitation-modal-overlay.open {
+  display: flex;
+  opacity: 1;
+}
+
+.invitation-modal-container {
+  width: 100%;
+  max-width: 920px;
+  height: 92vh;
+  max-height: 920px;
+  background: #1A1614;
+  border: 2px solid var(--color-gold);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  animation: modalPopIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes modalPopIn {
+  0% { transform: scale(0.95); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.invitation-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: #211D1B;
+  border-bottom: 1.5px solid var(--color-gold);
+  color: var(--color-ivory);
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.modal-header-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-crest-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.modal-brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--color-gold);
+}
+
+.modal-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  color: #B5ABA4;
+}
+
+.modal-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-btn-pdf,
+.modal-btn-print,
+.modal-btn-expand {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--color-gold);
+  background: rgba(198, 161, 91, 0.15);
+  color: var(--color-ivory);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-btn-pdf:hover,
+.modal-btn-print:hover,
+.modal-btn-expand:hover {
+  background: var(--color-gold);
+  color: var(--color-charcoal);
+}
+
+.modal-btn-close {
+  background: none;
+  border: none;
+  color: var(--color-ivory);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 6px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.modal-btn-close:hover {
+  color: var(--color-gold);
+  transform: rotate(90deg);
+}
+
+.invitation-modal-body {
+  flex: 1;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background: #141110;
+}
+
+.invitation-modal-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.invitation-modal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #211D1B;
+  border-top: 1px solid rgba(198, 161, 91, 0.3);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: var(--color-gold);
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.modal-footer-close-btn {
+  background: #332B25;
+  border: 1px solid var(--color-gold);
+  color: var(--color-ivory);
+  padding: 5px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.modal-footer-close-btn:hover {
+  background: var(--color-gold);
+  color: var(--color-charcoal);
+}
+
+/* Responsive Breakpoints for Traditional Cover & Modal */
+@media (max-width: 768px) {
+  .invitation-cover-section {
+    padding: 60px 14px 80px;
+  }
+
+  .traditional-invitation-inner-border {
+    padding: 24px 14px;
+  }
+
+  .traditional-card-title {
+    font-size: 1.65rem;
+  }
+
+  .traditional-couples-layout {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 16px 12px;
+  }
+
+  .traditional-couples-separator {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .traditional-couples-separator .sep-line {
+    width: 38%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  }
+
+  .traditional-recipient-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .recipient-family-sign {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid rgba(198, 161, 91, 0.4);
+    padding-top: 12px;
+    width: 100%;
+  }
+
+  .traditional-click-btn .btn-label-primary {
+    font-size: 0.98rem;
+    letter-spacing: 1px;
+  }
+
+  .invitation-modal-overlay {
+    padding: 8px;
+  }
+
+  .invitation-modal-container {
+    height: 98vh;
+    border-radius: 10px;
+  }
+
+  .modal-subtitle,
+  .modal-footer-msg {
+    display: none;
+  }
+}
 /* ==========================================================================
    SECTION 9: VENUE & LOCATION INFORMATION
    ========================================================================= */

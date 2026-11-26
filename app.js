@@ -466,10 +466,8 @@
 
     if (printAuxBtn) {
       printAuxBtn.addEventListener('click', () => {
-        showToast("Opening printable card...");
-        setTimeout(() => {
-          window.print();
-        }, 400);
+        showToast("Opening Official PDF Invitation...");
+        window.open('dual-jain-wedding-invitation.pdf', '_blank');
       });
     }
   }
@@ -490,6 +488,73 @@
   }
 
   // =========================================================================
+  // 11. TRADITIONAL WEDDING INVITATION LIGHTBOX MODAL CONTROLLER
+  // =========================================================================
+  function initInvitationModal() {
+    const openBtn = document.getElementById('btnOpenFullInvitation');
+    const modal = document.getElementById('invitationModal');
+    const closeBtn = document.getElementById('modalCloseBtn');
+    const closeBottomBtn = document.getElementById('modalCloseBottomBtn');
+    const printBtn = document.getElementById('modalPrintBtn');
+    const iframe = document.getElementById('invitationIframe');
+
+    if (!modal) return;
+
+    function openModal() {
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      startMusic();
+      showToast("Opening Official Wedding Invitation...");
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    if (openBtn) {
+      openBtn.addEventListener('click', openModal);
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeModal);
+    }
+
+    if (closeBottomBtn) {
+      closeBottomBtn.addEventListener('click', closeModal);
+    }
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) {
+        closeModal();
+      }
+    });
+
+    if (printBtn) {
+      printBtn.addEventListener('click', () => {
+        try {
+          if (iframe && iframe.contentWindow) {
+            iframe.contentWindow.focus();
+            iframe.contentWindow.print();
+          } else {
+            window.open('dual-jain-wedding-invitation.pdf', '_blank');
+          }
+        } catch (err) {
+          window.open('dual-jain-wedding-invitation.pdf', '_blank');
+        }
+      });
+    }
+  }
+
+  // =========================================================================
   // DOM READY INITIALIZATION
   // =========================================================================
   document.addEventListener('DOMContentLoaded', () => {
@@ -501,6 +566,7 @@
     initTimelineFilters();
     initRsvpForm();
     initSharingSuite();
+    initInvitationModal();
   });
 
 })();
