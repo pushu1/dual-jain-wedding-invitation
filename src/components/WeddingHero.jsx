@@ -8,7 +8,7 @@ export default function WeddingHero({ onExplore }) {
     }
   };
 
-  const handleScrollExplore = () => {
+  const handleEnterInvitation = () => {
     if (onExplore) {
       onExplore();
     } else {
@@ -18,21 +18,15 @@ export default function WeddingHero({ onExplore }) {
 
   return (
     <section className="wedding-hero-section" id="hero-section">
-      {/* Royal Palace Background & Atmospheric Overlay */}
-      <div className="hero-palace-backdrop" aria-hidden="true">
-        <div className="hero-radial-vignette"></div>
-        <div className="hero-palace-silhouette"></div>
-      </div>
-
-      {/* Floating Animated Floral Garland & Jharokha Arch */}
-      <div className="hero-royal-arch-frame" aria-hidden="true">
-        <svg viewBox="0 0 400 120" className="hero-arch-svg" preserveAspectRatio="none">
+      {/* Decorative Traditional Arch & Floral Garlands */}
+      <div className="hero-temple-arch-frame" aria-hidden="true">
+        <svg viewBox="0 0 500 120" className="temple-arch-svg" preserveAspectRatio="none">
           <path
-            d="M 0,0 L 400,0 L 400,30 Q 300,30 250,70 Q 200,110 150,70 Q 100,30 0,30 Z"
-            fill="rgba(139, 48, 56, 0.15)"
+            d="M 0,0 L 500,0 L 500,25 Q 380,25 320,60 Q 250,95 180,60 Q 120,25 0,25 Z"
+            fill="rgba(139, 48, 56, 0.08)"
           />
           <path
-            d="M 0,0 L 400,0 L 400,20 Q 300,20 250,55 Q 200,95 150,55 Q 100,20 0,20 Z"
+            d="M 0,0 L 500,0 L 500,18 Q 380,18 320,48 Q 250,80 180,48 Q 120,18 0,18 Z"
             fill="none"
             stroke="#C9A45C"
             strokeWidth="1.5"
@@ -40,123 +34,144 @@ export default function WeddingHero({ onExplore }) {
         </svg>
       </div>
 
-      <div className="hero-content-wrapper" style={{ padding: '24px 16px 28px' }}>
-        {/* Sacred Top Shloka & Lord Ganesha Emblem */}
+      <div className="hero-content-wrapper">
+        
+        {/* Lord Shiva & Mata Parvati Sacred Artwork Crown */}
+        <div className="hero-divine-crown-frame">
+          <div className="divine-artwork-jharokha">
+            <img
+              src="assets/shiva_parvati_top_artwork.png"
+              alt="Lord Shiva and Mata Parvati"
+              className="shiva-parvati-art-img"
+              width="440"
+              height="260"
+            />
+            <div className="jharokha-gold-border"></div>
+          </div>
+        </div>
+
+        {/* Sacred Lord Ganesha Invocation */}
         <div className="hero-invocation-group">
           <div className="hero-ganesha-emblem">
             <img
               src="assets/champagne_ganesha_bright.png"
               alt="Lord Ganesha"
               className="hero-ganesha-img"
-              width="48"
-              height="48"
+              width="44"
+              height="44"
             />
           </div>
           <div className="hero-shloka-text">|| SHREE GANESHAY NAMAH ||</div>
+          <p className="hero-divine-subtitle">
+            With the Divine Blessings of Lord Ganesha &amp; Our Respected Ancestors
+          </p>
+        </div>
+
+        {/* Main Royal Heading */}
+        <div className="hero-main-title-block">
+          <div className="hero-royal-flourish-line">
+            <span className="flourish-leaf">🌿</span>
+            <span className="flourish-dash"></span>
+            <span className="flourish-star">✦</span>
+            <span className="flourish-dash"></span>
+            <span className="flourish-leaf">🌿</span>
+          </div>
+          <h1 className="hero-grand-title">THE WEDDING INVITATION</h1>
           <div className="hero-shubh-vivah">Auspicious Wedding Celebration</div>
         </div>
 
-        {/* Grand Wedding Heading */}
-        <div className="hero-royal-badge" style={{ margin: '14px 0 16px' }}>
-          <span className="badge-flourish">✦</span>
-          <span className="badge-text">THE ROYAL WEDDING CELEBRATION</span>
-          <span className="badge-flourish">✦</span>
-        </div>
-
-        {/* Both Couples Display Card */}
-        <div className="hero-names-display" style={{ width: '100%', maxWidth: '780px' }}>
+        {/* Symmetrical Dual-Couples Composition */}
+        <div className="hero-couples-showcase-card">
           
           {/* Couple 1: Akash & Reena */}
-          <div className="hero-couple-unit" style={{ textAlign: 'center', marginBottom: '10px' }}>
-            <span style={{
-              display: 'inline-block',
-              fontSize: '11px',
-              letterSpacing: '2.5px',
-              color: 'var(--c-gold-light)',
-              textTransform: 'uppercase',
-              marginBottom: '3px',
-              fontWeight: 700
-            }}>
-              First Couple
-            </span>
-            <h1 className="hero-name-primary" style={{ fontSize: 'clamp(20px, 4.8vw, 34px)', lineHeight: 1.2 }}>
-              AYUSHMAN AKASH <span style={{ color: 'var(--c-gold)', fontSize: '0.8em' }}>&amp;</span> AYUSHMATI REENA
-            </h1>
-            <p style={{
-              fontSize: '12.5px',
-              color: 'var(--c-gold-light)',
-              margin: '3px 0 0',
-              letterSpacing: '1px'
-            }}>
+          <div className="hero-couple-unit">
+            <span className="couple-sacred-label">First Couple</span>
+            <h2 className="couple-names-headline">
+              AYUSHMAN AKASH
+            </h2>
+            <div className="couple-ampersand-sign">&amp;</div>
+            <h2 className="couple-names-headline">
+              AYUSHMATI REENA
+            </h2>
+            <div className="couple-date-tag">
               Thursday, 10 December 2026
-            </p>
+            </div>
           </div>
 
-          {/* Golden Center Flourish */}
-          <div className="hero-ampersand-wrapper" style={{ width: '180px', margin: '6px auto 12px' }}>
-            <span className="ampersand-line"></span>
-            <span className="ampersand-symbol" style={{ fontSize: '18px' }}>✦ 👑 ✦</span>
-            <span className="ampersand-line"></span>
+          {/* Central Sacred Lotus & Royal Divider */}
+          <div className="hero-central-divider-unit" aria-hidden="true">
+            <div className="divider-gold-line"></div>
+            <div className="divider-sacred-emblem">
+              <span className="emblem-symbol">👑</span>
+              <span className="emblem-flourish">❖</span>
+            </div>
+            <div className="divider-gold-line"></div>
           </div>
 
           {/* Couple 2: Shivani & Dheeraj */}
-          <div className="hero-couple-unit" style={{ textAlign: 'center' }}>
-            <span style={{
-              display: 'inline-block',
-              fontSize: '11px',
-              letterSpacing: '2.5px',
-              color: 'var(--c-gold-light)',
-              textTransform: 'uppercase',
-              marginBottom: '3px',
-              fontWeight: 700
-            }}>
-              Second Couple
-            </span>
-            <h1 className="hero-name-primary" style={{ fontSize: 'clamp(20px, 4.8vw, 34px)', lineHeight: 1.2 }}>
-              AYUSHMATI SHIVANI (JEENU) <span style={{ color: 'var(--c-gold)', fontSize: '0.8em' }}>&amp;</span> AYUSHMAN DHEERAJ JI
-            </h1>
-            <p style={{
-              fontSize: '12.5px',
-              color: 'var(--c-gold-light)',
-              margin: '3px 0 0',
-              letterSpacing: '1px'
-            }}>
+          <div className="hero-couple-unit">
+            <span className="couple-sacred-label">Second Couple</span>
+            <h2 className="couple-names-headline">
+              AYUSHMATI SHIVANI (JEENU)
+            </h2>
+            <div className="couple-ampersand-sign">&amp;</div>
+            <h2 className="couple-names-headline">
+              AYUSHMAN DHEERAJ JI
+            </h2>
+            <div className="couple-date-tag">
               Saturday, 12 December 2026
-            </p>
+            </div>
           </div>
 
         </div>
 
-        {/* Date & Venue Announcement Badge */}
-        <div className="hero-date-badge" style={{ marginTop: '18px', padding: '9px 22px', borderRadius: '30px' }}>
-          <div className="date-icon">✦</div>
-          <div className="date-main" style={{ fontSize: 'clamp(11px, 2.6vw, 13.5px)' }}>
-            SATURDAY, 12 DECEMBER 2026 • KUMAWAT VATIKA, PALI, RAJASTHAN
+        {/* Celebration & Venue Announcement Banner */}
+        <div className="hero-venue-announcement-banner">
+          <div className="banner-date-highlight">
+            <span className="cal-icon">🗓️</span>
+            <span className="date-str">WEDDING CELEBRATION: 12 DECEMBER 2026</span>
           </div>
-          <div className="date-icon">✦</div>
+          <div className="banner-venue-location">
+            <span className="pin-icon">📍</span>
+            <span className="venue-str">KUMAWAT VATIKA, PALI, RAJASTHAN</span>
+          </div>
         </div>
 
-        {/* Romantic Heritage Tagline */}
-        <p className="hero-journey-quote" style={{ marginTop: '16px', marginBottom: '14px' }}>
-          “Two Sacred Unions, One Joyous Family Celebration”
-        </p>
+        {/* Romantic Heritage Quote */}
+        <blockquote className="hero-heritage-quote">
+          “Two Sacred Unions, Four Blessed Families, One Grand Joyous Celebration”
+        </blockquote>
+
+        {/* Elegant ENTER INVITATION Button with Subtle Golden Shimmer */}
+        <div className="hero-enter-action-wrap">
+          <button
+            onClick={handleEnterInvitation}
+            className="btn-enter-invitation"
+            aria-label="Enter complete wedding invitation"
+          >
+            <span className="btn-sparkle">✦</span>
+            <span className="btn-text">ENTER INVITATION</span>
+            <span className="btn-sparkle">✦</span>
+            <span className="btn-shimmer-sweep" aria-hidden="true"></span>
+          </button>
+        </div>
 
         {/* Smooth Scroll Down Indicator */}
         <div
           className="hero-scroll-indicator"
-          onClick={handleScrollExplore}
+          onClick={handleEnterInvitation}
           role="button"
           tabIndex={0}
           aria-label="Scroll down to wedding couples details"
-          style={{ marginTop: '16px', cursor: 'pointer' }}
         >
           <span className="scroll-label">Scroll to Explore</span>
           <div className="scroll-chevron-bounce">
-            <svg viewBox="0 0 24 24" className="chevron-svg">
-              <path d="M7 10l5 5 5-5" fill="none" stroke="#D4AF65" strokeWidth="2" strokeLinecap="round" />
+            <svg viewBox="0 0 24 24" className="chevron-svg" aria-hidden="true">
+              <path d="M7 10l5 5 5-5" fill="none" stroke="#8B3038" strokeWidth="2.2" strokeLinecap="round" />
             </svg>
           </div>
         </div>
+
       </div>
     </section>
   );

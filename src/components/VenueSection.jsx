@@ -15,115 +15,103 @@ export default function VenueSection() {
   };
 
   return (
-    <section className="wedding-section venue-section" id="venue-section">
+    <section className="wedding-section reception-venue-section" id="venue-section">
       <div className="section-royal-card">
-        <div className="card-border-gold-outer"></div>
-        <div className="card-border-gold-inner"></div>
+        <div className="card-border-gold-outer" aria-hidden="true"></div>
+        <div className="card-border-gold-inner" aria-hidden="true"></div>
 
         {/* Section Header */}
         <div className="section-header-flourish">
-          <span className="shloka-text">|| VIVAH STHAL ||</span>
-          <h2 className="section-title-gold">WEDDING VENUE</h2>
+          <div className="shloka-header-group">
+            <span className="shloka-ornament">❖</span>
+            <span className="shloka-text">|| VIVAH STHAL &amp; PREETIBHOJ ||</span>
+            <span className="shloka-ornament">❖</span>
+          </div>
+          <h2 className="section-title-gold">
+            BLESSING CEREMONY &amp; GRAND WEDDING RECEPTION
+          </h2>
           <p className="section-subtitle-script">
-            The royal auspicious destination where beloved families &amp; cherished guests unite
+            The sacred royal destination where beloved families, relatives &amp; cherished guests unite
           </p>
           <div className="section-title-divider">
             <span className="divider-line"></span>
-            <span className="divider-star">✦</span>
+            <span className="divider-star">✦ 🏛️ ✦</span>
             <span className="divider-line"></span>
           </div>
         </div>
 
-        {/* Venue Showcase Card */}
-        <div className="venue-grand-card">
+        {/* Grand Reception Showcase Card */}
+        <article className="reception-grand-card">
           
-          {/* Royal Architectural Illustration */}
-          <div className="venue-arch-illustration">
-            <svg viewBox="0 0 500 160" className="palace-arch-svg" preserveAspectRatio="xMidYMid meet">
+          {/* Traditional Wedding Mandap Decorative Arch */}
+          <div className="reception-mandap-illustration" aria-hidden="true">
+            <svg viewBox="0 0 500 140" className="mandap-arch-svg" preserveAspectRatio="xMidYMid meet">
               <defs>
-                <linearGradient id="goldArchGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#E8D5A3" />
-                  <stop offset="50%" stopColor="#D4AF65" />
+                <linearGradient id="goldArchGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#C9A45C" />
+                  <stop offset="50%" stopColor="#B88A3B" />
                   <stop offset="100%" stopColor="#8C6A28" />
                 </linearGradient>
               </defs>
-
-              <rect x="50" y="40" width="400" height="110" rx="8" fill="rgba(139, 48, 56, 0.08)" />
-
-              <path
-                d="M 250,15 C 240,35 210,40 190,60 C 180,70 180,85 180,120 L 320,120 C 320,85 320,70 310,60 C 290,40 260,35 250,15 Z"
-                fill="rgba(212, 175, 101, 0.22)"
-                stroke="url(#goldArchGrad2)"
-                strokeWidth="2"
-              />
-              <path d="M 250,5 L 250,15" stroke="url(#goldArchGrad2)" strokeWidth="3" />
-              <circle cx="250" cy="5" r="4" fill="#D4AF65" />
-
-              <path
-                d="M 120,40 C 115,55 95,60 85,75 C 80,82 80,95 80,120 L 160,120 C 160,95 160,82 155,75 C 145,60 125,55 120,40 Z"
-                fill="rgba(212, 175, 101, 0.15)"
-                stroke="url(#goldArchGrad2)"
-                strokeWidth="1.5"
-              />
-              <path
-                d="M 380,40 C 375,55 355,60 345,75 C 340,82 340,95 340,120 L 420,120 C 420,95 420,82 415,75 C 405,60 385,55 380,40 Z"
-                fill="rgba(212, 175, 101, 0.15)"
-                stroke="url(#goldArchGrad2)"
-                strokeWidth="1.5"
-              />
-
-              <line x1="60" y1="120" x2="440" y2="120" stroke="url(#goldArchGrad2)" strokeWidth="2.5" />
-              <line x1="50" y1="140" x2="450" y2="140" stroke="url(#goldArchGrad2)" strokeWidth="3" />
-
-              <line x1="120" y1="120" x2="120" y2="135" stroke="#D4AF65" strokeWidth="1" />
-              <circle cx="120" cy="136" r="3" fill="#D4AF65" />
-              <line x1="380" y1="120" x2="380" y2="135" stroke="#D4AF65" strokeWidth="1" />
-              <circle cx="380" cy="136" r="3" fill="#D4AF65" />
+              {/* Outer Temple Dome & Columns */}
+              <rect x="50" y="30" width="400" height="95" rx="10" fill="rgba(139, 48, 56, 0.05)" />
+              <path d="M 50,45 Q 250,5 450,45" fill="none" stroke="url(#goldArchGrad)" strokeWidth="2.5" />
+              <path d="M 90,45 Q 250,20 410,45" fill="none" stroke="#C9A45C" strokeWidth="1" strokeDasharray="3 3" />
+              {/* Left & Right Floral Pillars */}
+              <line x1="80" y1="45" x2="80" y2="125" stroke="#C9A45C" strokeWidth="3" />
+              <line x1="420" y1="45" x2="420" y2="125" stroke="#C9A45C" strokeWidth="3" />
+              {/* Mandap Kalash Finial */}
+              <circle cx="250" cy="18" r="6" fill="#B88A3B" />
+              <path d="M 245,18 L 250,8 L 255,18 Z" fill="#8B3038" />
             </svg>
           </div>
 
-          <div className="venue-info-body">
-            <div className="venue-location-pin">
-              <span className="pin-pulse"></span>
-              <span className="pin-icon">📍</span>
-            </div>
+          {/* Timing & Reception Details Highlight */}
+          <div className="reception-timing-box">
+            <span className="reception-date-tag">Saturday, 12 December 2026</span>
+            <span className="reception-time-tag">From 6:15 PM Onwards</span>
+          </div>
 
+          {/* Venue Title & Sacred Address */}
+          <div className="reception-location-details">
+            <div className="venue-location-pin" aria-hidden="true">📍</div>
             <h3 className="venue-name-title">{venueName}</h3>
-
+            
             <div className="venue-address-badge">
               <p className="address-line">{venueAddress}</p>
             </div>
 
             <p className="venue-welcome-note">
-              Located on Punayata Road in Pali, featuring spacious royal celebration lawns, magnificent banquet halls, guest accommodations, and ample secure vehicle parking.
+              We warmly invite you and your esteemed family to join us in blessing the auspicious marriages
+              of Akash &amp; Reena and Shivani &amp; Dheeraj, followed by royal Rajasthani hospitality and dinner.
             </p>
-
-            {/* Action Buttons */}
-            <div className="venue-buttons-row">
-              <a
-                href={mapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="venue-btn btn-google-maps"
-                aria-label="Open verified venue in Google Maps"
-              >
-                <span className="btn-icon">🗺️</span>
-                <span className="btn-text">OPEN IN GOOGLE MAPS</span>
-                <span className="btn-arrow">↗</span>
-              </a>
-
-              <button
-                className={`venue-btn btn-copy-address ${copied ? 'copied' : ''}`}
-                onClick={handleCopyAddress}
-                aria-label="Copy venue address to clipboard"
-              >
-                <span className="btn-icon">{copied ? '✓' : '📋'}</span>
-                <span className="btn-text">{copied ? 'COPIED TO CLIPBOARD!' : 'COPY ADDRESS FOR CAB'}</span>
-              </button>
-            </div>
           </div>
 
-        </div>
+          {/* Action Buttons: Google Maps & Copy Address */}
+          <div className="venue-buttons-row">
+            <a
+              href={mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="venue-btn btn-google-maps"
+              title="Open venue location in Google Maps"
+            >
+              <span className="btn-icon">🗺️</span>
+              <span>Open in Google Maps</span>
+            </a>
+
+            <button
+              onClick={handleCopyAddress}
+              className={`venue-btn btn-copy-address ${copied ? 'copied' : ''}`}
+              title="Copy complete venue address to clipboard"
+            >
+              <span className="btn-icon">{copied ? '✓' : '📋'}</span>
+              <span>{copied ? 'Address Copied!' : 'Copy Venue Address'}</span>
+            </button>
+          </div>
+
+        </article>
+
       </div>
     </section>
   );

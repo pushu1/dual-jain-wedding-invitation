@@ -4,226 +4,151 @@ export default function CouplesSection() {
   return (
     <section className="wedding-section couples-family-section" id="couples-section">
       <div className="section-royal-card">
-        <div className="card-border-gold-outer"></div>
-        <div className="card-border-gold-inner"></div>
+        <div className="card-border-gold-outer" aria-hidden="true"></div>
+        <div className="card-border-gold-inner" aria-hidden="true"></div>
 
         {/* Section Header */}
         <div className="section-header-flourish">
-          <span className="shloka-text">|| MANGAL PARINAYOTSAV ||</span>
+          <div className="shloka-header-group">
+            <span className="shloka-ornament">❖</span>
+            <span className="shloka-text">|| MANGAL PARINAYOTSAV ||</span>
+            <span className="shloka-ornament">❖</span>
+          </div>
           <div className="family-origin-pill">THE ESTEEMED GEHLOT PARIVAR OF PALI</div>
-          <h2 className="section-title-gold">THE WEDDING COUPLES &amp; FAMILY LINEAGE</h2>
+          <h2 className="section-title-gold">THE WEDDING COUPLES</h2>
           <p className="section-subtitle-script">
-            With the divine blessings of Lord Ganesha, revered ancestral elders &amp; parents
+            With the divine blessings of Lord Shiva, Mata Parvati, Lord Ganesha &amp; Our Respected Ancestors
           </p>
           <div className="section-title-divider">
             <span className="divider-line"></span>
-            <span className="divider-star">✦</span>
+            <span className="divider-star">✦ 👑 ✦</span>
             <span className="divider-line"></span>
           </div>
         </div>
 
-        {/* Ancestral Inscription Card */}
-        <div style={{
-          background: 'rgba(139, 48, 56, 0.06)',
-          border: '1px solid var(--c-border-gold)',
-          borderRadius: '10px',
-          padding: '14px 20px',
-          maxWidth: '680px',
-          margin: '0 auto 28px',
-          textAlign: 'center'
-        }}>
-          <span style={{ fontSize: '11px', letterSpacing: '2px', color: 'var(--c-leaf-green)', textTransform: 'uppercase', fontWeight: 700 }}>
-            Sacred Ancestral Blessings
-          </span>
-          <p style={{
-            fontSize: '14px',
-            color: 'var(--c-text-primary)',
-            margin: '6px 0 0',
-            lineHeight: 1.6,
-            fontFamily: 'Roboto Slab, serif'
-          }}>
+        {/* Sacred Ancestral Inscription Badge */}
+        <div className="ancestral-heritage-banner">
+          <span className="heritage-badge-tag">Sacred Ancestral Heritage &amp; Blessings</span>
+          <p className="heritage-lineage-text">
             Great Grandchildren of <strong>Late Mrs. Lehri Bai &amp; Late Mr. Gyarsilalji</strong><br />
             Beloved Grandchildren of <strong>Mrs. Durga Bai &amp; Late Mr. Madanlalji Gehlot</strong>
           </p>
         </div>
 
-        {/* Two Couples Cards Grid */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))',
-          gap: '20px',
-          width: '100%',
-          maxWidth: '1050px',
-          margin: '0 auto',
-          boxSizing: 'border-box'
-        }}>
-
+        {/* Two Couples Cards Grid: Side-by-Side on Desktop, Stacked on Mobile */}
+        <div className="couples-editorial-grid">
+          
           {/* ==============================================================
               COUPLE 1: AYUSHMAN AKASH & AYUSHMATI REENA
               ============================================================== */}
-          <div className="couple-profile-card prominent-family-card" style={{ padding: '24px 18px' }}>
-            <div className="profile-frame-jharokha">
-              <div className="avatar-art-container">
-                <svg viewBox="0 0 140 140" className="avatar-silhouette-svg">
-                  <circle cx="70" cy="70" r="65" fill="#FFF5E6" stroke="#C9A45C" strokeWidth="2" />
-                  <circle cx="70" cy="70" r="60" fill="none" stroke="rgba(212, 175, 101, 0.4)" strokeWidth="1" strokeDasharray="3 3" />
-                  {/* Groom Safa & Face */}
-                  <path d="M70 38 C60 38 52 46 52 56 C52 66 60 72 70 72 C80 72 88 66 88 56 C88 46 80 38 70 38 Z" fill="#E8D5A3" />
-                  <path d="M46 44 C46 30 60 22 70 22 C80 22 94 30 94 44 C92 48 85 52 70 52 C55 52 48 48 46 44 Z" fill="#D4AF65" stroke="#8C6A28" strokeWidth="1" />
-                  <path d="M70 12 Q75 18 70 24 Q65 18 70 12 Z" fill="#FFF9ED" stroke="#D4AF65" strokeWidth="1" />
-                  <circle cx="70" cy="24" r="3" fill="#8C1D40" />
-                  <path d="M42 80 L70 90 L98 80 L102 118 L38 118 Z" fill="#641B2E" stroke="#D4AF65" strokeWidth="1.2" />
-                  <line x1="70" y1="90" x2="70" y2="118" stroke="#D4AF65" strokeWidth="1.5" />
-                  <circle cx="70" cy="95" r="1.5" fill="#FFF9ED" />
-                  <circle cx="70" cy="103" r="1.5" fill="#FFF9ED" />
-                  <circle cx="70" cy="111" r="1.5" fill="#FFF9ED" />
-                </svg>
-              </div>
+          <article className="couple-editorial-card">
+            <div className="card-ornament-corner tl"></div>
+            <div className="card-ornament-corner tr"></div>
+            <div className="card-ornament-corner bl"></div>
+            <div className="card-ornament-corner br"></div>
 
-              <div className="profile-role-badge">
-                <span className="role-tag">FIRST WEDDING COUPLE</span>
-              </div>
+            <div className="couple-sacred-pill">
+              <span className="pill-star">✦</span>
+              <span className="pill-label">FIRST SACRED UNION</span>
+              <span className="pill-star">✦</span>
             </div>
 
-            <div className="profile-details-content">
-              <h3 className="profile-name" style={{ fontSize: 'clamp(20px, 4.2vw, 25px)' }}>
-                AYUSHMAN AKASH
-              </h3>
-              <p style={{
-                fontSize: '11px',
-                letterSpacing: '2px',
-                color: 'var(--c-gold-light)',
-                textTransform: 'uppercase',
-                margin: '2px 0 8px'
-              }}>
-                Son of Mrs. Anuradha &amp; Mr. Kailash Gehlot
+            {/* Groom Profile */}
+            <div className="couple-individual-block">
+              <div className="profile-ornament-icon">🤵</div>
+              <h3 className="individual-name">AYUSHMAN AKASH</h3>
+              <p className="individual-parents">
+                Son of <strong>Mrs. Anuradha &amp; Mr. Kailash Gehlot</strong>
               </p>
+            </div>
 
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '10px',
-                margin: '8px 0'
-              }}>
-                <span style={{ height: '1px', width: '30px', background: 'var(--c-gold)' }}></span>
-                <span style={{ fontSize: '15px', color: 'var(--c-gold)', fontStyle: 'italic', fontWeight: 700 }}>Sang (Weds)</span>
-                <span style={{ height: '1px', width: '30px', background: 'var(--c-gold)' }}></span>
+            {/* Elegant Ornamental WEDS Separator */}
+            <div className="weds-flourish-separator">
+              <div className="weds-line"></div>
+              <div className="weds-badge">
+                <span className="weds-sub">✦</span>
+                <span className="weds-text">WEDS</span>
+                <span className="weds-sub">✦</span>
               </div>
+              <div className="weds-line"></div>
+            </div>
 
-              <h3 className="profile-name" style={{ fontSize: 'clamp(20px, 4.2vw, 25px)' }}>
-                AYUSHMATI REENA
-              </h3>
-              <p style={{
-                fontSize: '11px',
-                letterSpacing: '2px',
-                color: 'var(--c-gold-light)',
-                textTransform: 'uppercase',
-                margin: '2px 0 12px'
-              }}>
-                Daughter of Mrs. Jashoda Devi &amp; Mr. Gopalji Chauhan (Samdari)
+            {/* Bride Profile */}
+            <div className="couple-individual-block">
+              <div className="profile-ornament-icon">👰</div>
+              <h3 className="individual-name">AYUSHMATI REENA</h3>
+              <p className="individual-parents">
+                Daughter of <strong>Mrs. Jashoda Devi &amp; Mr. Gopalji Chauhan</strong>
               </p>
+              <span className="family-native-place">Residence: Samdari</span>
+            </div>
 
-              <div style={{
-                background: 'linear-gradient(135deg, rgba(139, 48, 56, 0.95) 0%, rgba(118, 45, 50, 0.95) 100%)',
-                border: '1px solid var(--c-border-gold)',
-                borderRadius: '8px',
-                padding: '12px 14px',
-                marginTop: '14px',
-                textAlign: 'center'
-              }}>
-                <div style={{ fontSize: '11px', color: '#FFF5E6', fontWeight: 700, letterSpacing: '1px' }}>
-                  🗓️ WEDDING CEREMONY DATE:
-                </div>
-                <div style={{ fontSize: '13.5px', color: '#FFF5E6', fontWeight: 700, marginTop: '4px' }}>
-                  Thursday, 10 December 2026 (Margashirsha Shukla Paksh)
-                </div>
+            {/* Auspicious Ceremony Date Box */}
+            <div className="couple-ceremony-date-badge">
+              <div className="ceremony-date-icon">🗓️</div>
+              <div className="ceremony-date-details">
+                <span className="ceremony-label">WEDDING CEREMONY DATE</span>
+                <span className="ceremony-exact-date">Thursday, 10 December 2026</span>
+                <span className="ceremony-muhurat">Margashirsha Shukla Paksh</span>
               </div>
             </div>
-          </div>
+          </article>
 
           {/* ==============================================================
               COUPLE 2: AYUSHMATI SHIVANI (JEENU) & AYUSHMAN DHEERAJ JI
               ============================================================== */}
-          <div className="couple-profile-card prominent-family-card" style={{ padding: '24px 18px' }}>
-            <div className="profile-frame-jharokha">
-              <div className="avatar-art-container">
-                <svg viewBox="0 0 140 140" className="avatar-silhouette-svg">
-                  <circle cx="70" cy="70" r="65" fill="#FFF5E6" stroke="#C9A45C" strokeWidth="2" />
-                  <circle cx="70" cy="70" r="60" fill="none" stroke="rgba(212, 175, 101, 0.4)" strokeWidth="1" strokeDasharray="3 3" />
-                  {/* Bride Face & Maang Tikka */}
-                  <path d="M70 30 C58 30 50 38 50 50 C50 62 58 68 70 68 C82 68 90 62 90 50 C90 38 82 30 70 30 Z" fill="#E8D5A3" />
-                  <circle cx="70" cy="38" r="3" fill="#D4AF65" />
-                  <path d="M70 30 L70 38" stroke="#D4AF65" strokeWidth="1.5" />
-                  {/* Ornate Dupatta Veil */}
-                  <path d="M44 48 C40 65 32 90 28 115 C52 118 88 118 112 115 C108 90 100 65 96 48 C92 42 85 36 70 36 C55 36 48 42 44 48 Z" fill="#3B101C" stroke="#D4AF65" strokeWidth="1.2" opacity="0.9" />
-                  <circle cx="63" cy="54" r="3" fill="none" stroke="#D4AF65" strokeWidth="1" />
-                  <path d="M63 54 Q56 50 52 46" fill="none" stroke="#D4AF65" strokeWidth="0.8" />
-                  <path d="M48 85 L70 95 L92 85 L96 115 L44 115 Z" fill="#8C1D40" />
-                </svg>
-              </div>
+          <article className="couple-editorial-card">
+            <div className="card-ornament-corner tl"></div>
+            <div className="card-ornament-corner tr"></div>
+            <div className="card-ornament-corner bl"></div>
+            <div className="card-ornament-corner br"></div>
 
-              <div className="profile-role-badge">
-                <span className="role-tag">SECOND WEDDING COUPLE</span>
-              </div>
+            <div className="couple-sacred-pill">
+              <span className="pill-star">✦</span>
+              <span className="pill-label">SECOND SACRED UNION</span>
+              <span className="pill-star">✦</span>
             </div>
 
-            <div className="profile-details-content">
-              <h3 className="profile-name" style={{ fontSize: 'clamp(20px, 4.2vw, 25px)' }}>
-                AYUSHMATI SHIVANI (JEENU)
-              </h3>
-              <p style={{
-                fontSize: '11px',
-                letterSpacing: '2px',
-                color: 'var(--c-gold-light)',
-                textTransform: 'uppercase',
-                margin: '2px 0 8px'
-              }}>
-                Daughter of Mrs. Anuradha &amp; Mr. Kailash Gehlot
+            {/* Bride Profile */}
+            <div className="couple-individual-block">
+              <div className="profile-ornament-icon">👰</div>
+              <h3 className="individual-name">AYUSHMATI SHIVANI (JEENU)</h3>
+              <p className="individual-parents">
+                Daughter of <strong>Mrs. Anuradha &amp; Mr. Kailash Gehlot</strong>
               </p>
+            </div>
 
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '10px',
-                margin: '8px 0'
-              }}>
-                <span style={{ height: '1px', width: '30px', background: 'var(--c-gold)' }}></span>
-                <span style={{ fontSize: '15px', color: 'var(--c-gold)', fontStyle: 'italic', fontWeight: 700 }}>Sang (Weds)</span>
-                <span style={{ height: '1px', width: '30px', background: 'var(--c-gold)' }}></span>
+            {/* Elegant Ornamental WEDS Separator */}
+            <div className="weds-flourish-separator">
+              <div className="weds-line"></div>
+              <div className="weds-badge">
+                <span className="weds-sub">✦</span>
+                <span className="weds-text">WEDS</span>
+                <span className="weds-sub">✦</span>
               </div>
+              <div className="weds-line"></div>
+            </div>
 
-              <h3 className="profile-name" style={{ fontSize: 'clamp(20px, 4.2vw, 25px)' }}>
-                AYUSHMAN DHEERAJ JI
-              </h3>
-              <p style={{
-                fontSize: '11px',
-                letterSpacing: '2px',
-                color: 'var(--c-gold-light)',
-                textTransform: 'uppercase',
-                margin: '2px 0 12px'
-              }}>
-                Son of Mrs. Renu Ji &amp; Mr. Mukeshji Parihar (Balotra)
+            {/* Groom Profile */}
+            <div className="couple-individual-block">
+              <div className="profile-ornament-icon">🤵</div>
+              <h3 className="individual-name">AYUSHMAN DHEERAJ JI</h3>
+              <p className="individual-parents">
+                Son of <strong>Mrs. Renu Ji &amp; Mr. Mukeshji Parihar</strong>
               </p>
+              <span className="family-native-place">Residence: Balotra</span>
+            </div>
 
-              <div style={{
-                background: 'linear-gradient(135deg, rgba(139, 48, 56, 0.95) 0%, rgba(118, 45, 50, 0.95) 100%)',
-                border: '1px solid var(--c-border-gold)',
-                borderRadius: '8px',
-                padding: '12px 14px',
-                marginTop: '14px',
-                textAlign: 'center'
-              }}>
-                <div style={{ fontSize: '11px', color: '#FFF5E6', fontWeight: 700, letterSpacing: '1px' }}>
-                  🗓️ WEDDING CEREMONY DATE:
-                </div>
-                <div style={{ fontSize: '13.5px', color: '#FFF5E6', fontWeight: 700, marginTop: '4px' }}>
-                  Saturday, 12 December 2026 (Margashirsha Shukla Paksh 3)
-                </div>
+            {/* Auspicious Ceremony Date Box */}
+            <div className="couple-ceremony-date-badge">
+              <div className="ceremony-date-icon">🗓️</div>
+              <div className="ceremony-date-details">
+                <span className="ceremony-label">WEDDING CEREMONY DATE</span>
+                <span className="ceremony-exact-date">Saturday, 12 December 2026</span>
+                <span className="ceremony-muhurat">Margashirsha Shukla Paksh 3</span>
               </div>
             </div>
-          </div>
+          </article>
 
         </div>
 

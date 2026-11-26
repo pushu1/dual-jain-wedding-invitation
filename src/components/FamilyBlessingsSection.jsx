@@ -41,7 +41,7 @@ export default function FamilyBlessingsSection() {
 
         {/* Traditional Welcome Quote Inscription */}
         <div className="family-invitation-quote-box" style={{ maxWidth: '780px', margin: '0 auto 28px' }}>
-          <p className="quote-text" style={{ fontStyle: 'italic', color: '#E8D5A3', fontSize: '15px' }}>
+          <p className="quote-text" style={{ fontStyle: 'italic', color: 'var(--c-headings)', fontSize: '15px' }}>
             “We have penned this invitation with boundless affection, please accept our humble respect;<br />
             This sacred occasion is truly priceless, please bestow upon us your cherished moments.”
           </p>

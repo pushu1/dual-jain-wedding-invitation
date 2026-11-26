@@ -48,83 +48,108 @@ export default function CountdownSection() {
   }, [targetDate]);
 
   return (
-    <section className="wedding-section countdown-timer-section" id="countdown-section">
+    <section className="wedding-section countdown-section" id="countdown-section">
       <div className="section-royal-card">
-        <div className="card-border-gold-outer"></div>
-        <div className="card-border-gold-inner"></div>
+        <div className="card-border-gold-outer" aria-hidden="true"></div>
+        <div className="card-border-gold-inner" aria-hidden="true"></div>
 
         {/* Section Header */}
         <div className="section-header-flourish">
-          <span className="shloka-text">|| MANGAL GHADI KI PRATIKSHA ||</span>
-          <h2 className="section-title-gold">WEDDING COUNTDOWN</h2>
+          <div className="shloka-header-group">
+            <span className="shloka-ornament">❖</span>
+            <span className="shloka-text">|| SHUBH MUHURAT ||</span>
+            <span className="shloka-ornament">❖</span>
+          </div>
+          <h2 className="section-title-gold">
+            COUNTING DOWN TO THE AUSPICIOUS MOMENT
+          </h2>
           <p className="section-subtitle-script">
-            Counting every sacred moment until the auspicious wedding celebration
+            Anticipating the blessed day when two divine couples unite in holy matrimony
           </p>
           <div className="section-title-divider">
             <span className="divider-line"></span>
-            <span className="divider-star">✦</span>
+            <span className="divider-star">✦ ⏳ ✦</span>
             <span className="divider-line"></span>
           </div>
         </div>
 
-        {timeLeft.isCompleted ? (
-          <div className="countdown-completed-banner">
-            <div className="completed-sparkles">🎉 🎊 ✨</div>
-            <h3 className="completed-title">The Auspicious Wedding Day Is Here!</h3>
-            <p className="completed-subtitle">
-              Celebrating the royal weddings of Akash &amp; Reena and Shivani &amp; Dheeraj with eternal blessings.
-            </p>
+        {/* Auspicious Target Date & Venue Banner */}
+        <div className="countdown-event-meta-banner">
+          <div className="meta-badge-date">
+            <span className="meta-icon">🗓️</span>
+            <span className="meta-text">12 DECEMBER 2026</span>
           </div>
-        ) : (
-          <div className="countdown-grid-container">
-            {/* Days */}
-            <div className="countdown-unit-box">
-              <div className="countdown-circle-badge">
-                <span className="unit-number">{String(timeLeft.days).padStart(2, '0')}</span>
-              </div>
-              <span className="unit-label">DAYS</span>
-            </div>
-
-            <div className="countdown-colon">:</div>
-
-            {/* Hours */}
-            <div className="countdown-unit-box">
-              <div className="countdown-circle-badge">
-                <span className="unit-number">{String(timeLeft.hours).padStart(2, '0')}</span>
-              </div>
-              <span className="unit-label">HOURS</span>
-            </div>
-
-            <div className="countdown-colon">:</div>
-
-            {/* Minutes */}
-            <div className="countdown-unit-box">
-              <div className="countdown-circle-badge">
-                <span className="unit-number">{String(timeLeft.minutes).padStart(2, '0')}</span>
-              </div>
-              <span className="unit-label">MINUTES</span>
-            </div>
-
-            <div className="countdown-colon">:</div>
-
-            {/* Seconds */}
-            <div className="countdown-unit-box">
-              <div className="countdown-circle-badge seconds-pulse">
-                <span className="unit-number">{String(timeLeft.seconds).padStart(2, '0')}</span>
-              </div>
-              <span className="unit-label">SECONDS</span>
-            </div>
+          <div className="meta-separator">✦</div>
+          <div className="meta-badge-venue">
+            <span className="meta-icon">📍</span>
+            <span className="meta-text">KUMAWAT VATIKA, PALI</span>
           </div>
-        )}
-
-        {/* Auspicious Muhurat Tag */}
-        <div className="countdown-muhurat-strip">
-          <span className="muhurat-star">✦</span>
-          <span className="muhurat-text">
-            Auspicious Wedding Muhurat • Saturday, 12 December 2026 • Kumawat Vatika, Pali, Rajasthan
-          </span>
-          <span className="muhurat-star">✦</span>
         </div>
+
+        {/* Live Countdown Clock Grid */}
+        <div className="countdown-clock-container" aria-live="polite">
+          {!timeLeft.isCompleted ? (
+            <div className="countdown-units-grid">
+              
+              {/* Days */}
+              <div className="countdown-unit-box">
+                <div className="countdown-circle-badge">
+                  <span className="unit-number">{String(timeLeft.days).padStart(2, '0')}</span>
+                </div>
+                <span className="unit-label">DAYS</span>
+              </div>
+
+              <div className="countdown-colon-divider" aria-hidden="true">:</div>
+
+              {/* Hours */}
+              <div className="countdown-unit-box">
+                <div className="countdown-circle-badge">
+                  <span className="unit-number">{String(timeLeft.hours).padStart(2, '0')}</span>
+                </div>
+                <span className="unit-label">HOURS</span>
+              </div>
+
+              <div className="countdown-colon-divider" aria-hidden="true">:</div>
+
+              {/* Minutes */}
+              <div className="countdown-unit-box">
+                <div className="countdown-circle-badge">
+                  <span className="unit-number">{String(timeLeft.minutes).padStart(2, '0')}</span>
+                </div>
+                <span className="unit-label">MINUTES</span>
+              </div>
+
+              <div className="countdown-colon-divider" aria-hidden="true">:</div>
+
+              {/* Seconds */}
+              <div className="countdown-unit-box">
+                <div className="countdown-circle-badge seconds-pulse">
+                  <span className="unit-number">{String(timeLeft.seconds).padStart(2, '0')}</span>
+                </div>
+                <span className="unit-label">SECONDS</span>
+              </div>
+
+            </div>
+          ) : (
+            <div className="countdown-completed-banner">
+              <span className="completed-sparkles">🎊 👑 🎊</span>
+              <h3 className="completed-title">The Royal Wedding Celebration Has Commenced!</h3>
+              <p className="completed-subtitle">
+                May Lord Shiva and Mata Parvati forever bless Akash &amp; Reena and Shivani &amp; Dheeraj with eternal bliss!
+              </p>
+            </div>
+          )}
+        </div>
+
+        {/* Auspicious Muhurat Strip */}
+        <div className="countdown-muhurat-strip">
+          <span className="muhurat-icon">🕉️</span>
+          <span className="muhurat-text">
+            Auspicious Margashirsha Shukla Paksh • Vedic Wedding Rituals
+          </span>
+          <span className="muhurat-icon">🕉️</span>
+        </div>
+
       </div>
     </section>
   );

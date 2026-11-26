@@ -185,21 +185,23 @@ try:
     cdp.send("Runtime.enable")
     time.sleep(1.0)
 
-    # 1. Verify opening screen elements and ensure the 3 buttons are removed from hero
-    print("Verifying opening invitation screen content & button removal...")
+    # 1. Verify opening screen elements and ensure the luxury redesign elements are all present
+    print("Verifying opening invitation screen content & luxury redesign...")
     check_eval = cdp.send("Runtime.evaluate", {
         "expression": """(() => {
             const hero = document.querySelector('.wedding-hero-section');
+            const shivaParvatiArt = hero ? hero.querySelector('.shiva-parvati-art-img') : null;
             const ganesha = hero ? hero.querySelector('.hero-ganesha-img') : null;
             const shloka = hero ? hero.querySelector('.hero-shloka-text') : null;
-            const heading = hero ? hero.querySelector('.hero-royal-badge') : null;
-            const dateBadge = hero ? hero.querySelector('.hero-date-badge') : null;
+            const grandTitle = hero ? hero.querySelector('.hero-grand-title') : null;
+            const couplesCard = hero ? hero.querySelector('.hero-couples-showcase-card') : null;
+            const venueBanner = hero ? hero.querySelector('.hero-venue-announcement-banner') : null;
+            const enterInvitationBtn = hero ? hero.querySelector('.btn-enter-invitation') : null;
             const scrollIndicator = hero ? hero.querySelector('.hero-scroll-indicator') : null;
             
-            // Check that the 3 buttons are completely absent from the first page hero
-            const openBtn = hero ? hero.querySelector('.btn-main-open-invitation') : null;
+            // Check that the old 3 buttons ("CLICK HERE TO OPEN INVITATION", "VIEW DIGITAL CARD", "DOWNLOAD PDF") are completely absent from the first page hero
             const heroButtons = hero ? Array.from(hero.querySelectorAll('button, a')).map(b => b.innerText.trim()) : [];
-            const hasHeroOpenBtn = heroButtons.some(t => t.includes('CLICK HERE') || t.includes('OPEN INVITATION'));
+            const hasOldClickHereBtn = heroButtons.some(t => t.includes('CLICK HERE'));
             const hasHeroViewCard = heroButtons.some(t => t.includes('VIEW DIGITAL CARD') || t.includes('VIEW CARD'));
             const hasHeroDownloadPdf = heroButtons.some(t => t.includes('DOWNLOAD PDF'));
 
@@ -209,6 +211,7 @@ try:
 
             const couplesSection = document.getElementById('couples-section');
             const couplesText = couplesSection ? couplesSection.innerText : '';
+            const couplesEditorialGrid = couplesSection ? couplesSection.querySelector('.couples-editorial-grid') : null;
             const hasVaratPrasthanInCouples = couplesText.includes('VARAT PRASTHAN');
             const hasVaratSwagatInCouples = couplesText.includes('VARAT SWAGAT');
             const hasSamdariNoteInCouples = couplesText.includes('Departure to Samdari by bus');
@@ -216,12 +219,15 @@ try:
 
             const eventsSection = document.getElementById('events-section');
             const eventsText = eventsSection ? eventsSection.innerText : '';
+            const timelineSpine = eventsSection ? eventsSection.querySelector('.timeline-central-spine') : null;
             const hasBaraatPrasthan = eventsText.includes('Baraat Prasthan');
             const hasBaraatSwagat = eventsText.includes('Baraat Swagat');
             const hasVaratInEvents = eventsText.includes('Varat');
 
             const venueSection = document.getElementById('venue-section');
+            const receptionCard = venueSection ? venueSection.querySelector('.reception-grand-card') : null;
             const countdownSection = document.getElementById('countdown-section');
+            const countdownGrid = countdownSection ? countdownSection.querySelector('.countdown-units-grid') : null;
             const familySection = document.getElementById('family-section');
             const familyText = familySection ? familySection.innerText : '';
             const hasVisheshAshirwad = familyText.includes('VISHESH ASHIRWAD');
@@ -241,30 +247,36 @@ try:
             const shubhVivahText = shubhVivahEl ? shubhVivahEl.innerText.trim() : '';
 
             return {
+                hasShivaParvatiArt: Boolean(shivaParvatiArt),
                 hasGanesha: Boolean(ganesha),
                 shlokaText: shloka ? shloka.innerText : null,
-                headingText: heading ? heading.innerText : null,
+                grandTitleText: grandTitle ? grandTitle.innerText : null,
+                hasCouplesCard: Boolean(couplesCard),
+                hasVenueBanner: Boolean(venueBanner),
+                hasEnterInvitationBtn: Boolean(enterInvitationBtn),
                 shubhVivahText,
                 hasJainInBody,
-                hasDateBadge: Boolean(dateBadge),
-                dateText: dateBadge ? dateBadge.innerText : null,
                 hasScrollIndicator: Boolean(scrollIndicator),
-                hasHeroOpenBtn,
+                hasOldClickHereBtn,
                 hasHeroViewCard,
                 hasHeroDownloadPdf,
                 hasNavViewCard: Boolean(navViewCard),
                 hasNavDownloadPdf: Boolean(navDownloadPdf),
                 hasCouples: Boolean(couplesSection),
+                hasCouplesEditorialGrid: Boolean(couplesEditorialGrid),
                 hasVaratPrasthanInCouples,
                 hasVaratSwagatInCouples,
                 hasSamdariNoteInCouples,
                 hasBalotraNoteInCouples,
                 hasEvents: Boolean(eventsSection),
+                hasTimelineSpine: Boolean(timelineSpine),
                 hasBaraatPrasthan,
                 hasBaraatSwagat,
                 hasVaratInEvents,
                 hasVenue: Boolean(venueSection),
+                hasReceptionCard: Boolean(receptionCard),
                 hasCountdown: Boolean(countdownSection),
+                hasCountdownGrid: Boolean(countdownGrid),
                 hasFamily: Boolean(familySection),
                 hasVisheshAshirwad,
                 hasSwagatatur,
@@ -281,28 +293,35 @@ try:
     })
     res_val = check_eval.get('result', {}).get('result', {}).get('value', {})
     print("Opening Screen, Couples, Events & Family Section Checks:", json.dumps(res_val, indent=2))
+    assert res_val.get('hasShivaParvatiArt'), "Shiva & Parvati artwork is missing from hero!"
     assert res_val.get('hasGanesha'), "Ganesha image is missing from opening screen!"
     assert not res_val.get('hasJainInBody'), f"Found unwanted 'Jain' in rendered body text! Body check failed."
     assert res_val.get('shubhVivahText') == "Auspicious Wedding Celebration", f"Unexpected shubh vivah text: {res_val.get('shubhVivahText')}"
-    assert not res_val.get('hasHeroOpenBtn'), "CLICK HERE TO OPEN INVITATION button is still present on first page!"
-    assert not res_val.get('hasHeroViewCard'), "VIEW DIGITAL CARD button is still present on first page!"
-    assert not res_val.get('hasHeroDownloadPdf'), "DOWNLOAD PDF button is still present on first page!"
+    assert res_val.get('grandTitleText') == "THE WEDDING INVITATION", f"Unexpected grand title text: {res_val.get('grandTitleText')}"
+    assert res_val.get('hasCouplesCard'), "Couples showcase card missing from hero!"
+    assert res_val.get('hasEnterInvitationBtn'), "ENTER INVITATION button missing from hero!"
+    assert not res_val.get('hasOldClickHereBtn'), "Old 'CLICK HERE TO OPEN INVITATION' button is still present!"
+    assert not res_val.get('hasHeroViewCard'), "Old 'VIEW DIGITAL CARD' button is still present in hero!"
+    assert not res_val.get('hasHeroDownloadPdf'), "Old 'DOWNLOAD PDF' button is still present in hero!"
     assert res_val.get('hasScrollIndicator'), "Scroll to Explore indicator missing!"
     assert res_val.get('hasNavViewCard'), "Nav View Card functionality missing!"
     assert res_val.get('hasNavDownloadPdf'), "Nav Download PDF functionality missing!"
     assert res_val.get('hasCouples'), "Couples section missing!"
+    assert res_val.get('hasCouplesEditorialGrid'), "Couples editorial grid missing!"
     assert not res_val.get('hasVaratPrasthanInCouples'), "VARAT PRASTHAN is still present in couples section!"
     assert not res_val.get('hasVaratSwagatInCouples'), "VARAT SWAGAT is still present in couples section!"
     assert not res_val.get('hasSamdariNoteInCouples'), "Samdari bus note is still present in couples section!"
     assert not res_val.get('hasBalotraNoteInCouples'), "Balotra bus note is still present in couples section!"
     assert res_val.get('hasEvents'), "Events section missing!"
+    assert res_val.get('hasTimelineSpine'), "Timeline central spine missing!"
     assert res_val.get('hasBaraatPrasthan'), "Baraat Prasthan not found in events!"
     assert res_val.get('hasBaraatSwagat'), "Baraat Swagat not found in events!"
     assert not res_val.get('hasVaratInEvents'), "Varat still found in events section!"
     assert res_val.get('hasVenue'), "Venue section missing!"
+    assert res_val.get('hasReceptionCard'), "Reception card missing!"
     assert res_val.get('hasCountdown'), "Countdown section missing!"
+    assert res_val.get('hasCountdownGrid'), "Countdown units grid missing!"
     assert res_val.get('hasFamily'), "Family section missing!"
-    # Assert all 8 cards are removed
     assert not res_val.get('hasVisheshAshirwad'), "VISHESH ASHIRWAD is still present!"
     assert not res_val.get('hasSwagatatur'), "SWAGATATUR is still present!"
     assert not res_val.get('hasJavaiPaksh'), "JAVAI PAKSH is still present!"
@@ -369,7 +388,7 @@ try:
         shot_b64 = shot_res.get('result', {}).get('data', '')
         if shot_b64:
             s_name = vp['name'].lower().replace(' ', '_').replace('x', '_')
-            shot_path = os.path.join(PROJECT_DIR, 'screenshots', f'verified_no_buttons_{s_name}.jpg')
+            shot_path = os.path.join(PROJECT_DIR, 'screenshots', f'verified_luxury_redesign_{s_name}.jpg')
             with open(shot_path, 'wb') as sf:
                 sf.write(base64.b64decode(shot_b64))
 
