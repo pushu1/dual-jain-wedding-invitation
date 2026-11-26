@@ -81,7 +81,7 @@ assert found_target_url, f"Expected URI {expected_url} not found in PDF annotati
 # -----------------------------------------------------------------------------
 # 3. VERIFY IMMEDIATE FIRST-FRAME INVITATION ACROSS ALL 6 VIEWPORTS
 # -----------------------------------------------------------------------------
-print("\n=== 3. VERIFYING IMMEDIATE FIRST-FRAME INVITATION IN BROWSER ===")
+print("\n=== 3. VERIFYING OPENING SCREEN CONTENT & REMOVAL OF 3 BUTTONS ===")
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind(('', 0))
 PORT = s.getsockname()[1]
@@ -181,15 +181,28 @@ try:
     cdp.send("Runtime.enable")
     time.sleep(1.0)
 
-    # 1. Verify opening screen elements are visible IMMEDIATELY
-    print("Verifying opening invitation screen content...")
+    # 1. Verify opening screen elements and ensure the 3 buttons are removed from hero
+    print("Verifying opening invitation screen content & button removal...")
     check_eval = cdp.send("Runtime.evaluate", {
         "expression": """(() => {
-            const ganesha = document.querySelector('.hero-ganesha-img');
-            const shloka = document.querySelector('.hero-shloka-text');
-            const heading = document.querySelector('.hero-royal-badge');
-            const openBtn = document.querySelector('.btn-main-open-invitation');
-            const dateBadge = document.querySelector('.hero-date-badge');
+            const hero = document.querySelector('.wedding-hero-section');
+            const ganesha = hero ? hero.querySelector('.hero-ganesha-img') : null;
+            const shloka = hero ? hero.querySelector('.hero-shloka-text') : null;
+            const heading = hero ? hero.querySelector('.hero-royal-badge') : null;
+            const dateBadge = hero ? hero.querySelector('.hero-date-badge') : null;
+            const scrollIndicator = hero ? hero.querySelector('.hero-scroll-indicator') : null;
+            
+            // Check that the 3 buttons are completely absent from the first page hero
+            const openBtn = hero ? hero.querySelector('.btn-main-open-invitation') : null;
+            const heroButtons = hero ? Array.from(hero.querySelectorAll('button, a')).map(b => b.innerText.trim()) : [];
+            const hasHeroOpenBtn = heroButtons.some(t => t.includes('CLICK HERE') || t.includes('OPEN INVITATION'));
+            const hasHeroViewCard = heroButtons.some(t => t.includes('VIEW DIGITAL CARD') || t.includes('VIEW CARD'));
+            const hasHeroDownloadPdf = heroButtons.some(t => t.includes('DOWNLOAD PDF'));
+
+            // Check that digital card and PDF functionality are preserved in navigation
+            const navViewCard = document.querySelector('.nav-btn-view-card');
+            const navDownloadPdf = document.querySelector('.nav-btn-download-pdf');
+
             const couplesSection = document.getElementById('couples-section');
             const eventsSection = document.getElementById('events-section');
             const venueSection = document.getElementById('venue-section');
@@ -201,10 +214,14 @@ try:
                 hasGanesha: Boolean(ganesha),
                 shlokaText: shloka ? shloka.innerText : null,
                 headingText: heading ? heading.innerText : null,
-                hasOpenBtn: Boolean(openBtn),
-                openBtnText: openBtn ? openBtn.innerText : null,
                 hasDateBadge: Boolean(dateBadge),
                 dateText: dateBadge ? dateBadge.innerText : null,
+                hasScrollIndicator: Boolean(scrollIndicator),
+                hasHeroOpenBtn,
+                hasHeroViewCard,
+                hasHeroDownloadPdf,
+                hasNavViewCard: Boolean(navViewCard),
+                hasNavDownloadPdf: Boolean(navDownloadPdf),
                 hasCouples: Boolean(couplesSection),
                 hasEvents: Boolean(eventsSection),
                 hasVenue: Boolean(venueSection),
@@ -218,7 +235,12 @@ try:
     res_val = check_eval.get('result', {}).get('result', {}).get('value', {})
     print("Opening Screen Checks:", json.dumps(res_val, indent=2))
     assert res_val.get('hasGanesha'), "Ganesha image is missing from opening screen!"
-    assert res_val.get('hasOpenBtn'), "'CLICK HERE TO OPEN INVITATION' button is missing!"
+    assert not res_val.get('hasHeroOpenBtn'), "CLICK HERE TO OPEN INVITATION button is still present on first page!"
+    assert not res_val.get('hasHeroViewCard'), "VIEW DIGITAL CARD button is still present on first page!"
+    assert not res_val.get('hasHeroDownloadPdf'), "DOWNLOAD PDF button is still present on first page!"
+    assert res_val.get('hasScrollIndicator'), "Scroll to Explore indicator missing!"
+    assert res_val.get('hasNavViewCard'), "Nav View Card functionality missing!"
+    assert res_val.get('hasNavDownloadPdf'), "Nav Download PDF functionality missing!"
     assert res_val.get('hasCouples'), "Couples section missing!"
     assert res_val.get('hasEvents'), "Events section missing!"
     assert res_val.get('hasVenue'), "Venue section missing!"
@@ -244,23 +266,23 @@ try:
                 const heroBox = hero ? hero.getBoundingClientRect() : null;
                 const ganesha = document.querySelector('.hero-ganesha-img');
                 const ganeshaBox = ganesha ? ganesha.getBoundingClientRect() : null;
-                const openBtn = document.querySelector('.btn-main-open-invitation');
-                const openBtnBox = openBtn ? openBtn.getBoundingClientRect() : null;
+                const scrollInd = document.querySelector('.hero-scroll-indicator');
+                const scrollIndBox = scrollInd ? scrollInd.getBoundingClientRect() : null;
 
                 return {
                     scrollW,
                     clientW,
                     hasOverflow: scrollW > clientW + 2,
                     heroTop: heroBox ? heroBox.top : null,
+                    heroHeight: heroBox ? heroBox.height : null,
                     ganeshaTop: ganeshaBox ? ganeshaBox.top : null,
-                    openBtnTop: openBtnBox ? openBtnBox.top : null,
-                    openBtnVisible: openBtnBox ? (openBtnBox.top < window.innerHeight && openBtnBox.bottom > 0) : false
+                    scrollIndTop: scrollIndBox ? scrollIndBox.top : null
                 };
             })()""",
             "returnByValue": True
         })
         val = layout_res.get('result', {}).get('result', {}).get('value', {})
-        print(f"[{vp['name']}] ScrollW: {val.get('scrollW')}px | ClientW: {val.get('clientW')}px | HeroTop: {val.get('heroTop')}px | GaneshaTop: {val.get('ganeshaTop')}px | Overflow: {val.get('hasOverflow')}")
+        print(f"[{vp['name']}] ScrollW: {val.get('scrollW')}px | ClientW: {val.get('clientW')}px | HeroTop: {val.get('heroTop')}px | HeroHeight: {val.get('heroHeight')}px | Overflow: {val.get('hasOverflow')}")
         assert not val.get('hasOverflow'), f"Horizontal overflow detected on {vp['name']}!"
         assert val.get('heroTop') is not None and val.get('heroTop') < 180, f"Hero is pushed down too far on {vp['name']} ({val.get('heroTop')}px)!"
 
@@ -269,11 +291,11 @@ try:
         shot_b64 = shot_res.get('result', {}).get('data', '')
         if shot_b64:
             s_name = vp['name'].lower().replace(' ', '_').replace('x', '_')
-            shot_path = os.path.join(PROJECT_DIR, 'screenshots', f'verified_{s_name}.jpg')
+            shot_path = os.path.join(PROJECT_DIR, 'screenshots', f'verified_no_buttons_{s_name}.jpg')
             with open(shot_path, 'wb') as sf:
                 sf.write(base64.b64decode(shot_b64))
 
-    print("\nALL 6 VIEWPORTS & OPENING SCREEN CONTENT VERIFIED WITH 0 BLANK SCREEN & 0 OVERFLOW!")
+    print("\nALL 6 VIEWPORTS VERIFIED: 3 BUTTONS REMOVED FROM HERO, SCROLL INDICATOR PRESENT, 0 OVERFLOW!")
 
 finally:
     try:

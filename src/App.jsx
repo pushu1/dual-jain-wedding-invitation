@@ -80,7 +80,6 @@ export default function App() {
       <main className="invitation-content-column">
         {/* SECTION 1: ROYAL WELCOME & OPENING INVITATION HERO */}
         <WeddingHero
-          onOpenCardViewer={() => setIsViewerOpen(true)}
           onExplore={() => scrollTo('couples-section')}
         />
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function WeddingHero({ onOpenCardViewer, onExplore }) {
+export default function WeddingHero({ onExplore }) {
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
     if (el) {
@@ -8,7 +8,7 @@ export default function WeddingHero({ onOpenCardViewer, onExplore }) {
     }
   };
 
-  const handleOpenClick = () => {
+  const handleScrollExplore = () => {
     if (onExplore) {
       onExplore();
     } else {
@@ -40,7 +40,7 @@ export default function WeddingHero({ onOpenCardViewer, onExplore }) {
         </svg>
       </div>
 
-      <div className="hero-content-wrapper">
+      <div className="hero-content-wrapper" style={{ padding: '24px 16px 28px' }}>
         {/* Sacred Top Shloka & Lord Ganesha Emblem */}
         <div className="hero-invocation-group">
           <div className="hero-ganesha-emblem">
@@ -48,6 +48,8 @@ export default function WeddingHero({ onOpenCardViewer, onExplore }) {
               src="assets/champagne_ganesha_bright.png"
               alt="Lord Ganesha"
               className="hero-ganesha-img"
+              width="48"
+              height="48"
             />
           </div>
           <div className="hero-shloka-text">|| SHREE GANESHAY NAMAH ||</div>
@@ -55,7 +57,7 @@ export default function WeddingHero({ onOpenCardViewer, onExplore }) {
         </div>
 
         {/* Grand Wedding Heading */}
-        <div className="hero-royal-badge">
+        <div className="hero-royal-badge" style={{ margin: '14px 0 16px' }}>
           <span className="badge-flourish">✦</span>
           <span className="badge-text">THE ROYAL WEDDING CELEBRATION</span>
           <span className="badge-flourish">✦</span>
@@ -91,7 +93,7 @@ export default function WeddingHero({ onOpenCardViewer, onExplore }) {
           </div>
 
           {/* Golden Center Flourish */}
-          <div className="hero-ampersand-wrapper" style={{ width: '180px', margin: '4px auto 10px' }}>
+          <div className="hero-ampersand-wrapper" style={{ width: '180px', margin: '6px auto 12px' }}>
             <span className="ampersand-line"></span>
             <span className="ampersand-symbol" style={{ fontSize: '18px' }}>✦ 👑 ✦</span>
             <span className="ampersand-line"></span>
@@ -126,7 +128,7 @@ export default function WeddingHero({ onOpenCardViewer, onExplore }) {
         </div>
 
         {/* Date & Venue Announcement Badge */}
-        <div className="hero-date-badge" style={{ marginTop: '14px', padding: '8px 20px', borderRadius: '30px' }}>
+        <div className="hero-date-badge" style={{ marginTop: '18px', padding: '9px 22px', borderRadius: '30px' }}>
           <div className="date-icon">✦</div>
           <div className="date-main" style={{ fontSize: 'clamp(11px, 2.6vw, 13.5px)' }}>
             SATURDAY, 12 DECEMBER 2026 • KUMAWAT VATIKA, PALI, RAJASTHAN
@@ -135,115 +137,18 @@ export default function WeddingHero({ onOpenCardViewer, onExplore }) {
         </div>
 
         {/* Romantic Heritage Tagline */}
-        <p className="hero-journey-quote" style={{ marginTop: '14px', marginBottom: '8px' }}>
+        <p className="hero-journey-quote" style={{ marginTop: '16px', marginBottom: '14px' }}>
           “Two Sacred Unions, One Joyous Family Celebration”
         </p>
-
-        {/* Prominent Primary Opening Button: CLICK HERE / OPEN WEDDING INVITATION */}
-        <div style={{
-          marginTop: '16px',
-          width: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          zIndex: 10
-        }}>
-          <button
-            onClick={handleOpenClick}
-            className="btn-main-open-invitation"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '10px',
-              background: 'linear-gradient(135deg, #641B2E 0%, #4D1423 50%, #3B101C 100%)',
-              color: '#E8D5A3',
-              border: '2px solid #D4AF65',
-              borderRadius: '35px',
-              padding: '14px 34px',
-              fontFamily: 'Roboto Slab, serif',
-              fontSize: 'clamp(12px, 3.2vw, 15px)',
-              fontWeight: 900,
-              letterSpacing: '2.5px',
-              textTransform: 'uppercase',
-              cursor: 'pointer',
-              boxShadow: '0 8px 24px rgba(59, 16, 28, 0.6), 0 0 18px rgba(212, 175, 101, 0.45)',
-              transition: 'all 0.3s ease'
-            }}
-            aria-label="Click here to open wedding invitation"
-          >
-            <span style={{ color: '#D4AF65', fontSize: '13px' }}>✦</span>
-            <span>CLICK HERE TO OPEN INVITATION</span>
-            <span style={{ color: '#D4AF65', fontSize: '13px' }}>✦</span>
-          </button>
-        </div>
-
-        {/* Secondary Action Buttons (View Card & Download PDF) */}
-        <div style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: '12px',
-          justifyContent: 'center',
-          marginTop: '14px',
-          zIndex: 10
-        }}>
-          <button
-            onClick={onOpenCardViewer}
-            style={{
-              background: 'linear-gradient(135deg, #D4AF65 0%, #ECC878 50%, #B88B38 100%)',
-              color: '#3B101C',
-              border: 'none',
-              borderRadius: '24px',
-              padding: '9px 20px',
-              fontFamily: 'Roboto Slab, serif',
-              fontSize: '11.5px',
-              fontWeight: 800,
-              letterSpacing: '1.2px',
-              cursor: 'pointer',
-              boxShadow: '0 4px 12px rgba(212, 175, 101, 0.35)',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px'
-            }}
-          >
-            <span>📜</span>
-            <span>VIEW DIGITAL CARD</span>
-          </button>
-
-          <a
-            href="dual-jain-wedding-invitation.pdf"
-            download="dual-jain-wedding-invitation.pdf"
-            style={{
-              background: 'rgba(100, 27, 46, 0.6)',
-              color: '#E8D5A3',
-              border: '1px solid #D4AF65',
-              borderRadius: '24px',
-              padding: '9px 20px',
-              fontFamily: 'Roboto Slab, serif',
-              fontSize: '11.5px',
-              fontWeight: 800,
-              letterSpacing: '1.2px',
-              textDecoration: 'none',
-              cursor: 'pointer',
-              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.4)',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px'
-            }}
-          >
-            <span>📥</span>
-            <span>DOWNLOAD PDF</span>
-          </a>
-        </div>
 
         {/* Smooth Scroll Down Indicator */}
         <div
           className="hero-scroll-indicator"
-          onClick={handleOpenClick}
+          onClick={handleScrollExplore}
           role="button"
           tabIndex={0}
           aria-label="Scroll down to wedding couples details"
-          style={{ marginTop: '18px' }}
+          style={{ marginTop: '16px', cursor: 'pointer' }}
         >
           <span className="scroll-label">Scroll to Explore</span>
           <div className="scroll-chevron-bounce">
