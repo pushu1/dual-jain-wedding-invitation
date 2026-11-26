@@ -87,14 +87,28 @@
         </div>
       </div>
 
-      <!-- Hero Call-to-Action: Open Wedding Invitation -->
-      <div class="hero-cta-wrap">
-        <button id="openInvitationBtn" class="luxury-cta-btn" aria-label="Open Wedding Invitation">
+      <!-- Hero Call-to-Action: Two Dedicated Buttons (Download PDF & Open Website) -->
+      <div class="hero-dual-cta-wrap">
+        <!-- BUTTON 1: DOWNLOAD WEDDING INVITATION (Single-Page PDF) -->
+        <a href="dual-jain-wedding-invitation.pdf" download="dual-jain-wedding-invitation.pdf" id="heroDownloadPdfBtn" class="luxury-cta-btn btn-hero-download" aria-label="Download Wedding Invitation PDF">
           <span class="btn-shine"></span>
-          <span class="btn-text">OPEN WEDDING INVITATION</span>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M7 13l5 5 5-5M12 4v14"/>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
           </svg>
+          <span class="btn-text">DOWNLOAD WEDDING INVITATION</span>
+        </a>
+
+        <!-- BUTTON 2: OPEN WEDDING INVITATION -->
+        <button id="openInvitationBtn" class="luxury-cta-btn btn-hero-open" aria-label="Open Wedding Invitation">
+          <span class="btn-shine"></span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+          <span class="btn-text">OPEN WEDDING INVITATION</span>
         </button>
       </div>
 
@@ -135,6 +149,12 @@
 
       <!-- Music Player & Mobile Hamburger Controls -->
       <div class="nav-actions">
+        <!-- Direct PDF Download Pill in Navbar -->
+        <a href="dual-jain-wedding-invitation.pdf" download="dual-jain-wedding-invitation.pdf" class="nav-pdf-badge" title="Download Official PDF">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>Download PDF</span>
+        </a>
+
         <!-- Audio Player Button -->
         <button id="navMusicBtn" class="nav-music-control" title="Toggle Royal Wedding Music" aria-label="Toggle Wedding Music">
           <div class="music-wave-bars">
@@ -166,6 +186,7 @@
         <a href="#reception" class="drawer-link">✦ Blessing Ceremony &amp; Feast</a>
         <a href="#invitation-card" class="drawer-link">✦ Wedding Invitation Card</a>
         <a href="#venue" class="drawer-link">✦ Venue &amp; Directions</a>
+        <a href="dual-jain-wedding-invitation.pdf" download="dual-jain-wedding-invitation.pdf" class="drawer-link drawer-pdf-link">📥 Download Invitation PDF</a>
         <a href="#rsvp" class="drawer-link drawer-rsvp-cta">✦ RSVP Attendance</a>
       </nav>
       <div class="mobile-drawer-footer">
@@ -887,21 +908,32 @@
           </div>
 
           <!-- ===================================================================
-               PROMINENT "CLICK HERE TO OPEN INVITATION" CALL-TO-ACTION BUTTON
+               PROMINENT DUAL ACTION BUTTONS: DOWNLOAD & OPEN INVITATION
                =================================================================== -->
           <div class="traditional-cta-container">
-            <button id="btnOpenFullInvitation" class="traditional-click-btn" aria-label="Click here to open invitation">
-              <span class="btn-stars">✦ ✦ ✦</span>
-              <span class="btn-label-primary">CLICK HERE TO OPEN INVITATION</span>
-              <span class="btn-subtext">View Complete 3-Page Wedding Invitation &amp; Family Schedule</span>
-              <span class="btn-shine"></span>
-            </button>
+            <div class="traditional-dual-buttons-grid">
+              <!-- BUTTON 1: DOWNLOAD WEDDING INVITATION (Clickable Single-Page PDF) -->
+              <a href="dual-jain-wedding-invitation.pdf" download="dual-jain-wedding-invitation.pdf" id="cardDownloadPdfBtn" class="traditional-click-btn btn-primary-download" aria-label="Download Wedding Invitation PDF">
+                <span class="btn-stars">✦ ✦ ✦</span>
+                <span class="btn-label-primary">DOWNLOAD WEDDING INVITATION</span>
+                <span class="btn-subtext">Clickable Single-Page PDF Cover • Interactive PDF</span>
+                <span class="btn-shine"></span>
+              </a>
+
+              <!-- BUTTON 2: OPEN WEDDING INVITATION (Complete Interactive Website) -->
+              <button id="btnOpenFullInvitation" class="traditional-click-btn btn-primary-open" aria-label="Open Complete Wedding Invitation">
+                <span class="btn-stars">✦ ✦ ✦</span>
+                <span class="btn-label-primary">OPEN WEDDING INVITATION</span>
+                <span class="btn-subtext">View Complete 3-Page Invitation, Events &amp; Family Directory</span>
+                <span class="btn-shine"></span>
+              </button>
+            </div>
 
             <!-- Direct PDF & Digital Standalone Card Access Links -->
             <div class="traditional-secondary-actions">
-              <a href="dual-jain-wedding-invitation.pdf" target="_blank" class="traditional-pdf-pill" download="dual-jain-wedding-invitation.pdf" title="Download Official PDF">
+              <a href="dual-jain-wedding-invitation.pdf" target="_blank" class="traditional-pdf-pill" title="Preview single-page PDF in browser">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                <span>Open Official PDF (A4 Multi-Page)</span>
+                <span>Preview Single-Page PDF</span>
               </a>
 
               <a href="invitation_card.html" target="_blank" class="traditional-html-pill" title="Open Fullscreen Digital Card">

@@ -167,10 +167,13 @@
   }
 
   // =========================================================================
-  // 3. HERO CTA: "OPEN WEDDING INVITATION"
+  // 3. HERO & CARD CTA: DOWNLOAD & OPEN WEDDING INVITATION
   // =========================================================================
   function initHeroCTA() {
     const openBtn = document.getElementById('openInvitationBtn');
+    const heroDlBtn = document.getElementById('heroDownloadPdfBtn');
+    const cardDlBtn = document.getElementById('cardDownloadPdfBtn');
+
     if (openBtn) {
       openBtn.addEventListener('click', () => {
         // Start background music seamlessly on user gesture
@@ -183,6 +186,18 @@
         }
 
         showToast("Welcome to the Royal Wedding Celebration!");
+      });
+    }
+
+    if (heroDlBtn) {
+      heroDlBtn.addEventListener('click', () => {
+        showToast("Downloading Official Clickable Invitation PDF...");
+      });
+    }
+
+    if (cardDlBtn) {
+      cardDlBtn.addEventListener('click', () => {
+        showToast("Downloading Single-Page Interactive PDF Cover...");
       });
     }
   }
