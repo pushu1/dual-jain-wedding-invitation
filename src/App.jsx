@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import WeddingHero from './components/WeddingHero';
 import CouplesSection from './components/CouplesSection';
 import WeddingTimeline from './components/WeddingTimeline';
@@ -8,9 +8,18 @@ import FamilyBlessingsSection from './components/FamilyBlessingsSection';
 import FinalBlessingsFooter from './components/FinalBlessingsFooter';
 import InvitationViewerModal from './components/InvitationViewerModal';
 import MusicPlayer from './components/MusicPlayer';
+import CinematicFireworksIntro from './components/CinematicFireworksIntro';
 
 export default function App() {
   const [isViewerOpen, setIsViewerOpen] = useState(false);
+  const [showFireworks, setShowFireworks] = useState(true);
+
+  // Expose global trigger for replaying the fireworks celebration
+  useEffect(() => {
+    window.triggerFireworksIntro = () => {
+      setShowFireworks(true);
+    };
+  }, []);
 
   const scrollTo = (id) => {
     const el = document.getElementById(id);
@@ -19,9 +28,22 @@ export default function App() {
     }
   };
 
+  const handleFireworksComplete = () => {
+    setShowFireworks(false);
+    // When fireworks complete, start music from 14 seconds
+    if (typeof window.playWeddingMusic === 'function') {
+      window.playWeddingMusic();
+    }
+  };
+
   return (
     <div className="royal-wedding-app">
-      {/* Background Royal Wedding Music Player */}
+      {/* CINEMATIC CELEBRATION FIREWORKS INTRODUCTION OVERLAY */}
+      {showFireworks && (
+        <CinematicFireworksIntro onComplete={handleFireworksComplete} />
+      )}
+
+      {/* Background Royal Wedding Music Player (YouTube Video ID: 8W-PD8Fbci0 from 00:14) */}
       <MusicPlayer />
 
       {/* Sticky Royal Navigation Bar */}
@@ -76,11 +98,16 @@ export default function App() {
         </div>
       </header>
 
-      {/* Central Content Column - Visible Immediately Upon Website Open */}
+      {/* Central Content Column - Visible Upon Website Open & After Fireworks */}
       <main className="invitation-content-column">
         {/* SECTION 1: ROYAL WELCOME & OPENING INVITATION HERO */}
         <WeddingHero
-          onExplore={() => scrollTo('couples-section')}
+          onExplore={() => {
+            scrollTo('couples-section');
+            if (typeof window.playWeddingMusic === 'function') {
+              window.playWeddingMusic();
+            }
+          }}
         />
 
         {/* SECTION 2: THE WEDDING COUPLES & FAMILY LINEAGE */}

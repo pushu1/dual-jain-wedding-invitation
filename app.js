@@ -44,11 +44,11 @@ var RoyalWeddingApp = (() => {
   ));
 
   // src/main.jsx
-  var import_react11 = __toESM(__require("react"));
+  var import_react12 = __toESM(__require("react"));
   var import_client = __toESM(__require("react-dom/client"));
 
   // src/App.jsx
-  var import_react10 = __toESM(__require("react"));
+  var import_react11 = __toESM(__require("react"));
 
   // src/components/WeddingHero.jsx
   var import_react = __toESM(__require("react"));
@@ -685,13 +685,17 @@ Looking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!
 
   // src/components/MusicPlayer.jsx
   var import_react9 = __toESM(__require("react"));
-  var YOUTUBE_VIDEO_ID = "qJFPtcK8qBg";
-  var START_TIME_SECONDS = 30;
+  var YOUTUBE_VIDEO_ID = "8W-PD8Fbci0";
+  var START_TIME_SECONDS = 14;
   function MusicPlayer() {
     const [isPlaying, setIsPlaying] = (0, import_react9.useState)(false);
+    const [isMuted, setIsMuted] = (0, import_react9.useState)(false);
     const [isReady, setIsReady] = (0, import_react9.useState)(false);
+    const [isFallbackActive, setIsFallbackActive] = (0, import_react9.useState)(false);
     const playerRef = (0, import_react9.useRef)(null);
     const pendingPlayRef = (0, import_react9.useRef)(false);
+    const audioCtxRef = (0, import_react9.useRef)(null);
+    const oscIntervalRef = (0, import_react9.useRef)(null);
     (0, import_react9.useEffect)(() => {
       let checkInterval = null;
       const setupPlayer = () => {
@@ -715,14 +719,15 @@ Looking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!
               playsinline: 1,
               loop: 1,
               playlist: YOUTUBE_VIDEO_ID,
+              enablejsapi: 1,
               origin: window.location.origin
             },
             events: {
-              onReady: () => {
+              onReady: (event) => {
                 setIsReady(true);
                 if (pendingPlayRef.current) {
                   pendingPlayRef.current = false;
-                  startPlayAt30();
+                  startPlayAt14();
                 }
               },
               onStateChange: (event) => {
@@ -738,7 +743,8 @@ Looking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!
                 }
               },
               onError: (err) => {
-                console.warn("YouTube BGM Player notice:", err);
+                console.warn("YouTube BGM Player notice, using fallback audio if needed:", err);
+                setIsFallbackActive(true);
               }
             }
           });
@@ -760,27 +766,36 @@ Looking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!
               clearInterval(checkInterval);
             }
           }
-        }, 400);
+        }, 300);
       }
-      const startPlayAt30 = () => {
+      const startPlayAt14 = () => {
         if (playerRef.current && playerRef.current.playVideo) {
           try {
             playerRef.current.seekTo(START_TIME_SECONDS, true);
+            playerRef.current.unMute();
             playerRef.current.playVideo();
             setIsPlaying(true);
+            setIsMuted(false);
           } catch (e) {
-            console.warn(e);
+            console.warn("Autoplay prevented or deferred:", e);
+            pendingPlayRef.current = true;
           }
         } else {
           pendingPlayRef.current = true;
         }
       };
       window.playWeddingMusic = () => {
-        startPlayAt30();
+        startPlayAt14();
       };
       window.pauseWeddingMusic = () => {
         if (playerRef.current && playerRef.current.pauseVideo) {
           playerRef.current.pauseVideo();
+          setIsPlaying(false);
+        } else if (audioCtxRef.current) {
+          try {
+            audioCtxRef.current.suspend();
+          } catch (e) {
+          }
           setIsPlaying(false);
         }
       };
@@ -791,6 +806,16 @@ Looking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!
           window.playWeddingMusic();
         }
       };
+      window.toggleMuteWeddingMusic = () => {
+        if (!playerRef.current) return;
+        if (isMuted) {
+          if (playerRef.current.unMute) playerRef.current.unMute();
+          setIsMuted(false);
+        } else {
+          if (playerRef.current.mute) playerRef.current.mute();
+          setIsMuted(true);
+        }
+      };
       return () => {
         if (checkInterval) clearInterval(checkInterval);
         try {
@@ -799,8 +824,20 @@ Looking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!
           }
         } catch (e) {
         }
+        if (oscIntervalRef.current) clearInterval(oscIntervalRef.current);
       };
-    }, [isPlaying]);
+    }, [isPlaying, isMuted]);
+    const handlePlayToggle = () => {
+      if (typeof window.toggleWeddingMusic === "function") {
+        window.toggleWeddingMusic();
+      }
+    };
+    const handleMuteToggle = (e) => {
+      e.stopPropagation();
+      if (typeof window.toggleMuteWeddingMusic === "function") {
+        window.toggleMuteWeddingMusic();
+      }
+    };
     return /* @__PURE__ */ import_react9.default.createElement(import_react9.default.Fragment, null, /* @__PURE__ */ import_react9.default.createElement(
       "div",
       {
@@ -817,43 +854,294 @@ Looking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!
         },
         "aria-hidden": "true"
       }
-    ), /* @__PURE__ */ import_react9.default.createElement("div", { className: "floating-music-toggle-wrapper" }, /* @__PURE__ */ import_react9.default.createElement(
+    ), /* @__PURE__ */ import_react9.default.createElement("aside", { className: "floating-music-widget", "aria-label": "Wedding Background Music Controls" }, /* @__PURE__ */ import_react9.default.createElement("div", { className: `royal-music-pill-btn ${isPlaying ? "is-playing" : "is-paused"}` }, /* @__PURE__ */ import_react9.default.createElement(
       "button",
       {
-        className: `royal-music-pill-btn ${isPlaying ? "playing" : "paused"}`,
-        onClick: () => {
-          if (typeof window.toggleWeddingMusic === "function") {
-            window.toggleWeddingMusic();
-          }
-        },
-        title: isPlaying ? "Pause Royal Wedding Music" : "Play Royal Wedding Music",
-        "aria-label": "Toggle wedding instrumental music"
+        type: "button",
+        className: "music-action-trigger",
+        onClick: handlePlayToggle,
+        title: isPlaying ? "Pause Royal Wedding Music" : "Play Royal Wedding Music (from 00:14)",
+        "aria-label": isPlaying ? "Pause music" : "Play music"
       },
-      /* @__PURE__ */ import_react9.default.createElement("span", { className: "music-pill-icon" }, isPlaying ? "\u{1F3B5}" : "\u{1F507}"),
+      /* @__PURE__ */ import_react9.default.createElement("span", { className: "music-pill-icon", "aria-hidden": "true" }, isPlaying ? "\u{1F3B5}" : "\u25B6"),
       /* @__PURE__ */ import_react9.default.createElement("span", { className: "music-pill-text" }, isPlaying ? "Royal Shehnai" : "Play Music"),
-      isPlaying && /* @__PURE__ */ import_react9.default.createElement("span", { className: "music-wave-bars" }, /* @__PURE__ */ import_react9.default.createElement("span", { className: "bar bar-1" }), /* @__PURE__ */ import_react9.default.createElement("span", { className: "bar bar-2" }), /* @__PURE__ */ import_react9.default.createElement("span", { className: "bar bar-3" }))
-    )));
+      isPlaying && /* @__PURE__ */ import_react9.default.createElement("span", { className: "music-wave-bars", "aria-hidden": "true" }, /* @__PURE__ */ import_react9.default.createElement("span", { className: "bar bar-1" }), /* @__PURE__ */ import_react9.default.createElement("span", { className: "bar bar-2" }), /* @__PURE__ */ import_react9.default.createElement("span", { className: "bar bar-3" }), /* @__PURE__ */ import_react9.default.createElement("span", { className: "bar bar-4" }))
+    ), isPlaying && /* @__PURE__ */ import_react9.default.createElement(
+      "button",
+      {
+        type: "button",
+        className: "music-mute-trigger",
+        onClick: handleMuteToggle,
+        title: isMuted ? "Unmute Music" : "Mute Music",
+        "aria-label": isMuted ? "Unmute music" : "Mute music"
+      },
+      /* @__PURE__ */ import_react9.default.createElement("span", { className: "mute-icon", "aria-hidden": "true" }, isMuted ? "\u{1F507}" : "\u{1F50A}")
+    ))));
+  }
+
+  // src/components/CinematicFireworksIntro.jsx
+  var import_react10 = __toESM(__require("react"));
+  function CinematicFireworksIntro({ onComplete }) {
+    const canvasRef = (0, import_react10.useRef)(null);
+    const [isFadingOut, setIsFadingOut] = (0, import_react10.useState)(false);
+    const animFrameIdRef = (0, import_react10.useRef)(null);
+    const colorPalette = [
+      "#B88A3B",
+      // Antique Gold
+      "#D4AF37",
+      // Bright Shimmer Gold
+      "#FFD700",
+      // Pure Gold
+      "#FFF5E6",
+      // Warm Ivory White
+      "#8B3038",
+      // Traditional Burgundy
+      "#762D32",
+      // Deep Maroon
+      "#FF6B4A",
+      // Festive Coral
+      "#647744",
+      // Leaf Green
+      "#FFA500",
+      // Saffron Amber
+      "#E83E8C"
+      // Royal Rose
+    ];
+    const handleFinish = () => {
+      if (isFadingOut) return;
+      setIsFadingOut(true);
+      if (typeof window.playWeddingMusic === "function") {
+        window.playWeddingMusic();
+      }
+      setTimeout(() => {
+        if (onComplete) onComplete();
+      }, 850);
+    };
+    (0, import_react10.useEffect)(() => {
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (prefersReducedMotion) {
+        const timer = setTimeout(handleFinish, 2e3);
+        return () => clearTimeout(timer);
+      }
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      let width = canvas.width = window.innerWidth;
+      let height = canvas.height = window.innerHeight;
+      const handleResize = () => {
+        if (!canvas) return;
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      };
+      window.addEventListener("resize", handleResize);
+      const particles = [];
+      const rockets = [];
+      class Rocket {
+        constructor(targetX, targetY) {
+          this.x = targetX || Math.random() * (width - 100) + 50;
+          this.y = height;
+          this.targetY = targetY || Math.random() * (height * 0.45) + height * 0.15;
+          this.speed = Math.random() * 4 + 10;
+          this.angle = -Math.PI / 2 + (Math.random() - 0.5) * 0.2;
+          this.vx = Math.cos(this.angle) * this.speed;
+          this.vy = Math.sin(this.angle) * this.speed;
+          this.color = colorPalette[Math.floor(Math.random() * colorPalette.length)];
+          this.dead = false;
+        }
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          this.vy += 0.12;
+          if (this.vy >= 0 || this.y <= this.targetY) {
+            this.dead = true;
+            createBurst(this.x, this.y, this.color);
+          }
+        }
+        draw() {
+          ctx.save();
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, 2.5, 0, Math.PI * 2);
+          ctx.fillStyle = this.color;
+          ctx.shadowBlur = 10;
+          ctx.shadowColor = this.color;
+          ctx.fill();
+          ctx.restore();
+        }
+      }
+      class Particle {
+        constructor(x, y, color) {
+          this.x = x;
+          this.y = y;
+          this.color = color;
+          const angle = Math.random() * Math.PI * 2;
+          const speed = Math.random() * 5.5 + 1.5;
+          this.vx = Math.cos(angle) * speed;
+          this.vy = Math.sin(angle) * speed;
+          this.alpha = 1;
+          this.decay = Math.random() * 0.016 + 0.012;
+          this.gravity = 0.07;
+          this.friction = 0.96;
+          this.size = Math.random() * 2.8 + 1.2;
+          this.sparkle = Math.random() > 0.4;
+        }
+        update() {
+          this.vx *= this.friction;
+          this.vy *= this.friction;
+          this.vy += this.gravity;
+          this.x += this.vx;
+          this.y += this.vy;
+          this.alpha -= this.decay;
+        }
+        draw() {
+          if (this.alpha <= 0) return;
+          ctx.save();
+          ctx.globalAlpha = Math.max(0, this.alpha);
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = this.color;
+          if (this.sparkle && Math.random() > 0.2) {
+            ctx.shadowBlur = 8;
+            ctx.shadowColor = "#FFF5E6";
+          }
+          ctx.fill();
+          ctx.restore();
+        }
+      }
+      function createBurst(x, y, baseColor) {
+        const isMobile = width < 768;
+        const count = isMobile ? 38 : 55;
+        for (let i = 0; i < count; i++) {
+          const color = Math.random() > 0.3 ? baseColor : colorPalette[Math.floor(Math.random() * colorPalette.length)];
+          particles.push(new Particle(x, y, color));
+        }
+      }
+      let lastLaunch = 0;
+      const startTime = Date.now();
+      const duration = 3800;
+      createBurst(width * 0.25, height * 0.3, "#D4AF37");
+      createBurst(width * 0.75, height * 0.28, "#8B3038");
+      createBurst(width * 0.5, height * 0.2, "#B88A3B");
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+        const elapsed = Date.now() - startTime;
+        if (elapsed < duration - 800) {
+          if (Date.now() - lastLaunch > 280) {
+            rockets.push(new Rocket());
+            lastLaunch = Date.now();
+          }
+        }
+        for (let i = rockets.length - 1; i >= 0; i--) {
+          rockets[i].update();
+          rockets[i].draw();
+          if (rockets[i].dead) {
+            rockets.splice(i, 1);
+          }
+        }
+        for (let i = particles.length - 1; i >= 0; i--) {
+          particles[i].update();
+          particles[i].draw();
+          if (particles[i].alpha <= 0) {
+            particles.splice(i, 1);
+          }
+        }
+        animFrameIdRef.current = requestAnimationFrame(animate);
+      }
+      animate();
+      const autoFinishTimer = setTimeout(() => {
+        handleFinish();
+      }, 3600);
+      return () => {
+        window.removeEventListener("resize", handleResize);
+        clearTimeout(autoFinishTimer);
+        if (animFrameIdRef.current) {
+          cancelAnimationFrame(animFrameIdRef.current);
+        }
+      };
+    }, []);
+    const handleCanvasClick = (e) => {
+      const rect = canvasRef.current?.getBoundingClientRect();
+      if (!rect) return;
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const canvas = canvasRef.current;
+      if (canvas) {
+        const ctx = canvas.getContext("2d");
+        for (let i = 0; i < 45; i++) {
+        }
+      }
+    };
+    return /* @__PURE__ */ import_react10.default.createElement(
+      "div",
+      {
+        className: `cinematic-fireworks-overlay ${isFadingOut ? "fade-out" : "fade-in"}`,
+        onClick: handleFinish,
+        role: "region",
+        "aria-label": "Wedding Celebration Fireworks Introduction"
+      },
+      /* @__PURE__ */ import_react10.default.createElement(
+        "canvas",
+        {
+          ref: canvasRef,
+          className: "fireworks-canvas",
+          onClick: handleCanvasClick
+        }
+      ),
+      /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-content-center" }, /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-royal-card", onClick: (e) => e.stopPropagation() }, /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-crown-badge" }, /* @__PURE__ */ import_react10.default.createElement("span", { className: "badge-star" }, "\u2726"), /* @__PURE__ */ import_react10.default.createElement("span", { className: "badge-crown" }, "\u{1F451}"), /* @__PURE__ */ import_react10.default.createElement("span", { className: "badge-star" }, "\u2726")), /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-shubh-vivah" }, "|| SHUBH VIVAH ||"), /* @__PURE__ */ import_react10.default.createElement("h1", { className: "fireworks-grand-title" }, "LET THE CELEBRATIONS BEGIN!"), /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-ornament-line" }, /* @__PURE__ */ import_react10.default.createElement("span", { className: "line-arm" }), /* @__PURE__ */ import_react10.default.createElement("span", { className: "line-gem" }, "\u2756"), /* @__PURE__ */ import_react10.default.createElement("span", { className: "line-arm" })), /* @__PURE__ */ import_react10.default.createElement("h2", { className: "fireworks-subtitle" }, "DOUBLE THE JOY, DOUBLE THE CELEBRATION"), /* @__PURE__ */ import_react10.default.createElement("p", { className: "fireworks-couples" }, "AKASH & REENA ", /* @__PURE__ */ import_react10.default.createElement("span", { className: "ampersand" }, "&"), " SHIVANI & DHEERAJ"), /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-date-pill" }, /* @__PURE__ */ import_react10.default.createElement("span", null, "DECEMBER 2026 \u2022 PALI, RAJASTHAN")), /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-action-row" }, /* @__PURE__ */ import_react10.default.createElement(
+        "button",
+        {
+          type: "button",
+          className: "btn-enter-celebration",
+          onClick: handleFinish,
+          "aria-label": "Enter Wedding Invitation"
+        },
+        /* @__PURE__ */ import_react10.default.createElement("span", null, "ENTER INVITATION"),
+        /* @__PURE__ */ import_react10.default.createElement("span", { className: "arrow-icon" }, "\u2794")
+      )))),
+      /* @__PURE__ */ import_react10.default.createElement(
+        "button",
+        {
+          type: "button",
+          className: "btn-skip-fireworks",
+          onClick: handleFinish,
+          title: "Skip Fireworks & Open Invitation",
+          "aria-label": "Skip introduction animation"
+        },
+        /* @__PURE__ */ import_react10.default.createElement("span", null, "Skip \u2715")
+      )
+    );
   }
 
   // src/App.jsx
   function App() {
-    const [isViewerOpen, setIsViewerOpen] = (0, import_react10.useState)(false);
+    const [isViewerOpen, setIsViewerOpen] = (0, import_react11.useState)(false);
+    const [showFireworks, setShowFireworks] = (0, import_react11.useState)(true);
+    (0, import_react11.useEffect)(() => {
+      window.triggerFireworksIntro = () => {
+        setShowFireworks(true);
+      };
+    }, []);
     const scrollTo = (id) => {
       const el = document.getElementById(id);
       if (el) {
         el.scrollIntoView({ behavior: "smooth" });
       }
     };
-    return /* @__PURE__ */ import_react10.default.createElement("div", { className: "royal-wedding-app" }, /* @__PURE__ */ import_react10.default.createElement(MusicPlayer, null), /* @__PURE__ */ import_react10.default.createElement("header", { className: "sticky-royal-nav", role: "banner" }, /* @__PURE__ */ import_react10.default.createElement("div", { className: "nav-container" }, /* @__PURE__ */ import_react10.default.createElement("div", { className: "nav-brand", onClick: () => scrollTo("hero-section") }, /* @__PURE__ */ import_react10.default.createElement("span", { className: "brand-crest" }, "\u{1F451}"), /* @__PURE__ */ import_react10.default.createElement("span", { className: "brand-title" }, "AKASH & REENA \u2022 SHIVANI & DHEERAJ")), /* @__PURE__ */ import_react10.default.createElement("nav", { className: "nav-links-row", "aria-label": "Wedding sections navigation" }, /* @__PURE__ */ import_react10.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("hero-section") }, "Welcome"), /* @__PURE__ */ import_react10.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("couples-section") }, "Couples"), /* @__PURE__ */ import_react10.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("events-section") }, "Celebrations"), /* @__PURE__ */ import_react10.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("venue-section") }, "Venue"), /* @__PURE__ */ import_react10.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("countdown-section") }, "Countdown"), /* @__PURE__ */ import_react10.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("family-section") }, "Family & Blessings")), /* @__PURE__ */ import_react10.default.createElement("div", { className: "nav-actions-group" }, /* @__PURE__ */ import_react10.default.createElement(
+    const handleFireworksComplete = () => {
+      setShowFireworks(false);
+      if (typeof window.playWeddingMusic === "function") {
+        window.playWeddingMusic();
+      }
+    };
+    return /* @__PURE__ */ import_react11.default.createElement("div", { className: "royal-wedding-app" }, showFireworks && /* @__PURE__ */ import_react11.default.createElement(CinematicFireworksIntro, { onComplete: handleFireworksComplete }), /* @__PURE__ */ import_react11.default.createElement(MusicPlayer, null), /* @__PURE__ */ import_react11.default.createElement("header", { className: "sticky-royal-nav", role: "banner" }, /* @__PURE__ */ import_react11.default.createElement("div", { className: "nav-container" }, /* @__PURE__ */ import_react11.default.createElement("div", { className: "nav-brand", onClick: () => scrollTo("hero-section") }, /* @__PURE__ */ import_react11.default.createElement("span", { className: "brand-crest" }, "\u{1F451}"), /* @__PURE__ */ import_react11.default.createElement("span", { className: "brand-title" }, "AKASH & REENA \u2022 SHIVANI & DHEERAJ")), /* @__PURE__ */ import_react11.default.createElement("nav", { className: "nav-links-row", "aria-label": "Wedding sections navigation" }, /* @__PURE__ */ import_react11.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("hero-section") }, "Welcome"), /* @__PURE__ */ import_react11.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("couples-section") }, "Couples"), /* @__PURE__ */ import_react11.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("events-section") }, "Celebrations"), /* @__PURE__ */ import_react11.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("venue-section") }, "Venue"), /* @__PURE__ */ import_react11.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("countdown-section") }, "Countdown"), /* @__PURE__ */ import_react11.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("family-section") }, "Family & Blessings")), /* @__PURE__ */ import_react11.default.createElement("div", { className: "nav-actions-group" }, /* @__PURE__ */ import_react11.default.createElement(
       "button",
       {
         className: "nav-btn-view-card",
         onClick: () => setIsViewerOpen(true),
         title: "Open Royal Wedding Invitation Card"
       },
-      /* @__PURE__ */ import_react10.default.createElement("span", { className: "btn-icon" }, "\u{1F4DC}"),
-      /* @__PURE__ */ import_react10.default.createElement("span", { className: "btn-text" }, "VIEW CARD")
-    ), /* @__PURE__ */ import_react10.default.createElement(
+      /* @__PURE__ */ import_react11.default.createElement("span", { className: "btn-icon" }, "\u{1F4DC}"),
+      /* @__PURE__ */ import_react11.default.createElement("span", { className: "btn-text" }, "VIEW CARD")
+    ), /* @__PURE__ */ import_react11.default.createElement(
       "a",
       {
         href: "dual-jain-wedding-invitation.pdf",
@@ -861,19 +1149,24 @@ Looking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!
         className: "nav-btn-download-pdf",
         title: "Download High-Resolution PDF Invitation"
       },
-      /* @__PURE__ */ import_react10.default.createElement("span", { className: "btn-icon" }, "\u{1F4E5}"),
-      /* @__PURE__ */ import_react10.default.createElement("span", { className: "btn-text" }, "PDF")
-    )))), /* @__PURE__ */ import_react10.default.createElement("main", { className: "invitation-content-column" }, /* @__PURE__ */ import_react10.default.createElement(
+      /* @__PURE__ */ import_react11.default.createElement("span", { className: "btn-icon" }, "\u{1F4E5}"),
+      /* @__PURE__ */ import_react11.default.createElement("span", { className: "btn-text" }, "PDF")
+    )))), /* @__PURE__ */ import_react11.default.createElement("main", { className: "invitation-content-column" }, /* @__PURE__ */ import_react11.default.createElement(
       WeddingHero,
       {
-        onExplore: () => scrollTo("couples-section")
+        onExplore: () => {
+          scrollTo("couples-section");
+          if (typeof window.playWeddingMusic === "function") {
+            window.playWeddingMusic();
+          }
+        }
       }
-    ), /* @__PURE__ */ import_react10.default.createElement(CouplesSection, null), /* @__PURE__ */ import_react10.default.createElement(WeddingTimeline, null), /* @__PURE__ */ import_react10.default.createElement(VenueSection, null), /* @__PURE__ */ import_react10.default.createElement(CountdownSection, null), /* @__PURE__ */ import_react10.default.createElement(FamilyBlessingsSection, null), /* @__PURE__ */ import_react10.default.createElement(
+    ), /* @__PURE__ */ import_react11.default.createElement(CouplesSection, null), /* @__PURE__ */ import_react11.default.createElement(WeddingTimeline, null), /* @__PURE__ */ import_react11.default.createElement(VenueSection, null), /* @__PURE__ */ import_react11.default.createElement(CountdownSection, null), /* @__PURE__ */ import_react11.default.createElement(FamilyBlessingsSection, null), /* @__PURE__ */ import_react11.default.createElement(
       FinalBlessingsFooter,
       {
         onOpenCardViewer: () => setIsViewerOpen(true)
       }
-    )), /* @__PURE__ */ import_react10.default.createElement(
+    )), /* @__PURE__ */ import_react11.default.createElement(
       InvitationViewerModal,
       {
         isOpen: isViewerOpen,
@@ -889,9 +1182,9 @@ Looking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!
     const createRootFn = rd && rd.createRoot || rd && rd.default && rd.default.createRoot;
     if (createRootFn) {
       const root = createRootFn(rootElement);
-      root.render(import_react11.default.createElement(App));
+      root.render(import_react12.default.createElement(App));
     } else if (rd && rd.render) {
-      rd.render(import_react11.default.createElement(App), rootElement);
+      rd.render(import_react12.default.createElement(App), rootElement);
     }
   }
 })();

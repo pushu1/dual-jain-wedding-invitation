@@ -1612,67 +1612,315 @@ button, a, input, textarea, select {
 }
 
 /* ==========================================================================
-   FLOATING MUSIC PLAYER
+   CINEMATIC CELEBRATION FIREWORKS INTRODUCTION OVERLAY
    ========================================================================== */
 
-.royal-floating-music-btn {
+.cinematic-fireworks-overlay {
   position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 999;
-  background: var(--c-card-bg);
-  border: 1.5px solid var(--c-border-gold);
-  border-radius: 30px;
-  padding: 8px 16px;
-  box-shadow: 0 6px 20px rgba(118, 45, 50, 0.15);
+  inset: 0;
+  z-index: 100000;
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 35%, rgba(42, 12, 18, 0.94) 0%, rgba(18, 4, 7, 0.98) 100%);
+  backdrop-filter: blur(8px);
   cursor: pointer;
-  color: var(--c-headings);
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
+}
+
+.cinematic-fireworks-overlay.fade-out {
+  opacity: 0;
+  transform: scale(1.05);
+  pointer-events: none;
+}
+
+.fireworks-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: auto;
+}
+
+.fireworks-content-center {
+  position: relative;
+  z-index: 10;
+  padding: 18px;
+  max-width: 620px;
+  width: 90%;
+  text-align: center;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.fireworks-royal-card {
+  background: rgba(255, 250, 241, 0.96);
+  border: 2px solid var(--c-border-gold);
+  border-radius: 20px;
+  padding: 32px 22px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 35px rgba(212, 175, 55, 0.35);
+  pointer-events: auto;
+  position: relative;
+  animation: cardGlowEntrance 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+  box-sizing: border-box;
+}
+
+@keyframes cardGlowEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.fireworks-crown-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--c-gold);
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.fireworks-shubh-vivah {
   font-family: var(--font-royal-heading);
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 3px;
+  color: var(--c-gold);
+  margin-bottom: 6px;
+}
+
+.fireworks-grand-title {
+  font-family: var(--font-royal-heading);
+  font-size: clamp(22px, 5.5vw, 34px);
+  font-weight: 900;
+  color: var(--c-headings);
+  letter-spacing: 2.5px;
+  margin: 6px 0;
+  line-height: 1.25;
+  text-shadow: 0 2px 8px rgba(139, 48, 56, 0.15);
+}
+
+.fireworks-ornament-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 10px auto;
+  width: 70%;
+}
+
+.line-arm {
+  flex: 1;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--c-border-gold), transparent);
+}
+
+.line-gem {
+  color: var(--c-gold);
+  font-size: 13px;
+}
+
+.fireworks-subtitle {
+  font-family: var(--font-royal-script);
+  font-size: clamp(17px, 4vw, 24px);
+  font-style: italic;
+  font-weight: 700;
+  color: var(--c-leaf-green);
+  letter-spacing: 0.8px;
+  margin: 4px 0 12px;
+  line-height: 1.4;
+}
+
+.fireworks-couples {
+  font-family: var(--font-royal-heading);
+  font-size: clamp(12.5px, 2.8vw, 15px);
+  font-weight: 700;
+  color: var(--c-text-primary);
+  letter-spacing: 1.5px;
+  margin: 0 0 12px;
+}
+
+.fireworks-date-pill {
+  display: inline-block;
+  background: rgba(139, 48, 56, 0.08);
+  border: 1px solid var(--c-border-gold);
+  border-radius: 18px;
+  padding: 5px 16px;
+  font-family: var(--font-royal-heading);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: var(--c-headings);
+  margin-bottom: 18px;
+}
+
+.fireworks-action-row {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-enter-celebration {
+  background: linear-gradient(135deg, #8B3038 0%, #762D32 100%);
+  border: 1.5px solid var(--c-border-gold);
+  border-radius: 30px;
+  padding: 11px 32px;
+  color: #FFF5E6;
+  font-family: var(--font-royal-heading);
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 8px 24px rgba(118, 45, 50, 0.3), 0 0 15px rgba(201, 164, 92, 0.35);
   transition: all 0.3s ease;
 }
-.royal-floating-music-btn:hover {
-  background: var(--c-headings);
-  color: #FFF5E6;
-  border-color: var(--c-headings);
+
+.btn-enter-celebration:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(139, 48, 56, 0.25);
+  box-shadow: 0 12px 30px rgba(118, 45, 50, 0.45);
 }
+
+.btn-skip-fireworks {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #FFF5E6;
+  border-radius: 20px;
+  padding: 8px 18px;
+  font-family: var(--font-royal-heading);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: all 0.2s ease;
+}
+
+.btn-skip-fireworks:hover {
+  background: rgba(139, 48, 56, 0.85);
+  border-color: var(--c-border-gold);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   FLOATING WEDDING BACKGROUND MUSIC WIDGET
+   ========================================================================== */
+
+.floating-music-widget {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+}
+
 .royal-music-pill-btn {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 999;
-  background: var(--c-card-bg);
-  border: 1.5px solid var(--c-border-gold);
-  border-radius: 30px;
-  padding: 8px 16px;
-  box-shadow: 0 6px 20px rgba(118, 45, 50, 0.15);
   display: flex;
   align-items: center;
-  gap: 8px;
+  background: rgba(255, 250, 241, 0.96);
+  border: 1.5px solid var(--c-border-gold);
+  border-radius: 30px;
+  padding: 4px;
+  box-shadow: 0 8px 24px rgba(118, 45, 50, 0.18), 0 0 15px rgba(201, 164, 92, 0.2);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.royal-music-pill-btn:hover {
+  box-shadow: 0 10px 28px rgba(118, 45, 50, 0.25);
+  transform: translateY(-2px);
+}
+
+.royal-music-pill-btn.is-playing {
+  border-color: var(--c-headings);
+}
+
+.music-action-trigger {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: none;
+  border: none;
+  padding: 6px 14px;
   cursor: pointer;
   color: var(--c-headings);
   font-family: var(--font-royal-heading);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 1px;
-  transition: all 0.3s ease;
+  outline: none;
 }
-.royal-music-pill-btn:hover {
+
+.music-pill-icon {
+  font-size: 13px;
+}
+
+.music-mute-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(139, 48, 56, 0.08);
+  border: 1px solid var(--c-border-gold);
+  color: var(--c-headings);
+  cursor: pointer;
+  margin-right: 4px;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.music-mute-trigger:hover {
   background: var(--c-headings);
   color: #FFF5E6;
-  border-color: var(--c-headings);
-  transform: translateY(-2px);
 }
-.royal-music-pill-btn.is-playing .pill-status-badge {
-  background: linear-gradient(135deg, #B88A3B 0%, #8C6A28 100%);
-  color: #FFF5E6;
+
+.mute-icon {
+  font-size: 12px;
+}
+
+/* Sound Wave Equalizer Bars Animation */
+.music-wave-bars {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2.5px;
+  height: 14px;
+  margin-left: 4px;
+}
+
+.music-wave-bars .bar {
+  width: 2.5px;
+  background: var(--c-headings);
+  border-radius: 2px;
+  animation: soundWave 1.2s ease-in-out infinite alternate;
+}
+
+.music-wave-bars .bar-1 { height: 40%; animation-delay: 0.1s; }
+.music-wave-bars .bar-2 { height: 90%; animation-delay: 0.3s; }
+.music-wave-bars .bar-3 { height: 60%; animation-delay: 0.5s; }
+.music-wave-bars .bar-4 { height: 100%; animation-delay: 0.2s; }
+
+@keyframes soundWave {
+  0% { height: 25%; }
+  50% { height: 95%; }
+  100% { height: 40%; }
 }
 
 /* ==========================================================================
@@ -1749,10 +1997,26 @@ button, a, input, textarea, select {
     font-size: 20px;
     margin-bottom: 16px;
   }
-  .royal-music-pill-btn {
+  .floating-music-widget {
     bottom: 16px;
     right: 16px;
-    padding: 6px 12px;
+  }
+  .music-action-trigger {
+    padding: 5px 10px;
     font-size: 10px;
+  }
+  .music-mute-trigger {
+    width: 26px;
+    height: 26px;
+  }
+  .fireworks-royal-card {
+    padding: 24px 14px;
+    border-radius: 16px;
+  }
+  .btn-skip-fireworks {
+    top: 14px;
+    right: 16px;
+    padding: 6px 14px;
+    font-size: 10.5px;
   }
 }

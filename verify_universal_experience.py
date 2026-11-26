@@ -185,8 +185,52 @@ try:
     cdp.send("Runtime.enable")
     time.sleep(1.0)
 
-    # 1. Verify opening screen elements and ensure the luxury redesign elements are all present
-    print("Verifying opening invitation screen content & luxury redesign...")
+    # 1. Verify fireworks introduction screen upon opening
+    print("Verifying Cinematic Fireworks Introduction...")
+    fireworks_eval = cdp.send("Runtime.evaluate", {
+        "expression": """(() => {
+            const overlay = document.querySelector('.cinematic-fireworks-overlay');
+            const canvas = document.querySelector('.fireworks-canvas');
+            const title = document.querySelector('.fireworks-grand-title');
+            const subtitle = document.querySelector('.fireworks-subtitle');
+            const skipBtn = document.querySelector('.btn-skip-fireworks');
+            return {
+                hasOverlay: Boolean(overlay),
+                hasCanvas: Boolean(canvas),
+                titleText: title ? title.innerText.trim() : null,
+                subtitleText: subtitle ? subtitle.innerText.trim() : null,
+                hasSkipBtn: Boolean(skipBtn)
+            };
+        })()""",
+        "returnByValue": True
+    })
+    fw_val = fireworks_eval.get('result', {}).get('result', {}).get('value', {})
+    print("Fireworks Intro Initial State:", json.dumps(fw_val, indent=2))
+    assert fw_val.get('hasOverlay'), "Cinematic Fireworks overlay is missing upon website open!"
+    assert fw_val.get('hasCanvas'), "Fireworks canvas is missing!"
+    assert fw_val.get('titleText') == "LET THE CELEBRATIONS BEGIN!", f"Unexpected title text: {fw_val.get('titleText')}"
+    assert fw_val.get('subtitleText') == "DOUBLE THE JOY, DOUBLE THE CELEBRATION", f"Unexpected subtitle text: {fw_val.get('subtitleText')}"
+    assert fw_val.get('hasSkipBtn'), "Skip fireworks button is missing!"
+
+    # Capture a screenshot of the fireworks celebration intro
+    fw_shot_res = cdp.send("Page.captureScreenshot", {"format": "jpeg", "quality": 85})
+    fw_shot_b64 = fw_shot_res.get('result', {}).get('data', '')
+    if fw_shot_b64:
+        with open(os.path.join(PROJECT_DIR, 'screenshots', 'verified_fireworks_intro.jpg'), 'wb') as sf:
+            sf.write(base64.b64decode(fw_shot_b64))
+    print("Captured verified_fireworks_intro.jpg screenshot!")
+
+    # Now dismiss the fireworks intro smoothly (as happens after 3.5s or on skip click)
+    cdp.send("Runtime.evaluate", {
+        "expression": """(() => {
+            const skipBtn = document.querySelector('.btn-skip-fireworks');
+            if (skipBtn) skipBtn.click();
+        })()"""
+    })
+    time.sleep(1.2)
+
+    # 2. Verify complete wedding invitation content & luxury redesign after fireworks reveal
+    print("Verifying complete wedding invitation content after fireworks reveal...")
     check_eval = cdp.send("Runtime.evaluate", {
         "expression": """(() => {
             const hero = document.querySelector('.wedding-hero-section');
@@ -208,6 +252,12 @@ try:
             // Check that digital card and PDF functionality are preserved in navigation
             const navViewCard = document.querySelector('.nav-btn-view-card');
             const navDownloadPdf = document.querySelector('.nav-btn-download-pdf');
+
+            // Floating Background Wedding Music Widget
+            const musicWidget = document.querySelector('.floating-music-widget');
+            const musicPlayBtn = document.querySelector('.music-action-trigger');
+            const hasPlayFunction = typeof window.playWeddingMusic === 'function';
+            const hasPauseFunction = typeof window.pauseWeddingMusic === 'function';
 
             const couplesSection = document.getElementById('couples-section');
             const couplesText = couplesSection ? couplesSection.innerText : '';
@@ -238,7 +288,6 @@ try:
             const hasVineet = familyText.includes('VINEET');
             const hasBalManuhar = familyText.includes('BAL MANUHAR');
             const hasFirmResidence = familyText.includes('FIRM & RESIDENCE DETAILS');
-            const canvas = document.querySelector('canvas');
 
             // Check for any occurrence of the word "Jain" across the entire document
             const entireBodyText = document.body.innerText;
@@ -262,6 +311,10 @@ try:
                 hasHeroDownloadPdf,
                 hasNavViewCard: Boolean(navViewCard),
                 hasNavDownloadPdf: Boolean(navDownloadPdf),
+                hasMusicWidget: Boolean(musicWidget),
+                hasMusicPlayBtn: Boolean(musicPlayBtn),
+                hasPlayFunction,
+                hasPauseFunction,
                 hasCouples: Boolean(couplesSection),
                 hasCouplesEditorialGrid: Boolean(couplesEditorialGrid),
                 hasVaratPrasthanInCouples,
@@ -285,8 +338,7 @@ try:
                 hasBhanejPaksh,
                 hasVineet,
                 hasBalManuhar,
-                hasFirmResidence,
-                hasCanvasOverlay: Boolean(canvas)
+                hasFirmResidence
             };
         })()""",
         "returnByValue": True
@@ -330,7 +382,9 @@ try:
     assert not res_val.get('hasVineet'), "VINEET is still present!"
     assert not res_val.get('hasBalManuhar'), "BAL MANUHAR is still present!"
     assert not res_val.get('hasFirmResidence'), "FIRM & RESIDENCE DETAILS is still present!"
-    assert not res_val.get('hasCanvasOverlay'), "Unexpected canvas overlay detected!"
+    assert res_val.get('hasMusicWidget'), "Floating music widget is missing!"
+    assert res_val.get('hasMusicPlayBtn'), "Music play button is missing!"
+    assert res_val.get('hasPlayFunction'), "window.playWeddingMusic is missing!"
 
     # Test all viewports
     for vp in viewports:
