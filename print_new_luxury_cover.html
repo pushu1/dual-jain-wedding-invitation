@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Royal Wedding Celebration — Akash &amp; Reena | Shivani &amp; Dheeraj</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: 148mm 210mm;
+      margin: 0;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      width: 148mm;
+      height: 210mm;
+      margin: 0;
+      padding: 0;
+      background-color: #F8F5EE;
+      color: #380C16;
+      font-family: 'Roboto Slab', serif;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      overflow: hidden;
+    }
+
+    .luxury-canvas-wrapper {
+      width: 148mm;
+      height: 210mm;
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(circle at 50% 28%, #FFFFFF 0%, #FAF6EE 45%, #F0E8D8 85%, #E6DBC6 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8mm 10mm 9mm;
+      box-sizing: border-box;
+    }
+
+    /* Architectural 3D Multi-Layered Royal Palace Gateway */
+    .architectural-portal {
+      position: absolute;
+      top: 5mm;
+      bottom: 5mm;
+      left: 5mm;
+      right: 5mm;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .portal-arch-svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 2mm 5mm rgba(184, 139, 56, 0.18));
+    }
+
+    /* Subtle Paper Texture & Lighting Beam */
+    .lighting-beam-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 25%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 55%),
+                  linear-gradient(180deg, rgba(212, 175, 101, 0.08) 0%, transparent 35%, rgba(212, 175, 101, 0.12) 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Content Area with Sophisticated Editorial Negative Space */
+    .editorial-content-layer {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+    }
+
+    /* ==========================================================================
+       1. TOP AREA: Minimalist Auspicious Lord Ganesha Emblem
+       ========================================================================== */
+    .top-emblem-container {
+      margin-top: 3.5mm;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .emblem-halo {
+      width: 14mm;
+      height: 14mm;
+      border-radius: 50%;
+      background: radial-gradient(circle, #FFFDF8 0%, #F5ECDA 80%, #DFBF77 100%);
+      border: 1pt solid #D4AF65;
+      box-shadow: 0 1.5mm 4mm rgba(184, 139, 56, 0.25), inset 0 0 2mm rgba(212, 175, 101, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.8mm;
+    }
+    .ganesha-sculpture-svg {
+      width: 9mm;
+      height: 9mm;
+    }
+    .auspicious-shloka-text {
+      font-family: 'Roboto Slab', serif;
+      font-size: 6.5pt;
+      font-weight: 700;
+      letter-spacing: 2.2px;
+      color: #9E7422;
+      text-transform: uppercase;
+    }
+
+    /* ==========================================================================
+       2. CENTER AREA: THE ROYAL WEDDING & DUAL COUPLES
+       ========================================================================== */
+    .center-visual-centerpiece {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin: 0.5mm 0;
+    }
+
+    .editorial-heading-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5mm;
+      width: 75%;
+      margin-bottom: 2.5mm;
+    }
+    .editorial-heading-strip .gold-accent-line {
+      flex: 1;
+      height: 0.7pt;
+      background: linear-gradient(90deg, transparent, #D4AF65, transparent);
+    }
+    .editorial-heading-strip .heading-text {
+      font-family: 'Roboto Slab', serif;
+      font-size: 7.8pt;
+      font-weight: 800;
+      letter-spacing: 3.2px;
+      color: #7A5716;
+      text-transform: uppercase;
+    }
+
+    /* Couple Blocks */
+    .dual-couples-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .single-couple-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .couple-role-tag {
+      font-family: 'Roboto Slab', serif;
+      font-size: 5.8pt;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #8C6A28;
+      text-transform: uppercase;
+      margin-bottom: 0.5mm;
+    }
+
+    .couple-names-headline {
+      font-family: 'Roboto Slab', serif;
+      font-size: 14pt;
+      font-weight: 800;
+      letter-spacing: 1.8px;
+      line-height: 1.15;
+      color: #4A0E1A; /* Deep Royal Burgundy */
+      text-transform: uppercase;
+    }
+    .couple-names-headline .amp {
+      font-family: 'Roboto Slab', serif;
+      font-size: 11pt;
+      color: #B88B38;
+      font-weight: 600;
+      margin: 0 1.5mm;
+    }
+
+    .couple-date-sub {
+      font-family: 'Roboto Slab', serif;
+      font-size: 6.2pt;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      color: #7A5716;
+      margin-top: 0.6mm;
+    }
+
+    .couples-divider-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3mm;
+      width: 50mm;
+      margin: 2mm 0;
+    }
+    .couples-divider-row .div-line {
+      flex: 1;
+      height: 0.6pt;
+      background: linear-gradient(90deg, transparent, #C49A45, transparent);
+    }
+    .couples-divider-row .div-crest {
+      font-size: 8pt;
+      color: #B88B38;
+      line-height: 1;
+    }
+
+    /* Date & Venue Treatment */
+    .date-treatment-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 2.5mm;
+    }
+    .date-primary-numbers {
+      font-family: 'Roboto Slab', serif;
+      font-size: 9.5pt;
+      font-weight: 800;
+      letter-spacing: 2.8px;
+      color: #2E070F;
+    }
+    .date-venue-sub {
+      font-family: 'Roboto Slab', serif;
+      font-size: 7pt;
+      font-weight: 700;
+      letter-spacing: 2.2px;
+      color: #9E7422;
+      margin-top: 0.8mm;
+    }
+
+    /* Romantic Tagline */
+    .romantic-tagline-text {
+      font-family: 'Roboto Slab', serif;
+      font-style: italic;
+      font-size: 9pt;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      color: #6B1724;
+      margin-top: 2.5mm;
+    }
+
+    /* ==========================================================================
+       3. LOWER SECTION: PROMINENT 3D METALLIC GOLD "CLICK HERE" CTA
+       ========================================================================== */
+    .cta-sculptural-section {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 2mm;
+    }
+
+    .luxury-gold-button {
+      display: block;
+      width: 110mm;
+      text-decoration: none;
+      background: linear-gradient(135deg, #641B2E 0%, #4D1423 50%, #3B101C 100%);
+      border: 1.5pt solid #D4AF65;
+      border-radius: 6mm;
+      padding: 3.2mm 4mm;
+      box-shadow: 0 4mm 12mm rgba(59, 16, 28, 0.38),
+                  0 0 10mm rgba(212, 175, 101, 0.35),
+                  inset 0 1pt 1.5pt rgba(212, 175, 101, 0.45);
+      cursor: pointer;
+      text-align: center;
+      position: relative;
+    }
+
+    .button-recessed-core {
+      background: linear-gradient(180deg, #641B2E 0%, #3B101C 100%);
+      border: 0.8pt solid #D4AF65;
+      border-radius: 4.5mm;
+      padding: 2.4mm 3mm;
+      box-shadow: inset 0 1mm 2.5mm rgba(0, 0, 0, 0.45), 0 0 4mm rgba(212, 175, 101, 0.25);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-headline-text {
+      font-family: 'Roboto Slab', serif;
+      font-size: 13pt;
+      font-weight: 900;
+      letter-spacing: 3.2px;
+      color: #E8D5A3;
+      line-height: 1.1;
+      display: flex;
+      align-items: center;
+      gap: 2mm;
+    }
+    .btn-headline-text .sparkle {
+      color: #D4AF65;
+      font-size: 9.5pt;
+    }
+
+    .btn-sub-instruction {
+      font-family: 'Roboto Slab', serif;
+      font-size: 6.8pt;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      color: #E8D5A3;
+      margin-top: 1mm;
+      text-transform: uppercase;
+      opacity: 0.95;
+    }
+
+    .cta-subtext-guide {
+      font-family: 'Roboto Slab', serif;
+      font-size: 6.2pt;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: #8C6A28;
+      margin-top: 2.2mm;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="luxury-canvas-wrapper" id="invitation-cover-page">
+    
+    <!-- 3D Architectural Palace Gateway Linework -->
+    <div class="architectural-portal" aria-hidden="true">
+      <svg class="portal-arch-svg" viewBox="0 0 138 200" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="portalGold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ECC878" />
+            <stop offset="40%" stop-color="#D4AF65" />
+            <stop offset="80%" stop-color="#B88B38" />
+            <stop offset="100%" stop-color="#8A601E" />
+          </linearGradient>
+          <linearGradient id="softShadow" x1="50%" y1="0%" x2="50%" y2="100%">
+            <stop offset="0%" stop-color="rgba(184, 139, 56, 0.15)" />
+            <stop offset="100%" stop-color="rgba(184, 139, 56, 0.02)" />
+          </linearGradient>
+        </defs>
+
+        <!-- Outer Beveled Border -->
+        <rect x="1" y="1" width="136" height="198" rx="3.5" fill="none" stroke="url(#portalGold)" stroke-width="0.8" />
+        <rect x="2.5" y="2.5" width="133" height="195" rx="2.5" fill="none" stroke="#D4AF65" stroke-width="0.3" stroke-dasharray="2 1.5" />
+
+        <!-- Royal Multi-Foil Cusped Arch Archway -->
+        <path d="
+          M 9,188
+          L 9,54
+          C 9,41 16,34 24,34
+          C 28,34 34,30 38,23
+          C 44,14 54,11 69,5
+          C 84,11 94,14 100,23
+          C 104,30 110,34 114,34
+          C 122,34 129,41 129,54
+          L 129,188
+        " fill="url(#softShadow)" stroke="url(#portalGold)" stroke-width="0.75" />
+
+        <!-- Inner Cusped Foil Arch Accent -->
+        <path d="
+          M 12,186
+          L 12,56
+          C 12,45 18,38 26,38
+          C 30,38 36,34 40,27
+          C 46,19 55,15 69,10
+          C 83,15 92,19 98,27
+          C 102,34 108,38 112,38
+          C 120,38 126,45 126,56
+          L 126,186
+        " fill="none" stroke="#ECC878" stroke-width="0.35" opacity="0.8" />
+
+        <!-- Architectural Keystone Finial at Top Apex -->
+        <circle cx="69" cy="4" r="1.2" fill="#D4AF65" />
+        <path d="M 69,0.5 L 69,3.5" stroke="#D4AF65" stroke-width="0.6" />
+
+        <!-- Colonnade Bases & Capitals -->
+        <rect x="7" y="53" width="4" height="2" rx="0.4" fill="url(#portalGold)" />
+        <rect x="127" y="53" width="4" height="2" rx="0.4" fill="url(#portalGold)" />
+        <rect x="7" y="186" width="4" height="2.5" rx="0.4" fill="url(#portalGold)" />
+        <rect x="127" y="186" width="4" height="2.5" rx="0.4" fill="url(#portalGold)" />
+
+        <!-- Corner Medallions -->
+        <circle cx="7" cy="7" r="1.6" fill="url(#portalGold)" opacity="0.6" />
+        <circle cx="131" cy="7" r="1.6" fill="url(#portalGold)" opacity="0.6" />
+        <circle cx="7" cy="193" r="1.6" fill="url(#portalGold)" opacity="0.6" />
+        <circle cx="131" cy="193" r="1.6" fill="url(#portalGold)" opacity="0.6" />
+      </svg>
+    </div>
+
+    <!-- Soft Radial Lighting Overlay -->
+    <div class="lighting-beam-overlay" aria-hidden="true"></div>
+
+    <!-- Central Editorial Content Container -->
+    <main class="editorial-content-layer">
+
+      <!-- 1. TOP: Minimalist Auspicious Lord Ganesha Emblem -->
+      <header class="top-emblem-container">
+        <div class="emblem-halo">
+          <svg class="ganesha-sculpture-svg" viewBox="0 0 50 50">
+            <path d="M25 6 C20 6 16 10 16 15 C16 18 18 20 20 22 C18 24 17 27 17 31 C17 38 21 44 25 44 C29 44 33 38 33 31 C33 28 32 25 30 23 C32 21 34 18 34 15 C34 10 30 6 25 6 Z" fill="none" stroke="#9E7422" stroke-width="1.8" stroke-linecap="round" />
+            <path d="M25 24 Q28 29 28 34 Q28 39 25 40 Q22 41 21 38" fill="none" stroke="#7A5716" stroke-width="2" stroke-linecap="round" />
+            <line x1="25" y1="9" x2="25" y2="16" stroke="#9E7422" stroke-width="1.5" stroke-linecap="round" />
+            <circle cx="25" cy="8" r="1.2" fill="#9E7422" />
+            <circle cx="21" cy="36" r="1.2" fill="#7A5716" />
+            <path d="M16 14 Q10 18 14 26" fill="none" stroke="#9E7422" stroke-width="1.2" stroke-linecap="round" />
+            <path d="M34 14 Q40 18 36 26" fill="none" stroke="#9E7422" stroke-width="1.2" stroke-linecap="round" />
+          </svg>
+        </div>
+        <div class="auspicious-shloka-text">|| SHREE GANESHAY NAMAH ||</div>
+      </header>
+
+      <!-- 2. CENTER: THE ROYAL WEDDING & BOTH COUPLES -->
+      <section class="center-visual-centerpiece">
+        
+        <!-- Header Strip -->
+        <div class="editorial-heading-strip">
+          <div class="gold-accent-line"></div>
+          <h2 class="heading-text">THE ROYAL WEDDING CELEBRATION</h2>
+          <div class="gold-accent-line"></div>
+        </div>
+
+        <!-- Dual Couples Presentation -->
+        <div class="dual-couples-container">
+          
+          <!-- Couple 1: Akash & Reena -->
+          <div class="single-couple-block">
+            <span class="couple-role-tag">First Couple</span>
+            <h1 class="couple-names-headline">
+              AYUSHMAN AKASH <span class="amp">&amp;</span> AYUSHMATI REENA
+            </h1>
+            <div class="couple-date-sub">THURSDAY, 10 DECEMBER 2026</div>
+          </div>
+
+          <!-- Decorative Floral Divider -->
+          <div class="couples-divider-row">
+            <div class="div-line"></div>
+            <span class="div-crest">✦ 👑 ✦</span>
+            <div class="div-line"></div>
+          </div>
+
+          <!-- Couple 2: Shivani & Dheeraj -->
+          <div class="single-couple-block">
+            <span class="couple-role-tag">Second Couple</span>
+            <h1 class="couple-names-headline">
+              AYUSHMATI SHIVANI (JEENU) <span class="amp">&amp;</span> AYUSHMAN DHEERAJ JI
+            </h1>
+            <div class="couple-date-sub">SATURDAY, 12 DECEMBER 2026</div>
+          </div>
+
+        </div>
+
+        <!-- Date & Venue Treatment -->
+        <div class="date-treatment-block">
+          <div class="date-primary-numbers">SATURDAY, 12 DECEMBER 2026</div>
+          <div class="date-venue-sub">KUMAWAT VATIKA, PUNAYATA ROAD, PALI, RAJASTHAN</div>
+        </div>
+
+        <!-- Romantic Tagline -->
+        <p class="romantic-tagline-text">
+          TWO HEARTS • TWO SACRED UNIONS • ONE CELEBRATION
+        </p>
+      </section>
+
+      <!-- 3. LOWER SECTION: PROMINENT 3D METALLIC GOLD CTA BUTTON -->
+      <footer class="cta-sculptural-section">
+        <a
+          href="https://pushu1.github.io/dual-jain-wedding-invitation/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="luxury-gold-button"
+          id="btn-open-wedding-website"
+          aria-label="Click here to open royal wedding invitation website"
+        >
+          <div class="button-recessed-core">
+            <span class="btn-headline-text">
+              <span class="sparkle">✦</span>
+              CLICK HERE
+              <span class="sparkle">✦</span>
+            </span>
+            <span class="btn-sub-instruction">OPEN YOUR WEDDING INVITATION</span>
+          </div>
+        </a>
+      </footer>
+
+    </main>
+  </div>
+
+</body>
+</html>
