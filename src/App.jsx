@@ -8,7 +8,6 @@ import FamilyBlessingsSection from './components/FamilyBlessingsSection';
 import FinalBlessingsFooter from './components/FinalBlessingsFooter';
 import InvitationViewerModal from './components/InvitationViewerModal';
 import MusicPlayer from './components/MusicPlayer';
-import PetalsCanvas from './components/PetalsCanvas';
 
 export default function App() {
   const [isViewerOpen, setIsViewerOpen] = useState(false);
@@ -22,9 +21,6 @@ export default function App() {
 
   return (
     <div className="royal-wedding-app">
-      {/* Background Falling Golden Sparkles & Petals */}
-      <PetalsCanvas />
-
       {/* Background Royal Wedding Music Player */}
       <MusicPlayer />
 

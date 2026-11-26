@@ -1,7 +1,15 @@
 
 window.require = function(mod) {
-  if (mod === 'react') return window.React;
-  if (mod === 'react-dom' || mod === 'react-dom/client') return window.ReactDOM;
+  if (mod === 'react') {
+    var r = window.React || {};
+    if (!r.default) r.default = r;
+    return r;
+  }
+  if (mod === 'react-dom' || mod === 'react-dom/client') {
+    var rd = window.ReactDOM || {};
+    if (!rd.default) rd.default = rd;
+    return rd;
+  }
   return {};
 };
 
@@ -35,14 +43,14 @@ var RoyalWeddingApp = (() => {
     mod
   ));
 
-  // ../../../../.gemini/antigravity/scratch/dual-jain-wedding-invitation/src/main.jsx
-  var import_react12 = __toESM(__require("react"));
+  // src/main.jsx
+  var import_react11 = __toESM(__require("react"));
   var import_client = __toESM(__require("react-dom/client"));
 
-  // ../../../../.gemini/antigravity/scratch/dual-jain-wedding-invitation/src/App.jsx
-  var import_react11 = __toESM(__require("react"));
+  // src/App.jsx
+  var import_react10 = __toESM(__require("react"));
 
-  // ../../../../.gemini/antigravity/scratch/dual-jain-wedding-invitation/src/components/WeddingHero.jsx
+  // src/components/WeddingHero.jsx
   var import_react = __toESM(__require("react"));
   function WeddingHero({ onOpenCardViewer, onExplore }) {
     const scrollToSection = (id) => {
@@ -211,7 +219,7 @@ var RoyalWeddingApp = (() => {
     )));
   }
 
-  // ../../../../.gemini/antigravity/scratch/dual-jain-wedding-invitation/src/components/CouplesSection.jsx
+  // src/components/CouplesSection.jsx
   var import_react2 = __toESM(__require("react"));
   function CouplesSection() {
     return /* @__PURE__ */ import_react2.default.createElement("section", { className: "wedding-section couples-family-section", id: "couples-section" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "section-royal-card" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "card-border-gold-outer" }), /* @__PURE__ */ import_react2.default.createElement("div", { className: "card-border-gold-inner" }), /* @__PURE__ */ import_react2.default.createElement("div", { className: "section-header-flourish" }, /* @__PURE__ */ import_react2.default.createElement("span", { className: "shloka-text" }, "|| MANGAL PARINAYOTSAV ||"), /* @__PURE__ */ import_react2.default.createElement("div", { className: "family-origin-pill" }, "THE ESTEEMED GEHLOT PARIVAR OF PALI"), /* @__PURE__ */ import_react2.default.createElement("h2", { className: "section-title-gold" }, "THE WEDDING COUPLES & FAMILY LINEAGE"), /* @__PURE__ */ import_react2.default.createElement("p", { className: "section-subtitle-script" }, "With the divine blessings of Lord Ganesha, revered ancestral elders & parents"), /* @__PURE__ */ import_react2.default.createElement("div", { className: "section-title-divider" }, /* @__PURE__ */ import_react2.default.createElement("span", { className: "divider-line" }), /* @__PURE__ */ import_react2.default.createElement("span", { className: "divider-star" }, "\u2726"), /* @__PURE__ */ import_react2.default.createElement("span", { className: "divider-line" }))), /* @__PURE__ */ import_react2.default.createElement("div", { style: {
@@ -289,7 +297,7 @@ var RoyalWeddingApp = (() => {
     } }, /* @__PURE__ */ import_react2.default.createElement("div", { style: { fontSize: "11px", color: "var(--c-gold-light)", fontWeight: 700, letterSpacing: "1px" } }, "\u{1F5D3}\uFE0F WEDDING CEREMONY DATE:"), /* @__PURE__ */ import_react2.default.createElement("div", { style: { fontSize: "13px", color: "var(--c-ivory)", marginTop: "2px" } }, "Saturday, 12 December 2026 (Margashirsha Shukla Paksh 3)"), /* @__PURE__ */ import_react2.default.createElement("div", { style: { fontSize: "11px", color: "var(--c-gold-light)", fontWeight: 700, letterSpacing: "1px", marginTop: "8px" } }, "\u{1F3BA} VARAT SWAGAT (BARAAT WELCOME):"), /* @__PURE__ */ import_react2.default.createElement("div", { style: { fontSize: "12px", color: "#D4AF65", marginTop: "2px", lineHeight: 1.4 } }, "Welcome of Baraat arriving from Balotra by bus from the residence of Shriman Byaiji Madanlalji Parihar\u2019s family (Bhanwarlalji, Gopalji, Murliji, Manoharji, Mukeshji).")))))));
   }
 
-  // ../../../../.gemini/antigravity/scratch/dual-jain-wedding-invitation/src/components/WeddingTimeline.jsx
+  // src/components/WeddingTimeline.jsx
   var import_react3 = __toESM(__require("react"));
   function WeddingTimeline() {
     const [activeDay, setActiveDay] = (0, import_react3.useState)("all");
@@ -473,7 +481,7 @@ var RoyalWeddingApp = (() => {
     )), /* @__PURE__ */ import_react3.default.createElement("div", { className: "day-events-vertical-list" }, day.events.map((evt, idx) => /* @__PURE__ */ import_react3.default.createElement("div", { className: "timeline-event-item", key: idx }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "event-marker-node" }, /* @__PURE__ */ import_react3.default.createElement("span", { className: "marker-icon" }, evt.icon), idx < day.events.length - 1 && /* @__PURE__ */ import_react3.default.createElement("span", { className: "vertical-timeline-spine" })), /* @__PURE__ */ import_react3.default.createElement("div", { className: "event-content-box" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "event-top-row" }, /* @__PURE__ */ import_react3.default.createElement("span", { className: "event-index-badge" }, evt.num), /* @__PURE__ */ import_react3.default.createElement("h4", { className: "event-title" }, evt.title)), /* @__PURE__ */ import_react3.default.createElement("div", { className: "event-time-badge" }, /* @__PURE__ */ import_react3.default.createElement("span", { className: "clock-icon" }, "\u23F0"), /* @__PURE__ */ import_react3.default.createElement("span", { className: "time-text" }, evt.time)), /* @__PURE__ */ import_react3.default.createElement("p", { className: "event-desc-text" }, evt.desc))))))))));
   }
 
-  // ../../../../.gemini/antigravity/scratch/dual-jain-wedding-invitation/src/components/VenueSection.jsx
+  // src/components/VenueSection.jsx
   var import_react4 = __toESM(__require("react"));
   function VenueSection() {
     const [copied, setCopied] = (0, import_react4.useState)(false);
@@ -535,7 +543,7 @@ var RoyalWeddingApp = (() => {
     ))))));
   }
 
-  // ../../../../.gemini/antigravity/scratch/dual-jain-wedding-invitation/src/components/CountdownSection.jsx
+  // src/components/CountdownSection.jsx
   var import_react5 = __toESM(__require("react"));
   function CountdownSection() {
     const targetDate = (/* @__PURE__ */ new Date("2026-12-12T18:15:00+05:30")).getTime();
@@ -579,7 +587,7 @@ var RoyalWeddingApp = (() => {
     return /* @__PURE__ */ import_react5.default.createElement("section", { className: "wedding-section countdown-timer-section", id: "countdown-section" }, /* @__PURE__ */ import_react5.default.createElement("div", { className: "section-royal-card" }, /* @__PURE__ */ import_react5.default.createElement("div", { className: "card-border-gold-outer" }), /* @__PURE__ */ import_react5.default.createElement("div", { className: "card-border-gold-inner" }), /* @__PURE__ */ import_react5.default.createElement("div", { className: "section-header-flourish" }, /* @__PURE__ */ import_react5.default.createElement("span", { className: "shloka-text" }, "|| MANGAL GHADI KI PRATIKSHA ||"), /* @__PURE__ */ import_react5.default.createElement("h2", { className: "section-title-gold" }, "WEDDING COUNTDOWN"), /* @__PURE__ */ import_react5.default.createElement("p", { className: "section-subtitle-script" }, "Counting every sacred moment until the auspicious wedding celebration"), /* @__PURE__ */ import_react5.default.createElement("div", { className: "section-title-divider" }, /* @__PURE__ */ import_react5.default.createElement("span", { className: "divider-line" }), /* @__PURE__ */ import_react5.default.createElement("span", { className: "divider-star" }, "\u2726"), /* @__PURE__ */ import_react5.default.createElement("span", { className: "divider-line" }))), timeLeft.isCompleted ? /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-completed-banner" }, /* @__PURE__ */ import_react5.default.createElement("div", { className: "completed-sparkles" }, "\u{1F389} \u{1F38A} \u2728"), /* @__PURE__ */ import_react5.default.createElement("h3", { className: "completed-title" }, "The Auspicious Wedding Day Is Here!"), /* @__PURE__ */ import_react5.default.createElement("p", { className: "completed-subtitle" }, "Celebrating the royal weddings of Akash & Reena and Shivani & Dheeraj with eternal blessings.")) : /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-grid-container" }, /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-unit-box" }, /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-circle-badge" }, /* @__PURE__ */ import_react5.default.createElement("span", { className: "unit-number" }, String(timeLeft.days).padStart(2, "0"))), /* @__PURE__ */ import_react5.default.createElement("span", { className: "unit-label" }, "DAYS")), /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-colon" }, ":"), /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-unit-box" }, /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-circle-badge" }, /* @__PURE__ */ import_react5.default.createElement("span", { className: "unit-number" }, String(timeLeft.hours).padStart(2, "0"))), /* @__PURE__ */ import_react5.default.createElement("span", { className: "unit-label" }, "HOURS")), /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-colon" }, ":"), /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-unit-box" }, /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-circle-badge" }, /* @__PURE__ */ import_react5.default.createElement("span", { className: "unit-number" }, String(timeLeft.minutes).padStart(2, "0"))), /* @__PURE__ */ import_react5.default.createElement("span", { className: "unit-label" }, "MINUTES")), /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-colon" }, ":"), /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-unit-box" }, /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-circle-badge seconds-pulse" }, /* @__PURE__ */ import_react5.default.createElement("span", { className: "unit-number" }, String(timeLeft.seconds).padStart(2, "0"))), /* @__PURE__ */ import_react5.default.createElement("span", { className: "unit-label" }, "SECONDS"))), /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-muhurat-strip" }, /* @__PURE__ */ import_react5.default.createElement("span", { className: "muhurat-star" }, "\u2726"), /* @__PURE__ */ import_react5.default.createElement("span", { className: "muhurat-text" }, "Auspicious Wedding Muhurat \u2022 Saturday, 12 December 2026 \u2022 Kumawat Vatika, Pali, Rajasthan"), /* @__PURE__ */ import_react5.default.createElement("span", { className: "muhurat-star" }, "\u2726"))));
   }
 
-  // ../../../../.gemini/antigravity/scratch/dual-jain-wedding-invitation/src/components/FamilyBlessingsSection.jsx
+  // src/components/FamilyBlessingsSection.jsx
   var import_react6 = __toESM(__require("react"));
   function FamilyBlessingsSection() {
     const [guestName, setGuestName] = (0, import_react6.useState)("");
@@ -728,7 +736,7 @@ Looking forward to celebrating this grand royal Jain wedding at Kumawat Vatika, 
     )), sentSuccess && /* @__PURE__ */ import_react6.default.createElement("div", { className: "blessing-sent-confirmation" }, /* @__PURE__ */ import_react6.default.createElement("span", null, "\u2713"), /* @__PURE__ */ import_react6.default.createElement("span", null, "WhatsApp opened! Thank you for sharing your auspicious blessings!"))))));
   }
 
-  // ../../../../.gemini/antigravity/scratch/dual-jain-wedding-invitation/src/components/FinalBlessingsFooter.jsx
+  // src/components/FinalBlessingsFooter.jsx
   var import_react7 = __toESM(__require("react"));
   function FinalBlessingsFooter({ onOpenCardViewer, onDownloadPDF }) {
     const scrollToTop = () => {
@@ -761,7 +769,7 @@ Looking forward to celebrating this grand royal Jain wedding at Kumawat Vatika, 
     ))));
   }
 
-  // ../../../../.gemini/antigravity/scratch/dual-jain-wedding-invitation/src/components/InvitationViewerModal.jsx
+  // src/components/InvitationViewerModal.jsx
   var import_react8 = __toESM(__require("react"));
   function InvitationViewerModal({ isOpen, onClose }) {
     const [zoomLevel, setZoomLevel] = (0, import_react8.useState)(1);
@@ -917,7 +925,7 @@ Looking forward to celebrating this grand royal Jain wedding at Kumawat Vatika, 
     ));
   }
 
-  // ../../../../.gemini/antigravity/scratch/dual-jain-wedding-invitation/src/components/MusicPlayer.jsx
+  // src/components/MusicPlayer.jsx
   var import_react9 = __toESM(__require("react"));
   var YOUTUBE_VIDEO_ID = "qJFPtcK8qBg";
   var START_TIME_SECONDS = 30;
@@ -1069,111 +1077,25 @@ Looking forward to celebrating this grand royal Jain wedding at Kumawat Vatika, 
     )));
   }
 
-  // ../../../../.gemini/antigravity/scratch/dual-jain-wedding-invitation/src/components/PetalsCanvas.jsx
-  var import_react10 = __toESM(__require("react"));
-  function PetalsCanvas() {
-    const canvasRef = (0, import_react10.useRef)(null);
-    (0, import_react10.useEffect)(() => {
-      const canvas = canvasRef.current;
-      if (!canvas) return;
-      const ctx = canvas.getContext("2d");
-      let animationFrameId;
-      let width = canvas.width = window.innerWidth;
-      let height = canvas.height = window.innerHeight;
-      const handleResize = () => {
-        if (!canvas) return;
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
-      };
-      window.addEventListener("resize", handleResize);
-      const petalCount = 22;
-      const petals = [];
-      const colors = [
-        "rgba(216, 195, 154, 0.45)",
-        // Soft Champagne
-        "rgba(232, 216, 186, 0.40)",
-        // Light Champagne
-        "rgba(212, 175, 101, 0.40)",
-        // Antique Gold
-        "rgba(255, 249, 237, 0.50)",
-        // Pearl Ivory Shimmer
-        "rgba(184, 139, 56, 0.35)"
-        // Warm Gold
-      ];
-      for (let i = 0; i < petalCount; i++) {
-        petals.push({
-          x: Math.random() * width,
-          y: Math.random() * height - height,
-          r: Math.random() * 5 + 3,
-          color: colors[Math.floor(Math.random() * colors.length)],
-          isLeaf: Math.random() > 0.5,
-          vx: (Math.random() - 0.5) * 0.8,
-          vy: Math.random() * 0.9 + 0.6,
-          rot: Math.random() * 360,
-          vRot: (Math.random() - 0.5) * 1.5,
-          swing: Math.random() * Math.PI * 2,
-          vSwing: Math.random() * 0.02 + 8e-3
-        });
-      }
-      const render = () => {
-        ctx.clearRect(0, 0, width, height);
-        for (let i = 0; i < petals.length; i++) {
-          const p = petals[i];
-          p.swing += p.vSwing;
-          p.x += p.vx + Math.sin(p.swing) * 0.7;
-          p.y += p.vy;
-          p.rot += p.vRot;
-          if (p.y > height + 20) {
-            p.y = -20;
-            p.x = Math.random() * width;
-          }
-          if (p.x < -20) p.x = width + 20;
-          if (p.x > width + 20) p.x = -20;
-          ctx.save();
-          ctx.translate(p.x, p.y);
-          ctx.rotate(p.rot * Math.PI / 180);
-          ctx.fillStyle = p.color;
-          if (p.isLeaf) {
-            ctx.beginPath();
-            ctx.ellipse(0, 0, p.r * 1.5, p.r * 0.7, 0, 0, Math.PI * 2);
-            ctx.fill();
-          } else {
-            ctx.beginPath();
-            ctx.arc(0, 0, p.r, 0, Math.PI * 2);
-            ctx.fill();
-          }
-          ctx.restore();
-        }
-        animationFrameId = requestAnimationFrame(render);
-      };
-      render();
-      return () => {
-        window.removeEventListener("resize", handleResize);
-        cancelAnimationFrame(animationFrameId);
-      };
-    }, []);
-    return /* @__PURE__ */ import_react10.default.createElement("canvas", { ref: canvasRef, className: "petals-ambient-canvas", "aria-hidden": "true" });
-  }
-
-  // ../../../../.gemini/antigravity/scratch/dual-jain-wedding-invitation/src/App.jsx
+  // src/App.jsx
   function App() {
-    const [isViewerOpen, setIsViewerOpen] = (0, import_react11.useState)(false);
+    const [isViewerOpen, setIsViewerOpen] = (0, import_react10.useState)(false);
     const scrollTo = (id) => {
       const el = document.getElementById(id);
       if (el) {
         el.scrollIntoView({ behavior: "smooth" });
       }
     };
-    return /* @__PURE__ */ import_react11.default.createElement("div", { className: "royal-wedding-app" }, /* @__PURE__ */ import_react11.default.createElement(PetalsCanvas, null), /* @__PURE__ */ import_react11.default.createElement(MusicPlayer, null), /* @__PURE__ */ import_react11.default.createElement("header", { className: "sticky-royal-nav", role: "banner" }, /* @__PURE__ */ import_react11.default.createElement("div", { className: "nav-container" }, /* @__PURE__ */ import_react11.default.createElement("div", { className: "nav-brand", onClick: () => scrollTo("hero-section") }, /* @__PURE__ */ import_react11.default.createElement("span", { className: "brand-crest" }, "\u{1F451}"), /* @__PURE__ */ import_react11.default.createElement("span", { className: "brand-title" }, "AKASH & REENA \u2022 SHIVANI & DHEERAJ")), /* @__PURE__ */ import_react11.default.createElement("nav", { className: "nav-links-row", "aria-label": "Wedding sections navigation" }, /* @__PURE__ */ import_react11.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("hero-section") }, "Welcome"), /* @__PURE__ */ import_react11.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("couples-section") }, "Couples"), /* @__PURE__ */ import_react11.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("events-section") }, "Celebrations"), /* @__PURE__ */ import_react11.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("venue-section") }, "Venue"), /* @__PURE__ */ import_react11.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("countdown-section") }, "Countdown"), /* @__PURE__ */ import_react11.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("family-section") }, "Family & Blessings")), /* @__PURE__ */ import_react11.default.createElement("div", { className: "nav-actions-group" }, /* @__PURE__ */ import_react11.default.createElement(
+    return /* @__PURE__ */ import_react10.default.createElement("div", { className: "royal-wedding-app" }, /* @__PURE__ */ import_react10.default.createElement(MusicPlayer, null), /* @__PURE__ */ import_react10.default.createElement("header", { className: "sticky-royal-nav", role: "banner" }, /* @__PURE__ */ import_react10.default.createElement("div", { className: "nav-container" }, /* @__PURE__ */ import_react10.default.createElement("div", { className: "nav-brand", onClick: () => scrollTo("hero-section") }, /* @__PURE__ */ import_react10.default.createElement("span", { className: "brand-crest" }, "\u{1F451}"), /* @__PURE__ */ import_react10.default.createElement("span", { className: "brand-title" }, "AKASH & REENA \u2022 SHIVANI & DHEERAJ")), /* @__PURE__ */ import_react10.default.createElement("nav", { className: "nav-links-row", "aria-label": "Wedding sections navigation" }, /* @__PURE__ */ import_react10.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("hero-section") }, "Welcome"), /* @__PURE__ */ import_react10.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("couples-section") }, "Couples"), /* @__PURE__ */ import_react10.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("events-section") }, "Celebrations"), /* @__PURE__ */ import_react10.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("venue-section") }, "Venue"), /* @__PURE__ */ import_react10.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("countdown-section") }, "Countdown"), /* @__PURE__ */ import_react10.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("family-section") }, "Family & Blessings")), /* @__PURE__ */ import_react10.default.createElement("div", { className: "nav-actions-group" }, /* @__PURE__ */ import_react10.default.createElement(
       "button",
       {
         className: "nav-btn-view-card",
         onClick: () => setIsViewerOpen(true),
         title: "Open Royal Wedding Invitation Card"
       },
-      /* @__PURE__ */ import_react11.default.createElement("span", { className: "btn-icon" }, "\u{1F4DC}"),
-      /* @__PURE__ */ import_react11.default.createElement("span", { className: "btn-text" }, "VIEW CARD")
-    ), /* @__PURE__ */ import_react11.default.createElement(
+      /* @__PURE__ */ import_react10.default.createElement("span", { className: "btn-icon" }, "\u{1F4DC}"),
+      /* @__PURE__ */ import_react10.default.createElement("span", { className: "btn-text" }, "VIEW CARD")
+    ), /* @__PURE__ */ import_react10.default.createElement(
       "a",
       {
         href: "dual-jain-wedding-invitation.pdf",
@@ -1181,20 +1103,20 @@ Looking forward to celebrating this grand royal Jain wedding at Kumawat Vatika, 
         className: "nav-btn-download-pdf",
         title: "Download High-Resolution PDF Invitation"
       },
-      /* @__PURE__ */ import_react11.default.createElement("span", { className: "btn-icon" }, "\u{1F4E5}"),
-      /* @__PURE__ */ import_react11.default.createElement("span", { className: "btn-text" }, "PDF")
-    )))), /* @__PURE__ */ import_react11.default.createElement("main", { className: "invitation-content-column" }, /* @__PURE__ */ import_react11.default.createElement(
+      /* @__PURE__ */ import_react10.default.createElement("span", { className: "btn-icon" }, "\u{1F4E5}"),
+      /* @__PURE__ */ import_react10.default.createElement("span", { className: "btn-text" }, "PDF")
+    )))), /* @__PURE__ */ import_react10.default.createElement("main", { className: "invitation-content-column" }, /* @__PURE__ */ import_react10.default.createElement(
       WeddingHero,
       {
         onOpenCardViewer: () => setIsViewerOpen(true),
         onExplore: () => scrollTo("couples-section")
       }
-    ), /* @__PURE__ */ import_react11.default.createElement(CouplesSection, null), /* @__PURE__ */ import_react11.default.createElement(WeddingTimeline, null), /* @__PURE__ */ import_react11.default.createElement(VenueSection, null), /* @__PURE__ */ import_react11.default.createElement(CountdownSection, null), /* @__PURE__ */ import_react11.default.createElement(FamilyBlessingsSection, null), /* @__PURE__ */ import_react11.default.createElement(
+    ), /* @__PURE__ */ import_react10.default.createElement(CouplesSection, null), /* @__PURE__ */ import_react10.default.createElement(WeddingTimeline, null), /* @__PURE__ */ import_react10.default.createElement(VenueSection, null), /* @__PURE__ */ import_react10.default.createElement(CountdownSection, null), /* @__PURE__ */ import_react10.default.createElement(FamilyBlessingsSection, null), /* @__PURE__ */ import_react10.default.createElement(
       FinalBlessingsFooter,
       {
         onOpenCardViewer: () => setIsViewerOpen(true)
       }
-    )), /* @__PURE__ */ import_react11.default.createElement(
+    )), /* @__PURE__ */ import_react10.default.createElement(
       InvitationViewerModal,
       {
         isOpen: isViewerOpen,
@@ -1203,10 +1125,16 @@ Looking forward to celebrating this grand royal Jain wedding at Kumawat Vatika, 
     ));
   }
 
-  // ../../../../.gemini/antigravity/scratch/dual-jain-wedding-invitation/src/main.jsx
+  // src/main.jsx
   var rootElement = document.getElementById("root");
   if (rootElement) {
-    const root = import_client.default.createRoot(rootElement);
-    root.render(/* @__PURE__ */ import_react12.default.createElement(App, null));
+    const rd = typeof window !== "undefined" && window.ReactDOM ? window.ReactDOM : import_client.default;
+    const createRootFn = rd && rd.createRoot || rd && rd.default && rd.default.createRoot;
+    if (createRootFn) {
+      const root = createRootFn(rootElement);
+      root.render(import_react11.default.createElement(App));
+    } else if (rd && rd.render) {
+      rd.render(import_react11.default.createElement(App), rootElement);
+    }
   }
 })();

@@ -24,8 +24,16 @@ async function build() {
     banner: {
       js: `
 window.require = function(mod) {
-  if (mod === 'react') return window.React;
-  if (mod === 'react-dom' || mod === 'react-dom/client') return window.ReactDOM;
+  if (mod === 'react') {
+    var r = window.React || {};
+    if (!r.default) r.default = r;
+    return r;
+  }
+  if (mod === 'react-dom' || mod === 'react-dom/client') {
+    var rd = window.ReactDOM || {};
+    if (!rd.default) rd.default = rd;
+    return rd;
+  }
   return {};
 };
 `

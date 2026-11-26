@@ -32,7 +32,8 @@ files_to_check = [
     'src/components/CountdownSection.jsx',
     'src/components/FamilyBlessingsSection.jsx',
     'src/components/FinalBlessingsFooter.jsx',
-    'src/components/InvitationViewerModal.jsx'
+    'src/components/InvitationViewerModal.jsx',
+    'src/components/MusicPlayer.jsx'
 ]
 
 print("=== 1. VERIFYING STRICT ENGLISH ONLY REQUIREMENT ===")
@@ -78,9 +79,9 @@ for a in annots:
 assert found_target_url, f"Expected URI {expected_url} not found in PDF annotations!"
 
 # -----------------------------------------------------------------------------
-# 3. VERIFY OPENING SCREEN & VIEWPORTS IN BROWSER
+# 3. VERIFY IMMEDIATE FIRST-FRAME INVITATION ACROSS ALL 6 VIEWPORTS
 # -----------------------------------------------------------------------------
-print("\n=== 3. VERIFYING IMMEDIATE OPENING SCREEN & VIEWPORTS ===")
+print("\n=== 3. VERIFYING IMMEDIATE FIRST-FRAME INVITATION IN BROWSER ===")
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind(('', 0))
 PORT = s.getsockname()[1]
@@ -194,6 +195,7 @@ try:
             const venueSection = document.getElementById('venue-section');
             const countdownSection = document.getElementById('countdown-section');
             const familySection = document.getElementById('family-section');
+            const canvas = document.querySelector('canvas');
 
             return {
                 hasGanesha: Boolean(ganesha),
@@ -207,7 +209,8 @@ try:
                 hasEvents: Boolean(eventsSection),
                 hasVenue: Boolean(venueSection),
                 hasCountdown: Boolean(countdownSection),
-                hasFamily: Boolean(familySection)
+                hasFamily: Boolean(familySection),
+                hasCanvasOverlay: Boolean(canvas)
             };
         })()""",
         "returnByValue": True
@@ -219,6 +222,7 @@ try:
     assert res_val.get('hasCouples'), "Couples section missing!"
     assert res_val.get('hasEvents'), "Events section missing!"
     assert res_val.get('hasVenue'), "Venue section missing!"
+    assert not res_val.get('hasCanvasOverlay'), "Unexpected canvas overlay detected!"
 
     # Test all viewports
     for vp in viewports:
@@ -230,23 +234,35 @@ try:
         })
         time.sleep(0.5)
 
-        overflow_res = cdp.send("Runtime.evaluate", {
+        layout_res = cdp.send("Runtime.evaluate", {
             "expression": """(() => {
                 const docEl = document.documentElement;
                 const body = document.body;
                 const scrollW = Math.max(docEl.scrollWidth, body.scrollWidth);
                 const clientW = window.innerWidth;
+                const hero = document.querySelector('.wedding-hero-section');
+                const heroBox = hero ? hero.getBoundingClientRect() : null;
+                const ganesha = document.querySelector('.hero-ganesha-img');
+                const ganeshaBox = ganesha ? ganesha.getBoundingClientRect() : null;
+                const openBtn = document.querySelector('.btn-main-open-invitation');
+                const openBtnBox = openBtn ? openBtn.getBoundingClientRect() : null;
+
                 return {
                     scrollW,
                     clientW,
-                    hasOverflow: scrollW > clientW + 2
+                    hasOverflow: scrollW > clientW + 2,
+                    heroTop: heroBox ? heroBox.top : null,
+                    ganeshaTop: ganeshaBox ? ganeshaBox.top : null,
+                    openBtnTop: openBtnBox ? openBtnBox.top : null,
+                    openBtnVisible: openBtnBox ? (openBtnBox.top < window.innerHeight && openBtnBox.bottom > 0) : false
                 };
             })()""",
             "returnByValue": True
         })
-        val = overflow_res.get('result', {}).get('result', {}).get('value', {})
-        print(f"[{vp['name']}] ScrollWidth: {val.get('scrollW')}px | ClientWidth: {val.get('clientW')}px | Overflow: {val.get('hasOverflow')}")
+        val = layout_res.get('result', {}).get('result', {}).get('value', {})
+        print(f"[{vp['name']}] ScrollW: {val.get('scrollW')}px | ClientW: {val.get('clientW')}px | HeroTop: {val.get('heroTop')}px | GaneshaTop: {val.get('ganeshaTop')}px | Overflow: {val.get('hasOverflow')}")
         assert not val.get('hasOverflow'), f"Horizontal overflow detected on {vp['name']}!"
+        assert val.get('heroTop') is not None and val.get('heroTop') < 180, f"Hero is pushed down too far on {vp['name']} ({val.get('heroTop')}px)!"
 
         # Take screenshot for proof
         shot_res = cdp.send("Page.captureScreenshot", {"format": "jpeg", "quality": 85})
@@ -257,7 +273,7 @@ try:
             with open(shot_path, 'wb') as sf:
                 sf.write(base64.b64decode(shot_b64))
 
-    print("\nALL 5+ VIEWPORTS & OPENING SCREEN CONTENT VERIFIED WITH 0 BLANK SCREEN & 0 OVERFLOW!")
+    print("\nALL 6 VIEWPORTS & OPENING SCREEN CONTENT VERIFIED WITH 0 BLANK SCREEN & 0 OVERFLOW!")
 
 finally:
     try:
