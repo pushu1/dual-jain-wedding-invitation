@@ -14,7 +14,7 @@ BASE_IMG = os.path.join(ASSETS_DIR, "shiva_parvati_wedding_invitation_base.jpg")
 CARD_IMG = os.path.join(ASSETS_DIR, "shiva_parvati_wedding_card.png")
 OUT_PDF = os.path.join(PROJECT_DIR, "dual-jain-wedding-invitation.pdf")
 OUT_PDF_COPY = os.path.join(PROJECT_DIR, "Akash_Reena_Shivani_Dheeraj_Royal_Wedding_Invitation.pdf")
-PRODUCTION_URL = "https://pushu1.github.io/dual-jain-wedding-invitation/"
+PRODUCTION_URL = "https://pushu1.github.io/dual-jain-wedding-invitation/?celebrate=1"
 
 def create_shiva_parvati_card():
     base = Image.open(BASE_IMG).convert("RGBA")

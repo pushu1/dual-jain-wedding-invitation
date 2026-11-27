@@ -2,21 +2,24 @@ import React, { useState, useEffect, useRef } from 'react';
 
 // Official Wedding Song: Dhin Dhin (from Teena Weds Kuldeep / Aarohi-Tatsat Wedding)
 const YOUTUBE_VIDEO_ID = 'qJFPtcK8qBg';
-// Exact start timestamp specified by user: 00:30 (30 seconds)
+// Exact starting timestamp specified by user: 00:30 (30 seconds)
 const START_TIME_SECONDS = 30;
 
 export default function MusicPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [isReady, setIsReady] = useState(false);
+  const [autoplayBlocked, setAutoplayBlocked] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const playerRef = useRef(null);
   const hasInitiallyStartedRef = useRef(false);
   const pendingPlayRef = useRef(false);
 
-  // Initialize YouTube IFrame Player with rock-solid lifecycle handling
+  // Initialize YouTube IFrame Player immediately on component mount
   useEffect(() => {
     let checkInterval = null;
+    let autoplayCheckTimeout = null;
 
     const setupPlayer = () => {
       if (!window.YT || !window.YT.Player) return false;
@@ -30,8 +33,8 @@ export default function MusicPlayer() {
           width: '1',
           videoId: YOUTUBE_VIDEO_ID,
           playerVars: {
-            autoplay: 0,
-            start: START_TIME_SECONDS,
+            autoplay: 1, // Attempt automatic playback immediately
+            start: START_TIME_SECONDS, // Start at 00:30
             controls: 0,
             disablekb: 1,
             fs: 0,
@@ -44,17 +47,17 @@ export default function MusicPlayer() {
             origin: window.location.origin
           },
           events: {
-            onReady: () => {
+            onReady: (event) => {
               setIsReady(true);
-              if (pendingPlayRef.current) {
-                pendingPlayRef.current = false;
-                startPlayAt30();
-              }
+              setErrorMessage(null);
+              // Immediately attempt audible playback from 30 seconds
+              attemptAutoplay();
             },
             onStateChange: (event) => {
               // YT.PlayerState: PLAYING=1, PAUSED=2, BUFFERING=3, CUED=5, ENDED=0
               if (event.data === 1) {
                 setIsPlaying(true);
+                setAutoplayBlocked(false); // Playback active!
                 window.isWeddingMusicPlaying = true;
                 window.dispatchEvent(new CustomEvent('weddingMusicStatus', { detail: { isPlaying: true } }));
               } else if (event.data === 2) {
@@ -70,13 +73,16 @@ export default function MusicPlayer() {
               }
             },
             onError: (err) => {
-              console.warn('YouTube BGM Player notice:', err);
+              const code = (err && err.data) || 'Unknown';
+              console.warn('YouTube BGM Player notice/error:', code);
+              setErrorMessage(`संगीत सेवा सूचना (कोड ${code})`);
             }
           }
         });
         return true;
       } catch (err) {
         console.warn('Error setting up YT Player:', err);
+        setErrorMessage('संगीत प्लेयर प्रारंभ करने में त्रुटि');
         return false;
       }
     };
@@ -94,8 +100,47 @@ export default function MusicPlayer() {
             clearInterval(checkInterval);
           }
         }
-      }, 350);
+      }, 250);
     }
+
+    const attemptAutoplay = () => {
+      if (!playerRef.current) return;
+      try {
+        if (playerRef.current.seekTo && !hasInitiallyStartedRef.current) {
+          playerRef.current.seekTo(START_TIME_SECONDS, true);
+          hasInitiallyStartedRef.current = true;
+        }
+        if (playerRef.current.unMute) {
+          playerRef.current.unMute();
+        }
+        if (playerRef.current.setVolume) {
+          playerRef.current.setVolume(100);
+        }
+        if (playerRef.current.playVideo) {
+          playerRef.current.playVideo();
+        }
+      } catch (e) {
+        console.warn('Autoplay call deferred:', e);
+      }
+
+      // Check whether modern browser policy permitted or blocked autoplay
+      autoplayCheckTimeout = setTimeout(() => {
+        if (playerRef.current && playerRef.current.getPlayerState) {
+          const state = playerRef.current.getPlayerState();
+          // State 1 = PLAYING, State 3 = BUFFERING
+          if (state !== 1 && state !== 3) {
+            console.log('Browser blocked audible autoplay (State: ' + state + '). Presenting Hindi prompt.');
+            setAutoplayBlocked(true);
+          } else {
+            setAutoplayBlocked(false);
+          }
+        } else {
+          if (!window.isWeddingMusicPlaying) {
+            setAutoplayBlocked(true);
+          }
+        }
+      }, 2200);
+    };
 
     const startPlayAt30 = () => {
       if (!playerRef.current || !playerRef.current.playVideo) {
@@ -111,14 +156,19 @@ export default function MusicPlayer() {
         if (playerRef.current.unMute) {
           playerRef.current.unMute();
         }
+        if (playerRef.current.setVolume) {
+          playerRef.current.setVolume(100);
+        }
         playerRef.current.playVideo();
         setIsPlaying(true);
         setIsMuted(false);
+        setAutoplayBlocked(false);
         window.isWeddingMusicPlaying = true;
         window.dispatchEvent(new CustomEvent('weddingMusicStatus', { detail: { isPlaying: true } }));
       } catch (e) {
-        console.warn('Autoplay deferred for user gesture:', e);
+        console.warn('Playback gesture required:', e);
         pendingPlayRef.current = true;
+        setAutoplayBlocked(true);
       }
     };
 
@@ -155,8 +205,22 @@ export default function MusicPlayer() {
       }
     };
 
+    // Optional seamless first interaction listener to unlock audio if blocked
+    const handleFirstUserInteraction = () => {
+      if (!window.isWeddingMusicPlaying && playerRef.current) {
+        try {
+          startPlayAt30();
+        } catch (e) {}
+      }
+    };
+    window.addEventListener('click', handleFirstUserInteraction, { once: true, passive: true });
+    window.addEventListener('touchstart', handleFirstUserInteraction, { once: true, passive: true });
+
     return () => {
       if (checkInterval) clearInterval(checkInterval);
+      if (autoplayCheckTimeout) clearTimeout(autoplayCheckTimeout);
+      window.removeEventListener('click', handleFirstUserInteraction);
+      window.removeEventListener('touchstart', handleFirstUserInteraction);
       window.playWeddingMusic = null;
       window.pauseWeddingMusic = null;
       window.toggleWeddingMusic = null;
@@ -177,9 +241,17 @@ export default function MusicPlayer() {
     }
   };
 
+  const handleProminentPromptClick = (e) => {
+    e.stopPropagation();
+    setAutoplayBlocked(false);
+    if (typeof window.playWeddingMusic === 'function') {
+      window.playWeddingMusic();
+    }
+  };
+
   return (
     <>
-      {/* Invisible YouTube IFrame Container exactly matching Teena Weds Kuldeep */}
+      {/* Invisible YouTube IFrame Container */}
       <div
         id="youtube-bgm-container"
         aria-hidden="true"
@@ -195,26 +267,56 @@ export default function MusicPlayer() {
         }}
       />
 
-      {/* Floating Audio Controller Badge in Hindi */}
+      {/* PROMINENT HINDI PROMPT IF BROWSER BLOCKS AUTOPLAY (Non-blocking, does not hide invitation) */}
+      {autoplayBlocked && !isPlaying && (
+        <aside className="prominent-autoplay-blocked-banner" role="alert" aria-label="संगीत प्लेबैक अनुमति">
+          <div className="autoplay-prompt-content">
+            <span className="prompt-shehnai-icon" aria-hidden="true">🎺</span>
+            <span className="prompt-hindi-text">
+              मधुर शहनाई की धुन सुनने के लिए यहाँ स्पर्श करें
+            </span>
+          </div>
+          <button
+            type="button"
+            className="btn-autoplay-start-prompt"
+            onClick={handleProminentPromptClick}
+            aria-label="संगीत शुरू करें"
+          >
+            <span className="btn-sparkle-mini">✦</span>
+            <span>संगीत शुरू करें</span>
+            <span className="btn-sparkle-mini">✦</span>
+          </button>
+        </aside>
+      )}
+
+      {/* Error message indicator if YouTube API returns error */}
+      {errorMessage && (
+        <aside className="music-error-notice" role="alert" aria-live="assertive">
+          <span>⚠️ {errorMessage}</span>
+          <button type="button" onClick={() => setErrorMessage(null)} className="btn-dismiss-error">✕</button>
+        </aside>
+      )}
+
+      {/* Floating Audio Controller Badge with EXACT User-Requested Hindi Labels */}
       <aside className="floating-music-widget" aria-label="विवाह पृष्ठभूमि संगीत नियंत्रण">
         <div className={`royal-music-pill-btn ${isPlaying ? 'is-playing' : 'is-paused'}`}>
           
-          {/* Main Play / Pause Trigger */}
+          {/* Main Play / Pause Trigger with User-Specified Hindi Labels */}
           <button
             type="button"
             className="music-action-trigger"
             onClick={handlePlayToggle}
-            title={isPlaying ? 'विवाह संगीत रोकें' : 'विवाह संगीत चालू करें (30 सेकंड से)'}
+            title={isPlaying ? 'संगीत रोकें' : 'संगीत चालू करें'}
             aria-label={isPlaying ? 'संगीत रोकें' : 'संगीत चालू करें'}
           >
             <span className="music-pill-icon" aria-hidden="true">
-              {isPlaying ? '🎵' : '▶'}
+              {isPlaying ? '⏸' : '▶'}
             </span>
             <span className="music-pill-text">
-              {isPlaying ? 'मांगलिक शहनाई' : 'संगीत शुरू करें'}
+              {isPlaying ? 'संगीत रोकें' : 'संगीत चालू करें'}
             </span>
 
-            {/* Sound Wave Equalizer Bars Animation */}
+            {/* Sound Wave Equalizer Bars Animation - ONLY when actual playback is confirmed */}
             {isPlaying && (
               <span className="music-wave-bars" aria-hidden="true">
                 <span className="bar bar-1"></span>
@@ -225,7 +327,7 @@ export default function MusicPlayer() {
             )}
           </button>
 
-          {/* Mute / Unmute Secondary Action */}
+          {/* Mute / Unmute Secondary Action with User-Specified Hindi Labels */}
           {isPlaying && (
             <button
               type="button"

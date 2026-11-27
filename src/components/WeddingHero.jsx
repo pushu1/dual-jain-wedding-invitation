@@ -177,7 +177,7 @@ export default function WeddingHero({ onEnterInvitation }) {
         <div className="hero-music-prompt-banner">
           <div className="hero-music-prompt-text">
             <span>🎺</span>
-            <span>मधुर शहनाई की धुन सुनने के लिए यहाँ क्लिक करें</span>
+            <span>मधुर शहनाई की धुन सुनने के लिए यहाँ स्पर्श करें</span>
           </div>
           <button
             type="button"

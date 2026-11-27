@@ -2164,6 +2164,116 @@ button, a, input, textarea, select {
 }
 
 /* ==========================================================================
+   PROMINENT HINDI PROMPT IF BROWSER BLOCKS AUDIBLE AUTOPLAY
+   ========================================================================== */
+.prominent-autoplay-blocked-banner {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99998;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(139, 48, 56, 0.96);
+  border: 1.8px solid #C9A45C;
+  border-radius: 40px;
+  padding: 10px 24px;
+  box-shadow: 0 10px 32px rgba(84, 26, 32, 0.45), 0 0 20px rgba(201, 164, 92, 0.4);
+  backdrop-filter: blur(10px);
+  animation: promptFloat 2.5s ease-in-out infinite, promptGlow 2.5s ease-in-out infinite;
+  max-width: 92vw;
+  box-sizing: border-box;
+}
+
+@keyframes promptFloat {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-6px); }
+}
+
+@keyframes promptGlow {
+  0%, 100% { box-shadow: 0 10px 32px rgba(84, 26, 32, 0.45), 0 0 16px rgba(201, 164, 92, 0.4); }
+  50% { box-shadow: 0 14px 40px rgba(84, 26, 32, 0.7), 0 0 28px rgba(255, 215, 0, 0.75); }
+}
+
+.autoplay-prompt-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #FFF5E6;
+  font-family: var(--font-royal-heading);
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.prompt-shehnai-icon {
+  font-size: 18px;
+  color: #FFD700;
+  filter: drop-shadow(0 0 4px #FFD700);
+}
+
+.btn-autoplay-start-prompt {
+  background: linear-gradient(135deg, #D4AF37 0%, #B88A3B 100%);
+  border: 1.5px solid #FFF5E6;
+  color: #541A20;
+  font-family: var(--font-royal-heading);
+  font-size: 12.5px;
+  font-weight: 800;
+  padding: 8px 18px;
+  border-radius: 24px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-autoplay-start-prompt:hover {
+  transform: scale(1.04);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.btn-autoplay-start-prompt:active {
+  transform: scale(0.97);
+}
+
+.btn-sparkle-mini {
+  color: #FFF5E6;
+  font-size: 11px;
+}
+
+.music-error-notice {
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(139, 48, 56, 0.95);
+  border: 1px solid #FF6B4A;
+  color: #FFF5E6;
+  font-family: var(--font-royal-heading);
+  font-size: 12px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.btn-dismiss-error {
+  background: none;
+  border: none;
+  color: #FFF5E6;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* ==========================================================================
    RESPONSIVE DESIGN (MOBILE & TABLET)
    ========================================================================== */
 
@@ -2294,5 +2404,21 @@ button, a, input, textarea, select {
     right: 16px;
     padding: 6px 14px;
     font-size: 10.5px;
+  }
+  .prominent-autoplay-blocked-banner {
+    bottom: 16px;
+    padding: 8px 14px;
+    gap: 8px;
+    width: 95vw;
+    justify-content: space-between;
+  }
+  .autoplay-prompt-content {
+    font-size: 11px;
+    white-space: normal;
+    line-height: 1.3;
+  }
+  .btn-autoplay-start-prompt {
+    font-size: 11px;
+    padding: 6px 12px;
   }
 }

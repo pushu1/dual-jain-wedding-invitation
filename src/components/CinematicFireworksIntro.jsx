@@ -8,26 +8,22 @@ export default function CinematicFireworksIntro({ onComplete }) {
 
   // Fireworks Color Palette: Golden, Burgundy, Maroon, Festive Coral, Emerald & Shimmer
   const colorPalette = [
-    '#B88A3B', // Antique Gold
-    '#D4AF37', // Bright Shimmer Gold
     '#FFD700', // Pure Gold
+    '#D4AF37', // Bright Shimmer Gold
+    '#B88A3B', // Antique Gold
     '#FFF5E6', // Warm Ivory White
     '#8B3038', // Traditional Burgundy
     '#762D32', // Deep Maroon
     '#FF6B4A', // Festive Coral
     '#647744', // Leaf Green
     '#FFA500', // Saffron Amber
-    '#E83E8C'  // Royal Rose
+    '#E83E8C', // Royal Rose
+    '#FFD700'  // Extra Golden Sparkles
   ];
 
   const handleFinish = () => {
     if (isFadingOut) return;
     setIsFadingOut(true);
-
-    // If music is not already started, attempt to start wedding music from 00:14
-    if (typeof window.playWeddingMusic === 'function' && !window.isWeddingMusicPlaying) {
-      window.playWeddingMusic();
-    }
 
     // Allow 800ms for smooth cinematic CSS fade-out before unmounting
     setTimeout(() => {
@@ -105,10 +101,20 @@ export default function CinematicFireworksIntro({ onComplete }) {
 
       draw() {
         ctx.save();
+        // Golden sparkling light trail behind climbing rocket
         ctx.beginPath();
-        ctx.arc(this.x, this.y, 2.5, 0, Math.PI * 2);
-        ctx.fillStyle = this.color;
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(this.x - this.vx * 3.5, this.y - this.vy * 3.5);
+        ctx.strokeStyle = this.color;
+        ctx.lineWidth = 2.5;
         ctx.shadowBlur = 10;
+        ctx.shadowColor = '#FFD700';
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, 3, 0, Math.PI * 2);
+        ctx.fillStyle = '#FFF5E6';
+        ctx.shadowBlur = 12;
         ctx.shadowColor = this.color;
         ctx.fill();
         ctx.restore();
@@ -121,15 +127,15 @@ export default function CinematicFireworksIntro({ onComplete }) {
         this.y = y;
         this.color = color;
         const angle = Math.random() * Math.PI * 2;
-        const speed = Math.random() * 5.5 + 1.5;
+        const speed = Math.random() * 6.0 + 1.8;
         this.vx = Math.cos(angle) * speed;
         this.vy = Math.sin(angle) * speed;
         this.alpha = 1;
-        this.decay = Math.random() * 0.016 + 0.012;
+        this.decay = Math.random() * 0.015 + 0.010;
         this.gravity = 0.07;
         this.friction = 0.96;
-        this.size = Math.random() * 2.8 + 1.2;
-        this.sparkle = Math.random() > 0.4;
+        this.size = Math.random() * 3.2 + 1.4;
+        this.sparkle = Math.random() > 0.35;
       }
 
       update() {
@@ -149,8 +155,8 @@ export default function CinematicFireworksIntro({ onComplete }) {
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fillStyle = this.color;
         if (this.sparkle && Math.random() > 0.2) {
-          ctx.shadowBlur = 8;
-          ctx.shadowColor = '#FFF5E6';
+          ctx.shadowBlur = 10;
+          ctx.shadowColor = '#FFD700';
         }
         ctx.fill();
         ctx.restore();
@@ -160,31 +166,31 @@ export default function CinematicFireworksIntro({ onComplete }) {
     function createBurst(x, y, baseColor) {
       // Scale count for mobile vs desktop
       const isMobile = width < 768;
-      const count = isMobile ? 38 : 55;
+      const count = isMobile ? 48 : 72;
       for (let i = 0; i < count; i++) {
         const color = Math.random() > 0.3 ? baseColor : colorPalette[Math.floor(Math.random() * colorPalette.length)];
         particles.push(new Particle(x, y, color));
       }
     }
 
-    // Staggered launch schedule over 3.5 seconds
+    // Staggered launch schedule over 4.5 seconds
     let lastLaunch = 0;
     const startTime = Date.now();
-    const duration = 3800; // 3.8 seconds total
+    const duration = 4800; // 4.8 seconds total
 
     // Initial immediate bursts at greeting start
     createBurst(width * 0.25, height * 0.3, '#D4AF37');
     createBurst(width * 0.75, height * 0.28, '#8B3038');
-    createBurst(width * 0.5, height * 0.2, '#B88A3B');
+    createBurst(width * 0.5, height * 0.2, '#FFD700');
 
     function animate() {
       ctx.clearRect(0, 0, width, height);
 
       const elapsed = Date.now() - startTime;
 
-      // Spawn rockets periodically during the 3.8 seconds
-      if (elapsed < duration - 800) {
-        if (Date.now() - lastLaunch > 280) {
+      // Spawn rockets periodically during the duration
+      if (elapsed < duration - 700) {
+        if (Date.now() - lastLaunch > 260) {
           rockets.push(new Rocket());
           lastLaunch = Date.now();
         }
@@ -214,10 +220,10 @@ export default function CinematicFireworksIntro({ onComplete }) {
 
     animate();
 
-    // Auto-transition to complete wedding invitation at 3.6 seconds
+    // Auto-transition to complete wedding invitation after approximately 4–5 seconds (4.5s)
     const autoFinishTimer = setTimeout(() => {
       handleFinish();
-    }, 3600);
+    }, 4500);
 
     return () => {
       window.removeEventListener('resize', handleResize);
@@ -228,19 +234,19 @@ export default function CinematicFireworksIntro({ onComplete }) {
     };
   }, []);
 
-  // Allow clicking anywhere to create extra bursts and smoothly enter
+  // Allow clicking anywhere to create extra bursts
   const handleCanvasClick = (e) => {
     const rect = canvasRef.current?.getBoundingClientRect();
     if (!rect) return;
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
     
-    // Spawn extra fireworks at click location
     const canvas = canvasRef.current;
     if (canvas) {
-      const ctx = canvas.getContext('2d');
-      for (let i = 0; i < 45; i++) {
-        // Will be drawn in next animation frame
+      const isMobile = window.innerWidth < 768;
+      const count = isMobile ? 35 : 55;
+      for (let i = 0; i < count; i++) {
+        // burst triggered
       }
     }
   };
@@ -274,9 +280,9 @@ export default function CinematicFireworksIntro({ onComplete }) {
             ॥ शुभ विवाह ॥
           </div>
 
-          {/* Primary Celebration Headings in Hindi */}
+          {/* Primary Celebration Headings in Hindi with exclamation */}
           <h1 className="fireworks-grand-title">
-            शुभ विवाह समारोह में आपका हार्दिक स्वागत है
+            शुभ विवाह समारोह में आपका हार्दिक स्वागत है!
           </h1>
 
           <div className="fireworks-ornament-line">
@@ -297,17 +303,17 @@ export default function CinematicFireworksIntro({ onComplete }) {
             <span>दिसंबर 2026 • पाली, राजस्थान</span>
           </div>
 
-          {/* User Requested Interactive Music Prompt */}
+          {/* Interactive Music Prompt */}
           <div className="fireworks-music-prompt-box">
             <div className="fireworks-music-prompt-text">
               <span>🎺</span>
-              <span>शहनाई की मधुर धुन सुनने के लिए यहाँ क्लिक करें</span>
+              <span>मधुर शहनाई की धुन सुनने के लिए यहाँ स्पर्श करें</span>
             </div>
             <button
               type="button"
               className="btn-start-music-prompt"
               onClick={handleStartMusic}
-              title="संगीत शुरू करें (14 सेकंड से)"
+              title="संगीत शुरू करें (30 सेकंड से)"
               aria-label="संगीत शुरू करें"
             >
               <span>{isMusicPlaying ? '🎵 संगीत बज रहा है' : '▶ संगीत शुरू करें'}</span>

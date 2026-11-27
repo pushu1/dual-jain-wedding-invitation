@@ -28,6 +28,20 @@
 
   <link rel="stylesheet" href="royal_invitation_2026.css">
 
+  <!-- Immediate Query Parameter Trigger for Celebratory Fireworks -->
+  <script>
+    (function() {
+      try {
+        var search = window.location.search || '';
+        var hash = window.location.hash || '';
+        var params = new URLSearchParams(search);
+        if (params.get('celebrate') === '1' || params.has('celebrate') || hash.indexOf('celebrate') !== -1) {
+          window.__START_CELEBRATE_IMMEDIATELY = true;
+        }
+      } catch(e) {}
+    })();
+  </script>
+
   <!-- YouTube IFrame Player API for Wedding Background Music -->
   <script src="https://www.youtube.com/iframe_api"></script>
 </head>

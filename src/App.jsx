@@ -12,13 +12,53 @@ import CinematicFireworksIntro from './components/CinematicFireworksIntro';
 
 export default function App() {
   const [isViewerOpen, setIsViewerOpen] = useState(false);
-  // Requirement 3: On Android & iPhone, Shiva-Parvati cover must be the FIRST screen visible!
-  const [showFireworks, setShowFireworks] = useState(false);
 
-  // Expose global trigger for replaying the fireworks celebration
+  // Requirement 1 & 4: Instant fireworks on website load when opened via PDF link (?celebrate=1)
+  const [showFireworks, setShowFireworks] = useState(() => {
+    try {
+      if (typeof window !== 'undefined') {
+        if (window.__START_CELEBRATE_IMMEDIATELY) return true;
+        const search = window.location.search || '';
+        const hash = window.location.hash || '';
+        const params = new URLSearchParams(search);
+        return params.get('celebrate') === '1' || params.has('celebrate') || hash.includes('celebrate');
+      }
+    } catch (e) {
+      console.warn('URL param error:', e);
+    }
+    return false;
+  });
+
   useEffect(() => {
+    try {
+      const search = window.location.search || '';
+      const hash = window.location.hash || '';
+      const params = new URLSearchParams(search);
+      if (params.get('celebrate') === '1' || params.has('celebrate') || hash.includes('celebrate')) {
+        setShowFireworks(true);
+      }
+    } catch (e) {}
+
+    const handleLocationChange = () => {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('celebrate') === '1' || params.has('celebrate') || window.location.hash.includes('celebrate')) {
+          setShowFireworks(true);
+        }
+      } catch (e) {}
+    };
+
+    window.addEventListener('popstate', handleLocationChange);
+    window.addEventListener('hashchange', handleLocationChange);
+
+    // Expose global trigger for replaying celebration fireworks
     window.triggerFireworksIntro = () => {
       setShowFireworks(true);
+    };
+
+    return () => {
+      window.removeEventListener('popstate', handleLocationChange);
+      window.removeEventListener('hashchange', handleLocationChange);
     };
   }, []);
 
@@ -30,11 +70,11 @@ export default function App() {
   };
 
   const handleEnterInvitation = () => {
-    // 1. Start background wedding music immediately from 00:30
+    // 1. Attempt wedding music playback if not already playing
     if (typeof window.playWeddingMusic === 'function') {
       window.playWeddingMusic();
     }
-    // 2. Launch celebratory golden fireworks greeting with Hindi welcome message
+    // 2. Trigger celebration fireworks greeting
     setShowFireworks(true);
   };
 
@@ -43,15 +83,15 @@ export default function App() {
     // Smoothly scroll down to complete wedding invitation
     setTimeout(() => {
       scrollTo('couples-section');
-    }, 150);
+    }, 200);
   };
 
   return (
     <div className="royal-wedding-app">
-      {/* Background Royal Wedding Music Player (YouTube Video ID: qJFPtcK8qBg from 00:30) */}
+      {/* Background Royal Wedding Music Player (YouTube Video ID: qJFPtcK8qBg from 00:30, independent of fireworks) */}
       <MusicPlayer />
 
-      {/* CINEMATIC CELEBRATION FIREWORKS INTRODUCTION OVERLAY - Triggered upon clicking invitation button */}
+      {/* CINEMATIC CELEBRATION FIREWORKS OVERLAY - Automatically triggered on ?celebrate=1 or button tap */}
       {showFireworks && (
         <CinematicFireworksIntro onComplete={handleFireworksComplete} />
       )}

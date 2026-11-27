@@ -113,7 +113,7 @@ var RoyalWeddingApp = (() => {
         width: "48",
         height: "48"
       }
-    )), /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-shloka-text" }, "\u0965 \u0936\u094D\u0930\u0940 \u0917\u0923\u0947\u0936\u093E\u092F \u0928\u092E\u0903 \u0965")), /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-main-title-block" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-royal-flourish-line" }, /* @__PURE__ */ import_react.default.createElement("span", { className: "flourish-leaf" }, "\u{1F33F}"), /* @__PURE__ */ import_react.default.createElement("span", { className: "flourish-dash" }), /* @__PURE__ */ import_react.default.createElement("span", { className: "flourish-star" }, "\u2726"), /* @__PURE__ */ import_react.default.createElement("span", { className: "flourish-dash" }), /* @__PURE__ */ import_react.default.createElement("span", { className: "flourish-leaf" }, "\u{1F33F}")), /* @__PURE__ */ import_react.default.createElement("h1", { className: "hero-grand-title" }, "\u0965 \u0935\u093F\u0935\u093E\u0939 \u0906\u092E\u0902\u0924\u094D\u0930\u0923 \u0965"), /* @__PURE__ */ import_react.default.createElement("p", { className: "hero-divine-subtitle" }, "\u092D\u0917\u0935\u093E\u0928 \u0936\u093F\u0935, \u092E\u093E\u0924\u093E \u092A\u093E\u0930\u094D\u0935\u0924\u0940 \u090F\u0935\u0902 \u0939\u092E\u093E\u0930\u0947 \u092A\u0942\u091C\u094D\u092F \u092A\u0942\u0930\u094D\u0935\u091C\u094B\u0902 \u0915\u0947 \u0926\u093F\u0935\u094D\u092F \u0906\u0936\u0940\u0930\u094D\u0935\u093E\u0926 \u0938\u0947")), /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-couples-showcase-card" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-couple-unit" }, /* @__PURE__ */ import_react.default.createElement("span", { className: "couple-sacred-label" }, "\u2014 \u092A\u094D\u0930\u0925\u092E \u092A\u093E\u0935\u0928 \u092A\u0930\u093F\u0923\u092F \u2014"), /* @__PURE__ */ import_react.default.createElement("h2", { className: "couple-names-headline" }, "\u0906\u092F\u0941\u0937\u094D\u092E\u093E\u0928 \u0906\u0915\u093E\u0936"), /* @__PURE__ */ import_react.default.createElement("div", { className: "couple-parents-line" }, "\u0938\u0941\u092A\u0941\u0924\u094D\u0930 \u0936\u094D\u0930\u0940\u092E\u0924\u0940 \u0905\u0928\u0941\u0930\u093E\u0927\u093E \u090F\u0935\u0902 \u0936\u094D\u0930\u0940 \u0915\u0948\u0932\u093E\u0936 \u0917\u0947\u0939\u0932\u094B\u0924"), /* @__PURE__ */ import_react.default.createElement("div", { className: "couple-subh-vivah-badge" }, "\u2726 \u0936\u0941\u092D \u0935\u093F\u0935\u093E\u0939 \u2726"), /* @__PURE__ */ import_react.default.createElement("h2", { className: "couple-names-headline" }, "\u0906\u092F\u0941\u0937\u094D\u092E\u0924\u0940 \u0930\u0940\u0928\u093E"), /* @__PURE__ */ import_react.default.createElement("div", { className: "couple-parents-line" }, "\u0938\u0941\u092A\u0941\u0924\u094D\u0930\u0940 \u0936\u094D\u0930\u0940\u092E\u0924\u0940 \u091C\u0938\u094B\u0927\u093E \u0926\u0947\u0935\u0940 \u090F\u0935\u0902 \u0936\u094D\u0930\u0940 \u0917\u094B\u092A\u093E\u0932\u091C\u0940 \u091A\u094C\u0939\u093E\u0928"), /* @__PURE__ */ import_react.default.createElement("div", { className: "couple-date-tag" }, "\u0935\u093F\u0935\u093E\u0939 \u0926\u093F\u0928\u093E\u0902\u0915: \u0917\u0941\u0930\u0941\u0935\u093E\u0930, 10 \u0926\u093F\u0938\u0902\u092C\u0930 2026")), /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-central-divider-unit", "aria-hidden": "true" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "divider-gold-line" }), /* @__PURE__ */ import_react.default.createElement("div", { className: "divider-sacred-emblem" }, /* @__PURE__ */ import_react.default.createElement("span", { className: "emblem-symbol" }, "\u{1F451}"), /* @__PURE__ */ import_react.default.createElement("span", { className: "emblem-flourish" }, "\u2756")), /* @__PURE__ */ import_react.default.createElement("div", { className: "divider-gold-line" })), /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-couple-unit" }, /* @__PURE__ */ import_react.default.createElement("span", { className: "couple-sacred-label" }, "\u2014 \u0926\u094D\u0935\u093F\u0924\u0940\u092F \u092A\u093E\u0935\u0928 \u092A\u0930\u093F\u0923\u092F \u2014"), /* @__PURE__ */ import_react.default.createElement("h2", { className: "couple-names-headline" }, "\u0906\u092F\u0941\u0937\u094D\u092E\u0924\u0940 \u0936\u093F\u0935\u093E\u0928\u0940 (\u091C\u0940\u0928\u0942)"), /* @__PURE__ */ import_react.default.createElement("div", { className: "couple-parents-line" }, "\u0938\u0941\u092A\u0941\u0924\u094D\u0930\u0940 \u0936\u094D\u0930\u0940\u092E\u0924\u0940 \u0905\u0928\u0941\u0930\u093E\u0927\u093E \u090F\u0935\u0902 \u0936\u094D\u0930\u0940 \u0915\u0948\u0932\u093E\u0936 \u0917\u0947\u0939\u0932\u094B\u0924"), /* @__PURE__ */ import_react.default.createElement("div", { className: "couple-subh-vivah-badge" }, "\u2726 \u0936\u0941\u092D \u0935\u093F\u0935\u093E\u0939 \u2726"), /* @__PURE__ */ import_react.default.createElement("h2", { className: "couple-names-headline" }, "\u0906\u092F\u0941\u0937\u094D\u092E\u093E\u0928 \u0927\u0940\u0930\u091C \u091C\u0940"), /* @__PURE__ */ import_react.default.createElement("div", { className: "couple-parents-line" }, "\u0938\u0941\u092A\u0941\u0924\u094D\u0930 \u0936\u094D\u0930\u0940\u092E\u0924\u0940 \u0930\u0947\u0928\u0942 \u091C\u0940 \u090F\u0935\u0902 \u0936\u094D\u0930\u0940 \u092E\u0941\u0915\u0947\u0936\u091C\u0940 \u092A\u0930\u093F\u0939\u093E\u0930"), /* @__PURE__ */ import_react.default.createElement("div", { className: "couple-date-tag" }, "\u0935\u093F\u0935\u093E\u0939 \u0926\u093F\u0928\u093E\u0902\u0915: \u0936\u0928\u093F\u0935\u093E\u0930, 12 \u0926\u093F\u0938\u0902\u092C\u0930 2026"))), /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-venue-announcement-banner" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "venue-title-label" }, "\u0935\u093F\u0935\u093E\u0939 \u0938\u094D\u0925\u0932:"), /* @__PURE__ */ import_react.default.createElement("div", { className: "banner-venue-location" }, /* @__PURE__ */ import_react.default.createElement("span", { className: "pin-icon" }, "\u{1F4CD}"), /* @__PURE__ */ import_react.default.createElement("span", { className: "venue-name-bold" }, "\u0915\u0941\u092E\u093E\u0935\u0924 \u0935\u093E\u091F\u093F\u0915\u093E")), /* @__PURE__ */ import_react.default.createElement("div", { className: "banner-venue-address" }, "\u092A\u0941\u0928\u093E\u092F\u0924\u093E \u0930\u094B\u0921, \u092A\u093E\u0932\u0940, \u0930\u093E\u091C\u0938\u094D\u0925\u093E\u0928"), /* @__PURE__ */ import_react.default.createElement("div", { className: "banner-date-highlight" }, /* @__PURE__ */ import_react.default.createElement("span", { className: "cal-icon" }, "\u{1F5D3}\uFE0F"), /* @__PURE__ */ import_react.default.createElement("span", { className: "date-str" }, "\u092D\u0935\u094D\u092F \u0935\u093F\u0935\u093E\u0939 \u0938\u092E\u093E\u0930\u094B\u0939: \u0936\u0928\u093F\u0935\u093E\u0930, 12 \u0926\u093F\u0938\u0902\u092C\u0930 2026"))), /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-music-prompt-banner" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-music-prompt-text" }, /* @__PURE__ */ import_react.default.createElement("span", null, "\u{1F3BA}"), /* @__PURE__ */ import_react.default.createElement("span", null, "\u092E\u0927\u0941\u0930 \u0936\u0939\u0928\u093E\u0908 \u0915\u0940 \u0927\u0941\u0928 \u0938\u0941\u0928\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u092F\u0939\u093E\u0901 \u0915\u094D\u0932\u093F\u0915 \u0915\u0930\u0947\u0902")), /* @__PURE__ */ import_react.default.createElement(
+    )), /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-shloka-text" }, "\u0965 \u0936\u094D\u0930\u0940 \u0917\u0923\u0947\u0936\u093E\u092F \u0928\u092E\u0903 \u0965")), /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-main-title-block" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-royal-flourish-line" }, /* @__PURE__ */ import_react.default.createElement("span", { className: "flourish-leaf" }, "\u{1F33F}"), /* @__PURE__ */ import_react.default.createElement("span", { className: "flourish-dash" }), /* @__PURE__ */ import_react.default.createElement("span", { className: "flourish-star" }, "\u2726"), /* @__PURE__ */ import_react.default.createElement("span", { className: "flourish-dash" }), /* @__PURE__ */ import_react.default.createElement("span", { className: "flourish-leaf" }, "\u{1F33F}")), /* @__PURE__ */ import_react.default.createElement("h1", { className: "hero-grand-title" }, "\u0965 \u0935\u093F\u0935\u093E\u0939 \u0906\u092E\u0902\u0924\u094D\u0930\u0923 \u0965"), /* @__PURE__ */ import_react.default.createElement("p", { className: "hero-divine-subtitle" }, "\u092D\u0917\u0935\u093E\u0928 \u0936\u093F\u0935, \u092E\u093E\u0924\u093E \u092A\u093E\u0930\u094D\u0935\u0924\u0940 \u090F\u0935\u0902 \u0939\u092E\u093E\u0930\u0947 \u092A\u0942\u091C\u094D\u092F \u092A\u0942\u0930\u094D\u0935\u091C\u094B\u0902 \u0915\u0947 \u0926\u093F\u0935\u094D\u092F \u0906\u0936\u0940\u0930\u094D\u0935\u093E\u0926 \u0938\u0947")), /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-couples-showcase-card" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-couple-unit" }, /* @__PURE__ */ import_react.default.createElement("span", { className: "couple-sacred-label" }, "\u2014 \u092A\u094D\u0930\u0925\u092E \u092A\u093E\u0935\u0928 \u092A\u0930\u093F\u0923\u092F \u2014"), /* @__PURE__ */ import_react.default.createElement("h2", { className: "couple-names-headline" }, "\u0906\u092F\u0941\u0937\u094D\u092E\u093E\u0928 \u0906\u0915\u093E\u0936"), /* @__PURE__ */ import_react.default.createElement("div", { className: "couple-parents-line" }, "\u0938\u0941\u092A\u0941\u0924\u094D\u0930 \u0936\u094D\u0930\u0940\u092E\u0924\u0940 \u0905\u0928\u0941\u0930\u093E\u0927\u093E \u090F\u0935\u0902 \u0936\u094D\u0930\u0940 \u0915\u0948\u0932\u093E\u0936 \u0917\u0947\u0939\u0932\u094B\u0924"), /* @__PURE__ */ import_react.default.createElement("div", { className: "couple-subh-vivah-badge" }, "\u2726 \u0936\u0941\u092D \u0935\u093F\u0935\u093E\u0939 \u2726"), /* @__PURE__ */ import_react.default.createElement("h2", { className: "couple-names-headline" }, "\u0906\u092F\u0941\u0937\u094D\u092E\u0924\u0940 \u0930\u0940\u0928\u093E"), /* @__PURE__ */ import_react.default.createElement("div", { className: "couple-parents-line" }, "\u0938\u0941\u092A\u0941\u0924\u094D\u0930\u0940 \u0936\u094D\u0930\u0940\u092E\u0924\u0940 \u091C\u0938\u094B\u0927\u093E \u0926\u0947\u0935\u0940 \u090F\u0935\u0902 \u0936\u094D\u0930\u0940 \u0917\u094B\u092A\u093E\u0932\u091C\u0940 \u091A\u094C\u0939\u093E\u0928"), /* @__PURE__ */ import_react.default.createElement("div", { className: "couple-date-tag" }, "\u0935\u093F\u0935\u093E\u0939 \u0926\u093F\u0928\u093E\u0902\u0915: \u0917\u0941\u0930\u0941\u0935\u093E\u0930, 10 \u0926\u093F\u0938\u0902\u092C\u0930 2026")), /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-central-divider-unit", "aria-hidden": "true" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "divider-gold-line" }), /* @__PURE__ */ import_react.default.createElement("div", { className: "divider-sacred-emblem" }, /* @__PURE__ */ import_react.default.createElement("span", { className: "emblem-symbol" }, "\u{1F451}"), /* @__PURE__ */ import_react.default.createElement("span", { className: "emblem-flourish" }, "\u2756")), /* @__PURE__ */ import_react.default.createElement("div", { className: "divider-gold-line" })), /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-couple-unit" }, /* @__PURE__ */ import_react.default.createElement("span", { className: "couple-sacred-label" }, "\u2014 \u0926\u094D\u0935\u093F\u0924\u0940\u092F \u092A\u093E\u0935\u0928 \u092A\u0930\u093F\u0923\u092F \u2014"), /* @__PURE__ */ import_react.default.createElement("h2", { className: "couple-names-headline" }, "\u0906\u092F\u0941\u0937\u094D\u092E\u0924\u0940 \u0936\u093F\u0935\u093E\u0928\u0940 (\u091C\u0940\u0928\u0942)"), /* @__PURE__ */ import_react.default.createElement("div", { className: "couple-parents-line" }, "\u0938\u0941\u092A\u0941\u0924\u094D\u0930\u0940 \u0936\u094D\u0930\u0940\u092E\u0924\u0940 \u0905\u0928\u0941\u0930\u093E\u0927\u093E \u090F\u0935\u0902 \u0936\u094D\u0930\u0940 \u0915\u0948\u0932\u093E\u0936 \u0917\u0947\u0939\u0932\u094B\u0924"), /* @__PURE__ */ import_react.default.createElement("div", { className: "couple-subh-vivah-badge" }, "\u2726 \u0936\u0941\u092D \u0935\u093F\u0935\u093E\u0939 \u2726"), /* @__PURE__ */ import_react.default.createElement("h2", { className: "couple-names-headline" }, "\u0906\u092F\u0941\u0937\u094D\u092E\u093E\u0928 \u0927\u0940\u0930\u091C \u091C\u0940"), /* @__PURE__ */ import_react.default.createElement("div", { className: "couple-parents-line" }, "\u0938\u0941\u092A\u0941\u0924\u094D\u0930 \u0936\u094D\u0930\u0940\u092E\u0924\u0940 \u0930\u0947\u0928\u0942 \u091C\u0940 \u090F\u0935\u0902 \u0936\u094D\u0930\u0940 \u092E\u0941\u0915\u0947\u0936\u091C\u0940 \u092A\u0930\u093F\u0939\u093E\u0930"), /* @__PURE__ */ import_react.default.createElement("div", { className: "couple-date-tag" }, "\u0935\u093F\u0935\u093E\u0939 \u0926\u093F\u0928\u093E\u0902\u0915: \u0936\u0928\u093F\u0935\u093E\u0930, 12 \u0926\u093F\u0938\u0902\u092C\u0930 2026"))), /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-venue-announcement-banner" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "venue-title-label" }, "\u0935\u093F\u0935\u093E\u0939 \u0938\u094D\u0925\u0932:"), /* @__PURE__ */ import_react.default.createElement("div", { className: "banner-venue-location" }, /* @__PURE__ */ import_react.default.createElement("span", { className: "pin-icon" }, "\u{1F4CD}"), /* @__PURE__ */ import_react.default.createElement("span", { className: "venue-name-bold" }, "\u0915\u0941\u092E\u093E\u0935\u0924 \u0935\u093E\u091F\u093F\u0915\u093E")), /* @__PURE__ */ import_react.default.createElement("div", { className: "banner-venue-address" }, "\u092A\u0941\u0928\u093E\u092F\u0924\u093E \u0930\u094B\u0921, \u092A\u093E\u0932\u0940, \u0930\u093E\u091C\u0938\u094D\u0925\u093E\u0928"), /* @__PURE__ */ import_react.default.createElement("div", { className: "banner-date-highlight" }, /* @__PURE__ */ import_react.default.createElement("span", { className: "cal-icon" }, "\u{1F5D3}\uFE0F"), /* @__PURE__ */ import_react.default.createElement("span", { className: "date-str" }, "\u092D\u0935\u094D\u092F \u0935\u093F\u0935\u093E\u0939 \u0938\u092E\u093E\u0930\u094B\u0939: \u0936\u0928\u093F\u0935\u093E\u0930, 12 \u0926\u093F\u0938\u0902\u092C\u0930 2026"))), /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-music-prompt-banner" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-music-prompt-text" }, /* @__PURE__ */ import_react.default.createElement("span", null, "\u{1F3BA}"), /* @__PURE__ */ import_react.default.createElement("span", null, "\u092E\u0927\u0941\u0930 \u0936\u0939\u0928\u093E\u0908 \u0915\u0940 \u0927\u0941\u0928 \u0938\u0941\u0928\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u092F\u0939\u093E\u0901 \u0938\u094D\u092A\u0930\u094D\u0936 \u0915\u0930\u0947\u0902")), /* @__PURE__ */ import_react.default.createElement(
       "button",
       {
         type: "button",
@@ -714,11 +714,14 @@ var RoyalWeddingApp = (() => {
     const [isPlaying, setIsPlaying] = (0, import_react9.useState)(false);
     const [isMuted, setIsMuted] = (0, import_react9.useState)(false);
     const [isReady, setIsReady] = (0, import_react9.useState)(false);
+    const [autoplayBlocked, setAutoplayBlocked] = (0, import_react9.useState)(false);
+    const [errorMessage, setErrorMessage] = (0, import_react9.useState)(null);
     const playerRef = (0, import_react9.useRef)(null);
     const hasInitiallyStartedRef = (0, import_react9.useRef)(false);
     const pendingPlayRef = (0, import_react9.useRef)(false);
     (0, import_react9.useEffect)(() => {
       let checkInterval = null;
+      let autoplayCheckTimeout = null;
       const setupPlayer = () => {
         if (!window.YT || !window.YT.Player) return false;
         const container = document.getElementById("youtube-bgm-container");
@@ -730,8 +733,10 @@ var RoyalWeddingApp = (() => {
             width: "1",
             videoId: YOUTUBE_VIDEO_ID,
             playerVars: {
-              autoplay: 0,
+              autoplay: 1,
+              // Attempt automatic playback immediately
               start: START_TIME_SECONDS,
+              // Start at 00:30
               controls: 0,
               disablekb: 1,
               fs: 0,
@@ -744,16 +749,15 @@ var RoyalWeddingApp = (() => {
               origin: window.location.origin
             },
             events: {
-              onReady: () => {
+              onReady: (event) => {
                 setIsReady(true);
-                if (pendingPlayRef.current) {
-                  pendingPlayRef.current = false;
-                  startPlayAt30();
-                }
+                setErrorMessage(null);
+                attemptAutoplay();
               },
               onStateChange: (event) => {
                 if (event.data === 1) {
                   setIsPlaying(true);
+                  setAutoplayBlocked(false);
                   window.isWeddingMusicPlaying = true;
                   window.dispatchEvent(new CustomEvent("weddingMusicStatus", { detail: { isPlaying: true } }));
                 } else if (event.data === 2) {
@@ -768,13 +772,16 @@ var RoyalWeddingApp = (() => {
                 }
               },
               onError: (err) => {
-                console.warn("YouTube BGM Player notice:", err);
+                const code = err && err.data || "Unknown";
+                console.warn("YouTube BGM Player notice/error:", code);
+                setErrorMessage(`\u0938\u0902\u0917\u0940\u0924 \u0938\u0947\u0935\u093E \u0938\u0942\u091A\u0928\u093E (\u0915\u094B\u0921 ${code})`);
               }
             }
           });
           return true;
         } catch (err) {
           console.warn("Error setting up YT Player:", err);
+          setErrorMessage("\u0938\u0902\u0917\u0940\u0924 \u092A\u094D\u0932\u0947\u092F\u0930 \u092A\u094D\u0930\u093E\u0930\u0902\u092D \u0915\u0930\u0928\u0947 \u092E\u0947\u0902 \u0924\u094D\u0930\u0941\u091F\u093F");
           return false;
         }
       };
@@ -790,8 +797,43 @@ var RoyalWeddingApp = (() => {
               clearInterval(checkInterval);
             }
           }
-        }, 350);
+        }, 250);
       }
+      const attemptAutoplay = () => {
+        if (!playerRef.current) return;
+        try {
+          if (playerRef.current.seekTo && !hasInitiallyStartedRef.current) {
+            playerRef.current.seekTo(START_TIME_SECONDS, true);
+            hasInitiallyStartedRef.current = true;
+          }
+          if (playerRef.current.unMute) {
+            playerRef.current.unMute();
+          }
+          if (playerRef.current.setVolume) {
+            playerRef.current.setVolume(100);
+          }
+          if (playerRef.current.playVideo) {
+            playerRef.current.playVideo();
+          }
+        } catch (e) {
+          console.warn("Autoplay call deferred:", e);
+        }
+        autoplayCheckTimeout = setTimeout(() => {
+          if (playerRef.current && playerRef.current.getPlayerState) {
+            const state = playerRef.current.getPlayerState();
+            if (state !== 1 && state !== 3) {
+              console.log("Browser blocked audible autoplay (State: " + state + "). Presenting Hindi prompt.");
+              setAutoplayBlocked(true);
+            } else {
+              setAutoplayBlocked(false);
+            }
+          } else {
+            if (!window.isWeddingMusicPlaying) {
+              setAutoplayBlocked(true);
+            }
+          }
+        }, 2200);
+      };
       const startPlayAt30 = () => {
         if (!playerRef.current || !playerRef.current.playVideo) {
           pendingPlayRef.current = true;
@@ -805,14 +847,19 @@ var RoyalWeddingApp = (() => {
           if (playerRef.current.unMute) {
             playerRef.current.unMute();
           }
+          if (playerRef.current.setVolume) {
+            playerRef.current.setVolume(100);
+          }
           playerRef.current.playVideo();
           setIsPlaying(true);
           setIsMuted(false);
+          setAutoplayBlocked(false);
           window.isWeddingMusicPlaying = true;
           window.dispatchEvent(new CustomEvent("weddingMusicStatus", { detail: { isPlaying: true } }));
         } catch (e) {
-          console.warn("Autoplay deferred for user gesture:", e);
+          console.warn("Playback gesture required:", e);
           pendingPlayRef.current = true;
+          setAutoplayBlocked(true);
         }
       };
       window.playWeddingMusic = () => {
@@ -843,8 +890,21 @@ var RoyalWeddingApp = (() => {
           setIsMuted(true);
         }
       };
+      const handleFirstUserInteraction = () => {
+        if (!window.isWeddingMusicPlaying && playerRef.current) {
+          try {
+            startPlayAt30();
+          } catch (e) {
+          }
+        }
+      };
+      window.addEventListener("click", handleFirstUserInteraction, { once: true, passive: true });
+      window.addEventListener("touchstart", handleFirstUserInteraction, { once: true, passive: true });
       return () => {
         if (checkInterval) clearInterval(checkInterval);
+        if (autoplayCheckTimeout) clearTimeout(autoplayCheckTimeout);
+        window.removeEventListener("click", handleFirstUserInteraction);
+        window.removeEventListener("touchstart", handleFirstUserInteraction);
         window.playWeddingMusic = null;
         window.pauseWeddingMusic = null;
         window.toggleWeddingMusic = null;
@@ -860,6 +920,13 @@ var RoyalWeddingApp = (() => {
       e.stopPropagation();
       if (typeof window.toggleMuteWeddingMusic === "function") {
         window.toggleMuteWeddingMusic();
+      }
+    };
+    const handleProminentPromptClick = (e) => {
+      e.stopPropagation();
+      setAutoplayBlocked(false);
+      if (typeof window.playWeddingMusic === "function") {
+        window.playWeddingMusic();
       }
     };
     return /* @__PURE__ */ import_react9.default.createElement(import_react9.default.Fragment, null, /* @__PURE__ */ import_react9.default.createElement(
@@ -878,17 +945,28 @@ var RoyalWeddingApp = (() => {
           zIndex: -1
         }
       }
-    ), /* @__PURE__ */ import_react9.default.createElement("aside", { className: "floating-music-widget", "aria-label": "\u0935\u093F\u0935\u093E\u0939 \u092A\u0943\u0937\u094D\u0920\u092D\u0942\u092E\u093F \u0938\u0902\u0917\u0940\u0924 \u0928\u093F\u092F\u0902\u0924\u094D\u0930\u0923" }, /* @__PURE__ */ import_react9.default.createElement("div", { className: `royal-music-pill-btn ${isPlaying ? "is-playing" : "is-paused"}` }, /* @__PURE__ */ import_react9.default.createElement(
+    ), autoplayBlocked && !isPlaying && /* @__PURE__ */ import_react9.default.createElement("aside", { className: "prominent-autoplay-blocked-banner", role: "alert", "aria-label": "\u0938\u0902\u0917\u0940\u0924 \u092A\u094D\u0932\u0947\u092C\u0948\u0915 \u0905\u0928\u0941\u092E\u0924\u093F" }, /* @__PURE__ */ import_react9.default.createElement("div", { className: "autoplay-prompt-content" }, /* @__PURE__ */ import_react9.default.createElement("span", { className: "prompt-shehnai-icon", "aria-hidden": "true" }, "\u{1F3BA}"), /* @__PURE__ */ import_react9.default.createElement("span", { className: "prompt-hindi-text" }, "\u092E\u0927\u0941\u0930 \u0936\u0939\u0928\u093E\u0908 \u0915\u0940 \u0927\u0941\u0928 \u0938\u0941\u0928\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u092F\u0939\u093E\u0901 \u0938\u094D\u092A\u0930\u094D\u0936 \u0915\u0930\u0947\u0902")), /* @__PURE__ */ import_react9.default.createElement(
+      "button",
+      {
+        type: "button",
+        className: "btn-autoplay-start-prompt",
+        onClick: handleProminentPromptClick,
+        "aria-label": "\u0938\u0902\u0917\u0940\u0924 \u0936\u0941\u0930\u0942 \u0915\u0930\u0947\u0902"
+      },
+      /* @__PURE__ */ import_react9.default.createElement("span", { className: "btn-sparkle-mini" }, "\u2726"),
+      /* @__PURE__ */ import_react9.default.createElement("span", null, "\u0938\u0902\u0917\u0940\u0924 \u0936\u0941\u0930\u0942 \u0915\u0930\u0947\u0902"),
+      /* @__PURE__ */ import_react9.default.createElement("span", { className: "btn-sparkle-mini" }, "\u2726")
+    )), errorMessage && /* @__PURE__ */ import_react9.default.createElement("aside", { className: "music-error-notice", role: "alert", "aria-live": "assertive" }, /* @__PURE__ */ import_react9.default.createElement("span", null, "\u26A0\uFE0F ", errorMessage), /* @__PURE__ */ import_react9.default.createElement("button", { type: "button", onClick: () => setErrorMessage(null), className: "btn-dismiss-error" }, "\u2715")), /* @__PURE__ */ import_react9.default.createElement("aside", { className: "floating-music-widget", "aria-label": "\u0935\u093F\u0935\u093E\u0939 \u092A\u0943\u0937\u094D\u0920\u092D\u0942\u092E\u093F \u0938\u0902\u0917\u0940\u0924 \u0928\u093F\u092F\u0902\u0924\u094D\u0930\u0923" }, /* @__PURE__ */ import_react9.default.createElement("div", { className: `royal-music-pill-btn ${isPlaying ? "is-playing" : "is-paused"}` }, /* @__PURE__ */ import_react9.default.createElement(
       "button",
       {
         type: "button",
         className: "music-action-trigger",
         onClick: handlePlayToggle,
-        title: isPlaying ? "\u0935\u093F\u0935\u093E\u0939 \u0938\u0902\u0917\u0940\u0924 \u0930\u094B\u0915\u0947\u0902" : "\u0935\u093F\u0935\u093E\u0939 \u0938\u0902\u0917\u0940\u0924 \u091A\u093E\u0932\u0942 \u0915\u0930\u0947\u0902 (30 \u0938\u0947\u0915\u0902\u0921 \u0938\u0947)",
+        title: isPlaying ? "\u0938\u0902\u0917\u0940\u0924 \u0930\u094B\u0915\u0947\u0902" : "\u0938\u0902\u0917\u0940\u0924 \u091A\u093E\u0932\u0942 \u0915\u0930\u0947\u0902",
         "aria-label": isPlaying ? "\u0938\u0902\u0917\u0940\u0924 \u0930\u094B\u0915\u0947\u0902" : "\u0938\u0902\u0917\u0940\u0924 \u091A\u093E\u0932\u0942 \u0915\u0930\u0947\u0902"
       },
-      /* @__PURE__ */ import_react9.default.createElement("span", { className: "music-pill-icon", "aria-hidden": "true" }, isPlaying ? "\u{1F3B5}" : "\u25B6"),
-      /* @__PURE__ */ import_react9.default.createElement("span", { className: "music-pill-text" }, isPlaying ? "\u092E\u093E\u0902\u0917\u0932\u093F\u0915 \u0936\u0939\u0928\u093E\u0908" : "\u0938\u0902\u0917\u0940\u0924 \u0936\u0941\u0930\u0942 \u0915\u0930\u0947\u0902"),
+      /* @__PURE__ */ import_react9.default.createElement("span", { className: "music-pill-icon", "aria-hidden": "true" }, isPlaying ? "\u23F8" : "\u25B6"),
+      /* @__PURE__ */ import_react9.default.createElement("span", { className: "music-pill-text" }, isPlaying ? "\u0938\u0902\u0917\u0940\u0924 \u0930\u094B\u0915\u0947\u0902" : "\u0938\u0902\u0917\u0940\u0924 \u091A\u093E\u0932\u0942 \u0915\u0930\u0947\u0902"),
       isPlaying && /* @__PURE__ */ import_react9.default.createElement("span", { className: "music-wave-bars", "aria-hidden": "true" }, /* @__PURE__ */ import_react9.default.createElement("span", { className: "bar bar-1" }), /* @__PURE__ */ import_react9.default.createElement("span", { className: "bar bar-2" }), /* @__PURE__ */ import_react9.default.createElement("span", { className: "bar bar-3" }), /* @__PURE__ */ import_react9.default.createElement("span", { className: "bar bar-4" }))
     ), isPlaying && /* @__PURE__ */ import_react9.default.createElement(
       "button",
@@ -911,12 +989,12 @@ var RoyalWeddingApp = (() => {
     const [isMusicPlaying, setIsMusicPlaying] = (0, import_react10.useState)(false);
     const animFrameIdRef = (0, import_react10.useRef)(null);
     const colorPalette = [
-      "#B88A3B",
-      // Antique Gold
-      "#D4AF37",
-      // Bright Shimmer Gold
       "#FFD700",
       // Pure Gold
+      "#D4AF37",
+      // Bright Shimmer Gold
+      "#B88A3B",
+      // Antique Gold
       "#FFF5E6",
       // Warm Ivory White
       "#8B3038",
@@ -929,15 +1007,14 @@ var RoyalWeddingApp = (() => {
       // Leaf Green
       "#FFA500",
       // Saffron Amber
-      "#E83E8C"
+      "#E83E8C",
       // Royal Rose
+      "#FFD700"
+      // Extra Golden Sparkles
     ];
     const handleFinish = () => {
       if (isFadingOut) return;
       setIsFadingOut(true);
-      if (typeof window.playWeddingMusic === "function" && !window.isWeddingMusicPlaying) {
-        window.playWeddingMusic();
-      }
       setTimeout(() => {
         if (onComplete) onComplete();
       }, 850);
@@ -1001,9 +1078,17 @@ var RoyalWeddingApp = (() => {
         draw() {
           ctx.save();
           ctx.beginPath();
-          ctx.arc(this.x, this.y, 2.5, 0, Math.PI * 2);
-          ctx.fillStyle = this.color;
+          ctx.moveTo(this.x, this.y);
+          ctx.lineTo(this.x - this.vx * 3.5, this.y - this.vy * 3.5);
+          ctx.strokeStyle = this.color;
+          ctx.lineWidth = 2.5;
           ctx.shadowBlur = 10;
+          ctx.shadowColor = "#FFD700";
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, 3, 0, Math.PI * 2);
+          ctx.fillStyle = "#FFF5E6";
+          ctx.shadowBlur = 12;
           ctx.shadowColor = this.color;
           ctx.fill();
           ctx.restore();
@@ -1015,15 +1100,15 @@ var RoyalWeddingApp = (() => {
           this.y = y;
           this.color = color;
           const angle = Math.random() * Math.PI * 2;
-          const speed = Math.random() * 5.5 + 1.5;
+          const speed = Math.random() * 6 + 1.8;
           this.vx = Math.cos(angle) * speed;
           this.vy = Math.sin(angle) * speed;
           this.alpha = 1;
-          this.decay = Math.random() * 0.016 + 0.012;
+          this.decay = Math.random() * 0.015 + 0.01;
           this.gravity = 0.07;
           this.friction = 0.96;
-          this.size = Math.random() * 2.8 + 1.2;
-          this.sparkle = Math.random() > 0.4;
+          this.size = Math.random() * 3.2 + 1.4;
+          this.sparkle = Math.random() > 0.35;
         }
         update() {
           this.vx *= this.friction;
@@ -1041,8 +1126,8 @@ var RoyalWeddingApp = (() => {
           ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
           ctx.fillStyle = this.color;
           if (this.sparkle && Math.random() > 0.2) {
-            ctx.shadowBlur = 8;
-            ctx.shadowColor = "#FFF5E6";
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = "#FFD700";
           }
           ctx.fill();
           ctx.restore();
@@ -1050,7 +1135,7 @@ var RoyalWeddingApp = (() => {
       }
       function createBurst(x, y, baseColor) {
         const isMobile = width < 768;
-        const count = isMobile ? 38 : 55;
+        const count = isMobile ? 48 : 72;
         for (let i = 0; i < count; i++) {
           const color = Math.random() > 0.3 ? baseColor : colorPalette[Math.floor(Math.random() * colorPalette.length)];
           particles.push(new Particle(x, y, color));
@@ -1058,15 +1143,15 @@ var RoyalWeddingApp = (() => {
       }
       let lastLaunch = 0;
       const startTime = Date.now();
-      const duration = 3800;
+      const duration = 4800;
       createBurst(width * 0.25, height * 0.3, "#D4AF37");
       createBurst(width * 0.75, height * 0.28, "#8B3038");
-      createBurst(width * 0.5, height * 0.2, "#B88A3B");
+      createBurst(width * 0.5, height * 0.2, "#FFD700");
       function animate() {
         ctx.clearRect(0, 0, width, height);
         const elapsed = Date.now() - startTime;
-        if (elapsed < duration - 800) {
-          if (Date.now() - lastLaunch > 280) {
+        if (elapsed < duration - 700) {
+          if (Date.now() - lastLaunch > 260) {
             rockets.push(new Rocket());
             lastLaunch = Date.now();
           }
@@ -1090,7 +1175,7 @@ var RoyalWeddingApp = (() => {
       animate();
       const autoFinishTimer = setTimeout(() => {
         handleFinish();
-      }, 3600);
+      }, 4500);
       return () => {
         window.removeEventListener("resize", handleResize);
         clearTimeout(autoFinishTimer);
@@ -1106,8 +1191,9 @@ var RoyalWeddingApp = (() => {
       const y = e.clientY - rect.top;
       const canvas = canvasRef.current;
       if (canvas) {
-        const ctx = canvas.getContext("2d");
-        for (let i = 0; i < 45; i++) {
+        const isMobile = window.innerWidth < 768;
+        const count = isMobile ? 35 : 55;
+        for (let i = 0; i < count; i++) {
         }
       }
     };
@@ -1127,13 +1213,13 @@ var RoyalWeddingApp = (() => {
           onClick: handleCanvasClick
         }
       ),
-      /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-content-center" }, /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-royal-card", onClick: (e) => e.stopPropagation() }, /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-crown-badge" }, /* @__PURE__ */ import_react10.default.createElement("span", { className: "badge-star" }, "\u2726"), /* @__PURE__ */ import_react10.default.createElement("span", { className: "badge-crown" }, "\u{1F451}"), /* @__PURE__ */ import_react10.default.createElement("span", { className: "badge-star" }, "\u2726")), /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-shubh-vivah" }, "\u0965 \u0936\u0941\u092D \u0935\u093F\u0935\u093E\u0939 \u0965"), /* @__PURE__ */ import_react10.default.createElement("h1", { className: "fireworks-grand-title" }, "\u0936\u0941\u092D \u0935\u093F\u0935\u093E\u0939 \u0938\u092E\u093E\u0930\u094B\u0939 \u092E\u0947\u0902 \u0906\u092A\u0915\u093E \u0939\u093E\u0930\u094D\u0926\u093F\u0915 \u0938\u094D\u0935\u093E\u0917\u0924 \u0939\u0948"), /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-ornament-line" }, /* @__PURE__ */ import_react10.default.createElement("span", { className: "line-arm" }), /* @__PURE__ */ import_react10.default.createElement("span", { className: "line-gem" }, "\u2756"), /* @__PURE__ */ import_react10.default.createElement("span", { className: "line-arm" })), /* @__PURE__ */ import_react10.default.createElement("h2", { className: "fireworks-subtitle" }, "\u0916\u0941\u0936\u093F\u092F\u094B\u0902 \u0915\u093E \u0926\u094B\u0939\u0930\u093E \u0909\u0924\u094D\u0938\u0935, \u0906\u0928\u0902\u0926 \u0915\u0940 \u0926\u094B\u0939\u0930\u0940 \u0938\u094C\u0917\u093E\u0924"), /* @__PURE__ */ import_react10.default.createElement("p", { className: "fireworks-couples" }, "\u0906\u0915\u093E\u0936 \u090F\u0935\u0902 \u0930\u0940\u0928\u093E ", /* @__PURE__ */ import_react10.default.createElement("span", { className: "ampersand" }, "\u2022"), " \u0936\u093F\u0935\u093E\u0928\u0940 \u090F\u0935\u0902 \u0927\u0940\u0930\u091C"), /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-date-pill" }, /* @__PURE__ */ import_react10.default.createElement("span", null, "\u0926\u093F\u0938\u0902\u092C\u0930 2026 \u2022 \u092A\u093E\u0932\u0940, \u0930\u093E\u091C\u0938\u094D\u0925\u093E\u0928")), /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-music-prompt-box" }, /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-music-prompt-text" }, /* @__PURE__ */ import_react10.default.createElement("span", null, "\u{1F3BA}"), /* @__PURE__ */ import_react10.default.createElement("span", null, "\u0936\u0939\u0928\u093E\u0908 \u0915\u0940 \u092E\u0927\u0941\u0930 \u0927\u0941\u0928 \u0938\u0941\u0928\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u092F\u0939\u093E\u0901 \u0915\u094D\u0932\u093F\u0915 \u0915\u0930\u0947\u0902")), /* @__PURE__ */ import_react10.default.createElement(
+      /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-content-center" }, /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-royal-card", onClick: (e) => e.stopPropagation() }, /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-crown-badge" }, /* @__PURE__ */ import_react10.default.createElement("span", { className: "badge-star" }, "\u2726"), /* @__PURE__ */ import_react10.default.createElement("span", { className: "badge-crown" }, "\u{1F451}"), /* @__PURE__ */ import_react10.default.createElement("span", { className: "badge-star" }, "\u2726")), /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-shubh-vivah" }, "\u0965 \u0936\u0941\u092D \u0935\u093F\u0935\u093E\u0939 \u0965"), /* @__PURE__ */ import_react10.default.createElement("h1", { className: "fireworks-grand-title" }, "\u0936\u0941\u092D \u0935\u093F\u0935\u093E\u0939 \u0938\u092E\u093E\u0930\u094B\u0939 \u092E\u0947\u0902 \u0906\u092A\u0915\u093E \u0939\u093E\u0930\u094D\u0926\u093F\u0915 \u0938\u094D\u0935\u093E\u0917\u0924 \u0939\u0948!"), /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-ornament-line" }, /* @__PURE__ */ import_react10.default.createElement("span", { className: "line-arm" }), /* @__PURE__ */ import_react10.default.createElement("span", { className: "line-gem" }, "\u2756"), /* @__PURE__ */ import_react10.default.createElement("span", { className: "line-arm" })), /* @__PURE__ */ import_react10.default.createElement("h2", { className: "fireworks-subtitle" }, "\u0916\u0941\u0936\u093F\u092F\u094B\u0902 \u0915\u093E \u0926\u094B\u0939\u0930\u093E \u0909\u0924\u094D\u0938\u0935, \u0906\u0928\u0902\u0926 \u0915\u0940 \u0926\u094B\u0939\u0930\u0940 \u0938\u094C\u0917\u093E\u0924"), /* @__PURE__ */ import_react10.default.createElement("p", { className: "fireworks-couples" }, "\u0906\u0915\u093E\u0936 \u090F\u0935\u0902 \u0930\u0940\u0928\u093E ", /* @__PURE__ */ import_react10.default.createElement("span", { className: "ampersand" }, "\u2022"), " \u0936\u093F\u0935\u093E\u0928\u0940 \u090F\u0935\u0902 \u0927\u0940\u0930\u091C"), /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-date-pill" }, /* @__PURE__ */ import_react10.default.createElement("span", null, "\u0926\u093F\u0938\u0902\u092C\u0930 2026 \u2022 \u092A\u093E\u0932\u0940, \u0930\u093E\u091C\u0938\u094D\u0925\u093E\u0928")), /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-music-prompt-box" }, /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-music-prompt-text" }, /* @__PURE__ */ import_react10.default.createElement("span", null, "\u{1F3BA}"), /* @__PURE__ */ import_react10.default.createElement("span", null, "\u092E\u0927\u0941\u0930 \u0936\u0939\u0928\u093E\u0908 \u0915\u0940 \u0927\u0941\u0928 \u0938\u0941\u0928\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u092F\u0939\u093E\u0901 \u0938\u094D\u092A\u0930\u094D\u0936 \u0915\u0930\u0947\u0902")), /* @__PURE__ */ import_react10.default.createElement(
         "button",
         {
           type: "button",
           className: "btn-start-music-prompt",
           onClick: handleStartMusic,
-          title: "\u0938\u0902\u0917\u0940\u0924 \u0936\u0941\u0930\u0942 \u0915\u0930\u0947\u0902 (14 \u0938\u0947\u0915\u0902\u0921 \u0938\u0947)",
+          title: "\u0938\u0902\u0917\u0940\u0924 \u0936\u0941\u0930\u0942 \u0915\u0930\u0947\u0902 (30 \u0938\u0947\u0915\u0902\u0921 \u0938\u0947)",
           "aria-label": "\u0938\u0902\u0917\u0940\u0924 \u0936\u0941\u0930\u0942 \u0915\u0930\u0947\u0902"
         },
         /* @__PURE__ */ import_react10.default.createElement("span", null, isMusicPlaying ? "\u{1F3B5} \u0938\u0902\u0917\u0940\u0924 \u092C\u091C \u0930\u0939\u093E \u0939\u0948" : "\u25B6 \u0938\u0902\u0917\u0940\u0924 \u0936\u0941\u0930\u0942 \u0915\u0930\u0947\u0902")
@@ -1165,10 +1251,47 @@ var RoyalWeddingApp = (() => {
   // src/App.jsx
   function App() {
     const [isViewerOpen, setIsViewerOpen] = (0, import_react11.useState)(false);
-    const [showFireworks, setShowFireworks] = (0, import_react11.useState)(false);
+    const [showFireworks, setShowFireworks] = (0, import_react11.useState)(() => {
+      try {
+        if (typeof window !== "undefined") {
+          if (window.__START_CELEBRATE_IMMEDIATELY) return true;
+          const search = window.location.search || "";
+          const hash = window.location.hash || "";
+          const params = new URLSearchParams(search);
+          return params.get("celebrate") === "1" || params.has("celebrate") || hash.includes("celebrate");
+        }
+      } catch (e) {
+        console.warn("URL param error:", e);
+      }
+      return false;
+    });
     (0, import_react11.useEffect)(() => {
+      try {
+        const search = window.location.search || "";
+        const hash = window.location.hash || "";
+        const params = new URLSearchParams(search);
+        if (params.get("celebrate") === "1" || params.has("celebrate") || hash.includes("celebrate")) {
+          setShowFireworks(true);
+        }
+      } catch (e) {
+      }
+      const handleLocationChange = () => {
+        try {
+          const params = new URLSearchParams(window.location.search);
+          if (params.get("celebrate") === "1" || params.has("celebrate") || window.location.hash.includes("celebrate")) {
+            setShowFireworks(true);
+          }
+        } catch (e) {
+        }
+      };
+      window.addEventListener("popstate", handleLocationChange);
+      window.addEventListener("hashchange", handleLocationChange);
       window.triggerFireworksIntro = () => {
         setShowFireworks(true);
+      };
+      return () => {
+        window.removeEventListener("popstate", handleLocationChange);
+        window.removeEventListener("hashchange", handleLocationChange);
       };
     }, []);
     const scrollTo = (id) => {
@@ -1187,7 +1310,7 @@ var RoyalWeddingApp = (() => {
       setShowFireworks(false);
       setTimeout(() => {
         scrollTo("couples-section");
-      }, 150);
+      }, 200);
     };
     return /* @__PURE__ */ import_react11.default.createElement("div", { className: "royal-wedding-app" }, /* @__PURE__ */ import_react11.default.createElement(MusicPlayer, null), showFireworks && /* @__PURE__ */ import_react11.default.createElement(CinematicFireworksIntro, { onComplete: handleFireworksComplete }), /* @__PURE__ */ import_react11.default.createElement("header", { className: "sticky-royal-nav", role: "banner" }, /* @__PURE__ */ import_react11.default.createElement("div", { className: "nav-container" }, /* @__PURE__ */ import_react11.default.createElement("div", { className: "nav-brand", onClick: () => scrollTo("hero-section") }, /* @__PURE__ */ import_react11.default.createElement("span", { className: "brand-crest" }, "\u{1F451}"), /* @__PURE__ */ import_react11.default.createElement("span", { className: "brand-title" }, "\u0906\u0915\u093E\u0936 \u090F\u0935\u0902 \u0930\u0940\u0928\u093E \u2022 \u0936\u093F\u0935\u093E\u0928\u0940 \u090F\u0935\u0902 \u0927\u0940\u0930\u091C")), /* @__PURE__ */ import_react11.default.createElement("nav", { className: "nav-links-row", "aria-label": "\u0935\u093F\u0935\u093E\u0939 \u0905\u0928\u0941\u092D\u093E\u0917 \u0928\u0947\u0935\u093F\u0917\u0947\u0936\u0928" }, /* @__PURE__ */ import_react11.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("hero-section") }, "\u0938\u094D\u0935\u093E\u0917\u0924"), /* @__PURE__ */ import_react11.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("couples-section") }, "\u0935\u0930-\u0935\u0927\u0942"), /* @__PURE__ */ import_react11.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("events-section") }, "\u092E\u093E\u0902\u0917\u0932\u093F\u0915 \u0915\u093E\u0930\u094D\u092F\u0915\u094D\u0930\u092E"), /* @__PURE__ */ import_react11.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("venue-section") }, "\u0935\u093F\u0935\u093E\u0939 \u0938\u094D\u0925\u0932"), /* @__PURE__ */ import_react11.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("countdown-section") }, "\u0936\u0941\u092D \u092E\u0941\u0939\u0942\u0930\u094D\u0924"), /* @__PURE__ */ import_react11.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("family-section") }, "\u092A\u0930\u093F\u0935\u093E\u0930 \u090F\u0935\u0902 \u0906\u0936\u0940\u0930\u094D\u0935\u093E\u0926")), /* @__PURE__ */ import_react11.default.createElement("div", { className: "nav-actions-group" }, /* @__PURE__ */ import_react11.default.createElement(
       "button",
