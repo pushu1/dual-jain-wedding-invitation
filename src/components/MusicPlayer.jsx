@@ -1,22 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-// Official Traditional Rajasthani Wedding Music Reference: Bindraja by Ismail Langa Group
-const YOUTUBE_VIDEO_ID = '8W-PD8Fbci0';
-// Exact start time specified by user: 00:14 (14 seconds)
-const START_TIME_SECONDS = 14;
+// Official Wedding Song: Dhin Dhin (from Teena Weds Kuldeep / Aarohi-Tatsat Wedding)
+const YOUTUBE_VIDEO_ID = 'qJFPtcK8qBg';
+// Exact start timestamp specified by user: 00:30 (30 seconds)
+const START_TIME_SECONDS = 30;
 
 export default function MusicPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [isReady, setIsReady] = useState(false);
-  const [isFallbackActive, setIsFallbackActive] = useState(false);
 
   const playerRef = useRef(null);
+  const hasInitiallyStartedRef = useRef(false);
   const pendingPlayRef = useRef(false);
-  const audioCtxRef = useRef(null);
-  const oscIntervalRef = useRef(null);
 
-  // Initialize YouTube Player
+  // Initialize YouTube IFrame Player with rock-solid lifecycle handling
   useEffect(() => {
     let checkInterval = null;
 
@@ -28,8 +26,8 @@ export default function MusicPlayer() {
 
       try {
         playerRef.current = new window.YT.Player('youtube-bgm-container', {
-          height: '200',
-          width: '200',
+          height: '1',
+          width: '1',
           videoId: YOUTUBE_VIDEO_ID,
           playerVars: {
             autoplay: 0,
@@ -46,28 +44,25 @@ export default function MusicPlayer() {
             origin: window.location.origin
           },
           events: {
-            onReady: (event) => {
+            onReady: () => {
               setIsReady(true);
               if (pendingPlayRef.current) {
                 pendingPlayRef.current = false;
-                startPlayAt14();
+                startPlayAt30();
               }
             },
             onStateChange: (event) => {
-              // YT.PlayerState.PLAYING = 1
+              // YT.PlayerState: PLAYING=1, PAUSED=2, BUFFERING=3, CUED=5, ENDED=0
               if (event.data === 1) {
                 setIsPlaying(true);
                 window.isWeddingMusicPlaying = true;
                 window.dispatchEvent(new CustomEvent('weddingMusicStatus', { detail: { isPlaying: true } }));
-              } 
-              // YT.PlayerState.PAUSED = 2
-              else if (event.data === 2) {
+              } else if (event.data === 2) {
                 setIsPlaying(false);
                 window.isWeddingMusicPlaying = false;
                 window.dispatchEvent(new CustomEvent('weddingMusicStatus', { detail: { isPlaying: false } }));
-              } 
-              // YT.PlayerState.ENDED = 0 -> Loop back to 14 seconds
-              else if (event.data === 0) {
+              } else if (event.data === 0) {
+                // Loop seamlessly back to 30s
                 if (playerRef.current && playerRef.current.seekTo) {
                   playerRef.current.seekTo(START_TIME_SECONDS, true);
                   playerRef.current.playVideo();
@@ -76,7 +71,6 @@ export default function MusicPlayer() {
             },
             onError: (err) => {
               console.warn('YouTube BGM Player notice:', err);
-              setIsFallbackActive(true);
             }
           }
         });
@@ -100,31 +94,37 @@ export default function MusicPlayer() {
             clearInterval(checkInterval);
           }
         }
-      }, 300);
+      }, 350);
     }
 
-    const startPlayAt14 = () => {
-      if (playerRef.current && playerRef.current.playVideo) {
-        try {
+    const startPlayAt30 = () => {
+      if (!playerRef.current || !playerRef.current.playVideo) {
+        pendingPlayRef.current = true;
+        return;
+      }
+
+      try {
+        if (!hasInitiallyStartedRef.current) {
           playerRef.current.seekTo(START_TIME_SECONDS, true);
-          playerRef.current.unMute();
-          playerRef.current.playVideo();
-          setIsPlaying(true);
-          setIsMuted(false);
-          window.isWeddingMusicPlaying = true;
-          window.dispatchEvent(new CustomEvent('weddingMusicStatus', { detail: { isPlaying: true } }));
-        } catch (e) {
-          console.warn('Autoplay deferred for user gesture:', e);
-          pendingPlayRef.current = true;
+          hasInitiallyStartedRef.current = true;
         }
-      } else {
+        if (playerRef.current.unMute) {
+          playerRef.current.unMute();
+        }
+        playerRef.current.playVideo();
+        setIsPlaying(true);
+        setIsMuted(false);
+        window.isWeddingMusicPlaying = true;
+        window.dispatchEvent(new CustomEvent('weddingMusicStatus', { detail: { isPlaying: true } }));
+      } catch (e) {
+        console.warn('Autoplay deferred for user gesture:', e);
         pendingPlayRef.current = true;
       }
     };
 
-    // Global APIs exposed for the Fireworks intro, Hero button, and navigation
+    // Global window APIs for Fireworks intro, Hero section, and Navbar
     window.playWeddingMusic = () => {
-      startPlayAt14();
+      startPlayAt30();
     };
 
     window.pauseWeddingMusic = () => {
@@ -157,12 +157,10 @@ export default function MusicPlayer() {
 
     return () => {
       if (checkInterval) clearInterval(checkInterval);
-      try {
-        if (playerRef.current && playerRef.current.destroy) {
-          playerRef.current.destroy();
-        }
-      } catch (e) {}
-      if (oscIntervalRef.current) clearInterval(oscIntervalRef.current);
+      window.playWeddingMusic = null;
+      window.pauseWeddingMusic = null;
+      window.toggleWeddingMusic = null;
+      window.toggleMuteWeddingMusic = null;
     };
   }, [isPlaying, isMuted]);
 
@@ -181,20 +179,20 @@ export default function MusicPlayer() {
 
   return (
     <>
-      {/* Hidden YouTube IFrame Holder */}
+      {/* Invisible YouTube IFrame Container exactly matching Teena Weds Kuldeep */}
       <div
         id="youtube-bgm-container"
+        aria-hidden="true"
         style={{
           position: 'fixed',
-          top: '0px',
-          left: '0px',
-          width: '200px',
-          height: '200px',
+          width: '1px',
+          height: '1px',
+          bottom: '0',
+          right: '0',
           opacity: 0.001,
           pointerEvents: 'none',
-          zIndex: -9999
+          zIndex: -1
         }}
-        aria-hidden="true"
       />
 
       {/* Floating Audio Controller Badge in Hindi */}
@@ -206,7 +204,7 @@ export default function MusicPlayer() {
             type="button"
             className="music-action-trigger"
             onClick={handlePlayToggle}
-            title={isPlaying ? 'विवाह संगीत रोकें' : 'विवाह संगीत चालू करें (14 सेकंड से)'}
+            title={isPlaying ? 'विवाह संगीत रोकें' : 'विवाह संगीत चालू करें (30 सेकंड से)'}
             aria-label={isPlaying ? 'संगीत रोकें' : 'संगीत चालू करें'}
           >
             <span className="music-pill-icon" aria-hidden="true">

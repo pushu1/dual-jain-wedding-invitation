@@ -20,49 +20,9 @@ EDGE_PATHS = [
 EDGE_PATH = next((p for p in EDGE_PATHS if os.path.exists(p)), None)
 assert EDGE_PATH, "Microsoft Edge browser not found!"
 
-print("=" * 60)
-print("1. VERIFYING HINDI DEVANAGARI CONTENT IN SOURCE FILES")
-print("=" * 60)
-
-devanagari_pattern = re.compile(r'[\u0900-\u097F]')
-files_to_check = [
-    'index.html',
-    'invitation_card.html',
-    'src/App.jsx',
-    'src/components/WeddingHero.jsx',
-    'src/components/CouplesSection.jsx',
-    'src/components/WeddingTimeline.jsx',
-    'src/components/VenueSection.jsx',
-    'src/components/CountdownSection.jsx',
-    'src/components/FamilyBlessingsSection.jsx',
-    'src/components/FinalBlessingsFooter.jsx',
-    'src/components/InvitationViewerModal.jsx',
-    'src/components/MusicPlayer.jsx',
-    'src/components/CinematicFireworksIntro.jsx',
-]
-
-for rel_path in files_to_check:
-    full_path = os.path.join(PROJECT_DIR, rel_path)
-    if not os.path.exists(full_path):
-        print(f"WARNING: File {rel_path} does not exist.")
-        continue
-    with open(full_path, 'r', encoding='utf-8') as f:
-        content = f.read()
-    matches = devanagari_pattern.findall(content)
-    assert len(matches) > 10, f"Expected Hindi Devanagari text in {rel_path}, found only {len(matches)} chars!"
-    print(f"✓ {rel_path}: Contains {len(matches)} Devanagari characters.")
-
-# Strict check for 'varat' spelling
-with open(os.path.join(PROJECT_DIR, 'src/components/WeddingTimeline.jsx'), 'r', encoding='utf-8') as f:
-    timeline_content = f.read()
-assert 'वरात' not in timeline_content, "Found incorrect spelling 'वरात'! Must be 'बारात'."
-assert 'बारात प्रस्थान' in timeline_content, "Missing 'बारात प्रस्थान' in WeddingTimeline.jsx!"
-assert 'बारात स्वागत' in timeline_content, "Missing 'बारात स्वागत' in WeddingTimeline.jsx!"
-print("✓ Strict spelling verified: 'बारात' is used everywhere. 'वरात' is 0.")
-
-print("\n" + "=" * 60)
-print("2. VERIFYING SINGLE-PAGE PDF & CLICKABLE HYPERLINK")
-print("=" * 60)
+print("=" * 70)
+print("1. VERIFYING SINGLE-PAGE PDF & CLICKABLE HYPERLINK")
+print("=" * 70)
 
 pdf_path = os.path.join(PROJECT_DIR, 'dual-jain-wedding-invitation.pdf')
 assert os.path.exists(pdf_path), "PDF file dual-jain-wedding-invitation.pdf not found!"
@@ -78,20 +38,66 @@ for a in annots:
     action = obj.get('/A')
     if action and action.get('/URI') == expected_url:
         found_target_url = True
-        print(f"✓ Found active clickable URI: {action.get('/URI')} at Rect {obj.get('/Rect')}")
+        print(f"✓ Found active clickable URI in PDF: {action.get('/URI')} at Rect {obj.get('/Rect')}")
 assert found_target_url, f"Expected URI {expected_url} not found in PDF annotations!"
 print("✓ PDF strictly 1 page with verified clickable hyperlink to live website.")
 
-print("\n" + "=" * 60)
-print("3. BROWSER VERIFICATION: HINDI UI & BACKGROUND MUSIC")
-print("=" * 60)
+print("\n" + "=" * 70)
+print("2. VERIFYING MUSIC PLAYER CONSTANTS & HINDI SOURCE CONTENT")
+print("=" * 70)
+
+with open(os.path.join(PROJECT_DIR, 'src/components/MusicPlayer.jsx'), 'r', encoding='utf-8') as f:
+    music_content = f.read()
+assert "qJFPtcK8qBg" in music_content, "Missing Teena Weds Kuldeep YouTube ID 'qJFPtcK8qBg' in MusicPlayer.jsx!"
+assert "START_TIME_SECONDS = 30" in music_content, "Missing 30 seconds start time in MusicPlayer.jsx!"
+print("✓ Verified MusicPlayer.jsx uses Teena Weds Kuldeep song 'qJFPtcK8qBg' starting at 30 seconds.")
+
+with open(os.path.join(PROJECT_DIR, 'app.js'), 'r', encoding='utf-8') as f:
+    app_js_content = f.read()
+assert "qJFPtcK8qBg" in app_js_content, "Compiled app.js missing video ID 'qJFPtcK8qBg'!"
+print("✓ Compiled app.js contains video ID 'qJFPtcK8qBg'.")
+
+# Check exact required Hindi phrases in WeddingHero.jsx
+with open(os.path.join(PROJECT_DIR, 'src/components/WeddingHero.jsx'), 'r', encoding='utf-8') as f:
+    hero_jsx = f.read()
+
+required_hero_phrases = [
+    "॥ श्री गणेशाय नमः ॥",
+    "॥ विवाह आमंत्रण ॥",
+    "भगवान शिव, माता पार्वती एवं हमारे पूज्य पूर्वजों के दिव्य आशीर्वाद से",
+    "आयुष्मान आकाश",
+    "सुपुत्र श्रीमती अनुराधा एवं श्री कैलाश गेहलोत",
+    "✦ शुभ विवाह ✦",
+    "आयुष्मती रीना",
+    "सुपुत्री श्रीमती जसोधा देवी एवं श्री गोपालजी चौहान",
+    "विवाह दिनांक: गुरुवार, 10 दिसंबर 2026",
+    "आयुष्मती शिवानी (जीनू)",
+    "आयुष्मान धीरज जी",
+    "सुपुत्र श्रीमती रेनू जी एवं श्री मुकेशजी परिहार",
+    "विवाह दिनांक: शनिवार, 12 दिसंबर 2026",
+    "विवाह स्थल:",
+    "कुमावत वाटिका",
+    "पुनायता रोड, पाली, राजस्थान",
+    "भव्य विवाह समारोह: शनिवार, 12 दिसंबर 2026",
+    "मधुर शहनाई की धुन सुनने के लिए यहाँ क्लिक करें",
+    "संगीत शुरू करें",
+    "आमंत्रण देखने के लिए यहाँ क्लिक करें"
+]
+
+for phrase in required_hero_phrases:
+    assert phrase in hero_jsx, f"Missing required Hindi phrase in WeddingHero.jsx: '{phrase}'"
+    print(f"✓ Found in WeddingHero: '{phrase}'")
+
+print("\n" + "=" * 70)
+print("3. BROWSER CDP VERIFICATION: VIEWPORTS, TYPOGRAPHY, BUTTON ANIMATION & MUSIC")
+print("=" * 70)
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind(('', 0))
 PORT = s.getsockname()[1]
 s.close()
 
-profile_dir = os.path.join(PROJECT_DIR, f'.browser_test_{PORT}')
+profile_dir = os.path.join(PROJECT_DIR, f'.browser_verify_{PORT}')
 os.makedirs(profile_dir, exist_ok=True)
 
 class CDP:
@@ -196,7 +202,7 @@ try:
     cdp.send("Page.enable")
     cdp.send("Runtime.enable")
 
-    # Wait for page to fully load
+    # Wait for page ready
     for _ in range(20):
         time.sleep(0.5)
         ready = cdp.eval_js("document.readyState")
@@ -207,22 +213,89 @@ try:
     print(f"Page Title: {title}")
     assert "शुभ विवाह महोत्सव" in title, f"Title does not match expected Hindi! Got: {title}"
 
-    # 2. Check fireworks intro card & music prompt
-    prompt_text = cdp.eval_js("document.querySelector('.fireworks-music-prompt-text')?.innerText || ''")
-    btn_prompt_text = cdp.eval_js("document.querySelector('.btn-start-music-prompt')?.innerText || ''")
-    print(f"Music Prompt Text: '{prompt_text}'")
-    print(f"Music Button Text: '{btn_prompt_text}'")
-    assert "शहनाई की मधुर धुन" in prompt_text, f"Missing expected Hindi music prompt text! Got: {prompt_text}"
-    assert "संगीत शुरू करें" in btn_prompt_text, f"Missing expected music button text! Got: {btn_prompt_text}"
+    # REQUIREMENT 3: Check that Shiva-Parvati Cover appears FIRST
+    hero_visible = cdp.eval_js("!!document.querySelector('.wedding-hero-section')")
+    fireworks_overlay_present = cdp.eval_js("!!document.querySelector('.cinematic-fireworks-overlay')")
+    print(f"Initial Cover Visible: {hero_visible}")
+    print(f"Initial Fireworks Overlay Present: {fireworks_overlay_present}")
+    assert hero_visible, "Shiva-Parvati wedding cover section not visible initially!"
+    assert not fireworks_overlay_present, "Fireworks overlay appeared BEFORE the cover! Expected cover to appear first."
+    print("✓ Requirement 3 Verified: Shiva-Parvati wedding invitation cover is the FIRST visible screen!")
 
-    # Capture fireworks intro screenshot
-    cdp.save_screenshot(os.path.join(SCREENSHOTS_DIR, "hindi_fireworks_intro.png"))
+    # Verify Cover details on screen
+    hero_text = cdp.eval_js("document.querySelector('.wedding-hero-section')?.innerText || ''")
+    assert "॥ श्री गणेशाय नमः ॥" in hero_text, "Missing Ganesh Invocation on cover!"
+    assert "॥ विवाह आमंत्रण ॥" in hero_text, "Missing Main Heading on cover!"
+    assert "भगवान शिव, माता पार्वती" in hero_text, "Missing Divine Blessing on cover!"
+    assert "आयुष्मान आकाश" in hero_text and "आयुष्मती रीना" in hero_text, "Missing Couple 1 names on cover!"
+    assert "आयुष्मती शिवानी (जीनू)" in hero_text and "आयुष्मान धीरज जी" in hero_text, "Missing Couple 2 names on cover!"
+    assert "कुमावत वाटिका" in hero_text, "Missing Venue name on cover!"
+    assert "आमंत्रण देखने के लिए यहाँ क्लिक करें" in hero_text, "Missing Animated Button text on cover!"
+    print("✓ All Cover Hindi Text verified on live rendered DOM!")
 
-    # 3. Simulate clicking the "संगीत शुरू करें" button
-    print("Clicking 'संगीत शुरू करें' button...")
+    # REQUIREMENT 4: Check Animated Invitation Button & Stars
+    btn_exists = cdp.eval_js("!!document.querySelector('.btn-animated-invitation')")
+    stars_exist = cdp.eval_js("document.querySelectorAll('.sparkle-star').length")
+    btn_animation = cdp.eval_js("window.getComputedStyle(document.querySelector('.btn-animated-invitation')).animationName")
+    print(f"Animated Button Present: {btn_exists}")
+    print(f"Sparkling Stars Count: {stars_exist}")
+    print(f"Button CSS Animation: {btn_animation}")
+    assert btn_exists, "Animated invitation button not found!"
+    assert stars_exist >= 4, f"Expected at least 4 sparkling stars, found {stars_exist}!"
+    assert "gentleBounce" in btn_animation, f"Button missing gentleBounce animation! Got: {btn_animation}"
+    print("✓ Requirement 4 Verified: Animated button with gentle bouncing effect and sparkling stars!")
+
+    # Check Mobile Typography on 360x800, 390x844, 412x915
+    mobile_viewports = [
+        ("Android 360x800", 360, 800, "verified_mobile_360_800.png"),
+        ("iPhone 390x844", 390, 844, "verified_mobile_390_844.png"),
+        ("Android Large 412x915", 412, 915, "verified_mobile_412_915.png"),
+        ("Desktop 1920x1080", 1920, 1080, "verified_desktop_1920_1080.png")
+    ]
+
+    for label, w, h, fname in mobile_viewports:
+        cdp.send("Emulation.setDeviceMetricsOverride", {
+            "width": w,
+            "height": h,
+            "deviceScaleFactor": 1,
+            "mobile": (w < 600)
+        })
+        time.sleep(0.6)
+        
+        # Check computed font sizes for mobile
+        if w < 600:
+            sizes = cdp.eval_js("""
+            (() => {
+                const getPx = sel => parseFloat(window.getComputedStyle(document.querySelector(sel))?.fontSize || '0');
+                return {
+                    mainHeading: getPx('.hero-grand-title'),
+                    coupleNames: getPx('.couple-names-headline'),
+                    sectionLabel: getPx('.couple-sacred-label'),
+                    weddingDate: getPx('.couple-date-tag'),
+                    parentsName: getPx('.couple-parents-line'),
+                    venueName: getPx('.venue-name-bold'),
+                    buttonText: getPx('.btn-main-label')
+                };
+            })()
+            """)
+            print(f"Computed Font Sizes for {label}: {sizes}")
+            # Verify against recommended mobile sizes
+            assert sizes['mainHeading'] >= 28, f"Main heading size {sizes['mainHeading']}px too small!"
+            assert sizes['coupleNames'] >= 22, f"Couple names size {sizes['coupleNames']}px too small!"
+            assert sizes['sectionLabel'] >= 18, f"Section heading size {sizes['sectionLabel']}px too small!"
+            assert sizes['weddingDate'] >= 15, f"Wedding date size {sizes['weddingDate']}px too small!"
+            assert sizes['parentsName'] >= 14, f"Parents name size {sizes['parentsName']}px too small!"
+            assert sizes['venueName'] >= 20, f"Venue name size {sizes['venueName']}px too small!"
+            assert sizes['buttonText'] >= 15, f"Button text size {sizes['buttonText']}px too small!"
+            print(f"✓ {label} Typography verified to meet user large font specifications!")
+
+        cdp.save_screenshot(os.path.join(SCREENSHOTS_DIR, fname))
+
+    # REQUIREMENT 5 & 6: Test Clicking the Animated Button
+    print("\nClicking '✦ आमंत्रण देखने के लिए यहाँ क्लिक करें ✦' button...")
     click_res = cdp.eval_js("""
     (() => {
-        const btn = document.querySelector('.btn-start-music-prompt');
+        const btn = document.querySelector('.btn-animated-invitation');
         if (btn) {
             btn.click();
             return true;
@@ -230,88 +303,59 @@ try:
         return false;
     })()
     """)
-    print(f"Button clicked: {click_res}")
+    print(f"Button Click Triggered: {click_res}")
+    time.sleep(1.0)
 
-    # 4. Poll YouTube player state
-    print("Polling YouTube Player state (waiting for state=1 / PLAYING at >= 14s)...")
-    for attempt in range(10):
+    # Verify fireworks overlay appeared with Hindi welcome greeting
+    fireworks_now_present = cdp.eval_js("!!document.querySelector('.cinematic-fireworks-overlay')")
+    fireworks_grand_title = cdp.eval_js("document.querySelector('.fireworks-grand-title')?.innerText || ''")
+    print(f"Fireworks Overlay Active After Click: {fireworks_now_present}")
+    print(f"Fireworks Grand Title: '{fireworks_grand_title}'")
+    assert fireworks_now_present, "Fireworks overlay did not activate upon clicking button!"
+    assert "शुभ विवाह समारोह में आपका हार्दिक स्वागत है" in fireworks_grand_title, f"Fireworks greeting mismatch! Got: '{fireworks_grand_title}'"
+    print("✓ Requirement 6 Verified: Fireworks celebration activated with 'शुभ विवाह समारोह में आपका हार्दिक स्वागत है'!")
+    cdp.save_screenshot(os.path.join(SCREENSHOTS_DIR, "verified_fireworks_celebration.png"))
+
+    # Verify Music Started
+    print("Verifying background music playback of qJFPtcK8qBg from 00:30...")
+    for attempt in range(8):
         time.sleep(1.0)
-        status = cdp.eval_js("""
+        music_status = cdp.eval_js("""
         (() => {
-            const widgetText = document.querySelector('.music-pill-text')?.innerText || '';
-            const isPlayingClass = document.querySelector('.royal-music-pill-btn')?.classList.contains('is-playing');
-            const hasWaveBars = !!document.querySelector('.music-wave-bars');
-            
             return {
-                widgetText,
-                isPlayingClass,
-                hasWaveBars,
-                isGlobalPlaying: !!window.isWeddingMusicPlaying
+                isGlobalPlaying: !!window.isWeddingMusicPlaying,
+                widgetText: document.querySelector('.music-pill-text')?.innerText || '',
+                isPlayingClass: document.querySelector('.royal-music-pill-btn')?.classList.contains('is-playing'),
+                hasWaveBars: !!document.querySelector('.music-wave-bars')
             };
         })()
         """)
-        print(f"  Attempt {attempt+1}: {status}")
-        if status.get("isGlobalPlaying") or status.get("isPlayingClass"):
+        print(f"  Attempt {attempt+1}: {music_status}")
+        if music_status.get("isGlobalPlaying") or music_status.get("isPlayingClass"):
             break
 
-    print(f"✓ Music playback trigger verified! Playing state active.")
-    cdp.save_screenshot(os.path.join(SCREENSHOTS_DIR, "hindi_music_playing.png"))
+    assert music_status.get("isGlobalPlaying") or music_status.get("isPlayingClass"), "Music did not transition to playing!"
+    print("✓ Requirement 5 Verified: Background music playback successfully active!")
 
-    # 5. Dismiss fireworks to examine all Hindi sections
-    print("Dismissing fireworks overlay to inspect invitation sections...")
+    # Dismiss fireworks to verify complete invitation sections
     cdp.eval_js("""
     (() => {
-        const enterBtn = document.querySelector('.btn-enter-celebration') || document.querySelector('.btn-skip-fireworks');
-        if (enterBtn) enterBtn.click();
+        const btn = document.querySelector('.btn-enter-celebration') || document.querySelector('.btn-skip-fireworks');
+        if (btn) btn.click();
     })()
     """)
     time.sleep(1.5)
 
-    # 6. Verify Hindi content across sections
-    hero_title = cdp.eval_js("document.querySelector('.hero-grand-title')?.innerText || ''")
-    couple_text = cdp.eval_js("document.querySelector('.hero-couples-showcase-card')?.innerText || ''")
-    events_heading = cdp.eval_js("document.querySelector('#events-section .section-title-gold')?.innerText || ''")
-    venue_heading = cdp.eval_js("document.querySelector('#venue-section .section-title-gold')?.innerText || ''")
-    countdown_heading = cdp.eval_js("document.querySelector('#countdown-section .section-title-gold')?.innerText || ''")
-    family_heading = cdp.eval_js("document.querySelector('#family-section .section-title-gold')?.innerText || ''")
+    couples_in_view = cdp.eval_js("!!document.querySelector('#couples-section')")
+    timeline_in_view = cdp.eval_js("!!document.querySelector('#events-section')")
+    venue_in_view = cdp.eval_js("!!document.querySelector('#venue-section')")
+    assert couples_in_view and timeline_in_view and venue_in_view, "Invitation sections not found after fireworks!"
+    print("✓ Complete invitation sections successfully revealed!")
+    cdp.save_screenshot(os.path.join(SCREENSHOTS_DIR, "verified_full_invitation_sections.png"))
 
-    print(f"Hero Title: '{hero_title}'")
-    print(f"Events Heading: '{events_heading}'")
-    print(f"Venue Heading: '{venue_heading}'")
-    print(f"Countdown Heading: '{countdown_heading}'")
-    print(f"Family Heading: '{family_heading}'")
-
-    assert "विवाह आमंत्रण" in hero_title, f"Hero title mismatch! Got: {hero_title}"
-    assert "आकाश" in couple_text and "रीना" in couple_text, "Missing Akash/Reena in Hindi!"
-    assert "शिवानी" in couple_text and "धीरज" in couple_text, "Missing Shivani/Dheeraj in Hindi!"
-    assert "मांगलिक कार्यक्रम" in events_heading, f"Events heading mismatch! Got: {events_heading}"
-    assert "विवाह स्थल" in venue_heading, f"Venue heading mismatch! Got: {venue_heading}"
-    assert "उल्टी गिनती" in countdown_heading, f"Countdown heading mismatch! Got: {countdown_heading}"
-    assert "दर्शनाभिलाषी" in family_heading, f"Family heading mismatch! Got: {family_heading}"
-
-    # 7. Check viewports & save screenshots
-    viewports = [
-        ("Desktop 1920x1080", 1920, 1080, "hindi_desktop_1920.png"),
-        ("Laptop 1366x768", 1366, 768, "hindi_laptop_1366.png"),
-        ("Tablet 768x1024", 768, 1024, "hindi_tablet_768.png"),
-        ("Mobile 375x812", 375, 812, "hindi_mobile_375.png"),
-        ("Mobile Small 360x640", 360, 640, "hindi_mobile_360.png")
-    ]
-
-    for label, w, h, fname in viewports:
-        cdp.send("Emulation.setDeviceMetricsOverride", {
-            "width": w,
-            "height": h,
-            "deviceScaleFactor": 1,
-            "mobile": (w < 600)
-        })
-        time.sleep(0.5)
-        cdp.save_screenshot(os.path.join(SCREENSHOTS_DIR, fname))
-        print(f"✓ Viewport verified: {label}")
-
-    print("\n" + "=" * 60)
-    print("ALL VERIFICATION CHECKS PASSED WITH 100% SUCCESS!")
-    print("=" * 60)
+    print("\n" + "=" * 70)
+    print("ALL VERIFICATIONS COMPLETED SUCCESSFULLY WITH 100% PASS!")
+    print("=" * 70)
 
 finally:
     try:

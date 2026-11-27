@@ -12,7 +12,8 @@ import CinematicFireworksIntro from './components/CinematicFireworksIntro';
 
 export default function App() {
   const [isViewerOpen, setIsViewerOpen] = useState(false);
-  const [showFireworks, setShowFireworks] = useState(true);
+  // Requirement 3: On Android & iPhone, Shiva-Parvati cover must be the FIRST screen visible!
+  const [showFireworks, setShowFireworks] = useState(false);
 
   // Expose global trigger for replaying the fireworks celebration
   useEffect(() => {
@@ -28,23 +29,32 @@ export default function App() {
     }
   };
 
-  const handleFireworksComplete = () => {
-    setShowFireworks(false);
-    // When fireworks complete, start music from 14 seconds
+  const handleEnterInvitation = () => {
+    // 1. Start background wedding music immediately from 00:30
     if (typeof window.playWeddingMusic === 'function') {
       window.playWeddingMusic();
     }
+    // 2. Launch celebratory golden fireworks greeting with Hindi welcome message
+    setShowFireworks(true);
+  };
+
+  const handleFireworksComplete = () => {
+    setShowFireworks(false);
+    // Smoothly scroll down to complete wedding invitation
+    setTimeout(() => {
+      scrollTo('couples-section');
+    }, 150);
   };
 
   return (
     <div className="royal-wedding-app">
-      {/* CINEMATIC CELEBRATION FIREWORKS INTRODUCTION OVERLAY */}
+      {/* Background Royal Wedding Music Player (YouTube Video ID: qJFPtcK8qBg from 00:30) */}
+      <MusicPlayer />
+
+      {/* CINEMATIC CELEBRATION FIREWORKS INTRODUCTION OVERLAY - Triggered upon clicking invitation button */}
       {showFireworks && (
         <CinematicFireworksIntro onComplete={handleFireworksComplete} />
       )}
-
-      {/* Background Royal Wedding Music Player (YouTube Video ID: 8W-PD8Fbci0 from 00:14) */}
-      <MusicPlayer />
 
       {/* Sticky Royal Navigation Bar */}
       <header className="sticky-royal-nav" role="banner">
@@ -98,17 +108,10 @@ export default function App() {
         </div>
       </header>
 
-      {/* Central Content Column - Visible Upon Website Open & After Fireworks */}
+      {/* Central Content Column - Visible Immediately Upon Website Open */}
       <main className="invitation-content-column">
-        {/* SECTION 1: ROYAL WELCOME & OPENING INVITATION HERO */}
-        <WeddingHero
-          onExplore={() => {
-            scrollTo('couples-section');
-            if (typeof window.playWeddingMusic === 'function') {
-              window.playWeddingMusic();
-            }
-          }}
-        />
+        {/* SECTION 1: ROYAL SHIVA-PARVATI WEDDING COVER HERO */}
+        <WeddingHero onEnterInvitation={handleEnterInvitation} />
 
         {/* SECTION 2: THE WEDDING COUPLES & FAMILY LINEAGE */}
         <CouplesSection />

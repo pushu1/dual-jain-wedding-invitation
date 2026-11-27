@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export default function WeddingHero({ onExplore }) {
+export default function WeddingHero({ onEnterInvitation }) {
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
 
   useEffect(() => {
@@ -13,31 +13,29 @@ export default function WeddingHero({ onExplore }) {
     return () => window.removeEventListener('weddingMusicStatus', handleStatus);
   }, []);
 
-  const handleStartMusic = () => {
+  const handleStartMusic = (e) => {
+    e.stopPropagation();
     if (typeof window.playWeddingMusic === 'function') {
       window.playWeddingMusic();
       setIsMusicPlaying(true);
     }
   };
 
-  const scrollToSection = (id) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleEnterInvitation = () => {
-    if (onExplore) {
-      onExplore();
+  const handleButtonClick = () => {
+    if (onEnterInvitation) {
+      onEnterInvitation();
     } else {
-      scrollToSection('couples-section');
+      if (typeof window.playWeddingMusic === 'function') {
+        window.playWeddingMusic();
+      }
+      const el = document.getElementById('couples-section');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
     <section className="wedding-hero-section" id="hero-section">
-      {/* Decorative Traditional Arch & Floral Garlands */}
+      {/* Decorative Traditional Arch & Temple Top Frame */}
       <div className="hero-temple-arch-frame" aria-hidden="true">
         <svg viewBox="0 0 500 120" className="temple-arch-svg" preserveAspectRatio="none">
           <path
@@ -76,14 +74,11 @@ export default function WeddingHero({ onExplore }) {
               src="assets/champagne_ganesha_bright.png"
               alt="भगवान श्री गणेश"
               className="hero-ganesha-img"
-              width="44"
-              height="44"
+              width="48"
+              height="48"
             />
           </div>
           <div className="hero-shloka-text">॥ श्री गणेशाय नमः ॥</div>
-          <p className="hero-divine-subtitle">
-            भगवान श्री गणेश एवं पूज्य पितरों के पावन आशीर्वाद से
-          </p>
         </div>
 
         {/* Main Royal Heading */}
@@ -95,11 +90,13 @@ export default function WeddingHero({ onExplore }) {
             <span className="flourish-dash"></span>
             <span className="flourish-leaf">🌿</span>
           </div>
-          <h1 className="hero-grand-title">विवाह आमंत्रण</h1>
-          <div className="hero-shubh-vivah">मांगलिक विवाह महोत्सव</div>
+          <h1 className="hero-grand-title">॥ विवाह आमंत्रण ॥</h1>
+          <p className="hero-divine-subtitle">
+            भगवान शिव, माता पार्वती एवं हमारे पूज्य पूर्वजों के दिव्य आशीर्वाद से
+          </p>
         </div>
 
-        {/* Symmetrical Dual-Couples Composition */}
+        {/* Symmetrical Dual-Couples Composition with Large Mobile Typography */}
         <div className="hero-couples-showcase-card">
           
           {/* Couple 1: Akash & Reena */}
@@ -108,12 +105,20 @@ export default function WeddingHero({ onExplore }) {
             <h2 className="couple-names-headline">
               आयुष्मान आकाश
             </h2>
-            <div className="couple-ampersand-sign">एवं</div>
+            <div className="couple-parents-line">
+              सुपुत्र श्रीमती अनुराधा एवं श्री कैलाश गेहलोत
+            </div>
+            <div className="couple-subh-vivah-badge">
+              ✦ शुभ विवाह ✦
+            </div>
             <h2 className="couple-names-headline">
               आयुष्मती रीना
             </h2>
+            <div className="couple-parents-line">
+              सुपुत्री श्रीमती जसोधा देवी एवं श्री गोपालजी चौहान
+            </div>
             <div className="couple-date-tag">
-              गुरुवार, 10 दिसंबर 2026
+              विवाह दिनांक: गुरुवार, 10 दिसंबर 2026
             </div>
           </div>
 
@@ -133,69 +138,86 @@ export default function WeddingHero({ onExplore }) {
             <h2 className="couple-names-headline">
               आयुष्मती शिवानी (जीनू)
             </h2>
-            <div className="couple-ampersand-sign">एवं</div>
+            <div className="couple-parents-line">
+              सुपुत्री श्रीमती अनुराधा एवं श्री कैलाश गेहलोत
+            </div>
+            <div className="couple-subh-vivah-badge">
+              ✦ शुभ विवाह ✦
+            </div>
             <h2 className="couple-names-headline">
               आयुष्मान धीरज जी
             </h2>
+            <div className="couple-parents-line">
+              सुपुत्र श्रीमती रेनू जी एवं श्री मुकेशजी परिहार
+            </div>
             <div className="couple-date-tag">
-              शनिवार, 12 दिसंबर 2026
+              विवाह दिनांक: शनिवार, 12 दिसंबर 2026
             </div>
           </div>
 
         </div>
 
-        {/* Celebration & Venue Announcement Banner */}
+        {/* Auspicious Wedding Venue Section */}
         <div className="hero-venue-announcement-banner">
-          <div className="banner-date-highlight">
-            <span className="cal-icon">🗓️</span>
-            <span className="date-str">मुख्य विवाह समारोह: 12 दिसंबर 2026</span>
-          </div>
+          <div className="venue-title-label">विवाह स्थल:</div>
           <div className="banner-venue-location">
             <span className="pin-icon">📍</span>
-            <span className="venue-str">कुमावत वाटिका, पाली (राजस्थान)</span>
+            <span className="venue-name-bold">कुमावत वाटिका</span>
+          </div>
+          <div className="banner-venue-address">
+            पुनायता रोड, पाली, राजस्थान
+          </div>
+          <div className="banner-date-highlight">
+            <span className="cal-icon">🗓️</span>
+            <span className="date-str">भव्य विवाह समारोह: शनिवार, 12 दिसंबर 2026</span>
           </div>
         </div>
 
-        {/* Romantic Heritage Quote */}
-        <blockquote className="hero-heritage-quote">
-          “दो पावन परिणय सूत्र, चार परिवारों का संगम, एक भव्य मंगल उत्सव”
-        </blockquote>
-
-        {/* User-Requested Interactive Music Prompt Banner */}
+        {/* Background Music Prompt Banner */}
         <div className="hero-music-prompt-banner">
           <div className="hero-music-prompt-text">
             <span>🎺</span>
-            <span>शहनाई की मधुर धुन सुनने के लिए यहाँ क्लिक करें</span>
+            <span>मधुर शहनाई की धुन सुनने के लिए यहाँ क्लिक करें</span>
           </div>
           <button
             type="button"
             className="btn-start-music-prompt"
             onClick={handleStartMusic}
-            title="विवाह संगीत चालू करें (14 सेकंड से)"
+            title="विवाह संगीत चालू करें (30 सेकंड से)"
             aria-label="संगीत शुरू करें"
           >
             <span>{isMusicPlaying ? '🎵 संगीत बज रहा है' : '▶ संगीत शुरू करें'}</span>
           </button>
         </div>
 
-        {/* Elegant ENTER INVITATION Button with Subtle Golden Shimmer */}
-        <div className="hero-enter-action-wrap" style={{ marginTop: '20px' }}>
+        {/* User-Requested Beautifully Animated CLICK HERE Invitation Button */}
+        <div className="hero-animated-button-stage">
+          {/* Golden Sparkling Stars Particle Glow Container */}
+          <div className="sparkle-stars-cluster" aria-hidden="true">
+            <span className="sparkle-star star-1">✦</span>
+            <span className="sparkle-star star-2">✨</span>
+            <span className="sparkle-star star-3">✦</span>
+            <span className="sparkle-star star-4">✨</span>
+            <span className="sparkle-star star-5">✦</span>
+            <span className="sparkle-star star-6">✨</span>
+          </div>
+
           <button
-            onClick={handleEnterInvitation}
-            className="btn-enter-invitation"
-            aria-label="आमंत्रण में प्रवेश करें"
+            onClick={handleButtonClick}
+            className="btn-animated-invitation"
+            aria-label="आमंत्रण देखने के लिए यहाँ क्लिक करें"
           >
-            <span className="btn-sparkle">✦</span>
-            <span className="btn-text">आमंत्रण में प्रवेश करें</span>
-            <span className="btn-sparkle">✦</span>
-            <span className="btn-shimmer-sweep" aria-hidden="true"></span>
+            <span className="btn-sparkle-lead">✦</span>
+            <span className="btn-main-label">आमंत्रण देखने के लिए यहाँ क्लिक करें</span>
+            <span className="btn-sparkle-trail">✦</span>
+            <span className="btn-shimmer-light-sweep" aria-hidden="true"></span>
           </button>
         </div>
 
         {/* Smooth Scroll Down Indicator */}
         <div
           className="hero-scroll-indicator"
-          onClick={handleEnterInvitation}
+          onClick={handleButtonClick}
           role="button"
           tabIndex={0}
           aria-label="वर-वधू विवरण देखने हेतु नीचे स्क्रॉल करें"

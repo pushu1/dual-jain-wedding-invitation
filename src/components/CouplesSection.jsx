@@ -14,10 +14,10 @@ export default function CouplesSection() {
             <span className="shloka-text">॥ मंगल परिणयोत्सव ॥</span>
             <span className="shloka-ornament">❖</span>
           </div>
-          <div className="family-origin-pill">पाली का प्रतिष्ठित गहलोत परिवार</div>
+          <div className="family-origin-pill">पाली का प्रतिष्ठित गेहलोत परिवार</div>
           <h2 className="section-title-gold">वर-वधू परिचय</h2>
           <p className="section-subtitle-script">
-            भगवान शिव, माता पार्वती, भगवान श्री गणेश एवं पूज्य पितरों के पावन आशीर्वाद से
+            भगवान शिव, माता पार्वती, भगवान श्री गणेश एवं पूज्य पूर्वजों के पावन आशीर्वाद से
           </p>
           <div className="section-title-divider">
             <span className="divider-line"></span>
@@ -31,7 +31,7 @@ export default function CouplesSection() {
           <span className="heritage-badge-tag">पूज्य पूर्वजों का पावन आशीर्वाद एवं कुल परम्परा</span>
           <p className="heritage-lineage-text">
             स्वर्गीय श्रीमती लहरी बाई एवं स्वर्गीय श्री ग्यारसीलाल जी के प्रपौत्र / प्रपौत्री<br />
-            श्रीमती दुर्गा बाई एवं स्वर्गीय श्री मदनलाल जी गहलोत के लाडले पौत्र / पौत्री
+            श्रीमती दुर्गा बाई एवं स्वर्गीय श्री मदनलाल जी गेहलोत के लाडले पौत्र / पौत्री
           </p>
         </div>
 
@@ -58,7 +58,7 @@ export default function CouplesSection() {
               <div className="profile-ornament-icon">🤵</div>
               <h3 className="individual-name">आयुष्मान आकाश</h3>
               <p className="individual-parents">
-                सुपुत्र: <strong>श्रीमती अनुराधा एवं श्री कैलाश गहलोत</strong>
+                सुपुत्र: <strong>श्रीमती अनुराधा एवं श्री कैलाश गेहलोत</strong>
               </p>
             </div>
 
@@ -67,7 +67,7 @@ export default function CouplesSection() {
               <div className="weds-line"></div>
               <div className="weds-badge">
                 <span className="weds-sub">✦</span>
-                <span className="weds-text">संग</span>
+                <span className="weds-text">शुभ विवाह</span>
                 <span className="weds-sub">✦</span>
               </div>
               <div className="weds-line"></div>
@@ -78,7 +78,7 @@ export default function CouplesSection() {
               <div className="profile-ornament-icon">👰</div>
               <h3 className="individual-name">आयुष्मती रीना</h3>
               <p className="individual-parents">
-                सुपुत्री: <strong>श्रीमती जशोदा देवी एवं श्री गोपाल जी चौहान</strong>
+                सुपुत्री: <strong>श्रीमती जसोधा देवी एवं श्री गोपालजी चौहान</strong>
               </p>
               <span className="family-native-place">निवास: समदड़ी</span>
             </div>
@@ -114,7 +114,7 @@ export default function CouplesSection() {
               <div className="profile-ornament-icon">👰</div>
               <h3 className="individual-name">आयुष्मती शिवानी (जीनू)</h3>
               <p className="individual-parents">
-                सुपुत्री: <strong>श्रीमती अनुराधा एवं श्री कैलाश गहलोत</strong>
+                सुपुत्री: <strong>श्रीमती अनुराधा एवं श्री कैलाश गेहलोत</strong>
               </p>
             </div>
 
@@ -123,7 +123,7 @@ export default function CouplesSection() {
               <div className="weds-line"></div>
               <div className="weds-badge">
                 <span className="weds-sub">✦</span>
-                <span className="weds-text">संग</span>
+                <span className="weds-text">शुभ विवाह</span>
                 <span className="weds-sub">✦</span>
               </div>
               <div className="weds-line"></div>
@@ -134,7 +134,7 @@ export default function CouplesSection() {
               <div className="profile-ornament-icon">🤵</div>
               <h3 className="individual-name">आयुष्मान धीरज जी</h3>
               <p className="individual-parents">
-                सुपुत्र: <strong>श्रीमती कमला देवी एवं स्वर्गीय श्री देवकिशन जी परिहार</strong>
+                सुपुत्र: <strong>श्रीमती रेनू जी एवं श्री मुकेशजी परिहार</strong>
               </p>
               <span className="family-native-place">निवास: बालोतरा</span>
             </div>
