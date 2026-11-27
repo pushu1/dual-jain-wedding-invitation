@@ -11,13 +11,13 @@ export default function CouplesSection() {
         <div className="section-header-flourish">
           <div className="shloka-header-group">
             <span className="shloka-ornament">❖</span>
-            <span className="shloka-text">|| MANGAL PARINAYOTSAV ||</span>
+            <span className="shloka-text">॥ मंगल परिणयोत्सव ॥</span>
             <span className="shloka-ornament">❖</span>
           </div>
-          <div className="family-origin-pill">THE ESTEEMED GEHLOT PARIVAR OF PALI</div>
-          <h2 className="section-title-gold">THE WEDDING COUPLES</h2>
+          <div className="family-origin-pill">पाली का प्रतिष्ठित गहलोत परिवार</div>
+          <h2 className="section-title-gold">वर-वधू परिचय</h2>
           <p className="section-subtitle-script">
-            With the divine blessings of Lord Shiva, Mata Parvati, Lord Ganesha &amp; Our Respected Ancestors
+            भगवान शिव, माता पार्वती, भगवान श्री गणेश एवं पूज्य पितरों के पावन आशीर्वाद से
           </p>
           <div className="section-title-divider">
             <span className="divider-line"></span>
@@ -28,10 +28,10 @@ export default function CouplesSection() {
 
         {/* Sacred Ancestral Inscription Badge */}
         <div className="ancestral-heritage-banner">
-          <span className="heritage-badge-tag">Sacred Ancestral Heritage &amp; Blessings</span>
+          <span className="heritage-badge-tag">पूज्य पूर्वजों का पावन आशीर्वाद एवं कुल परम्परा</span>
           <p className="heritage-lineage-text">
-            Great Grandchildren of <strong>Late Mrs. Lehri Bai &amp; Late Mr. Gyarsilalji</strong><br />
-            Beloved Grandchildren of <strong>Mrs. Durga Bai &amp; Late Mr. Madanlalji Gehlot</strong>
+            स्वर्गीय श्रीमती लहरी बाई एवं स्वर्गीय श्री ग्यारसीलाल जी के प्रपौत्र / प्रपौत्री<br />
+            श्रीमती दुर्गा बाई एवं स्वर्गीय श्री मदनलाल जी गहलोत के लाडले पौत्र / पौत्री
           </p>
         </div>
 
@@ -49,16 +49,16 @@ export default function CouplesSection() {
 
             <div className="couple-sacred-pill">
               <span className="pill-star">✦</span>
-              <span className="pill-label">FIRST SACRED UNION</span>
+              <span className="pill-label">प्रथम पावन परिणय</span>
               <span className="pill-star">✦</span>
             </div>
 
             {/* Groom Profile */}
             <div className="couple-individual-block">
               <div className="profile-ornament-icon">🤵</div>
-              <h3 className="individual-name">AYUSHMAN AKASH</h3>
+              <h3 className="individual-name">आयुष्मान आकाश</h3>
               <p className="individual-parents">
-                Son of <strong>Mrs. Anuradha &amp; Mr. Kailash Gehlot</strong>
+                सुपुत्र: <strong>श्रीमती अनुराधा एवं श्री कैलाश गहलोत</strong>
               </p>
             </div>
 
@@ -67,7 +67,7 @@ export default function CouplesSection() {
               <div className="weds-line"></div>
               <div className="weds-badge">
                 <span className="weds-sub">✦</span>
-                <span className="weds-text">WEDS</span>
+                <span className="weds-text">संग</span>
                 <span className="weds-sub">✦</span>
               </div>
               <div className="weds-line"></div>
@@ -76,20 +76,20 @@ export default function CouplesSection() {
             {/* Bride Profile */}
             <div className="couple-individual-block">
               <div className="profile-ornament-icon">👰</div>
-              <h3 className="individual-name">AYUSHMATI REENA</h3>
+              <h3 className="individual-name">आयुष्मती रीना</h3>
               <p className="individual-parents">
-                Daughter of <strong>Mrs. Jashoda Devi &amp; Mr. Gopalji Chauhan</strong>
+                सुपुत्री: <strong>श्रीमती जशोदा देवी एवं श्री गोपाल जी चौहान</strong>
               </p>
-              <span className="family-native-place">Residence: Samdari</span>
+              <span className="family-native-place">निवास: समदड़ी</span>
             </div>
 
             {/* Auspicious Ceremony Date Box */}
             <div className="couple-ceremony-date-badge">
               <div className="ceremony-date-icon">🗓️</div>
               <div className="ceremony-date-details">
-                <span className="ceremony-label">WEDDING CEREMONY DATE</span>
-                <span className="ceremony-exact-date">Thursday, 10 December 2026</span>
-                <span className="ceremony-muhurat">Margashirsha Shukla Paksh</span>
+                <span className="ceremony-label">शुभ विवाह तिथि</span>
+                <span className="ceremony-exact-date">गुरुवार, 10 दिसंबर 2026</span>
+                <span className="ceremony-muhurat">मार्गशीर्ष शुक्ल पक्ष</span>
               </div>
             </div>
           </article>
@@ -105,16 +105,16 @@ export default function CouplesSection() {
 
             <div className="couple-sacred-pill">
               <span className="pill-star">✦</span>
-              <span className="pill-label">SECOND SACRED UNION</span>
+              <span className="pill-label">द्वितीय पावन परिणय</span>
               <span className="pill-star">✦</span>
             </div>
 
             {/* Bride Profile */}
             <div className="couple-individual-block">
               <div className="profile-ornament-icon">👰</div>
-              <h3 className="individual-name">AYUSHMATI SHIVANI (JEENU)</h3>
+              <h3 className="individual-name">आयुष्मती शिवानी (जीनू)</h3>
               <p className="individual-parents">
-                Daughter of <strong>Mrs. Anuradha &amp; Mr. Kailash Gehlot</strong>
+                सुपुत्री: <strong>श्रीमती अनुराधा एवं श्री कैलाश गहलोत</strong>
               </p>
             </div>
 
@@ -123,7 +123,7 @@ export default function CouplesSection() {
               <div className="weds-line"></div>
               <div className="weds-badge">
                 <span className="weds-sub">✦</span>
-                <span className="weds-text">WEDS</span>
+                <span className="weds-text">संग</span>
                 <span className="weds-sub">✦</span>
               </div>
               <div className="weds-line"></div>
@@ -132,20 +132,20 @@ export default function CouplesSection() {
             {/* Groom Profile */}
             <div className="couple-individual-block">
               <div className="profile-ornament-icon">🤵</div>
-              <h3 className="individual-name">AYUSHMAN DHEERAJ JI</h3>
+              <h3 className="individual-name">आयुष्मान धीरज जी</h3>
               <p className="individual-parents">
-                Son of <strong>Mrs. Renu Ji &amp; Mr. Mukeshji Parihar</strong>
+                सुपुत्र: <strong>श्रीमती कमला देवी एवं स्वर्गीय श्री देवकिशन जी परिहार</strong>
               </p>
-              <span className="family-native-place">Residence: Balotra</span>
+              <span className="family-native-place">निवास: बालोतरा</span>
             </div>
 
             {/* Auspicious Ceremony Date Box */}
             <div className="couple-ceremony-date-badge">
               <div className="ceremony-date-icon">🗓️</div>
               <div className="ceremony-date-details">
-                <span className="ceremony-label">WEDDING CEREMONY DATE</span>
-                <span className="ceremony-exact-date">Saturday, 12 December 2026</span>
-                <span className="ceremony-muhurat">Margashirsha Shukla Paksh 3</span>
+                <span className="ceremony-label">शुभ विवाह तिथि</span>
+                <span className="ceremony-exact-date">शनिवार, 12 दिसंबर 2026</span>
+                <span className="ceremony-muhurat">मार्गशीर्ष शुक्ल पक्ष तृतीया</span>
               </div>
             </div>
           </article>

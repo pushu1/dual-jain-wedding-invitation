@@ -13,7 +13,7 @@
      - Secondary Text: Warm Brown #60483A
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Roboto+Slab:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Noto+Serif+Devanagari:wght@400;500;600;700;800;900&family=Roboto+Slab:wght@300;400;500;600;700;800&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap');
 
 :root {
   /* Shiva-Parvati Traditional Palette */
@@ -37,10 +37,10 @@
   --c-ivory: #FFF5E6;
   --c-royal-black: #762D32;
 
-  --font-royal-heading: 'Cinzel', 'Playfair Display', 'Roboto Slab', serif;
-  --font-royal-names: 'Cinzel', 'Playfair Display', serif;
-  --font-royal-script: 'Cormorant Garamond', 'Lora', serif;
-  --font-royal-body: 'Roboto Slab', 'Inter', serif;
+  --font-royal-heading: 'Noto Serif Devanagari', 'Cinzel', 'Roboto Slab', serif;
+  --font-royal-names: 'Noto Serif Devanagari', 'Cinzel', serif;
+  --font-royal-script: 'Tiro Devanagari Hindi', 'Cormorant Garamond', serif;
+  --font-royal-body: 'Noto Sans Devanagari', 'Roboto Slab', sans-serif;
 }
 
 /* Base Body & App Container */
@@ -1761,12 +1761,89 @@ button, a, input, textarea, select {
   font-weight: 700;
   letter-spacing: 1.2px;
   color: var(--c-headings);
-  margin-bottom: 18px;
+  margin-bottom: 14px;
+}
+
+/* Interactive Shehnai Music Prompt in Fireworks Card */
+.fireworks-music-prompt-box {
+  background: linear-gradient(135deg, rgba(255, 245, 230, 0.95) 0%, rgba(247, 233, 210, 0.95) 100%);
+  border: 1.5px solid var(--c-border-gold);
+  border-radius: 16px;
+  padding: 12px 18px;
+  margin: 0 auto 18px;
+  max-width: 460px;
+  box-shadow: 0 4px 15px rgba(139, 48, 56, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.fireworks-music-prompt-text {
+  font-family: var(--font-royal-heading);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--c-headings);
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-start-music-prompt {
+  background: linear-gradient(135deg, #B88A3B 0%, #8C6A28 100%);
+  color: #FFF5E6;
+  border: 1.5px solid #F8E2A7;
+  border-radius: 25px;
+  padding: 8px 24px;
+  font-family: var(--font-royal-heading);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(184, 138, 59, 0.35);
+  transition: all 0.25s ease;
+}
+
+.btn-start-music-prompt:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(184, 138, 59, 0.5);
 }
 
 .fireworks-action-row {
   display: flex;
   justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Hero Section Interactive Music Prompt Banner */
+.hero-music-prompt-banner {
+  background: linear-gradient(135deg, rgba(255, 250, 241, 0.98) 0%, rgba(247, 233, 210, 0.95) 100%);
+  border: 1.5px solid var(--c-border-gold);
+  border-radius: 20px;
+  padding: 10px 20px;
+  margin: 18px auto 0;
+  max-width: 580px;
+  box-shadow: 0 6px 20px rgba(118, 45, 50, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.hero-music-prompt-text {
+  font-family: var(--font-royal-heading);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--c-headings);
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .btn-enter-celebration {

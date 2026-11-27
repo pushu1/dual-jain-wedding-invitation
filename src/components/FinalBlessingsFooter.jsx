@@ -27,25 +27,25 @@ export default function FinalBlessingsFooter({ onOpenCardViewer, onDownloadPDF }
           />
         </div>
 
-        {/* Sacred Shloka in English transliteration */}
+        {/* Sacred Shloka in Hindi */}
         <div className="footer-sacred-blessing">
-          || OM SHREE GANESHAY NAMAH • SHUBHAM BHAVATU ||
+          ॥ ॐ श्री गणेशाय नमः • शुभं भवतु ॥
         </div>
 
         {/* Golden Quote */}
         <blockquote className="footer-treasured-quote">
-          “Your Presence Is Our Greatest Gift.<br />
-          Your Blessings Are Our Greatest Treasure.”
+          “आपकी गरिमामयी उपस्थिति हमारा सबसे बड़ा उपहार है,<br />
+          आपका पावन आशीर्वाद हमारा अनमोल खजाना है।”
         </blockquote>
 
         {/* Couple Signoff */}
         <div className="footer-couple-signature">
           <h2 className="footer-couple-names" style={{ fontSize: 'clamp(20px, 4.2vw, 30px)' }}>
-            AKASH &amp; REENA • SHIVANI &amp; DHEERAJ
+            आकाश एवं रीना • शिवानी एवं धीरज
           </h2>
-          <p className="footer-regards-line">With Love and Warm Regards</p>
+          <p className="footer-regards-line">सस्नेह एवं सादर आभार</p>
           <p className="footer-family-signoff">
-            Gehlot Parivar • Ramdev Road, Pali, Rajasthan
+            गहलोत परिवार • रामदेव रोड, पाली (राजस्थान)
           </p>
         </div>
 
@@ -54,7 +54,7 @@ export default function FinalBlessingsFooter({ onOpenCardViewer, onDownloadPDF }
         {/* Bottom Year & Traditional Copyright */}
         <div className="footer-sub-bar">
           <p className="sub-bar-text">
-            The Royal Wedding Celebration 2026 • Dual Wedding • Pali, Rajasthan
+            शुभ विवाह महोत्सव 2026 • दोहरा विवाह उत्सव • पाली, राजस्थान
           </p>
           <button
             onClick={scrollToTop}
@@ -63,14 +63,14 @@ export default function FinalBlessingsFooter({ onOpenCardViewer, onDownloadPDF }
               border: '1px solid var(--c-border-gold)',
               borderRadius: '20px',
               color: 'var(--c-headings)',
-              fontFamily: 'Roboto Slab, serif',
+              fontFamily: 'Noto Sans Devanagari, sans-serif',
               fontSize: '11px',
               padding: '4px 16px',
               marginTop: '10px',
               cursor: 'pointer'
             }}
           >
-            ↑ Back to Top
+            ↑ ऊपर जाएँ
           </button>
         </div>
 

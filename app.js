@@ -53,6 +53,22 @@ var RoyalWeddingApp = (() => {
   // src/components/WeddingHero.jsx
   var import_react = __toESM(__require("react"));
   function WeddingHero({ onExplore }) {
+    const [isMusicPlaying, setIsMusicPlaying] = (0, import_react.useState)(false);
+    (0, import_react.useEffect)(() => {
+      const handleStatus = (e) => {
+        if (e && e.detail) {
+          setIsMusicPlaying(!!e.detail.isPlaying);
+        }
+      };
+      window.addEventListener("weddingMusicStatus", handleStatus);
+      return () => window.removeEventListener("weddingMusicStatus", handleStatus);
+    }, []);
+    const handleStartMusic = () => {
+      if (typeof window.playWeddingMusic === "function") {
+        window.playWeddingMusic();
+        setIsMusicPlaying(true);
+      }
+    };
     const scrollToSection = (id) => {
       const el = document.getElementById(id);
       if (el) {
@@ -84,7 +100,7 @@ var RoyalWeddingApp = (() => {
       "img",
       {
         src: "assets/shiva_parvati_top_artwork.png",
-        alt: "Lord Shiva and Mata Parvati",
+        alt: "\u092D\u0917\u0935\u093E\u0928 \u0936\u093F\u0935 \u090F\u0935\u0902 \u092E\u093E\u0924\u093E \u092A\u093E\u0930\u094D\u0935\u0924\u0940",
         className: "shiva-parvati-art-img",
         width: "440",
         height: "260"
@@ -93,20 +109,30 @@ var RoyalWeddingApp = (() => {
       "img",
       {
         src: "assets/champagne_ganesha_bright.png",
-        alt: "Lord Ganesha",
+        alt: "\u092D\u0917\u0935\u093E\u0928 \u0936\u094D\u0930\u0940 \u0917\u0923\u0947\u0936",
         className: "hero-ganesha-img",
         width: "44",
         height: "44"
       }
-    )), /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-shloka-text" }, "|| SHREE GANESHAY NAMAH ||"), /* @__PURE__ */ import_react.default.createElement("p", { className: "hero-divine-subtitle" }, "With the Divine Blessings of Lord Ganesha & Our Respected Ancestors")), /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-main-title-block" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-royal-flourish-line" }, /* @__PURE__ */ import_react.default.createElement("span", { className: "flourish-leaf" }, "\u{1F33F}"), /* @__PURE__ */ import_react.default.createElement("span", { className: "flourish-dash" }), /* @__PURE__ */ import_react.default.createElement("span", { className: "flourish-star" }, "\u2726"), /* @__PURE__ */ import_react.default.createElement("span", { className: "flourish-dash" }), /* @__PURE__ */ import_react.default.createElement("span", { className: "flourish-leaf" }, "\u{1F33F}")), /* @__PURE__ */ import_react.default.createElement("h1", { className: "hero-grand-title" }, "THE WEDDING INVITATION"), /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-shubh-vivah" }, "Auspicious Wedding Celebration")), /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-couples-showcase-card" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-couple-unit" }, /* @__PURE__ */ import_react.default.createElement("span", { className: "couple-sacred-label" }, "First Couple"), /* @__PURE__ */ import_react.default.createElement("h2", { className: "couple-names-headline" }, "AYUSHMAN AKASH"), /* @__PURE__ */ import_react.default.createElement("div", { className: "couple-ampersand-sign" }, "&"), /* @__PURE__ */ import_react.default.createElement("h2", { className: "couple-names-headline" }, "AYUSHMATI REENA"), /* @__PURE__ */ import_react.default.createElement("div", { className: "couple-date-tag" }, "Thursday, 10 December 2026")), /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-central-divider-unit", "aria-hidden": "true" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "divider-gold-line" }), /* @__PURE__ */ import_react.default.createElement("div", { className: "divider-sacred-emblem" }, /* @__PURE__ */ import_react.default.createElement("span", { className: "emblem-symbol" }, "\u{1F451}"), /* @__PURE__ */ import_react.default.createElement("span", { className: "emblem-flourish" }, "\u2756")), /* @__PURE__ */ import_react.default.createElement("div", { className: "divider-gold-line" })), /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-couple-unit" }, /* @__PURE__ */ import_react.default.createElement("span", { className: "couple-sacred-label" }, "Second Couple"), /* @__PURE__ */ import_react.default.createElement("h2", { className: "couple-names-headline" }, "AYUSHMATI SHIVANI (JEENU)"), /* @__PURE__ */ import_react.default.createElement("div", { className: "couple-ampersand-sign" }, "&"), /* @__PURE__ */ import_react.default.createElement("h2", { className: "couple-names-headline" }, "AYUSHMAN DHEERAJ JI"), /* @__PURE__ */ import_react.default.createElement("div", { className: "couple-date-tag" }, "Saturday, 12 December 2026"))), /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-venue-announcement-banner" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "banner-date-highlight" }, /* @__PURE__ */ import_react.default.createElement("span", { className: "cal-icon" }, "\u{1F5D3}\uFE0F"), /* @__PURE__ */ import_react.default.createElement("span", { className: "date-str" }, "WEDDING CELEBRATION: 12 DECEMBER 2026")), /* @__PURE__ */ import_react.default.createElement("div", { className: "banner-venue-location" }, /* @__PURE__ */ import_react.default.createElement("span", { className: "pin-icon" }, "\u{1F4CD}"), /* @__PURE__ */ import_react.default.createElement("span", { className: "venue-str" }, "KUMAWAT VATIKA, PALI, RAJASTHAN"))), /* @__PURE__ */ import_react.default.createElement("blockquote", { className: "hero-heritage-quote" }, "\u201CTwo Sacred Unions, Four Blessed Families, One Grand Joyous Celebration\u201D"), /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-enter-action-wrap" }, /* @__PURE__ */ import_react.default.createElement(
+    )), /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-shloka-text" }, "\u0965 \u0936\u094D\u0930\u0940 \u0917\u0923\u0947\u0936\u093E\u092F \u0928\u092E\u0903 \u0965"), /* @__PURE__ */ import_react.default.createElement("p", { className: "hero-divine-subtitle" }, "\u092D\u0917\u0935\u093E\u0928 \u0936\u094D\u0930\u0940 \u0917\u0923\u0947\u0936 \u090F\u0935\u0902 \u092A\u0942\u091C\u094D\u092F \u092A\u093F\u0924\u0930\u094B\u0902 \u0915\u0947 \u092A\u093E\u0935\u0928 \u0906\u0936\u0940\u0930\u094D\u0935\u093E\u0926 \u0938\u0947")), /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-main-title-block" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-royal-flourish-line" }, /* @__PURE__ */ import_react.default.createElement("span", { className: "flourish-leaf" }, "\u{1F33F}"), /* @__PURE__ */ import_react.default.createElement("span", { className: "flourish-dash" }), /* @__PURE__ */ import_react.default.createElement("span", { className: "flourish-star" }, "\u2726"), /* @__PURE__ */ import_react.default.createElement("span", { className: "flourish-dash" }), /* @__PURE__ */ import_react.default.createElement("span", { className: "flourish-leaf" }, "\u{1F33F}")), /* @__PURE__ */ import_react.default.createElement("h1", { className: "hero-grand-title" }, "\u0935\u093F\u0935\u093E\u0939 \u0906\u092E\u0902\u0924\u094D\u0930\u0923"), /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-shubh-vivah" }, "\u092E\u093E\u0902\u0917\u0932\u093F\u0915 \u0935\u093F\u0935\u093E\u0939 \u092E\u0939\u094B\u0924\u094D\u0938\u0935")), /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-couples-showcase-card" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-couple-unit" }, /* @__PURE__ */ import_react.default.createElement("span", { className: "couple-sacred-label" }, "\u2014 \u092A\u094D\u0930\u0925\u092E \u092A\u093E\u0935\u0928 \u092A\u0930\u093F\u0923\u092F \u2014"), /* @__PURE__ */ import_react.default.createElement("h2", { className: "couple-names-headline" }, "\u0906\u092F\u0941\u0937\u094D\u092E\u093E\u0928 \u0906\u0915\u093E\u0936"), /* @__PURE__ */ import_react.default.createElement("div", { className: "couple-ampersand-sign" }, "\u090F\u0935\u0902"), /* @__PURE__ */ import_react.default.createElement("h2", { className: "couple-names-headline" }, "\u0906\u092F\u0941\u0937\u094D\u092E\u0924\u0940 \u0930\u0940\u0928\u093E"), /* @__PURE__ */ import_react.default.createElement("div", { className: "couple-date-tag" }, "\u0917\u0941\u0930\u0941\u0935\u093E\u0930, 10 \u0926\u093F\u0938\u0902\u092C\u0930 2026")), /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-central-divider-unit", "aria-hidden": "true" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "divider-gold-line" }), /* @__PURE__ */ import_react.default.createElement("div", { className: "divider-sacred-emblem" }, /* @__PURE__ */ import_react.default.createElement("span", { className: "emblem-symbol" }, "\u{1F451}"), /* @__PURE__ */ import_react.default.createElement("span", { className: "emblem-flourish" }, "\u2756")), /* @__PURE__ */ import_react.default.createElement("div", { className: "divider-gold-line" })), /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-couple-unit" }, /* @__PURE__ */ import_react.default.createElement("span", { className: "couple-sacred-label" }, "\u2014 \u0926\u094D\u0935\u093F\u0924\u0940\u092F \u092A\u093E\u0935\u0928 \u092A\u0930\u093F\u0923\u092F \u2014"), /* @__PURE__ */ import_react.default.createElement("h2", { className: "couple-names-headline" }, "\u0906\u092F\u0941\u0937\u094D\u092E\u0924\u0940 \u0936\u093F\u0935\u093E\u0928\u0940 (\u091C\u0940\u0928\u0942)"), /* @__PURE__ */ import_react.default.createElement("div", { className: "couple-ampersand-sign" }, "\u090F\u0935\u0902"), /* @__PURE__ */ import_react.default.createElement("h2", { className: "couple-names-headline" }, "\u0906\u092F\u0941\u0937\u094D\u092E\u093E\u0928 \u0927\u0940\u0930\u091C \u091C\u0940"), /* @__PURE__ */ import_react.default.createElement("div", { className: "couple-date-tag" }, "\u0936\u0928\u093F\u0935\u093E\u0930, 12 \u0926\u093F\u0938\u0902\u092C\u0930 2026"))), /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-venue-announcement-banner" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "banner-date-highlight" }, /* @__PURE__ */ import_react.default.createElement("span", { className: "cal-icon" }, "\u{1F5D3}\uFE0F"), /* @__PURE__ */ import_react.default.createElement("span", { className: "date-str" }, "\u092E\u0941\u0916\u094D\u092F \u0935\u093F\u0935\u093E\u0939 \u0938\u092E\u093E\u0930\u094B\u0939: 12 \u0926\u093F\u0938\u0902\u092C\u0930 2026")), /* @__PURE__ */ import_react.default.createElement("div", { className: "banner-venue-location" }, /* @__PURE__ */ import_react.default.createElement("span", { className: "pin-icon" }, "\u{1F4CD}"), /* @__PURE__ */ import_react.default.createElement("span", { className: "venue-str" }, "\u0915\u0941\u092E\u093E\u0935\u0924 \u0935\u093E\u091F\u093F\u0915\u093E, \u092A\u093E\u0932\u0940 (\u0930\u093E\u091C\u0938\u094D\u0925\u093E\u0928)"))), /* @__PURE__ */ import_react.default.createElement("blockquote", { className: "hero-heritage-quote" }, "\u201C\u0926\u094B \u092A\u093E\u0935\u0928 \u092A\u0930\u093F\u0923\u092F \u0938\u0942\u0924\u094D\u0930, \u091A\u093E\u0930 \u092A\u0930\u093F\u0935\u093E\u0930\u094B\u0902 \u0915\u093E \u0938\u0902\u0917\u092E, \u090F\u0915 \u092D\u0935\u094D\u092F \u092E\u0902\u0917\u0932 \u0909\u0924\u094D\u0938\u0935\u201D"), /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-music-prompt-banner" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-music-prompt-text" }, /* @__PURE__ */ import_react.default.createElement("span", null, "\u{1F3BA}"), /* @__PURE__ */ import_react.default.createElement("span", null, "\u0936\u0939\u0928\u093E\u0908 \u0915\u0940 \u092E\u0927\u0941\u0930 \u0927\u0941\u0928 \u0938\u0941\u0928\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u092F\u0939\u093E\u0901 \u0915\u094D\u0932\u093F\u0915 \u0915\u0930\u0947\u0902")), /* @__PURE__ */ import_react.default.createElement(
+      "button",
+      {
+        type: "button",
+        className: "btn-start-music-prompt",
+        onClick: handleStartMusic,
+        title: "\u0935\u093F\u0935\u093E\u0939 \u0938\u0902\u0917\u0940\u0924 \u091A\u093E\u0932\u0942 \u0915\u0930\u0947\u0902 (14 \u0938\u0947\u0915\u0902\u0921 \u0938\u0947)",
+        "aria-label": "\u0938\u0902\u0917\u0940\u0924 \u0936\u0941\u0930\u0942 \u0915\u0930\u0947\u0902"
+      },
+      /* @__PURE__ */ import_react.default.createElement("span", null, isMusicPlaying ? "\u{1F3B5} \u0938\u0902\u0917\u0940\u0924 \u092C\u091C \u0930\u0939\u093E \u0939\u0948" : "\u25B6 \u0938\u0902\u0917\u0940\u0924 \u0936\u0941\u0930\u0942 \u0915\u0930\u0947\u0902")
+    )), /* @__PURE__ */ import_react.default.createElement("div", { className: "hero-enter-action-wrap", style: { marginTop: "20px" } }, /* @__PURE__ */ import_react.default.createElement(
       "button",
       {
         onClick: handleEnterInvitation,
         className: "btn-enter-invitation",
-        "aria-label": "Enter complete wedding invitation"
+        "aria-label": "\u0906\u092E\u0902\u0924\u094D\u0930\u0923 \u092E\u0947\u0902 \u092A\u094D\u0930\u0935\u0947\u0936 \u0915\u0930\u0947\u0902"
       },
       /* @__PURE__ */ import_react.default.createElement("span", { className: "btn-sparkle" }, "\u2726"),
-      /* @__PURE__ */ import_react.default.createElement("span", { className: "btn-text" }, "ENTER INVITATION"),
+      /* @__PURE__ */ import_react.default.createElement("span", { className: "btn-text" }, "\u0906\u092E\u0902\u0924\u094D\u0930\u0923 \u092E\u0947\u0902 \u092A\u094D\u0930\u0935\u0947\u0936 \u0915\u0930\u0947\u0902"),
       /* @__PURE__ */ import_react.default.createElement("span", { className: "btn-sparkle" }, "\u2726"),
       /* @__PURE__ */ import_react.default.createElement("span", { className: "btn-shimmer-sweep", "aria-hidden": "true" })
     )), /* @__PURE__ */ import_react.default.createElement(
@@ -116,9 +142,9 @@ var RoyalWeddingApp = (() => {
         onClick: handleEnterInvitation,
         role: "button",
         tabIndex: 0,
-        "aria-label": "Scroll down to wedding couples details"
+        "aria-label": "\u0935\u0930-\u0935\u0927\u0942 \u0935\u093F\u0935\u0930\u0923 \u0926\u0947\u0916\u0928\u0947 \u0939\u0947\u0924\u0941 \u0928\u0940\u091A\u0947 \u0938\u094D\u0915\u094D\u0930\u0949\u0932 \u0915\u0930\u0947\u0902"
       },
-      /* @__PURE__ */ import_react.default.createElement("span", { className: "scroll-label" }, "Scroll to Explore"),
+      /* @__PURE__ */ import_react.default.createElement("span", { className: "scroll-label" }, "\u0928\u0940\u091A\u0947 \u0926\u0947\u0916\u0947\u0902"),
       /* @__PURE__ */ import_react.default.createElement("div", { className: "scroll-chevron-bounce" }, /* @__PURE__ */ import_react.default.createElement("svg", { viewBox: "0 0 24 24", className: "chevron-svg", "aria-hidden": "true" }, /* @__PURE__ */ import_react.default.createElement("path", { d: "M7 10l5 5 5-5", fill: "none", stroke: "#8B3038", strokeWidth: "2.2", strokeLinecap: "round" })))
     )));
   }
@@ -126,7 +152,7 @@ var RoyalWeddingApp = (() => {
   // src/components/CouplesSection.jsx
   var import_react2 = __toESM(__require("react"));
   function CouplesSection() {
-    return /* @__PURE__ */ import_react2.default.createElement("section", { className: "wedding-section couples-family-section", id: "couples-section" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "section-royal-card" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "card-border-gold-outer", "aria-hidden": "true" }), /* @__PURE__ */ import_react2.default.createElement("div", { className: "card-border-gold-inner", "aria-hidden": "true" }), /* @__PURE__ */ import_react2.default.createElement("div", { className: "section-header-flourish" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "shloka-header-group" }, /* @__PURE__ */ import_react2.default.createElement("span", { className: "shloka-ornament" }, "\u2756"), /* @__PURE__ */ import_react2.default.createElement("span", { className: "shloka-text" }, "|| MANGAL PARINAYOTSAV ||"), /* @__PURE__ */ import_react2.default.createElement("span", { className: "shloka-ornament" }, "\u2756")), /* @__PURE__ */ import_react2.default.createElement("div", { className: "family-origin-pill" }, "THE ESTEEMED GEHLOT PARIVAR OF PALI"), /* @__PURE__ */ import_react2.default.createElement("h2", { className: "section-title-gold" }, "THE WEDDING COUPLES"), /* @__PURE__ */ import_react2.default.createElement("p", { className: "section-subtitle-script" }, "With the divine blessings of Lord Shiva, Mata Parvati, Lord Ganesha & Our Respected Ancestors"), /* @__PURE__ */ import_react2.default.createElement("div", { className: "section-title-divider" }, /* @__PURE__ */ import_react2.default.createElement("span", { className: "divider-line" }), /* @__PURE__ */ import_react2.default.createElement("span", { className: "divider-star" }, "\u2726 \u{1F451} \u2726"), /* @__PURE__ */ import_react2.default.createElement("span", { className: "divider-line" }))), /* @__PURE__ */ import_react2.default.createElement("div", { className: "ancestral-heritage-banner" }, /* @__PURE__ */ import_react2.default.createElement("span", { className: "heritage-badge-tag" }, "Sacred Ancestral Heritage & Blessings"), /* @__PURE__ */ import_react2.default.createElement("p", { className: "heritage-lineage-text" }, "Great Grandchildren of ", /* @__PURE__ */ import_react2.default.createElement("strong", null, "Late Mrs. Lehri Bai & Late Mr. Gyarsilalji"), /* @__PURE__ */ import_react2.default.createElement("br", null), "Beloved Grandchildren of ", /* @__PURE__ */ import_react2.default.createElement("strong", null, "Mrs. Durga Bai & Late Mr. Madanlalji Gehlot"))), /* @__PURE__ */ import_react2.default.createElement("div", { className: "couples-editorial-grid" }, /* @__PURE__ */ import_react2.default.createElement("article", { className: "couple-editorial-card" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "card-ornament-corner tl" }), /* @__PURE__ */ import_react2.default.createElement("div", { className: "card-ornament-corner tr" }), /* @__PURE__ */ import_react2.default.createElement("div", { className: "card-ornament-corner bl" }), /* @__PURE__ */ import_react2.default.createElement("div", { className: "card-ornament-corner br" }), /* @__PURE__ */ import_react2.default.createElement("div", { className: "couple-sacred-pill" }, /* @__PURE__ */ import_react2.default.createElement("span", { className: "pill-star" }, "\u2726"), /* @__PURE__ */ import_react2.default.createElement("span", { className: "pill-label" }, "FIRST SACRED UNION"), /* @__PURE__ */ import_react2.default.createElement("span", { className: "pill-star" }, "\u2726")), /* @__PURE__ */ import_react2.default.createElement("div", { className: "couple-individual-block" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "profile-ornament-icon" }, "\u{1F935}"), /* @__PURE__ */ import_react2.default.createElement("h3", { className: "individual-name" }, "AYUSHMAN AKASH"), /* @__PURE__ */ import_react2.default.createElement("p", { className: "individual-parents" }, "Son of ", /* @__PURE__ */ import_react2.default.createElement("strong", null, "Mrs. Anuradha & Mr. Kailash Gehlot"))), /* @__PURE__ */ import_react2.default.createElement("div", { className: "weds-flourish-separator" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "weds-line" }), /* @__PURE__ */ import_react2.default.createElement("div", { className: "weds-badge" }, /* @__PURE__ */ import_react2.default.createElement("span", { className: "weds-sub" }, "\u2726"), /* @__PURE__ */ import_react2.default.createElement("span", { className: "weds-text" }, "WEDS"), /* @__PURE__ */ import_react2.default.createElement("span", { className: "weds-sub" }, "\u2726")), /* @__PURE__ */ import_react2.default.createElement("div", { className: "weds-line" })), /* @__PURE__ */ import_react2.default.createElement("div", { className: "couple-individual-block" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "profile-ornament-icon" }, "\u{1F470}"), /* @__PURE__ */ import_react2.default.createElement("h3", { className: "individual-name" }, "AYUSHMATI REENA"), /* @__PURE__ */ import_react2.default.createElement("p", { className: "individual-parents" }, "Daughter of ", /* @__PURE__ */ import_react2.default.createElement("strong", null, "Mrs. Jashoda Devi & Mr. Gopalji Chauhan")), /* @__PURE__ */ import_react2.default.createElement("span", { className: "family-native-place" }, "Residence: Samdari")), /* @__PURE__ */ import_react2.default.createElement("div", { className: "couple-ceremony-date-badge" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "ceremony-date-icon" }, "\u{1F5D3}\uFE0F"), /* @__PURE__ */ import_react2.default.createElement("div", { className: "ceremony-date-details" }, /* @__PURE__ */ import_react2.default.createElement("span", { className: "ceremony-label" }, "WEDDING CEREMONY DATE"), /* @__PURE__ */ import_react2.default.createElement("span", { className: "ceremony-exact-date" }, "Thursday, 10 December 2026"), /* @__PURE__ */ import_react2.default.createElement("span", { className: "ceremony-muhurat" }, "Margashirsha Shukla Paksh")))), /* @__PURE__ */ import_react2.default.createElement("article", { className: "couple-editorial-card" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "card-ornament-corner tl" }), /* @__PURE__ */ import_react2.default.createElement("div", { className: "card-ornament-corner tr" }), /* @__PURE__ */ import_react2.default.createElement("div", { className: "card-ornament-corner bl" }), /* @__PURE__ */ import_react2.default.createElement("div", { className: "card-ornament-corner br" }), /* @__PURE__ */ import_react2.default.createElement("div", { className: "couple-sacred-pill" }, /* @__PURE__ */ import_react2.default.createElement("span", { className: "pill-star" }, "\u2726"), /* @__PURE__ */ import_react2.default.createElement("span", { className: "pill-label" }, "SECOND SACRED UNION"), /* @__PURE__ */ import_react2.default.createElement("span", { className: "pill-star" }, "\u2726")), /* @__PURE__ */ import_react2.default.createElement("div", { className: "couple-individual-block" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "profile-ornament-icon" }, "\u{1F470}"), /* @__PURE__ */ import_react2.default.createElement("h3", { className: "individual-name" }, "AYUSHMATI SHIVANI (JEENU)"), /* @__PURE__ */ import_react2.default.createElement("p", { className: "individual-parents" }, "Daughter of ", /* @__PURE__ */ import_react2.default.createElement("strong", null, "Mrs. Anuradha & Mr. Kailash Gehlot"))), /* @__PURE__ */ import_react2.default.createElement("div", { className: "weds-flourish-separator" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "weds-line" }), /* @__PURE__ */ import_react2.default.createElement("div", { className: "weds-badge" }, /* @__PURE__ */ import_react2.default.createElement("span", { className: "weds-sub" }, "\u2726"), /* @__PURE__ */ import_react2.default.createElement("span", { className: "weds-text" }, "WEDS"), /* @__PURE__ */ import_react2.default.createElement("span", { className: "weds-sub" }, "\u2726")), /* @__PURE__ */ import_react2.default.createElement("div", { className: "weds-line" })), /* @__PURE__ */ import_react2.default.createElement("div", { className: "couple-individual-block" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "profile-ornament-icon" }, "\u{1F935}"), /* @__PURE__ */ import_react2.default.createElement("h3", { className: "individual-name" }, "AYUSHMAN DHEERAJ JI"), /* @__PURE__ */ import_react2.default.createElement("p", { className: "individual-parents" }, "Son of ", /* @__PURE__ */ import_react2.default.createElement("strong", null, "Mrs. Renu Ji & Mr. Mukeshji Parihar")), /* @__PURE__ */ import_react2.default.createElement("span", { className: "family-native-place" }, "Residence: Balotra")), /* @__PURE__ */ import_react2.default.createElement("div", { className: "couple-ceremony-date-badge" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "ceremony-date-icon" }, "\u{1F5D3}\uFE0F"), /* @__PURE__ */ import_react2.default.createElement("div", { className: "ceremony-date-details" }, /* @__PURE__ */ import_react2.default.createElement("span", { className: "ceremony-label" }, "WEDDING CEREMONY DATE"), /* @__PURE__ */ import_react2.default.createElement("span", { className: "ceremony-exact-date" }, "Saturday, 12 December 2026"), /* @__PURE__ */ import_react2.default.createElement("span", { className: "ceremony-muhurat" }, "Margashirsha Shukla Paksh 3")))))));
+    return /* @__PURE__ */ import_react2.default.createElement("section", { className: "wedding-section couples-family-section", id: "couples-section" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "section-royal-card" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "card-border-gold-outer", "aria-hidden": "true" }), /* @__PURE__ */ import_react2.default.createElement("div", { className: "card-border-gold-inner", "aria-hidden": "true" }), /* @__PURE__ */ import_react2.default.createElement("div", { className: "section-header-flourish" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "shloka-header-group" }, /* @__PURE__ */ import_react2.default.createElement("span", { className: "shloka-ornament" }, "\u2756"), /* @__PURE__ */ import_react2.default.createElement("span", { className: "shloka-text" }, "\u0965 \u092E\u0902\u0917\u0932 \u092A\u0930\u093F\u0923\u092F\u094B\u0924\u094D\u0938\u0935 \u0965"), /* @__PURE__ */ import_react2.default.createElement("span", { className: "shloka-ornament" }, "\u2756")), /* @__PURE__ */ import_react2.default.createElement("div", { className: "family-origin-pill" }, "\u092A\u093E\u0932\u0940 \u0915\u093E \u092A\u094D\u0930\u0924\u093F\u0937\u094D\u0920\u093F\u0924 \u0917\u0939\u0932\u094B\u0924 \u092A\u0930\u093F\u0935\u093E\u0930"), /* @__PURE__ */ import_react2.default.createElement("h2", { className: "section-title-gold" }, "\u0935\u0930-\u0935\u0927\u0942 \u092A\u0930\u093F\u091A\u092F"), /* @__PURE__ */ import_react2.default.createElement("p", { className: "section-subtitle-script" }, "\u092D\u0917\u0935\u093E\u0928 \u0936\u093F\u0935, \u092E\u093E\u0924\u093E \u092A\u093E\u0930\u094D\u0935\u0924\u0940, \u092D\u0917\u0935\u093E\u0928 \u0936\u094D\u0930\u0940 \u0917\u0923\u0947\u0936 \u090F\u0935\u0902 \u092A\u0942\u091C\u094D\u092F \u092A\u093F\u0924\u0930\u094B\u0902 \u0915\u0947 \u092A\u093E\u0935\u0928 \u0906\u0936\u0940\u0930\u094D\u0935\u093E\u0926 \u0938\u0947"), /* @__PURE__ */ import_react2.default.createElement("div", { className: "section-title-divider" }, /* @__PURE__ */ import_react2.default.createElement("span", { className: "divider-line" }), /* @__PURE__ */ import_react2.default.createElement("span", { className: "divider-star" }, "\u2726 \u{1F451} \u2726"), /* @__PURE__ */ import_react2.default.createElement("span", { className: "divider-line" }))), /* @__PURE__ */ import_react2.default.createElement("div", { className: "ancestral-heritage-banner" }, /* @__PURE__ */ import_react2.default.createElement("span", { className: "heritage-badge-tag" }, "\u092A\u0942\u091C\u094D\u092F \u092A\u0942\u0930\u094D\u0935\u091C\u094B\u0902 \u0915\u093E \u092A\u093E\u0935\u0928 \u0906\u0936\u0940\u0930\u094D\u0935\u093E\u0926 \u090F\u0935\u0902 \u0915\u0941\u0932 \u092A\u0930\u092E\u094D\u092A\u0930\u093E"), /* @__PURE__ */ import_react2.default.createElement("p", { className: "heritage-lineage-text" }, "\u0938\u094D\u0935\u0930\u094D\u0917\u0940\u092F \u0936\u094D\u0930\u0940\u092E\u0924\u0940 \u0932\u0939\u0930\u0940 \u092C\u093E\u0908 \u090F\u0935\u0902 \u0938\u094D\u0935\u0930\u094D\u0917\u0940\u092F \u0936\u094D\u0930\u0940 \u0917\u094D\u092F\u093E\u0930\u0938\u0940\u0932\u093E\u0932 \u091C\u0940 \u0915\u0947 \u092A\u094D\u0930\u092A\u094C\u0924\u094D\u0930 / \u092A\u094D\u0930\u092A\u094C\u0924\u094D\u0930\u0940", /* @__PURE__ */ import_react2.default.createElement("br", null), "\u0936\u094D\u0930\u0940\u092E\u0924\u0940 \u0926\u0941\u0930\u094D\u0917\u093E \u092C\u093E\u0908 \u090F\u0935\u0902 \u0938\u094D\u0935\u0930\u094D\u0917\u0940\u092F \u0936\u094D\u0930\u0940 \u092E\u0926\u0928\u0932\u093E\u0932 \u091C\u0940 \u0917\u0939\u0932\u094B\u0924 \u0915\u0947 \u0932\u093E\u0921\u0932\u0947 \u092A\u094C\u0924\u094D\u0930 / \u092A\u094C\u0924\u094D\u0930\u0940")), /* @__PURE__ */ import_react2.default.createElement("div", { className: "couples-editorial-grid" }, /* @__PURE__ */ import_react2.default.createElement("article", { className: "couple-editorial-card" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "card-ornament-corner tl" }), /* @__PURE__ */ import_react2.default.createElement("div", { className: "card-ornament-corner tr" }), /* @__PURE__ */ import_react2.default.createElement("div", { className: "card-ornament-corner bl" }), /* @__PURE__ */ import_react2.default.createElement("div", { className: "card-ornament-corner br" }), /* @__PURE__ */ import_react2.default.createElement("div", { className: "couple-sacred-pill" }, /* @__PURE__ */ import_react2.default.createElement("span", { className: "pill-star" }, "\u2726"), /* @__PURE__ */ import_react2.default.createElement("span", { className: "pill-label" }, "\u092A\u094D\u0930\u0925\u092E \u092A\u093E\u0935\u0928 \u092A\u0930\u093F\u0923\u092F"), /* @__PURE__ */ import_react2.default.createElement("span", { className: "pill-star" }, "\u2726")), /* @__PURE__ */ import_react2.default.createElement("div", { className: "couple-individual-block" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "profile-ornament-icon" }, "\u{1F935}"), /* @__PURE__ */ import_react2.default.createElement("h3", { className: "individual-name" }, "\u0906\u092F\u0941\u0937\u094D\u092E\u093E\u0928 \u0906\u0915\u093E\u0936"), /* @__PURE__ */ import_react2.default.createElement("p", { className: "individual-parents" }, "\u0938\u0941\u092A\u0941\u0924\u094D\u0930: ", /* @__PURE__ */ import_react2.default.createElement("strong", null, "\u0936\u094D\u0930\u0940\u092E\u0924\u0940 \u0905\u0928\u0941\u0930\u093E\u0927\u093E \u090F\u0935\u0902 \u0936\u094D\u0930\u0940 \u0915\u0948\u0932\u093E\u0936 \u0917\u0939\u0932\u094B\u0924"))), /* @__PURE__ */ import_react2.default.createElement("div", { className: "weds-flourish-separator" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "weds-line" }), /* @__PURE__ */ import_react2.default.createElement("div", { className: "weds-badge" }, /* @__PURE__ */ import_react2.default.createElement("span", { className: "weds-sub" }, "\u2726"), /* @__PURE__ */ import_react2.default.createElement("span", { className: "weds-text" }, "\u0938\u0902\u0917"), /* @__PURE__ */ import_react2.default.createElement("span", { className: "weds-sub" }, "\u2726")), /* @__PURE__ */ import_react2.default.createElement("div", { className: "weds-line" })), /* @__PURE__ */ import_react2.default.createElement("div", { className: "couple-individual-block" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "profile-ornament-icon" }, "\u{1F470}"), /* @__PURE__ */ import_react2.default.createElement("h3", { className: "individual-name" }, "\u0906\u092F\u0941\u0937\u094D\u092E\u0924\u0940 \u0930\u0940\u0928\u093E"), /* @__PURE__ */ import_react2.default.createElement("p", { className: "individual-parents" }, "\u0938\u0941\u092A\u0941\u0924\u094D\u0930\u0940: ", /* @__PURE__ */ import_react2.default.createElement("strong", null, "\u0936\u094D\u0930\u0940\u092E\u0924\u0940 \u091C\u0936\u094B\u0926\u093E \u0926\u0947\u0935\u0940 \u090F\u0935\u0902 \u0936\u094D\u0930\u0940 \u0917\u094B\u092A\u093E\u0932 \u091C\u0940 \u091A\u094C\u0939\u093E\u0928")), /* @__PURE__ */ import_react2.default.createElement("span", { className: "family-native-place" }, "\u0928\u093F\u0935\u093E\u0938: \u0938\u092E\u0926\u0921\u093C\u0940")), /* @__PURE__ */ import_react2.default.createElement("div", { className: "couple-ceremony-date-badge" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "ceremony-date-icon" }, "\u{1F5D3}\uFE0F"), /* @__PURE__ */ import_react2.default.createElement("div", { className: "ceremony-date-details" }, /* @__PURE__ */ import_react2.default.createElement("span", { className: "ceremony-label" }, "\u0936\u0941\u092D \u0935\u093F\u0935\u093E\u0939 \u0924\u093F\u0925\u093F"), /* @__PURE__ */ import_react2.default.createElement("span", { className: "ceremony-exact-date" }, "\u0917\u0941\u0930\u0941\u0935\u093E\u0930, 10 \u0926\u093F\u0938\u0902\u092C\u0930 2026"), /* @__PURE__ */ import_react2.default.createElement("span", { className: "ceremony-muhurat" }, "\u092E\u093E\u0930\u094D\u0917\u0936\u0940\u0930\u094D\u0937 \u0936\u0941\u0915\u094D\u0932 \u092A\u0915\u094D\u0937")))), /* @__PURE__ */ import_react2.default.createElement("article", { className: "couple-editorial-card" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "card-ornament-corner tl" }), /* @__PURE__ */ import_react2.default.createElement("div", { className: "card-ornament-corner tr" }), /* @__PURE__ */ import_react2.default.createElement("div", { className: "card-ornament-corner bl" }), /* @__PURE__ */ import_react2.default.createElement("div", { className: "card-ornament-corner br" }), /* @__PURE__ */ import_react2.default.createElement("div", { className: "couple-sacred-pill" }, /* @__PURE__ */ import_react2.default.createElement("span", { className: "pill-star" }, "\u2726"), /* @__PURE__ */ import_react2.default.createElement("span", { className: "pill-label" }, "\u0926\u094D\u0935\u093F\u0924\u0940\u092F \u092A\u093E\u0935\u0928 \u092A\u0930\u093F\u0923\u092F"), /* @__PURE__ */ import_react2.default.createElement("span", { className: "pill-star" }, "\u2726")), /* @__PURE__ */ import_react2.default.createElement("div", { className: "couple-individual-block" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "profile-ornament-icon" }, "\u{1F470}"), /* @__PURE__ */ import_react2.default.createElement("h3", { className: "individual-name" }, "\u0906\u092F\u0941\u0937\u094D\u092E\u0924\u0940 \u0936\u093F\u0935\u093E\u0928\u0940 (\u091C\u0940\u0928\u0942)"), /* @__PURE__ */ import_react2.default.createElement("p", { className: "individual-parents" }, "\u0938\u0941\u092A\u0941\u0924\u094D\u0930\u0940: ", /* @__PURE__ */ import_react2.default.createElement("strong", null, "\u0936\u094D\u0930\u0940\u092E\u0924\u0940 \u0905\u0928\u0941\u0930\u093E\u0927\u093E \u090F\u0935\u0902 \u0936\u094D\u0930\u0940 \u0915\u0948\u0932\u093E\u0936 \u0917\u0939\u0932\u094B\u0924"))), /* @__PURE__ */ import_react2.default.createElement("div", { className: "weds-flourish-separator" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "weds-line" }), /* @__PURE__ */ import_react2.default.createElement("div", { className: "weds-badge" }, /* @__PURE__ */ import_react2.default.createElement("span", { className: "weds-sub" }, "\u2726"), /* @__PURE__ */ import_react2.default.createElement("span", { className: "weds-text" }, "\u0938\u0902\u0917"), /* @__PURE__ */ import_react2.default.createElement("span", { className: "weds-sub" }, "\u2726")), /* @__PURE__ */ import_react2.default.createElement("div", { className: "weds-line" })), /* @__PURE__ */ import_react2.default.createElement("div", { className: "couple-individual-block" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "profile-ornament-icon" }, "\u{1F935}"), /* @__PURE__ */ import_react2.default.createElement("h3", { className: "individual-name" }, "\u0906\u092F\u0941\u0937\u094D\u092E\u093E\u0928 \u0927\u0940\u0930\u091C \u091C\u0940"), /* @__PURE__ */ import_react2.default.createElement("p", { className: "individual-parents" }, "\u0938\u0941\u092A\u0941\u0924\u094D\u0930: ", /* @__PURE__ */ import_react2.default.createElement("strong", null, "\u0936\u094D\u0930\u0940\u092E\u0924\u0940 \u0915\u092E\u0932\u093E \u0926\u0947\u0935\u0940 \u090F\u0935\u0902 \u0938\u094D\u0935\u0930\u094D\u0917\u0940\u092F \u0936\u094D\u0930\u0940 \u0926\u0947\u0935\u0915\u093F\u0936\u0928 \u091C\u0940 \u092A\u0930\u093F\u0939\u093E\u0930")), /* @__PURE__ */ import_react2.default.createElement("span", { className: "family-native-place" }, "\u0928\u093F\u0935\u093E\u0938: \u092C\u093E\u0932\u094B\u0924\u0930\u093E")), /* @__PURE__ */ import_react2.default.createElement("div", { className: "couple-ceremony-date-badge" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "ceremony-date-icon" }, "\u{1F5D3}\uFE0F"), /* @__PURE__ */ import_react2.default.createElement("div", { className: "ceremony-date-details" }, /* @__PURE__ */ import_react2.default.createElement("span", { className: "ceremony-label" }, "\u0936\u0941\u092D \u0935\u093F\u0935\u093E\u0939 \u0924\u093F\u0925\u093F"), /* @__PURE__ */ import_react2.default.createElement("span", { className: "ceremony-exact-date" }, "\u0936\u0928\u093F\u0935\u093E\u0930, 12 \u0926\u093F\u0938\u0902\u092C\u0930 2026"), /* @__PURE__ */ import_react2.default.createElement("span", { className: "ceremony-muhurat" }, "\u092E\u093E\u0930\u094D\u0917\u0936\u0940\u0930\u094D\u0937 \u0936\u0941\u0915\u094D\u0932 \u092A\u0915\u094D\u0937 \u0924\u0943\u0924\u0940\u092F\u093E")))))));
   }
 
   // src/components/WeddingTimeline.jsx
@@ -137,162 +163,162 @@ var RoyalWeddingApp = (() => {
       {
         id: "e1",
         dayId: "day1",
-        dayLabel: "Day 1 \u2014 Monday",
-        dateStr: "07 DECEMBER 2026",
-        timeStr: "3:15 PM",
-        title: "Ghritpaan Ceremony",
+        dayLabel: "\u0926\u093F\u0935\u0938 1 \u2014 \u0938\u094B\u092E\u0935\u093E\u0930",
+        dateStr: "07 \u0926\u093F\u0938\u0902\u092C\u0930 2026",
+        timeStr: "\u0926\u094B\u092A\u0939\u0930 3:15 \u092C\u091C\u0947",
+        title: "\u0918\u0943\u0924\u092A\u093E\u0928 \u0938\u0902\u0938\u094D\u0915\u093E\u0930",
         icon: "\u{1FA94}",
-        desc: "Traditional sacred offering of purified ghee, invoking supreme divine benevolence and purity for the upcoming ceremonies.",
+        desc: "\u092E\u093E\u0902\u0917\u0932\u093F\u0915 \u0915\u093E\u0930\u094D\u092F\u0915\u094D\u0930\u092E\u094B\u0902 \u0915\u0947 \u0936\u0941\u092D\u093E\u0930\u0902\u092D \u092A\u0930 \u0936\u0941\u0926\u094D\u0927 \u0918\u0940 \u0915\u0940 \u092A\u093E\u0935\u0928 \u0906\u0939\u0941\u0924\u093F \u090F\u0935\u0902 \u092A\u094D\u0930\u092D\u0941 \u0915\u0943\u092A\u093E \u0935 \u092A\u0935\u093F\u0924\u094D\u0930\u0924\u093E \u0915\u0940 \u092A\u094D\u0930\u093E\u0930\u094D\u0925\u0928\u093E\u0964",
         calDate: "20261207T151500/20261207T170000",
-        badge: "SACRED COMMENCEMENT"
+        badge: "\u092E\u093E\u0902\u0917\u0932\u093F\u0915 \u0936\u0941\u092D\u093E\u0930\u0902\u092D"
       },
       {
         id: "e2",
         dayId: "day1",
-        dayLabel: "Day 1 \u2014 Monday",
-        dateStr: "07 DECEMBER 2026",
-        timeStr: "5:15 PM",
-        title: "Vinayak Sthapana Puja",
+        dayLabel: "\u0926\u093F\u0935\u0938 1 \u2014 \u0938\u094B\u092E\u0935\u093E\u0930",
+        dateStr: "07 \u0926\u093F\u0938\u0902\u092C\u0930 2026",
+        timeStr: "\u0938\u093E\u092F\u0902 5:15 \u092C\u091C\u0947",
+        title: "\u0935\u093F\u0928\u093E\u092F\u0915 \u0938\u094D\u0925\u093E\u092A\u0928\u093E \u092A\u0942\u091C\u093E",
         icon: "\u{1F549}\uFE0F",
-        desc: "Holy installation and Vedic worship of Lord Vinayaka, sanctifying the wedding festivities for peaceful and obstacle-free completion.",
+        desc: "\u0935\u093F\u0918\u094D\u0928\u0939\u0930\u094D\u0924\u093E \u092D\u0917\u0935\u093E\u0928 \u0936\u094D\u0930\u0940 \u0917\u0923\u0947\u0936 \u091C\u0940 \u0915\u0940 \u0935\u0948\u0926\u093F\u0915 \u0935\u093F\u0927\u093F-\u0935\u093F\u0927\u093E\u0928 \u0938\u0947 \u0938\u094D\u0925\u093E\u092A\u0928\u093E \u090F\u0935\u0902 \u0928\u093F\u0930\u094D\u0935\u093F\u0918\u094D\u0928 \u0915\u093E\u0930\u094D\u092F \u0938\u093F\u0926\u094D\u0927\u093F \u0915\u0940 \u092A\u094D\u0930\u093E\u0930\u094D\u0925\u0928\u093E\u0964",
         calDate: "20261207T171500/20261207T193000",
-        badge: "VEDIC RITUAL"
+        badge: "\u0935\u0948\u0926\u093F\u0915 \u092A\u0942\u091C\u0928"
       },
       {
         id: "e3",
         dayId: "day2",
-        dayLabel: "Day 2 \u2014 Tuesday",
-        dateStr: "08 DECEMBER 2026",
-        timeStr: "1:15 PM",
-        title: "Haldi & Mehendi Ceremony",
+        dayLabel: "\u0926\u093F\u0935\u0938 2 \u2014 \u092E\u0902\u0917\u0932\u0935\u093E\u0930",
+        dateStr: "08 \u0926\u093F\u0938\u0902\u092C\u0930 2026",
+        timeStr: "\u0926\u094B\u092A\u0939\u0930 1:15 \u092C\u091C\u0947",
+        title: "\u0939\u0932\u094D\u0926\u0940 \u090F\u0935\u0902 \u092E\u0947\u0939\u0902\u0926\u0940 \u0930\u0938\u094D\u092E",
         icon: "\u{1F33F}",
-        desc: "A joyous celebration adorned with radiant turmeric pastes and intricate bridal henna designs applied by loved ones with traditional songs.",
+        desc: "\u092A\u093E\u0930\u0902\u092A\u0930\u093F\u0915 \u092E\u093E\u0902\u0917\u0932\u093F\u0915 \u0917\u0940\u0924\u094B\u0902 \u0915\u0947 \u0938\u093E\u0925 \u0935\u0930-\u0935\u0927\u0942 \u0915\u094B \u0939\u0932\u094D\u0926\u0940 \u0932\u0947\u092A\u0928 \u090F\u0935\u0902 \u0938\u0916\u093F\u092F\u094B\u0902 \u0926\u094D\u0935\u093E\u0930\u093E \u0939\u093E\u0925\u094B\u0902 \u092E\u0947\u0902 \u0938\u091C\u0940 \u0938\u0941\u0902\u0926\u0930 \u092E\u0947\u0939\u0902\u0926\u0940\u0964",
         calDate: "20261208T131500/20261208T170000",
-        badge: "COLOR & FRAGRANCE"
+        badge: "\u0930\u0902\u0917 \u090F\u0935\u0902 \u0938\u0941\u0917\u0902\u0927"
       },
       {
         id: "e4",
         dayId: "day3",
-        dayLabel: "Day 3 \u2014 Wednesday",
-        dateStr: "09 DECEMBER 2026",
-        timeStr: "12:15 PM",
-        title: "Mayra Ceremony",
+        dayLabel: "\u0926\u093F\u0935\u0938 3 \u2014 \u092C\u0941\u0927\u0935\u093E\u0930",
+        dateStr: "09 \u0926\u093F\u0938\u0902\u092C\u0930 2026",
+        timeStr: "\u0926\u094B\u092A\u0939\u0930 12:15 \u092C\u091C\u0947",
+        title: "\u092E\u093E\u092F\u0930\u093E (\u092D\u093E\u0924) \u0938\u0902\u0938\u094D\u0915\u093E\u0930",
         icon: "\u{1F381}",
-        desc: "Cherished maternal uncle (Nanihal) tradition presenting wedding gifts, fine fabrics, and auspicious blessings to the family.",
+        desc: "\u0928\u0928\u093F\u0939\u093E\u0932 \u092A\u0915\u094D\u0937 \u0926\u094D\u0935\u093E\u0930\u093E \u0938\u094D\u0928\u0947\u0939\u093F\u0932 \u092E\u093E\u092F\u0930\u093E, \u092E\u0902\u0917\u0932 \u091A\u0941\u0928\u0930\u0940 \u090F\u0935\u0902 \u092A\u0930\u093F\u091C\u0928\u094B\u0902 \u0915\u094B \u092A\u094D\u0930\u0947\u092E \u0935 \u0906\u0936\u0940\u0930\u094D\u0935\u093E\u0926 \u0915\u0940 \u092D\u0947\u0902\u091F\u0964",
         calDate: "20261209T121500/20261209T150000",
-        badge: "MATERNAL TRADITION"
+        badge: "\u0928\u0928\u093F\u0939\u093E\u0932 \u092A\u0930\u092E\u094D\u092A\u0930\u093E"
       },
       {
         id: "e5",
         dayId: "day3",
-        dayLabel: "Day 3 \u2014 Wednesday",
-        dateStr: "09 DECEMBER 2026",
-        timeStr: "8:15 PM",
-        title: "Bandoli Ceremony",
+        dayLabel: "\u0926\u093F\u0935\u0938 3 \u2014 \u092C\u0941\u0927\u0935\u093E\u0930",
+        dateStr: "09 \u0926\u093F\u0938\u0902\u092C\u0930 2026",
+        timeStr: "\u0930\u093E\u0924\u094D\u0930\u093F 8:15 \u092C\u091C\u0947",
+        title: "\u092C\u0928\u094D\u0928\u094B\u0932\u0940 (\u0936\u094B\u092D\u093E \u092F\u093E\u0924\u094D\u0930\u093E)",
         icon: "\u{1F941}",
-        desc: "Joyful musical celebration and traditional village procession celebrating the sacred wedding couples with festive dhol and dhum-dham.",
+        desc: "\u0922\u094B\u0932-\u0928\u0917\u093E\u0921\u093C\u094B\u0902 \u0915\u0940 \u0925\u093E\u092A \u092A\u0930 \u092A\u0930\u093F\u091C\u0928\u094B\u0902 \u090F\u0935\u0902 \u092E\u093F\u0924\u094D\u0930\u094B\u0902 \u0915\u0947 \u0938\u0902\u0917 \u092A\u093E\u0930\u0902\u092A\u0930\u093F\u0915 \u0936\u094B\u092D\u093E\u092F\u093E\u0924\u094D\u0930\u093E \u0935 \u0909\u0932\u094D\u0932\u093E\u0938\u092E\u092F \u0928\u0943\u0924\u094D\u092F\u0964",
         calDate: "20261209T201500/20261209T223000",
-        badge: "ROYAL PROCESSION"
+        badge: "\u092A\u093E\u0930\u0902\u092A\u0930\u093F\u0915 \u0936\u094B\u092D\u093E\u092F\u093E\u0924\u094D\u0930\u093E"
       },
       {
         id: "e6",
         dayId: "day4",
-        dayLabel: "Day 4 \u2014 Thursday",
-        dateStr: "10 DECEMBER 2026",
-        timeStr: "12:15 PM",
-        title: "Baraat Prasthan (Departure of Baraat to Samdari)",
+        dayLabel: "\u0926\u093F\u0935\u0938 4 \u2014 \u0917\u0941\u0930\u0941\u0935\u093E\u0930",
+        dateStr: "10 \u0926\u093F\u0938\u0902\u092C\u0930 2026",
+        timeStr: "\u0926\u094B\u092A\u0939\u0930 12:15 \u092C\u091C\u0947",
+        title: "\u092C\u093E\u0930\u093E\u0924 \u092A\u094D\u0930\u0938\u094D\u0925\u093E\u0928 (\u0938\u092E\u0926\u0921\u093C\u0940 \u0939\u0947\u0924\u0941)",
         icon: "\u{1F68C}",
-        desc: "Festive departure of Groom Ayushman Akash's wedding procession to Samdari to the residence of Shriman Byaiji Dhanraj Ji Chauhan's family.",
+        desc: "\u0935\u0930 \u0906\u092F\u0941\u0937\u094D\u092E\u093E\u0928 \u0906\u0915\u093E\u0936 \u0915\u0940 \u092C\u093E\u0930\u093E\u0924 \u0915\u093E \u092C\u0938 \u0926\u094D\u0935\u093E\u0930\u093E \u0938\u092E\u0926\u0921\u093C\u0940 \u092E\u0947\u0902 \u0936\u094D\u0930\u0940\u092E\u093E\u0928 \u092C\u094D\u092F\u093E\u0908\u091C\u0940 \u0927\u0928\u0930\u093E\u091C \u091C\u0940 \u091A\u094C\u0939\u093E\u0928 \u0915\u0947 \u092A\u0930\u093F\u0935\u093E\u0930 \u0915\u0947 \u0928\u093F\u0935\u093E\u0938 \u0939\u0947\u0924\u0941 \u092A\u094D\u0930\u0938\u094D\u0925\u093E\u0928\u0964",
         calDate: "20261210T121500/20261210T150000",
-        badge: "BARAAT DEPARTURE"
+        badge: "\u092C\u093E\u0930\u093E\u0924 \u092A\u094D\u0930\u0938\u094D\u0925\u093E\u0928"
       },
       {
         id: "e7",
         dayId: "day4",
-        dayLabel: "Day 4 \u2014 Thursday",
-        dateStr: "10 DECEMBER 2026",
-        timeStr: "7:15 PM",
-        title: "Ladies Sangeet & Cultural Evening",
+        dayLabel: "\u0926\u093F\u0935\u0938 4 \u2014 \u0917\u0941\u0930\u0941\u0935\u093E\u0930",
+        dateStr: "10 \u0926\u093F\u0938\u0902\u092C\u0930 2026",
+        timeStr: "\u0938\u093E\u092F\u0902 7:15 \u092C\u091C\u0947",
+        title: "\u092E\u0939\u093F\u0932\u093E \u0938\u0902\u0917\u0940\u0924 \u090F\u0935\u0902 \u0938\u093E\u0902\u0938\u094D\u0915\u0943\u0924\u093F\u0915 \u0938\u0902\u0927\u094D\u092F\u093E",
         icon: "\u{1FA95}",
-        desc: "An enchanting evening of vibrant Rajasthani folk dances, melodious geet, and celebratory performances by dear family & friends.",
+        desc: "\u0930\u093E\u091C\u0938\u094D\u0925\u093E\u0928\u0940 \u0932\u094B\u0915\u0917\u0940\u0924\u094B\u0902, \u092A\u093E\u0930\u0902\u092A\u0930\u093F\u0915 \u0918\u0942\u092E\u0930 \u090F\u0935\u0902 \u092A\u0930\u093F\u0935\u093E\u0930\u091C\u0928\u094B\u0902 \u0915\u0940 \u092E\u0928\u092E\u094B\u0939\u0915 \u092A\u094D\u0930\u0938\u094D\u0924\u0941\u0924\u093F\u092F\u094B\u0902 \u0938\u0947 \u0938\u091C\u0940 \u0930\u0902\u0917\u093E\u0930\u0902\u0917 \u0938\u0902\u0927\u094D\u092F\u093E\u0964",
         calDate: "20261210T191500/20261210T230000",
-        badge: "MUSIC & DANCE"
+        badge: "\u0938\u0902\u0917\u0940\u0924 \u090F\u0935\u0902 \u0928\u0943\u0924\u094D\u092F"
       },
       {
         id: "e8",
         dayId: "day5",
-        dayLabel: "Day 5 \u2014 Saturday (Grand Wedding)",
-        dateStr: "12 DECEMBER 2026",
-        timeStr: "5:15 PM",
-        title: "Baraat Swagat (Welcome of Baraat from Balotra)",
+        dayLabel: "\u0926\u093F\u0935\u0938 5 \u2014 \u0936\u0928\u093F\u0935\u093E\u0930 (\u092E\u0941\u0916\u094D\u092F \u0935\u093F\u0935\u093E\u0939)",
+        dateStr: "12 \u0926\u093F\u0938\u0902\u092C\u0930 2026",
+        timeStr: "\u0938\u093E\u092F\u0902 5:15 \u092C\u091C\u0947",
+        title: "\u092C\u093E\u0930\u093E\u0924 \u0938\u094D\u0935\u093E\u0917\u0924 (\u092C\u093E\u0932\u094B\u0924\u0930\u093E \u0938\u0947 \u0906\u0917\u092E\u0928)",
         icon: "\u{1F3BA}",
-        desc: "Ceremonial welcome of Groom Ayushman Dheeraj Ji's Baraat arriving from Balotra from the residence of Shriman Byaiji Madanlalji Parihar's family to Kumawat Vatika, Pali.",
+        desc: "\u092C\u093E\u0932\u094B\u0924\u0930\u093E \u0938\u0947 \u092A\u0927\u093E\u0930\u0940 \u0935\u0930 \u0906\u092F\u0941\u0937\u094D\u092E\u093E\u0928 \u0927\u0940\u0930\u091C \u091C\u0940 \u0915\u0940 \u092C\u093E\u0930\u093E\u0924 \u0915\u093E \u0915\u0941\u092E\u093E\u0935\u0924 \u0935\u093E\u091F\u093F\u0915\u093E, \u092A\u093E\u0932\u0940 \u092E\u0947\u0902 \u092D\u0935\u094D\u092F \u0906\u0924\u094D\u092E\u0940\u092F \u0938\u094D\u0935\u093E\u0917\u0924\u0964",
         calDate: "20261212T171500/20261212T181500",
-        badge: "BARAAT WELCOME"
+        badge: "\u092C\u093E\u0930\u093E\u0924 \u0938\u094D\u0935\u093E\u0917\u0924"
       },
       {
         id: "e9",
         dayId: "day5",
-        dayLabel: "Day 5 \u2014 Saturday (Grand Wedding)",
-        dateStr: "12 DECEMBER 2026",
-        timeStr: "6:15 PM",
-        title: "Grand Wedding Ceremony (Hastamelap & Reception)",
+        dayLabel: "\u0926\u093F\u0935\u0938 5 \u2014 \u0936\u0928\u093F\u0935\u093E\u0930 (\u092E\u0941\u0916\u094D\u092F \u0935\u093F\u0935\u093E\u0939)",
+        dateStr: "12 \u0926\u093F\u0938\u0902\u092C\u0930 2026",
+        timeStr: "\u0938\u093E\u092F\u0902 6:15 \u092C\u091C\u0947 \u0938\u0947",
+        title: "\u092A\u093E\u0923\u093F\u0917\u094D\u0930\u0939\u0923 \u0938\u0902\u0938\u094D\u0915\u093E\u0930 \u090F\u0935\u0902 \u092A\u094D\u0930\u0940\u0924\u093F\u092D\u094B\u091C",
         icon: "\u{1F451}",
-        desc: "The divine Vedic marriage rituals, sacred pheras, and auspicious blessings under the royal mandap, followed by the grand wedding dinner.",
+        desc: "\u092A\u0935\u093F\u0924\u094D\u0930 \u0935\u0948\u0926\u093F\u0915 \u0935\u093F\u0935\u093E\u0939 \u0938\u0902\u0938\u094D\u0915\u093E\u0930, \u0938\u092A\u094D\u0924\u092A\u0926\u0940 \u092B\u0947\u0930\u0947, \u0939\u0938\u094D\u0924\u092E\u093F\u0932\u093E\u092A \u090F\u0935\u0902 \u0936\u093E\u0939\u0940 \u0930\u093E\u091C\u0938\u094D\u0925\u093E\u0928\u0940 \u092A\u094D\u0930\u0940\u0924\u093F\u092D\u094B\u091C\u0964",
         calDate: "20261212T181500/20261212T233000",
-        badge: "ROYAL WEDDING"
+        badge: "\u092E\u0941\u0916\u094D\u092F \u0935\u093F\u0935\u093E\u0939 \u0938\u092E\u093E\u0930\u094B\u0939"
       }
     ];
     const filteredEvents = activeDay === "all" ? eventsList : eventsList.filter((ev) => ev.dayId === activeDay);
     const makeGoogleCalendarUrl = (ev) => {
-      const text = encodeURIComponent(ev.title + " \u2014 Akash & Reena | Shivani & Dheeraj Wedding");
+      const text = encodeURIComponent(ev.title + " \u2014 \u0906\u0915\u093E\u0936 \u090F\u0935\u0902 \u0930\u0940\u0928\u093E | \u0936\u093F\u0935\u093E\u0928\u0940 \u090F\u0935\u0902 \u0927\u0940\u0930\u091C \u0935\u093F\u0935\u093E\u0939");
       const dates = ev.calDate;
-      const details = encodeURIComponent(ev.desc + " Venue: Kumawat Vatika, Punayata Road, Pali, Rajasthan.");
+      const details = encodeURIComponent(ev.desc + " \u0938\u094D\u0925\u093E\u0928: \u0915\u0941\u092E\u093E\u0935\u0924 \u0935\u093E\u091F\u093F\u0915\u093E, \u092A\u0941\u0928\u093E\u092F\u0924\u093E \u0930\u094B\u0921, \u092A\u093E\u0932\u0940 (\u0930\u093E\u091C\u0938\u094D\u0925\u093E\u0928)\u0964");
       const location = encodeURIComponent("Kumawat Vatika, Punayata Road, Pali, Rajasthan, India");
       return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${text}&dates=${dates}&details=${details}&location=${location}`;
     };
-    return /* @__PURE__ */ import_react3.default.createElement("section", { className: "wedding-section timeline-section", id: "events-section" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "section-royal-card" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "card-border-gold-outer", "aria-hidden": "true" }), /* @__PURE__ */ import_react3.default.createElement("div", { className: "card-border-gold-inner", "aria-hidden": "true" }), /* @__PURE__ */ import_react3.default.createElement("div", { className: "section-header-flourish" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "shloka-header-group" }, /* @__PURE__ */ import_react3.default.createElement("span", { className: "shloka-ornament" }, "\u2756"), /* @__PURE__ */ import_react3.default.createElement("span", { className: "shloka-text" }, "|| MANGALIK KARYAKRAM ||"), /* @__PURE__ */ import_react3.default.createElement("span", { className: "shloka-ornament" }, "\u2756")), /* @__PURE__ */ import_react3.default.createElement("h2", { className: "section-title-gold" }, "THE WEDDING CELEBRATIONS"), /* @__PURE__ */ import_react3.default.createElement("p", { className: "section-subtitle-script" }, "Every Ritual, Every Blessing, Every Beautiful Moment."), /* @__PURE__ */ import_react3.default.createElement("div", { className: "section-title-divider" }, /* @__PURE__ */ import_react3.default.createElement("span", { className: "divider-line" }), /* @__PURE__ */ import_react3.default.createElement("span", { className: "divider-star" }, "\u2726 \u{1F338} \u2726"), /* @__PURE__ */ import_react3.default.createElement("span", { className: "divider-line" }))), /* @__PURE__ */ import_react3.default.createElement("nav", { className: "timeline-filter-pills-row", "aria-label": "Event days filter" }, /* @__PURE__ */ import_react3.default.createElement(
+    return /* @__PURE__ */ import_react3.default.createElement("section", { className: "wedding-section timeline-section", id: "events-section" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "section-royal-card" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "card-border-gold-outer", "aria-hidden": "true" }), /* @__PURE__ */ import_react3.default.createElement("div", { className: "card-border-gold-inner", "aria-hidden": "true" }), /* @__PURE__ */ import_react3.default.createElement("div", { className: "section-header-flourish" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "shloka-header-group" }, /* @__PURE__ */ import_react3.default.createElement("span", { className: "shloka-ornament" }, "\u2756"), /* @__PURE__ */ import_react3.default.createElement("span", { className: "shloka-text" }, "\u0965 \u092E\u093E\u0902\u0917\u0932\u093F\u0915 \u0915\u093E\u0930\u094D\u092F\u0915\u094D\u0930\u092E \u0965"), /* @__PURE__ */ import_react3.default.createElement("span", { className: "shloka-ornament" }, "\u2756")), /* @__PURE__ */ import_react3.default.createElement("h2", { className: "section-title-gold" }, "\u092E\u093E\u0902\u0917\u0932\u093F\u0915 \u0915\u093E\u0930\u094D\u092F\u0915\u094D\u0930\u092E \u0935\u093F\u0935\u0930\u0923"), /* @__PURE__ */ import_react3.default.createElement("p", { className: "section-subtitle-script" }, "\u0939\u0930 \u0930\u0938\u094D\u092E, \u0939\u0930 \u092E\u0902\u0917\u0932 \u0906\u0936\u0940\u0937, \u0939\u0930 \u092A\u093E\u0935\u0928 \u092A\u0932"), /* @__PURE__ */ import_react3.default.createElement("div", { className: "section-title-divider" }, /* @__PURE__ */ import_react3.default.createElement("span", { className: "divider-line" }), /* @__PURE__ */ import_react3.default.createElement("span", { className: "divider-star" }, "\u2726 \u{1F338} \u2726"), /* @__PURE__ */ import_react3.default.createElement("span", { className: "divider-line" }))), /* @__PURE__ */ import_react3.default.createElement("nav", { className: "timeline-filter-pills-row", "aria-label": "\u092E\u093E\u0902\u0917\u0932\u093F\u0915 \u0926\u093F\u0935\u0938 \u091A\u092F\u0928" }, /* @__PURE__ */ import_react3.default.createElement(
       "button",
       {
         className: `timeline-filter-btn ${activeDay === "all" ? "active" : ""}`,
         onClick: () => setActiveDay("all")
       },
-      "All Celebrations (9)"
+      "\u0938\u092D\u0940 \u092E\u093E\u0902\u0917\u0932\u093F\u0915 \u0915\u093E\u0930\u094D\u092F\u0915\u094D\u0930\u092E (9)"
     ), /* @__PURE__ */ import_react3.default.createElement(
       "button",
       {
         className: `timeline-filter-btn ${activeDay === "day1" ? "active" : ""}`,
         onClick: () => setActiveDay("day1")
       },
-      "Mon, 7 Dec"
+      "\u0938\u094B\u092E, 7 \u0926\u093F\u0938"
     ), /* @__PURE__ */ import_react3.default.createElement(
       "button",
       {
         className: `timeline-filter-btn ${activeDay === "day2" ? "active" : ""}`,
         onClick: () => setActiveDay("day2")
       },
-      "Tue, 8 Dec"
+      "\u092E\u0902\u0917\u0932, 8 \u0926\u093F\u0938"
     ), /* @__PURE__ */ import_react3.default.createElement(
       "button",
       {
         className: `timeline-filter-btn ${activeDay === "day3" ? "active" : ""}`,
         onClick: () => setActiveDay("day3")
       },
-      "Wed, 9 Dec"
+      "\u092C\u0941\u0927, 9 \u0926\u093F\u0938"
     ), /* @__PURE__ */ import_react3.default.createElement(
       "button",
       {
         className: `timeline-filter-btn ${activeDay === "day4" ? "active" : ""}`,
         onClick: () => setActiveDay("day4")
       },
-      "Thu, 10 Dec"
+      "\u0917\u0941\u0930\u0941, 10 \u0926\u093F\u0938"
     ), /* @__PURE__ */ import_react3.default.createElement(
       "button",
       {
         className: `timeline-filter-btn ${activeDay === "day5" ? "active" : ""}`,
         onClick: () => setActiveDay("day5")
       },
-      "Sat, 12 Dec (Main)"
+      "\u0936\u0928\u093F, 12 \u0926\u093F\u0938 (\u092E\u0941\u0916\u094D\u092F)"
     )), /* @__PURE__ */ import_react3.default.createElement("div", { className: "vertical-alternating-timeline" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "timeline-central-spine", "aria-hidden": "true" }), filteredEvents.map((ev, idx) => {
       const isEven = idx % 2 === 0;
       return /* @__PURE__ */ import_react3.default.createElement(
@@ -309,10 +335,10 @@ var RoyalWeddingApp = (() => {
             target: "_blank",
             rel: "noopener noreferrer",
             className: "btn-add-calendar",
-            title: `Add ${ev.title} to Google Calendar`
+            title: `${ev.title} \u0915\u094B \u0917\u0942\u0917\u0932 \u0915\u0948\u0932\u0947\u0902\u0921\u0930 \u092E\u0947\u0902 \u091C\u094B\u0921\u093C\u0947\u0902`
           },
           /* @__PURE__ */ import_react3.default.createElement("span", { className: "cal-icon" }, "\u{1F4C5}"),
-          /* @__PURE__ */ import_react3.default.createElement("span", null, "Add to Calendar")
+          /* @__PURE__ */ import_react3.default.createElement("span", null, "\u0915\u0948\u0932\u0947\u0902\u0921\u0930 \u092E\u0947\u0902 \u091C\u094B\u0921\u093C\u0947\u0902")
         ))))
       );
     }))));
@@ -322,8 +348,8 @@ var RoyalWeddingApp = (() => {
   var import_react4 = __toESM(__require("react"));
   function VenueSection() {
     const [copied, setCopied] = (0, import_react4.useState)(false);
-    const venueName = "KUMAWAT VATIKA";
-    const venueAddress = "Punayata Road, Pali, Rajasthan 306401, India.";
+    const venueName = "\u0915\u0941\u092E\u093E\u0935\u0924 \u0935\u093E\u091F\u093F\u0915\u093E";
+    const venueAddress = "\u092A\u0941\u0928\u093E\u092F\u0924\u093E \u0930\u094B\u0921, \u092A\u093E\u0932\u0940, \u0930\u093E\u091C\u0938\u094D\u0925\u093E\u0928 306401";
     const mapsUrl = "https://www.google.com/maps/search/?api=1&query=Kumawat+Vatika+Punayata+Road+Pali+Rajasthan";
     const handleCopyAddress = () => {
       navigator.clipboard.writeText(`${venueName}, ${venueAddress}`).then(() => {
@@ -332,26 +358,26 @@ var RoyalWeddingApp = (() => {
       }).catch(() => {
       });
     };
-    return /* @__PURE__ */ import_react4.default.createElement("section", { className: "wedding-section reception-venue-section", id: "venue-section" }, /* @__PURE__ */ import_react4.default.createElement("div", { className: "section-royal-card" }, /* @__PURE__ */ import_react4.default.createElement("div", { className: "card-border-gold-outer", "aria-hidden": "true" }), /* @__PURE__ */ import_react4.default.createElement("div", { className: "card-border-gold-inner", "aria-hidden": "true" }), /* @__PURE__ */ import_react4.default.createElement("div", { className: "section-header-flourish" }, /* @__PURE__ */ import_react4.default.createElement("div", { className: "shloka-header-group" }, /* @__PURE__ */ import_react4.default.createElement("span", { className: "shloka-ornament" }, "\u2756"), /* @__PURE__ */ import_react4.default.createElement("span", { className: "shloka-text" }, "|| VIVAH STHAL & PREETIBHOJ ||"), /* @__PURE__ */ import_react4.default.createElement("span", { className: "shloka-ornament" }, "\u2756")), /* @__PURE__ */ import_react4.default.createElement("h2", { className: "section-title-gold" }, "BLESSING CEREMONY & GRAND WEDDING RECEPTION"), /* @__PURE__ */ import_react4.default.createElement("p", { className: "section-subtitle-script" }, "The sacred royal destination where beloved families, relatives & cherished guests unite"), /* @__PURE__ */ import_react4.default.createElement("div", { className: "section-title-divider" }, /* @__PURE__ */ import_react4.default.createElement("span", { className: "divider-line" }), /* @__PURE__ */ import_react4.default.createElement("span", { className: "divider-star" }, "\u2726 \u{1F3DB}\uFE0F \u2726"), /* @__PURE__ */ import_react4.default.createElement("span", { className: "divider-line" }))), /* @__PURE__ */ import_react4.default.createElement("article", { className: "reception-grand-card" }, /* @__PURE__ */ import_react4.default.createElement("div", { className: "reception-mandap-illustration", "aria-hidden": "true" }, /* @__PURE__ */ import_react4.default.createElement("svg", { viewBox: "0 0 500 140", className: "mandap-arch-svg", preserveAspectRatio: "xMidYMid meet" }, /* @__PURE__ */ import_react4.default.createElement("defs", null, /* @__PURE__ */ import_react4.default.createElement("linearGradient", { id: "goldArchGrad", x1: "0%", y1: "0%", x2: "100%", y2: "100%" }, /* @__PURE__ */ import_react4.default.createElement("stop", { offset: "0%", stopColor: "#C9A45C" }), /* @__PURE__ */ import_react4.default.createElement("stop", { offset: "50%", stopColor: "#B88A3B" }), /* @__PURE__ */ import_react4.default.createElement("stop", { offset: "100%", stopColor: "#8C6A28" }))), /* @__PURE__ */ import_react4.default.createElement("rect", { x: "50", y: "30", width: "400", height: "95", rx: "10", fill: "rgba(139, 48, 56, 0.05)" }), /* @__PURE__ */ import_react4.default.createElement("path", { d: "M 50,45 Q 250,5 450,45", fill: "none", stroke: "url(#goldArchGrad)", strokeWidth: "2.5" }), /* @__PURE__ */ import_react4.default.createElement("path", { d: "M 90,45 Q 250,20 410,45", fill: "none", stroke: "#C9A45C", strokeWidth: "1", strokeDasharray: "3 3" }), /* @__PURE__ */ import_react4.default.createElement("line", { x1: "80", y1: "45", x2: "80", y2: "125", stroke: "#C9A45C", strokeWidth: "3" }), /* @__PURE__ */ import_react4.default.createElement("line", { x1: "420", y1: "45", x2: "420", y2: "125", stroke: "#C9A45C", strokeWidth: "3" }), /* @__PURE__ */ import_react4.default.createElement("circle", { cx: "250", cy: "18", r: "6", fill: "#B88A3B" }), /* @__PURE__ */ import_react4.default.createElement("path", { d: "M 245,18 L 250,8 L 255,18 Z", fill: "#8B3038" }))), /* @__PURE__ */ import_react4.default.createElement("div", { className: "reception-timing-box" }, /* @__PURE__ */ import_react4.default.createElement("span", { className: "reception-date-tag" }, "Saturday, 12 December 2026"), /* @__PURE__ */ import_react4.default.createElement("span", { className: "reception-time-tag" }, "From 6:15 PM Onwards")), /* @__PURE__ */ import_react4.default.createElement("div", { className: "reception-location-details" }, /* @__PURE__ */ import_react4.default.createElement("div", { className: "venue-location-pin", "aria-hidden": "true" }, "\u{1F4CD}"), /* @__PURE__ */ import_react4.default.createElement("h3", { className: "venue-name-title" }, venueName), /* @__PURE__ */ import_react4.default.createElement("div", { className: "venue-address-badge" }, /* @__PURE__ */ import_react4.default.createElement("p", { className: "address-line" }, venueAddress)), /* @__PURE__ */ import_react4.default.createElement("p", { className: "venue-welcome-note" }, "We warmly invite you and your esteemed family to join us in blessing the auspicious marriages of Akash & Reena and Shivani & Dheeraj, followed by royal Rajasthani hospitality and dinner.")), /* @__PURE__ */ import_react4.default.createElement("div", { className: "venue-buttons-row" }, /* @__PURE__ */ import_react4.default.createElement(
+    return /* @__PURE__ */ import_react4.default.createElement("section", { className: "wedding-section reception-venue-section", id: "venue-section" }, /* @__PURE__ */ import_react4.default.createElement("div", { className: "section-royal-card" }, /* @__PURE__ */ import_react4.default.createElement("div", { className: "card-border-gold-outer", "aria-hidden": "true" }), /* @__PURE__ */ import_react4.default.createElement("div", { className: "card-border-gold-inner", "aria-hidden": "true" }), /* @__PURE__ */ import_react4.default.createElement("div", { className: "section-header-flourish" }, /* @__PURE__ */ import_react4.default.createElement("div", { className: "shloka-header-group" }, /* @__PURE__ */ import_react4.default.createElement("span", { className: "shloka-ornament" }, "\u2756"), /* @__PURE__ */ import_react4.default.createElement("span", { className: "shloka-text" }, "\u0965 \u0935\u093F\u0935\u093E\u0939 \u0938\u094D\u0925\u0932 \u090F\u0935\u0902 \u092A\u094D\u0930\u0940\u0924\u093F\u092D\u094B\u091C \u0965"), /* @__PURE__ */ import_react4.default.createElement("span", { className: "shloka-ornament" }, "\u2756")), /* @__PURE__ */ import_react4.default.createElement("h2", { className: "section-title-gold" }, "\u0936\u0941\u092D \u0935\u093F\u0935\u093E\u0939 \u0938\u094D\u0925\u0932 \u090F\u0935\u0902 \u092D\u0935\u094D\u092F \u092A\u094D\u0930\u0940\u0924\u093F\u092D\u094B\u091C"), /* @__PURE__ */ import_react4.default.createElement("p", { className: "section-subtitle-script" }, "\u091C\u0939\u093E\u0901 \u091A\u093E\u0930 \u092A\u0930\u093F\u0935\u093E\u0930\u094B\u0902 \u0915\u093E \u092A\u093E\u0935\u0928 \u0938\u0902\u0917\u092E \u090F\u0935\u0902 \u0938\u094D\u0928\u0947\u0939\u093F\u0932 \u092E\u093F\u0932\u0928 \u0939\u094B\u0917\u093E"), /* @__PURE__ */ import_react4.default.createElement("div", { className: "section-title-divider" }, /* @__PURE__ */ import_react4.default.createElement("span", { className: "divider-line" }), /* @__PURE__ */ import_react4.default.createElement("span", { className: "divider-star" }, "\u2726 \u{1F3DB}\uFE0F \u2726"), /* @__PURE__ */ import_react4.default.createElement("span", { className: "divider-line" }))), /* @__PURE__ */ import_react4.default.createElement("article", { className: "reception-grand-card" }, /* @__PURE__ */ import_react4.default.createElement("div", { className: "reception-mandap-illustration", "aria-hidden": "true" }, /* @__PURE__ */ import_react4.default.createElement("svg", { viewBox: "0 0 500 140", className: "mandap-arch-svg", preserveAspectRatio: "xMidYMid meet" }, /* @__PURE__ */ import_react4.default.createElement("defs", null, /* @__PURE__ */ import_react4.default.createElement("linearGradient", { id: "goldArchGrad", x1: "0%", y1: "0%", x2: "100%", y2: "100%" }, /* @__PURE__ */ import_react4.default.createElement("stop", { offset: "0%", stopColor: "#C9A45C" }), /* @__PURE__ */ import_react4.default.createElement("stop", { offset: "50%", stopColor: "#B88A3B" }), /* @__PURE__ */ import_react4.default.createElement("stop", { offset: "100%", stopColor: "#8C6A28" }))), /* @__PURE__ */ import_react4.default.createElement("rect", { x: "50", y: "30", width: "400", height: "95", rx: "10", fill: "rgba(139, 48, 56, 0.05)" }), /* @__PURE__ */ import_react4.default.createElement("path", { d: "M 50,45 Q 250,5 450,45", fill: "none", stroke: "url(#goldArchGrad)", strokeWidth: "2.5" }), /* @__PURE__ */ import_react4.default.createElement("path", { d: "M 90,45 Q 250,20 410,45", fill: "none", stroke: "#C9A45C", strokeWidth: "1", strokeDasharray: "3 3" }), /* @__PURE__ */ import_react4.default.createElement("line", { x1: "80", y1: "45", x2: "80", y2: "125", stroke: "#C9A45C", strokeWidth: "3" }), /* @__PURE__ */ import_react4.default.createElement("line", { x1: "420", y1: "45", x2: "420", y2: "125", stroke: "#C9A45C", strokeWidth: "3" }), /* @__PURE__ */ import_react4.default.createElement("circle", { cx: "250", cy: "18", r: "6", fill: "#B88A3B" }), /* @__PURE__ */ import_react4.default.createElement("path", { d: "M 245,18 L 250,8 L 255,18 Z", fill: "#8B3038" }))), /* @__PURE__ */ import_react4.default.createElement("div", { className: "reception-timing-box" }, /* @__PURE__ */ import_react4.default.createElement("span", { className: "reception-date-tag" }, "\u0936\u0928\u093F\u0935\u093E\u0930, 12 \u0926\u093F\u0938\u0902\u092C\u0930 2026"), /* @__PURE__ */ import_react4.default.createElement("span", { className: "reception-time-tag" }, "\u0938\u093E\u092F\u0902 6:15 \u092C\u091C\u0947 \u0938\u0947 \u092A\u094D\u0930\u092D\u0941 \u0907\u091A\u094D\u091B\u093E \u0924\u0915")), /* @__PURE__ */ import_react4.default.createElement("div", { className: "reception-location-details" }, /* @__PURE__ */ import_react4.default.createElement("div", { className: "venue-location-pin", "aria-hidden": "true" }, "\u{1F4CD}"), /* @__PURE__ */ import_react4.default.createElement("h3", { className: "venue-name-title" }, venueName), /* @__PURE__ */ import_react4.default.createElement("div", { className: "venue-address-badge" }, /* @__PURE__ */ import_react4.default.createElement("p", { className: "address-line" }, venueAddress)), /* @__PURE__ */ import_react4.default.createElement("p", { className: "venue-welcome-note" }, "\u0906\u092A \u0938\u092A\u0930\u093F\u0935\u093E\u0930 \u092A\u0927\u093E\u0930\u0915\u0930 \u0928\u0935\u0926\u0902\u092A\u0924\u093F\u092F\u094B\u0902 \u0915\u094B \u0905\u092A\u0928\u093E \u0938\u094D\u0928\u0947\u0939 \u0935 \u092E\u0902\u0917\u0932 \u0906\u0936\u0940\u0930\u094D\u0935\u093E\u0926 \u092A\u094D\u0930\u0926\u093E\u0928 \u0915\u0930\u0947\u0902 \u0924\u0925\u093E \u0930\u093E\u091C\u0938\u094D\u0925\u093E\u0928\u0940 \u092A\u094D\u0930\u0940\u0924\u093F\u092D\u094B\u091C \u0915\u093E \u0906\u0928\u0902\u0926 \u0932\u0947\u0902\u0964")), /* @__PURE__ */ import_react4.default.createElement("div", { className: "venue-buttons-row" }, /* @__PURE__ */ import_react4.default.createElement(
       "a",
       {
         href: mapsUrl,
         target: "_blank",
         rel: "noopener noreferrer",
         className: "venue-btn btn-google-maps",
-        title: "Open venue location in Google Maps"
+        title: "\u0917\u0942\u0917\u0932 \u092E\u0948\u092A\u094D\u0938 \u092A\u0930 \u0938\u094D\u0925\u0932 \u0915\u093E \u0938\u094D\u0925\u093E\u0928 \u0926\u0947\u0916\u0947\u0902"
       },
       /* @__PURE__ */ import_react4.default.createElement("span", { className: "btn-icon" }, "\u{1F5FA}\uFE0F"),
-      /* @__PURE__ */ import_react4.default.createElement("span", null, "Open in Google Maps")
+      /* @__PURE__ */ import_react4.default.createElement("span", null, "\u0917\u0942\u0917\u0932 \u092E\u0948\u092A\u094D\u0938 \u092A\u0930 \u0926\u0947\u0916\u0947\u0902")
     ), /* @__PURE__ */ import_react4.default.createElement(
       "button",
       {
         onClick: handleCopyAddress,
         className: `venue-btn btn-copy-address ${copied ? "copied" : ""}`,
-        title: "Copy complete venue address to clipboard"
+        title: "\u092A\u0942\u0930\u093E \u092A\u0924\u093E \u0915\u0949\u092A\u0940 \u0915\u0930\u0947\u0902"
       },
       /* @__PURE__ */ import_react4.default.createElement("span", { className: "btn-icon" }, copied ? "\u2713" : "\u{1F4CB}"),
-      /* @__PURE__ */ import_react4.default.createElement("span", null, copied ? "Address Copied!" : "Copy Venue Address")
+      /* @__PURE__ */ import_react4.default.createElement("span", null, copied ? "\u092A\u0924\u093E \u0915\u0949\u092A\u0940 \u0939\u094B \u0917\u092F\u093E!" : "\u092A\u0924\u093E \u0915\u0949\u092A\u0940 \u0915\u0930\u0947\u0902")
     )))));
   }
 
@@ -396,7 +422,7 @@ var RoyalWeddingApp = (() => {
       const interval = setInterval(calculateTime, 1e3);
       return () => clearInterval(interval);
     }, [targetDate]);
-    return /* @__PURE__ */ import_react5.default.createElement("section", { className: "wedding-section countdown-section", id: "countdown-section" }, /* @__PURE__ */ import_react5.default.createElement("div", { className: "section-royal-card" }, /* @__PURE__ */ import_react5.default.createElement("div", { className: "card-border-gold-outer", "aria-hidden": "true" }), /* @__PURE__ */ import_react5.default.createElement("div", { className: "card-border-gold-inner", "aria-hidden": "true" }), /* @__PURE__ */ import_react5.default.createElement("div", { className: "section-header-flourish" }, /* @__PURE__ */ import_react5.default.createElement("div", { className: "shloka-header-group" }, /* @__PURE__ */ import_react5.default.createElement("span", { className: "shloka-ornament" }, "\u2756"), /* @__PURE__ */ import_react5.default.createElement("span", { className: "shloka-text" }, "|| SHUBH MUHURAT ||"), /* @__PURE__ */ import_react5.default.createElement("span", { className: "shloka-ornament" }, "\u2756")), /* @__PURE__ */ import_react5.default.createElement("h2", { className: "section-title-gold" }, "COUNTING DOWN TO THE AUSPICIOUS MOMENT"), /* @__PURE__ */ import_react5.default.createElement("p", { className: "section-subtitle-script" }, "Anticipating the blessed day when two divine couples unite in holy matrimony"), /* @__PURE__ */ import_react5.default.createElement("div", { className: "section-title-divider" }, /* @__PURE__ */ import_react5.default.createElement("span", { className: "divider-line" }), /* @__PURE__ */ import_react5.default.createElement("span", { className: "divider-star" }, "\u2726 \u23F3 \u2726"), /* @__PURE__ */ import_react5.default.createElement("span", { className: "divider-line" }))), /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-event-meta-banner" }, /* @__PURE__ */ import_react5.default.createElement("div", { className: "meta-badge-date" }, /* @__PURE__ */ import_react5.default.createElement("span", { className: "meta-icon" }, "\u{1F5D3}\uFE0F"), /* @__PURE__ */ import_react5.default.createElement("span", { className: "meta-text" }, "12 DECEMBER 2026")), /* @__PURE__ */ import_react5.default.createElement("div", { className: "meta-separator" }, "\u2726"), /* @__PURE__ */ import_react5.default.createElement("div", { className: "meta-badge-venue" }, /* @__PURE__ */ import_react5.default.createElement("span", { className: "meta-icon" }, "\u{1F4CD}"), /* @__PURE__ */ import_react5.default.createElement("span", { className: "meta-text" }, "KUMAWAT VATIKA, PALI"))), /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-clock-container", "aria-live": "polite" }, !timeLeft.isCompleted ? /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-units-grid" }, /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-unit-box" }, /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-circle-badge" }, /* @__PURE__ */ import_react5.default.createElement("span", { className: "unit-number" }, String(timeLeft.days).padStart(2, "0"))), /* @__PURE__ */ import_react5.default.createElement("span", { className: "unit-label" }, "DAYS")), /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-colon-divider", "aria-hidden": "true" }, ":"), /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-unit-box" }, /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-circle-badge" }, /* @__PURE__ */ import_react5.default.createElement("span", { className: "unit-number" }, String(timeLeft.hours).padStart(2, "0"))), /* @__PURE__ */ import_react5.default.createElement("span", { className: "unit-label" }, "HOURS")), /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-colon-divider", "aria-hidden": "true" }, ":"), /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-unit-box" }, /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-circle-badge" }, /* @__PURE__ */ import_react5.default.createElement("span", { className: "unit-number" }, String(timeLeft.minutes).padStart(2, "0"))), /* @__PURE__ */ import_react5.default.createElement("span", { className: "unit-label" }, "MINUTES")), /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-colon-divider", "aria-hidden": "true" }, ":"), /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-unit-box" }, /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-circle-badge seconds-pulse" }, /* @__PURE__ */ import_react5.default.createElement("span", { className: "unit-number" }, String(timeLeft.seconds).padStart(2, "0"))), /* @__PURE__ */ import_react5.default.createElement("span", { className: "unit-label" }, "SECONDS"))) : /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-completed-banner" }, /* @__PURE__ */ import_react5.default.createElement("span", { className: "completed-sparkles" }, "\u{1F38A} \u{1F451} \u{1F38A}"), /* @__PURE__ */ import_react5.default.createElement("h3", { className: "completed-title" }, "The Royal Wedding Celebration Has Commenced!"), /* @__PURE__ */ import_react5.default.createElement("p", { className: "completed-subtitle" }, "May Lord Shiva and Mata Parvati forever bless Akash & Reena and Shivani & Dheeraj with eternal bliss!"))), /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-muhurat-strip" }, /* @__PURE__ */ import_react5.default.createElement("span", { className: "muhurat-icon" }, "\u{1F549}\uFE0F"), /* @__PURE__ */ import_react5.default.createElement("span", { className: "muhurat-text" }, "Auspicious Margashirsha Shukla Paksh \u2022 Vedic Wedding Rituals"), /* @__PURE__ */ import_react5.default.createElement("span", { className: "muhurat-icon" }, "\u{1F549}\uFE0F"))));
+    return /* @__PURE__ */ import_react5.default.createElement("section", { className: "wedding-section countdown-section", id: "countdown-section" }, /* @__PURE__ */ import_react5.default.createElement("div", { className: "section-royal-card" }, /* @__PURE__ */ import_react5.default.createElement("div", { className: "card-border-gold-outer", "aria-hidden": "true" }), /* @__PURE__ */ import_react5.default.createElement("div", { className: "card-border-gold-inner", "aria-hidden": "true" }), /* @__PURE__ */ import_react5.default.createElement("div", { className: "section-header-flourish" }, /* @__PURE__ */ import_react5.default.createElement("div", { className: "shloka-header-group" }, /* @__PURE__ */ import_react5.default.createElement("span", { className: "shloka-ornament" }, "\u2756"), /* @__PURE__ */ import_react5.default.createElement("span", { className: "shloka-text" }, "\u0965 \u0936\u0941\u092D \u092E\u0941\u0939\u0942\u0930\u094D\u0924 \u0965"), /* @__PURE__ */ import_react5.default.createElement("span", { className: "shloka-ornament" }, "\u2756")), /* @__PURE__ */ import_react5.default.createElement("h2", { className: "section-title-gold" }, "\u092E\u0902\u0917\u0932 \u0918\u0921\u093C\u093F\u092F\u094B\u0902 \u0915\u0940 \u0909\u0932\u094D\u091F\u0940 \u0917\u093F\u0928\u0924\u0940"), /* @__PURE__ */ import_react5.default.createElement("p", { className: "section-subtitle-script" }, "\u0909\u0938 \u092A\u093E\u0935\u0928 \u0926\u093F\u0928 \u0915\u0940 \u092A\u094D\u0930\u0924\u0940\u0915\u094D\u0937\u093E \u091C\u092C \u0926\u094B \u091C\u094B\u0921\u093C\u0947 \u092A\u0935\u093F\u0924\u094D\u0930 \u092A\u0930\u093F\u0923\u092F \u0938\u0942\u0924\u094D\u0930 \u092E\u0947\u0902 \u092C\u0902\u0927\u0947\u0902\u0917\u0947"), /* @__PURE__ */ import_react5.default.createElement("div", { className: "section-title-divider" }, /* @__PURE__ */ import_react5.default.createElement("span", { className: "divider-line" }), /* @__PURE__ */ import_react5.default.createElement("span", { className: "divider-star" }, "\u2726 \u23F3 \u2726"), /* @__PURE__ */ import_react5.default.createElement("span", { className: "divider-line" }))), /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-event-meta-banner" }, /* @__PURE__ */ import_react5.default.createElement("div", { className: "meta-badge-date" }, /* @__PURE__ */ import_react5.default.createElement("span", { className: "meta-icon" }, "\u{1F5D3}\uFE0F"), /* @__PURE__ */ import_react5.default.createElement("span", { className: "meta-text" }, "12 \u0926\u093F\u0938\u0902\u092C\u0930 2026")), /* @__PURE__ */ import_react5.default.createElement("div", { className: "meta-separator" }, "\u2726"), /* @__PURE__ */ import_react5.default.createElement("div", { className: "meta-badge-venue" }, /* @__PURE__ */ import_react5.default.createElement("span", { className: "meta-icon" }, "\u{1F4CD}"), /* @__PURE__ */ import_react5.default.createElement("span", { className: "meta-text" }, "\u0915\u0941\u092E\u093E\u0935\u0924 \u0935\u093E\u091F\u093F\u0915\u093E, \u092A\u093E\u0932\u0940"))), /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-clock-container", "aria-live": "polite" }, !timeLeft.isCompleted ? /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-units-grid" }, /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-unit-box" }, /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-circle-badge" }, /* @__PURE__ */ import_react5.default.createElement("span", { className: "unit-number" }, String(timeLeft.days).padStart(2, "0"))), /* @__PURE__ */ import_react5.default.createElement("span", { className: "unit-label" }, "\u0926\u093F\u0928")), /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-colon-divider", "aria-hidden": "true" }, ":"), /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-unit-box" }, /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-circle-badge" }, /* @__PURE__ */ import_react5.default.createElement("span", { className: "unit-number" }, String(timeLeft.hours).padStart(2, "0"))), /* @__PURE__ */ import_react5.default.createElement("span", { className: "unit-label" }, "\u0918\u0902\u091F\u0947")), /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-colon-divider", "aria-hidden": "true" }, ":"), /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-unit-box" }, /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-circle-badge" }, /* @__PURE__ */ import_react5.default.createElement("span", { className: "unit-number" }, String(timeLeft.minutes).padStart(2, "0"))), /* @__PURE__ */ import_react5.default.createElement("span", { className: "unit-label" }, "\u092E\u093F\u0928\u091F")), /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-colon-divider", "aria-hidden": "true" }, ":"), /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-unit-box" }, /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-circle-badge seconds-pulse" }, /* @__PURE__ */ import_react5.default.createElement("span", { className: "unit-number" }, String(timeLeft.seconds).padStart(2, "0"))), /* @__PURE__ */ import_react5.default.createElement("span", { className: "unit-label" }, "\u0938\u0947\u0915\u0902\u0921"))) : /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-completed-banner" }, /* @__PURE__ */ import_react5.default.createElement("span", { className: "completed-sparkles" }, "\u{1F38A} \u{1F451} \u{1F38A}"), /* @__PURE__ */ import_react5.default.createElement("h3", { className: "completed-title" }, "\u0936\u0941\u092D \u0935\u093F\u0935\u093E\u0939 \u092E\u0939\u094B\u0924\u094D\u0938\u0935 \u092A\u094D\u0930\u093E\u0930\u0902\u092D \u0939\u094B \u091A\u0941\u0915\u093E \u0939\u0948!"), /* @__PURE__ */ import_react5.default.createElement("p", { className: "completed-subtitle" }, "\u092D\u0917\u0935\u093E\u0928 \u0936\u093F\u0935 \u090F\u0935\u0902 \u092E\u093E\u0924\u093E \u092A\u093E\u0930\u094D\u0935\u0924\u0940 \u0928\u0935\u0926\u0902\u092A\u0924\u093F\u092F\u094B\u0902 \u0906\u0915\u093E\u0936 \u0935 \u0930\u0940\u0928\u093E \u0924\u0925\u093E \u0936\u093F\u0935\u093E\u0928\u0940 \u0935 \u0927\u0940\u0930\u091C \u0915\u094B \u0905\u0916\u0902\u0921 \u0938\u094C\u092D\u093E\u0917\u094D\u092F \u090F\u0935\u0902 \u0906\u0928\u0902\u0926 \u092A\u094D\u0930\u0926\u093E\u0928 \u0915\u0930\u0947\u0902!"))), /* @__PURE__ */ import_react5.default.createElement("div", { className: "countdown-muhurat-strip" }, /* @__PURE__ */ import_react5.default.createElement("span", { className: "muhurat-icon" }, "\u{1F549}\uFE0F"), /* @__PURE__ */ import_react5.default.createElement("span", { className: "muhurat-text" }, "\u092A\u093E\u0935\u0928 \u092E\u093E\u0930\u094D\u0917\u0936\u0940\u0930\u094D\u0937 \u0936\u0941\u0915\u094D\u0932 \u092A\u0915\u094D\u0937 \u2022 \u0935\u0948\u0926\u093F\u0915 \u0935\u093F\u0935\u093E\u0939 \u0938\u0902\u0938\u094D\u0915\u093E\u0930"), /* @__PURE__ */ import_react5.default.createElement("span", { className: "muhurat-icon" }, "\u{1F549}\uFE0F"))));
   }
 
   // src/components/FamilyBlessingsSection.jsx
@@ -404,67 +430,66 @@ var RoyalWeddingApp = (() => {
   function FamilyBlessingsSection() {
     const [guestName, setGuestName] = (0, import_react6.useState)("");
     const [guestCity, setGuestCity] = (0, import_react6.useState)("");
-    const [blessingMsg, setBlessingMsg] = (0, import_react6.useState)("Heartiest congratulations to Akash & Reena and Shivani & Dheeraj on your royal weddings! Wishing both couples a lifetime of divine happiness, love, and prosperity.");
+    const [blessingMsg, setBlessingMsg] = (0, import_react6.useState)("\u0906\u0915\u093E\u0936 \u090F\u0935\u0902 \u0930\u0940\u0928\u093E \u0924\u0925\u093E \u0936\u093F\u0935\u093E\u0928\u0940 \u090F\u0935\u0902 \u0927\u0940\u0930\u091C \u0915\u094B \u092A\u093E\u0935\u0928 \u092A\u0930\u093F\u0923\u092F \u0938\u0942\u0924\u094D\u0930 \u092E\u0947\u0902 \u092C\u0902\u0927\u0928\u0947 \u092A\u0930 \u0939\u093E\u0930\u094D\u0926\u093F\u0915 \u092C\u0927\u093E\u0908 \u090F\u0935\u0902 \u0905\u0928\u0902\u0924 \u0936\u0941\u092D\u0915\u093E\u092E\u0928\u093E\u090F\u0901! \u0926\u094B\u0928\u094B\u0902 \u091C\u094B\u0921\u093C\u094B\u0902 \u0915\u093E \u0935\u0948\u0935\u093E\u0939\u093F\u0915 \u091C\u0940\u0935\u0928 \u0938\u0926\u0948\u0935 \u0938\u0941\u0916, \u0938\u092E\u0943\u0926\u094D\u0927\u093F \u0914\u0930 \u0906\u0928\u0902\u0926 \u0938\u0947 \u092A\u0930\u093F\u092A\u0942\u0930\u094D\u0923 \u0930\u0939\u0947\u0964");
     const [sentSuccess, setSentSuccess] = (0, import_react6.useState)(false);
     const phone1 = "+919214537106";
     const phone2 = "+918824338255";
-    const phone3 = "+917014922660";
     const handleSendWhatsApp = (phoneTarget) => {
-      const formattedText = `Namaste! \u{1F64F}
+      const formattedText = `\u0938\u093E\u0926\u0930 \u092A\u094D\u0930\u0923\u093E\u092E! \u{1F64F}
 
-*Wedding Blessings for Akash & Reena and Shivani & Dheeraj*
-From: ${guestName || "Well-Wisher"}${guestCity ? ` (${guestCity})` : ""}
+*\u0906\u0915\u093E\u0936 \u090F\u0935\u0902 \u0930\u0940\u0928\u093E \u0924\u0925\u093E \u0936\u093F\u0935\u093E\u0928\u0940 \u090F\u0935\u0902 \u0927\u0940\u0930\u091C \u0915\u0947 \u092A\u093E\u0935\u0928 \u0935\u093F\u0935\u093E\u0939 \u0939\u0947\u0924\u0941 \u092E\u0902\u0917\u0932 \u0936\u0941\u092D\u0915\u093E\u092E\u0928\u093E\u090F\u0901*
+\u092A\u094D\u0930\u0947\u0937\u0915: ${guestName || "\u0936\u0941\u092D\u091A\u093F\u0902\u0924\u0915"}${guestCity ? ` (${guestCity})` : ""}
 
 "${blessingMsg}"
 
-Looking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!`;
+\u0915\u0941\u092E\u093E\u0935\u0924 \u0935\u093E\u091F\u093F\u0915\u093E, \u092A\u093E\u0932\u0940 \u092E\u0947\u0902 \u0906\u092F\u094B\u091C\u093F\u0924 \u0907\u0938 \u092D\u0935\u094D\u092F \u0935\u093F\u0935\u093E\u0939 \u0938\u092E\u093E\u0930\u094B\u0939 \u092E\u0947\u0902 \u0938\u092E\u094D\u092E\u093F\u0932\u093F\u0924 \u0939\u094B\u0928\u0947 \u0915\u0940 \u092E\u0902\u0917\u0932 \u0905\u092D\u093F\u0932\u093E\u0937\u093E!`;
       const cleanPhone = phoneTarget.replace(/[^0-9]/g, "");
       const url = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(formattedText)}`;
       window.open(url, "_blank");
       setSentSuccess(true);
       setTimeout(() => setSentSuccess(false), 4e3);
     };
-    return /* @__PURE__ */ import_react6.default.createElement("section", { className: "wedding-section family-compliments-section", id: "family-section" }, /* @__PURE__ */ import_react6.default.createElement("div", { className: "section-royal-card" }, /* @__PURE__ */ import_react6.default.createElement("div", { className: "card-border-gold-outer" }), /* @__PURE__ */ import_react6.default.createElement("div", { className: "card-border-gold-inner" }), /* @__PURE__ */ import_react6.default.createElement("div", { className: "section-header-flourish" }, /* @__PURE__ */ import_react6.default.createElement("span", { className: "shloka-text" }, "|| SASNEH NIMANTRAN ||"), /* @__PURE__ */ import_react6.default.createElement("h2", { className: "section-title-gold" }, "WITH BEST COMPLIMENTS FROM"), /* @__PURE__ */ import_react6.default.createElement("p", { className: "section-subtitle-script" }, "Warmest hospitality from the Gehlot Parivar & beloved extended kinfolk"), /* @__PURE__ */ import_react6.default.createElement("div", { className: "section-title-divider" }, /* @__PURE__ */ import_react6.default.createElement("span", { className: "divider-line" }), /* @__PURE__ */ import_react6.default.createElement("span", { className: "divider-star" }, "\u2726"), /* @__PURE__ */ import_react6.default.createElement("span", { className: "divider-line" }))), /* @__PURE__ */ import_react6.default.createElement("div", { className: "family-invitation-quote-box", style: { maxWidth: "780px", margin: "0 auto 28px" } }, /* @__PURE__ */ import_react6.default.createElement("p", { className: "quote-text", style: { fontStyle: "italic", color: "var(--c-headings)", fontSize: "15px" } }, "\u201CWe have penned this invitation with boundless affection, please accept our humble respect;", /* @__PURE__ */ import_react6.default.createElement("br", null), "This sacred occasion is truly priceless, please bestow upon us your cherished moments.\u201D"), /* @__PURE__ */ import_react6.default.createElement("p", { className: "quote-text", style: { marginTop: "12px", fontSize: "14px" } }, "With the divine blessings of Lord Vinayaka and our revered ancestors, the ", /* @__PURE__ */ import_react6.default.createElement("strong", null, "Gehlot Family"), " cordially invites you and your family to grace the auspicious dual wedding celebrations of ", /* @__PURE__ */ import_react6.default.createElement("strong", null, "Akash & Reena"), " and ", /* @__PURE__ */ import_react6.default.createElement("strong", null, "Shivani & Dheeraj"), ".")), /* @__PURE__ */ import_react6.default.createElement("div", { className: "compliments-hosts-grid", style: { marginBottom: "32px" } }, /* @__PURE__ */ import_react6.default.createElement("div", { className: "host-contact-card" }, /* @__PURE__ */ import_react6.default.createElement("div", { className: "host-ornament-header" }, /* @__PURE__ */ import_react6.default.createElement("span", { className: "host-namaste-icon" }, "\u{1F64F}"), /* @__PURE__ */ import_react6.default.createElement("span", { className: "host-honorific" }, "FAMILY ELDER & HOST")), /* @__PURE__ */ import_react6.default.createElement("h3", { className: "host-name" }, "Mr. Kailashchandra Gehlot"), /* @__PURE__ */ import_react6.default.createElement("p", { className: "host-relation" }, "Father of Akash & Shivani"), /* @__PURE__ */ import_react6.default.createElement("div", { className: "host-contact-action-row" }, /* @__PURE__ */ import_react6.default.createElement("a", { href: `tel:${phone1}`, className: "contact-action-btn btn-call", title: "Call Kailashchandra Gehlot" }, /* @__PURE__ */ import_react6.default.createElement("span", { className: "action-icon" }, "\u{1F4DE}"), /* @__PURE__ */ import_react6.default.createElement("span", { className: "action-text" }, "+91 9214537106")), /* @__PURE__ */ import_react6.default.createElement(
+    return /* @__PURE__ */ import_react6.default.createElement("section", { className: "wedding-section family-compliments-section", id: "family-section" }, /* @__PURE__ */ import_react6.default.createElement("div", { className: "section-royal-card" }, /* @__PURE__ */ import_react6.default.createElement("div", { className: "card-border-gold-outer" }), /* @__PURE__ */ import_react6.default.createElement("div", { className: "card-border-gold-inner" }), /* @__PURE__ */ import_react6.default.createElement("div", { className: "section-header-flourish" }, /* @__PURE__ */ import_react6.default.createElement("span", { className: "shloka-text" }, "\u0965 \u0938\u0938\u094D\u0928\u0947\u0939 \u0928\u093F\u092E\u0902\u0924\u094D\u0930\u0923 \u0965"), /* @__PURE__ */ import_react6.default.createElement("h2", { className: "section-title-gold" }, "\u0926\u0930\u094D\u0936\u0928\u093E\u092D\u093F\u0932\u093E\u0937\u0940 \u090F\u0935\u0902 \u0935\u093F\u0928\u0940\u0924"), /* @__PURE__ */ import_react6.default.createElement("p", { className: "section-subtitle-script" }, "\u0917\u0939\u0932\u094B\u0924 \u092A\u0930\u093F\u0935\u093E\u0930 \u090F\u0935\u0902 \u0938\u092E\u0938\u094D\u0924 \u0938\u094D\u0928\u0947\u0939\u0940 \u0938\u094D\u0935\u091C\u0928, \u092A\u093E\u0932\u0940 (\u092E\u093E\u0930\u0935\u093E\u0921\u093C)"), /* @__PURE__ */ import_react6.default.createElement("div", { className: "section-title-divider" }, /* @__PURE__ */ import_react6.default.createElement("span", { className: "divider-line" }), /* @__PURE__ */ import_react6.default.createElement("span", { className: "divider-star" }, "\u2726"), /* @__PURE__ */ import_react6.default.createElement("span", { className: "divider-line" }))), /* @__PURE__ */ import_react6.default.createElement("div", { className: "family-invitation-quote-box", style: { maxWidth: "780px", margin: "0 auto 28px" } }, /* @__PURE__ */ import_react6.default.createElement("p", { className: "quote-text", style: { fontStyle: "italic", color: "var(--c-headings)", fontSize: "15.5px" } }, "\u201C\u0938\u094D\u0928\u0947\u0939 \u092D\u0930\u093E \u0928\u093F\u092E\u0902\u0924\u094D\u0930\u0923 \u092D\u0947\u091C\u093E \u0939\u0948, \u0906\u0926\u0930 \u0938\u0939\u093F\u0924 \u0938\u094D\u0935\u0940\u0915\u093E\u0930 \u0915\u0930\u0947\u0902;", /* @__PURE__ */ import_react6.default.createElement("br", null), "\u092A\u093E\u0935\u0928 \u092F\u0939 \u0905\u0935\u0938\u0930 \u0905\u0928\u0941\u092A\u092E \u0939\u0948, \u092A\u0927\u093E\u0930\u0915\u0930 \u0939\u092E\u0947\u0902 \u0915\u0943\u0924\u093E\u0930\u094D\u0925 \u0915\u0930\u0947\u0902\u0964\u201D"), /* @__PURE__ */ import_react6.default.createElement("p", { className: "quote-text", style: { marginTop: "12px", fontSize: "14.5px" } }, "\u092D\u0917\u0935\u093E\u0928 \u0936\u094D\u0930\u0940 \u0935\u093F\u0928\u093E\u092F\u0915 \u090F\u0935\u0902 \u092A\u0942\u091C\u094D\u092F \u092A\u093F\u0924\u0930\u094B\u0902 \u0915\u0947 \u092A\u093E\u0935\u0928 \u0906\u0936\u0940\u0930\u094D\u0935\u093E\u0926 \u0938\u0947, ", /* @__PURE__ */ import_react6.default.createElement("strong", null, "\u0917\u0939\u0932\u094B\u0924 \u092A\u0930\u093F\u0935\u093E\u0930"), " \u0906\u092A \u0938\u092D\u0940 \u0906\u0924\u094D\u092E\u0940\u092F \u0938\u094D\u0928\u0947\u0939\u0940\u091C\u0928\u094B\u0902 \u0915\u094B ", /* @__PURE__ */ import_react6.default.createElement("strong", null, "\u0906\u0915\u093E\u0936 \u090F\u0935\u0902 \u0930\u0940\u0928\u093E"), " \u0924\u0925\u093E ", /* @__PURE__ */ import_react6.default.createElement("strong", null, "\u0936\u093F\u0935\u093E\u0928\u0940 \u090F\u0935\u0902 \u0927\u0940\u0930\u091C"), " \u0915\u0947 \u092A\u093E\u0935\u0928 \u0935\u093F\u0935\u093E\u0939 \u0938\u092E\u093E\u0930\u094B\u0939 \u092E\u0947\u0902 \u0938\u092A\u0930\u093F\u0935\u093E\u0930 \u0938\u093E\u0926\u0930 \u0906\u092E\u0902\u0924\u094D\u0930\u093F\u0924 \u0915\u0930\u0924\u093E \u0939\u0948\u0964")), /* @__PURE__ */ import_react6.default.createElement("div", { className: "compliments-hosts-grid", style: { marginBottom: "32px" } }, /* @__PURE__ */ import_react6.default.createElement("div", { className: "host-contact-card" }, /* @__PURE__ */ import_react6.default.createElement("div", { className: "host-ornament-header" }, /* @__PURE__ */ import_react6.default.createElement("span", { className: "host-namaste-icon" }, "\u{1F64F}"), /* @__PURE__ */ import_react6.default.createElement("span", { className: "host-honorific" }, "\u092A\u0930\u093F\u0935\u093E\u0930 \u0915\u0947 \u0935\u0930\u093F\u0937\u094D\u0920 \u090F\u0935\u0902 \u0928\u093F\u092E\u0902\u0924\u094D\u0930\u0915")), /* @__PURE__ */ import_react6.default.createElement("h3", { className: "host-name" }, "\u0936\u094D\u0930\u0940 \u0915\u0948\u0932\u093E\u0936\u091A\u0902\u0926\u094D\u0930 \u0917\u0939\u0932\u094B\u0924"), /* @__PURE__ */ import_react6.default.createElement("p", { className: "host-relation" }, "\u092A\u093F\u0924\u093E: \u0906\u0915\u093E\u0936 \u090F\u0935\u0902 \u0936\u093F\u0935\u093E\u0928\u0940"), /* @__PURE__ */ import_react6.default.createElement("div", { className: "host-contact-action-row" }, /* @__PURE__ */ import_react6.default.createElement("a", { href: `tel:${phone1}`, className: "contact-action-btn btn-call", title: "\u0915\u0949\u0932 \u0915\u0930\u0947\u0902" }, /* @__PURE__ */ import_react6.default.createElement("span", { className: "action-icon" }, "\u{1F4DE}"), /* @__PURE__ */ import_react6.default.createElement("span", { className: "action-text" }, "+91 9214537106")), /* @__PURE__ */ import_react6.default.createElement(
       "a",
       {
         href: `https://wa.me/919214537106`,
         target: "_blank",
         rel: "noopener noreferrer",
         className: "contact-action-btn btn-whatsapp",
-        title: "Message on WhatsApp"
+        title: "\u0935\u094D\u0939\u093E\u091F\u094D\u0938\u090F\u092A \u092A\u0930 \u0938\u0902\u0926\u0947\u0936 \u092D\u0947\u091C\u0947\u0902"
       },
       /* @__PURE__ */ import_react6.default.createElement("span", { className: "action-icon" }, "\u{1F4AC}"),
-      /* @__PURE__ */ import_react6.default.createElement("span", { className: "action-text" }, "WhatsApp")
-    ))), /* @__PURE__ */ import_react6.default.createElement("div", { className: "host-contact-card" }, /* @__PURE__ */ import_react6.default.createElement("div", { className: "host-ornament-header" }, /* @__PURE__ */ import_react6.default.createElement("span", { className: "host-namaste-icon" }, "\u{1F64F}"), /* @__PURE__ */ import_react6.default.createElement("span", { className: "host-honorific" }, "GROOM & HOST")), /* @__PURE__ */ import_react6.default.createElement("h3", { className: "host-name" }, "Ayushman Akash Gehlot"), /* @__PURE__ */ import_react6.default.createElement("p", { className: "host-relation" }, "Wedding Host & Coordinator"), /* @__PURE__ */ import_react6.default.createElement("div", { className: "host-contact-action-row" }, /* @__PURE__ */ import_react6.default.createElement("a", { href: `tel:${phone2}`, className: "contact-action-btn btn-call", title: "Call Akash Gehlot" }, /* @__PURE__ */ import_react6.default.createElement("span", { className: "action-icon" }, "\u{1F4DE}"), /* @__PURE__ */ import_react6.default.createElement("span", { className: "action-text" }, "+91 8824338255")), /* @__PURE__ */ import_react6.default.createElement(
+      /* @__PURE__ */ import_react6.default.createElement("span", { className: "action-text" }, "\u0935\u094D\u0939\u093E\u091F\u094D\u0938\u090F\u092A")
+    ))), /* @__PURE__ */ import_react6.default.createElement("div", { className: "host-contact-card" }, /* @__PURE__ */ import_react6.default.createElement("div", { className: "host-ornament-header" }, /* @__PURE__ */ import_react6.default.createElement("span", { className: "host-namaste-icon" }, "\u{1F64F}"), /* @__PURE__ */ import_react6.default.createElement("span", { className: "host-honorific" }, "\u0935\u0930 \u090F\u0935\u0902 \u0938\u0902\u092F\u094B\u091C\u0915")), /* @__PURE__ */ import_react6.default.createElement("h3", { className: "host-name" }, "\u0906\u092F\u0941\u0937\u094D\u092E\u093E\u0928 \u0906\u0915\u093E\u0936 \u0917\u0939\u0932\u094B\u0924"), /* @__PURE__ */ import_react6.default.createElement("p", { className: "host-relation" }, "\u0935\u093F\u0935\u093E\u0939 \u0938\u0902\u092F\u094B\u091C\u0915"), /* @__PURE__ */ import_react6.default.createElement("div", { className: "host-contact-action-row" }, /* @__PURE__ */ import_react6.default.createElement("a", { href: `tel:${phone2}`, className: "contact-action-btn btn-call", title: "\u0915\u0949\u0932 \u0915\u0930\u0947\u0902" }, /* @__PURE__ */ import_react6.default.createElement("span", { className: "action-icon" }, "\u{1F4DE}"), /* @__PURE__ */ import_react6.default.createElement("span", { className: "action-text" }, "+91 8824338255")), /* @__PURE__ */ import_react6.default.createElement(
       "a",
       {
         href: `https://wa.me/918824338255`,
         target: "_blank",
         rel: "noopener noreferrer",
         className: "contact-action-btn btn-whatsapp",
-        title: "Message on WhatsApp"
+        title: "\u0935\u094D\u0939\u093E\u091F\u094D\u0938\u090F\u092A \u092A\u0930 \u0938\u0902\u0926\u0947\u0936 \u092D\u0947\u091C\u0947\u0902"
       },
       /* @__PURE__ */ import_react6.default.createElement("span", { className: "action-icon" }, "\u{1F4AC}"),
-      /* @__PURE__ */ import_react6.default.createElement("span", { className: "action-text" }, "WhatsApp")
-    )))), /* @__PURE__ */ import_react6.default.createElement("div", { className: "direct-blessings-card", style: { maxWidth: "680px", margin: "0 auto" } }, /* @__PURE__ */ import_react6.default.createElement("div", { className: "blessings-card-header" }, /* @__PURE__ */ import_react6.default.createElement("h4", { className: "blessings-title" }, "\u{1F48C} Send Your RSVP & Blessings to the Family"), /* @__PURE__ */ import_react6.default.createElement("p", { className: "blessings-subtitle" }, "Send your personal congratulations and arrival confirmation directly to the hosts on WhatsApp.")), /* @__PURE__ */ import_react6.default.createElement("div", { className: "blessings-inputs-form" }, /* @__PURE__ */ import_react6.default.createElement("div", { className: "form-row-dual" }, /* @__PURE__ */ import_react6.default.createElement("div", { className: "form-input-group" }, /* @__PURE__ */ import_react6.default.createElement("label", { className: "input-label" }, "Your Name / Family Name"), /* @__PURE__ */ import_react6.default.createElement(
+      /* @__PURE__ */ import_react6.default.createElement("span", { className: "action-text" }, "\u0935\u094D\u0939\u093E\u091F\u094D\u0938\u090F\u092A")
+    )))), /* @__PURE__ */ import_react6.default.createElement("div", { className: "direct-blessings-card", style: { maxWidth: "680px", margin: "0 auto" } }, /* @__PURE__ */ import_react6.default.createElement("div", { className: "blessings-card-header" }, /* @__PURE__ */ import_react6.default.createElement("h4", { className: "blessings-title" }, "\u{1F48C} \u0928\u0935\u0926\u0902\u092A\u0924\u093F\u092F\u094B\u0902 \u0915\u094B \u0905\u092A\u0928\u0940 \u0936\u0941\u092D\u0915\u093E\u092E\u0928\u093E\u090F\u0901 \u0935 \u092E\u0902\u0917\u0932 \u0906\u0936\u0940\u0930\u094D\u0935\u093E\u0926 \u092D\u0947\u091C\u0947\u0902"), /* @__PURE__ */ import_react6.default.createElement("p", { className: "blessings-subtitle" }, "\u0905\u092A\u0928\u0940 \u0935\u094D\u092F\u0915\u094D\u0924\u093F\u0917\u0924 \u0936\u0941\u092D\u0915\u093E\u092E\u0928\u093E\u090F\u0901 \u090F\u0935\u0902 \u0906\u0917\u092E\u0928 \u0915\u0940 \u0938\u0942\u091A\u0928\u093E \u0938\u0940\u0927\u0947 \u092A\u0930\u093F\u0935\u093E\u0930 \u0915\u094B \u0935\u094D\u0939\u093E\u091F\u094D\u0938\u090F\u092A \u092A\u0930 \u092A\u094D\u0930\u0947\u0937\u093F\u0924 \u0915\u0930\u0947\u0902\u0964")), /* @__PURE__ */ import_react6.default.createElement("div", { className: "blessings-inputs-form" }, /* @__PURE__ */ import_react6.default.createElement("div", { className: "form-row-dual" }, /* @__PURE__ */ import_react6.default.createElement("div", { className: "form-input-group" }, /* @__PURE__ */ import_react6.default.createElement("label", { className: "input-label" }, "\u0906\u092A\u0915\u093E \u0936\u0941\u092D \u0928\u093E\u092E / \u092A\u0930\u093F\u0935\u093E\u0930 \u0915\u093E \u0928\u093E\u092E"), /* @__PURE__ */ import_react6.default.createElement(
       "input",
       {
         type: "text",
         className: "royal-text-input",
-        placeholder: "e.g. Parihar Family / Rajesh Sharma",
+        placeholder: "\u0909\u0926\u093E. \u092A\u0930\u093F\u0939\u093E\u0930 \u092A\u0930\u093F\u0935\u093E\u0930 / \u0930\u093E\u091C\u0947\u0936 \u0936\u0930\u094D\u092E\u093E",
         value: guestName,
         onChange: (e) => setGuestName(e.target.value)
       }
-    )), /* @__PURE__ */ import_react6.default.createElement("div", { className: "form-input-group" }, /* @__PURE__ */ import_react6.default.createElement("label", { className: "input-label" }, "Your City"), /* @__PURE__ */ import_react6.default.createElement(
+    )), /* @__PURE__ */ import_react6.default.createElement("div", { className: "form-input-group" }, /* @__PURE__ */ import_react6.default.createElement("label", { className: "input-label" }, "\u0906\u092A\u0915\u093E \u0936\u0939\u0930"), /* @__PURE__ */ import_react6.default.createElement(
       "input",
       {
         type: "text",
         className: "royal-text-input",
-        placeholder: "e.g. Pali, Jodhpur, Balotra, Jaipur",
+        placeholder: "\u0909\u0926\u093E. \u092A\u093E\u0932\u0940, \u091C\u094B\u0927\u092A\u0941\u0930, \u092C\u093E\u0932\u094B\u0924\u0930\u093E, \u091C\u092F\u092A\u0941\u0930",
         value: guestCity,
         onChange: (e) => setGuestCity(e.target.value)
       }
-    ))), /* @__PURE__ */ import_react6.default.createElement("div", { className: "form-input-group" }, /* @__PURE__ */ import_react6.default.createElement("label", { className: "input-label" }, "Your Heartfelt Blessings"), /* @__PURE__ */ import_react6.default.createElement(
+    ))), /* @__PURE__ */ import_react6.default.createElement("div", { className: "form-input-group" }, /* @__PURE__ */ import_react6.default.createElement("label", { className: "input-label" }, "\u0906\u092A\u0915\u093E \u092E\u0902\u0917\u0932 \u0938\u0902\u0926\u0947\u0936 \u0935 \u0906\u0936\u0940\u0930\u094D\u0935\u093E\u0926"), /* @__PURE__ */ import_react6.default.createElement(
       "textarea",
       {
         className: "royal-text-area",
@@ -480,7 +505,7 @@ Looking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!
         onClick: () => handleSendWhatsApp(phone1)
       },
       /* @__PURE__ */ import_react6.default.createElement("span", null, "\u{1F4AC}"),
-      /* @__PURE__ */ import_react6.default.createElement("span", null, "Send to Host (Kailashchandra Ji)")
+      /* @__PURE__ */ import_react6.default.createElement("span", null, "\u0915\u0948\u0932\u093E\u0936\u091A\u0902\u0926\u094D\u0930 \u091C\u0940 \u0915\u094B \u092D\u0947\u091C\u0947\u0902")
     ), /* @__PURE__ */ import_react6.default.createElement(
       "button",
       {
@@ -490,8 +515,8 @@ Looking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!
         onClick: () => handleSendWhatsApp(phone2)
       },
       /* @__PURE__ */ import_react6.default.createElement("span", null, "\u{1F4AC}"),
-      /* @__PURE__ */ import_react6.default.createElement("span", null, "Send to Host (Akash Ji)")
-    )), sentSuccess && /* @__PURE__ */ import_react6.default.createElement("div", { className: "blessing-sent-confirmation" }, /* @__PURE__ */ import_react6.default.createElement("span", null, "\u2713"), /* @__PURE__ */ import_react6.default.createElement("span", null, "WhatsApp opened! Thank you for sharing your auspicious blessings!"))))));
+      /* @__PURE__ */ import_react6.default.createElement("span", null, "\u0906\u0915\u093E\u0936 \u091C\u0940 \u0915\u094B \u092D\u0947\u091C\u0947\u0902")
+    )), sentSuccess && /* @__PURE__ */ import_react6.default.createElement("div", { className: "blessing-sent-confirmation" }, /* @__PURE__ */ import_react6.default.createElement("span", null, "\u2713"), /* @__PURE__ */ import_react6.default.createElement("span", null, "\u0935\u094D\u0939\u093E\u091F\u094D\u0938\u090F\u092A \u0916\u0941\u0932 \u0917\u092F\u093E \u0939\u0948! \u0906\u092A\u0915\u0947 \u092E\u0902\u0917\u0932 \u0906\u0936\u0940\u0930\u094D\u0935\u093E\u0926 \u0939\u0947\u0924\u0941 \u0938\u0939\u0943\u0926\u092F \u0927\u0928\u094D\u092F\u0935\u093E\u0926!"))))));
   }
 
   // src/components/FinalBlessingsFooter.jsx
@@ -507,7 +532,7 @@ Looking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!
         alt: "Lord Ganesha",
         className: "footer-ganesha-img"
       }
-    )), /* @__PURE__ */ import_react7.default.createElement("div", { className: "footer-sacred-blessing" }, "|| OM SHREE GANESHAY NAMAH \u2022 SHUBHAM BHAVATU ||"), /* @__PURE__ */ import_react7.default.createElement("blockquote", { className: "footer-treasured-quote" }, "\u201CYour Presence Is Our Greatest Gift.", /* @__PURE__ */ import_react7.default.createElement("br", null), "Your Blessings Are Our Greatest Treasure.\u201D"), /* @__PURE__ */ import_react7.default.createElement("div", { className: "footer-couple-signature" }, /* @__PURE__ */ import_react7.default.createElement("h2", { className: "footer-couple-names", style: { fontSize: "clamp(20px, 4.2vw, 30px)" } }, "AKASH & REENA \u2022 SHIVANI & DHEERAJ"), /* @__PURE__ */ import_react7.default.createElement("p", { className: "footer-regards-line" }, "With Love and Warm Regards"), /* @__PURE__ */ import_react7.default.createElement("p", { className: "footer-family-signoff" }, "Gehlot Parivar \u2022 Ramdev Road, Pali, Rajasthan")), /* @__PURE__ */ import_react7.default.createElement("div", { className: "footer-bottom-divider" }), /* @__PURE__ */ import_react7.default.createElement("div", { className: "footer-sub-bar" }, /* @__PURE__ */ import_react7.default.createElement("p", { className: "sub-bar-text" }, "The Royal Wedding Celebration 2026 \u2022 Dual Wedding \u2022 Pali, Rajasthan"), /* @__PURE__ */ import_react7.default.createElement(
+    )), /* @__PURE__ */ import_react7.default.createElement("div", { className: "footer-sacred-blessing" }, "\u0965 \u0950 \u0936\u094D\u0930\u0940 \u0917\u0923\u0947\u0936\u093E\u092F \u0928\u092E\u0903 \u2022 \u0936\u0941\u092D\u0902 \u092D\u0935\u0924\u0941 \u0965"), /* @__PURE__ */ import_react7.default.createElement("blockquote", { className: "footer-treasured-quote" }, "\u201C\u0906\u092A\u0915\u0940 \u0917\u0930\u093F\u092E\u093E\u092E\u092F\u0940 \u0909\u092A\u0938\u094D\u0925\u093F\u0924\u093F \u0939\u092E\u093E\u0930\u093E \u0938\u092C\u0938\u0947 \u092C\u0921\u093C\u093E \u0909\u092A\u0939\u093E\u0930 \u0939\u0948,", /* @__PURE__ */ import_react7.default.createElement("br", null), "\u0906\u092A\u0915\u093E \u092A\u093E\u0935\u0928 \u0906\u0936\u0940\u0930\u094D\u0935\u093E\u0926 \u0939\u092E\u093E\u0930\u093E \u0905\u0928\u092E\u094B\u0932 \u0916\u091C\u093E\u0928\u093E \u0939\u0948\u0964\u201D"), /* @__PURE__ */ import_react7.default.createElement("div", { className: "footer-couple-signature" }, /* @__PURE__ */ import_react7.default.createElement("h2", { className: "footer-couple-names", style: { fontSize: "clamp(20px, 4.2vw, 30px)" } }, "\u0906\u0915\u093E\u0936 \u090F\u0935\u0902 \u0930\u0940\u0928\u093E \u2022 \u0936\u093F\u0935\u093E\u0928\u0940 \u090F\u0935\u0902 \u0927\u0940\u0930\u091C"), /* @__PURE__ */ import_react7.default.createElement("p", { className: "footer-regards-line" }, "\u0938\u0938\u094D\u0928\u0947\u0939 \u090F\u0935\u0902 \u0938\u093E\u0926\u0930 \u0906\u092D\u093E\u0930"), /* @__PURE__ */ import_react7.default.createElement("p", { className: "footer-family-signoff" }, "\u0917\u0939\u0932\u094B\u0924 \u092A\u0930\u093F\u0935\u093E\u0930 \u2022 \u0930\u093E\u092E\u0926\u0947\u0935 \u0930\u094B\u0921, \u092A\u093E\u0932\u0940 (\u0930\u093E\u091C\u0938\u094D\u0925\u093E\u0928)")), /* @__PURE__ */ import_react7.default.createElement("div", { className: "footer-bottom-divider" }), /* @__PURE__ */ import_react7.default.createElement("div", { className: "footer-sub-bar" }, /* @__PURE__ */ import_react7.default.createElement("p", { className: "sub-bar-text" }, "\u0936\u0941\u092D \u0935\u093F\u0935\u093E\u0939 \u092E\u0939\u094B\u0924\u094D\u0938\u0935 2026 \u2022 \u0926\u094B\u0939\u0930\u093E \u0935\u093F\u0935\u093E\u0939 \u0909\u0924\u094D\u0938\u0935 \u2022 \u092A\u093E\u0932\u0940, \u0930\u093E\u091C\u0938\u094D\u0925\u093E\u0928"), /* @__PURE__ */ import_react7.default.createElement(
       "button",
       {
         onClick: scrollToTop,
@@ -516,14 +541,14 @@ Looking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!
           border: "1px solid var(--c-border-gold)",
           borderRadius: "20px",
           color: "var(--c-headings)",
-          fontFamily: "Roboto Slab, serif",
+          fontFamily: "Noto Sans Devanagari, sans-serif",
           fontSize: "11px",
           padding: "4px 16px",
           marginTop: "10px",
           cursor: "pointer"
         }
       },
-      "\u2191 Back to Top"
+      "\u2191 \u090A\u092A\u0930 \u091C\u093E\u090F\u0901"
     ))));
   }
 
@@ -582,14 +607,14 @@ Looking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!
         "aria-modal": "true",
         "aria-label": "Royal Wedding Invitation Card Viewer"
       },
-      /* @__PURE__ */ import_react8.default.createElement("header", { className: "viewer-top-toolbar" }, /* @__PURE__ */ import_react8.default.createElement("div", { className: "viewer-info-strip" }, /* @__PURE__ */ import_react8.default.createElement("span", { className: "viewer-brand-title" }, "\u{1F451} DIGITAL WEDDING CARD VIEWER"), /* @__PURE__ */ import_react8.default.createElement("span", { className: "viewer-page-counter" }, "Single Page Official Cover")), /* @__PURE__ */ import_react8.default.createElement("div", { className: "viewer-action-controls" }, /* @__PURE__ */ import_react8.default.createElement("div", { className: "zoom-ctrl-group" }, /* @__PURE__ */ import_react8.default.createElement(
+      /* @__PURE__ */ import_react8.default.createElement("header", { className: "viewer-top-toolbar" }, /* @__PURE__ */ import_react8.default.createElement("div", { className: "viewer-info-strip" }, /* @__PURE__ */ import_react8.default.createElement("span", { className: "viewer-brand-title" }, "\u{1F451} \u0921\u093F\u091C\u093F\u091F\u0932 \u0935\u093F\u0935\u093E\u0939 \u0906\u092E\u0902\u0924\u094D\u0930\u0923 \u092A\u0924\u094D\u0930\u093F\u0915\u093E"), /* @__PURE__ */ import_react8.default.createElement("span", { className: "viewer-page-counter" }, "\u090F\u0915-\u092A\u0943\u0937\u094D\u0920\u0940\u092F \u0906\u0927\u093F\u0915\u093E\u0930\u093F\u0915 \u092A\u0924\u094D\u0930\u093F\u0915\u093E")), /* @__PURE__ */ import_react8.default.createElement("div", { className: "viewer-action-controls" }, /* @__PURE__ */ import_react8.default.createElement("div", { className: "zoom-ctrl-group" }, /* @__PURE__ */ import_react8.default.createElement(
         "button",
         {
           className: "viewer-ctrl-btn",
           onClick: handleZoomOut,
           disabled: zoomLevel <= 0.75,
-          title: "Zoom Out",
-          "aria-label": "Zoom out"
+          title: "\u091B\u094B\u091F\u093E \u0915\u0930\u0947\u0902",
+          "aria-label": "\u091C\u093C\u0942\u092E \u0906\u0909\u091F"
         },
         "\u{1F50D}-"
       ), /* @__PURE__ */ import_react8.default.createElement(
@@ -597,8 +622,8 @@ Looking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!
         {
           className: "viewer-ctrl-btn zoom-level-display",
           onClick: handleResetZoom,
-          title: "Reset Zoom to 100%",
-          "aria-label": "Reset zoom"
+          title: "100% \u0906\u0915\u093E\u0930 \u092A\u0930 \u0932\u093E\u090F\u0902",
+          "aria-label": "\u0930\u0940\u0938\u0947\u091F \u091C\u093C\u0942\u092E"
         },
         Math.round(zoomLevel * 100),
         "%"
@@ -608,8 +633,8 @@ Looking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!
           className: "viewer-ctrl-btn",
           onClick: handleZoomIn,
           disabled: zoomLevel >= 2,
-          title: "Zoom In",
-          "aria-label": "Zoom in"
+          title: "\u092C\u0921\u093C\u093E \u0915\u0930\u0947\u0902",
+          "aria-label": "\u091C\u093C\u0942\u092E \u0907\u0928"
         },
         "\u{1F50D}+"
       )), /* @__PURE__ */ import_react8.default.createElement(
@@ -617,10 +642,10 @@ Looking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!
         {
           className: "viewer-ctrl-btn",
           onClick: toggleFullscreen,
-          title: isFullscreen ? "Exit Fullscreen" : "Enter Fullscreen",
-          "aria-label": "Toggle fullscreen"
+          title: isFullscreen ? "\u0938\u093E\u092E\u093E\u0928\u094D\u092F \u0938\u094D\u0915\u094D\u0930\u0940\u0928" : "\u092A\u0942\u0930\u094D\u0923 \u0938\u094D\u0915\u094D\u0930\u0940\u0928",
+          "aria-label": "\u092A\u0942\u0930\u094D\u0923 \u0938\u094D\u0915\u094D\u0930\u0940\u0928"
         },
-        isFullscreen ? "\u2913 Normal" : "\u2922 Fullscreen"
+        isFullscreen ? "\u2913 \u0938\u093E\u092E\u093E\u0928\u094D\u092F" : "\u2922 \u092A\u0942\u0930\u094D\u0923 \u0938\u094D\u0915\u094D\u0930\u0940\u0928"
       ), /* @__PURE__ */ import_react8.default.createElement(
         "a",
         {
@@ -628,27 +653,27 @@ Looking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!
           target: "_blank",
           rel: "noopener noreferrer",
           className: "viewer-ctrl-btn btn-new-tab",
-          title: "Open PDF directly in a new browser tab"
+          title: "\u092A\u0940\u0921\u0940\u090F\u092B \u0915\u094B \u0928\u0908 \u091F\u0948\u092C \u092E\u0947\u0902 \u0916\u094B\u0932\u0947\u0902"
         },
-        "\u2197 Open in Tab"
+        "\u2197 \u0928\u0908 \u091F\u0948\u092C"
       ), /* @__PURE__ */ import_react8.default.createElement(
         "a",
         {
           href: pdfUrl,
           download: "dual-jain-wedding-invitation.pdf",
           className: "viewer-ctrl-btn btn-download-gold",
-          title: "Download high-resolution official 1-page vector PDF"
+          title: "\u0906\u0927\u093F\u0915\u093E\u0930\u093F\u0915 \u090F\u0915-\u092A\u0943\u0937\u094D\u0920\u0940\u092F \u092A\u0940\u0921\u0940\u090F\u092B \u0921\u093E\u0909\u0928\u0932\u094B\u0921 \u0915\u0930\u0947\u0902"
         },
-        "\u{1F4E5} Download PDF"
+        "\u{1F4E5} \u092A\u0940\u0921\u0940\u090F\u092B"
       ), /* @__PURE__ */ import_react8.default.createElement(
         "button",
         {
           className: "viewer-ctrl-btn btn-close-modal",
           onClick: onClose,
-          title: "Close Viewer (Esc)",
-          "aria-label": "Close invitation viewer"
+          title: "\u092C\u0902\u0926 \u0915\u0930\u0947\u0902 (Esc)",
+          "aria-label": "\u0906\u092E\u0902\u0924\u094D\u0930\u0923 \u092A\u0924\u094D\u0930\u093F\u0915\u093E \u092C\u0902\u0926 \u0915\u0930\u0947\u0902"
         },
-        "\u2715"
+        "\u2715 \u092C\u0902\u0926 \u0915\u0930\u0947\u0902"
       ))),
       /* @__PURE__ */ import_react8.default.createElement("div", { className: "viewer-card-display-stage" }, /* @__PURE__ */ import_react8.default.createElement("div", { className: "viewer-card-viewport" }, /* @__PURE__ */ import_react8.default.createElement(
         "div",
@@ -664,18 +689,17 @@ Looking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!
           }
         },
         /* @__PURE__ */ import_react8.default.createElement(
-          "iframe",
+          "img",
           {
-            src: "print_new_luxury_cover.html",
-            title: "Invitation Card Cover",
+            src: "assets/shiva_parvati_wedding_card.png",
+            alt: "\u0935\u093F\u0935\u093E\u0939 \u0906\u092E\u0902\u0924\u094D\u0930\u0923 \u092A\u0924\u094D\u0930\u093F\u0915\u093E",
             style: {
-              width: "148mm",
-              height: "210mm",
-              maxWidth: "92vw",
-              border: "none",
-              borderRadius: "8px",
+              width: "100%",
+              maxWidth: "520px",
+              height: "auto",
+              borderRadius: "12px",
               boxShadow: "0 10px 40px rgba(0,0,0,0.7)",
-              background: "#FFF"
+              display: "block"
             }
           }
         )
@@ -705,8 +729,8 @@ Looking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!
         if (playerRef.current) return true;
         try {
           playerRef.current = new window.YT.Player("youtube-bgm-container", {
-            height: "1",
-            width: "1",
+            height: "200",
+            width: "200",
             videoId: YOUTUBE_VIDEO_ID,
             playerVars: {
               autoplay: 0,
@@ -733,8 +757,12 @@ Looking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!
               onStateChange: (event) => {
                 if (event.data === 1) {
                   setIsPlaying(true);
+                  window.isWeddingMusicPlaying = true;
+                  window.dispatchEvent(new CustomEvent("weddingMusicStatus", { detail: { isPlaying: true } }));
                 } else if (event.data === 2) {
                   setIsPlaying(false);
+                  window.isWeddingMusicPlaying = false;
+                  window.dispatchEvent(new CustomEvent("weddingMusicStatus", { detail: { isPlaying: false } }));
                 } else if (event.data === 0) {
                   if (playerRef.current && playerRef.current.seekTo) {
                     playerRef.current.seekTo(START_TIME_SECONDS, true);
@@ -743,7 +771,7 @@ Looking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!
                 }
               },
               onError: (err) => {
-                console.warn("YouTube BGM Player notice, using fallback audio if needed:", err);
+                console.warn("YouTube BGM Player notice:", err);
                 setIsFallbackActive(true);
               }
             }
@@ -776,8 +804,10 @@ Looking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!
             playerRef.current.playVideo();
             setIsPlaying(true);
             setIsMuted(false);
+            window.isWeddingMusicPlaying = true;
+            window.dispatchEvent(new CustomEvent("weddingMusicStatus", { detail: { isPlaying: true } }));
           } catch (e) {
-            console.warn("Autoplay prevented or deferred:", e);
+            console.warn("Autoplay deferred for user gesture:", e);
             pendingPlayRef.current = true;
           }
         } else {
@@ -791,12 +821,8 @@ Looking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!
         if (playerRef.current && playerRef.current.pauseVideo) {
           playerRef.current.pauseVideo();
           setIsPlaying(false);
-        } else if (audioCtxRef.current) {
-          try {
-            audioCtxRef.current.suspend();
-          } catch (e) {
-          }
-          setIsPlaying(false);
+          window.isWeddingMusicPlaying = false;
+          window.dispatchEvent(new CustomEvent("weddingMusicStatus", { detail: { isPlaying: false } }));
         }
       };
       window.toggleWeddingMusic = () => {
@@ -844,27 +870,27 @@ Looking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!
         id: "youtube-bgm-container",
         style: {
           position: "fixed",
-          bottom: "-100px",
-          left: "-100px",
-          width: "1px",
-          height: "1px",
-          opacity: 0.01,
+          top: "0px",
+          left: "0px",
+          width: "200px",
+          height: "200px",
+          opacity: 1e-3,
           pointerEvents: "none",
-          zIndex: -1
+          zIndex: -9999
         },
         "aria-hidden": "true"
       }
-    ), /* @__PURE__ */ import_react9.default.createElement("aside", { className: "floating-music-widget", "aria-label": "Wedding Background Music Controls" }, /* @__PURE__ */ import_react9.default.createElement("div", { className: `royal-music-pill-btn ${isPlaying ? "is-playing" : "is-paused"}` }, /* @__PURE__ */ import_react9.default.createElement(
+    ), /* @__PURE__ */ import_react9.default.createElement("aside", { className: "floating-music-widget", "aria-label": "\u0935\u093F\u0935\u093E\u0939 \u092A\u0943\u0937\u094D\u0920\u092D\u0942\u092E\u093F \u0938\u0902\u0917\u0940\u0924 \u0928\u093F\u092F\u0902\u0924\u094D\u0930\u0923" }, /* @__PURE__ */ import_react9.default.createElement("div", { className: `royal-music-pill-btn ${isPlaying ? "is-playing" : "is-paused"}` }, /* @__PURE__ */ import_react9.default.createElement(
       "button",
       {
         type: "button",
         className: "music-action-trigger",
         onClick: handlePlayToggle,
-        title: isPlaying ? "Pause Royal Wedding Music" : "Play Royal Wedding Music (from 00:14)",
-        "aria-label": isPlaying ? "Pause music" : "Play music"
+        title: isPlaying ? "\u0935\u093F\u0935\u093E\u0939 \u0938\u0902\u0917\u0940\u0924 \u0930\u094B\u0915\u0947\u0902" : "\u0935\u093F\u0935\u093E\u0939 \u0938\u0902\u0917\u0940\u0924 \u091A\u093E\u0932\u0942 \u0915\u0930\u0947\u0902 (14 \u0938\u0947\u0915\u0902\u0921 \u0938\u0947)",
+        "aria-label": isPlaying ? "\u0938\u0902\u0917\u0940\u0924 \u0930\u094B\u0915\u0947\u0902" : "\u0938\u0902\u0917\u0940\u0924 \u091A\u093E\u0932\u0942 \u0915\u0930\u0947\u0902"
       },
       /* @__PURE__ */ import_react9.default.createElement("span", { className: "music-pill-icon", "aria-hidden": "true" }, isPlaying ? "\u{1F3B5}" : "\u25B6"),
-      /* @__PURE__ */ import_react9.default.createElement("span", { className: "music-pill-text" }, isPlaying ? "Royal Shehnai" : "Play Music"),
+      /* @__PURE__ */ import_react9.default.createElement("span", { className: "music-pill-text" }, isPlaying ? "\u092E\u093E\u0902\u0917\u0932\u093F\u0915 \u0936\u0939\u0928\u093E\u0908" : "\u0938\u0902\u0917\u0940\u0924 \u0936\u0941\u0930\u0942 \u0915\u0930\u0947\u0902"),
       isPlaying && /* @__PURE__ */ import_react9.default.createElement("span", { className: "music-wave-bars", "aria-hidden": "true" }, /* @__PURE__ */ import_react9.default.createElement("span", { className: "bar bar-1" }), /* @__PURE__ */ import_react9.default.createElement("span", { className: "bar bar-2" }), /* @__PURE__ */ import_react9.default.createElement("span", { className: "bar bar-3" }), /* @__PURE__ */ import_react9.default.createElement("span", { className: "bar bar-4" }))
     ), isPlaying && /* @__PURE__ */ import_react9.default.createElement(
       "button",
@@ -872,8 +898,8 @@ Looking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!
         type: "button",
         className: "music-mute-trigger",
         onClick: handleMuteToggle,
-        title: isMuted ? "Unmute Music" : "Mute Music",
-        "aria-label": isMuted ? "Unmute music" : "Mute music"
+        title: isMuted ? "\u0906\u0935\u093E\u091C\u093C \u091A\u093E\u0932\u0942 \u0915\u0930\u0947\u0902" : "\u0906\u0935\u093E\u091C\u093C \u092C\u0902\u0926 \u0915\u0930\u0947\u0902",
+        "aria-label": isMuted ? "\u0906\u0935\u093E\u091C\u093C \u091A\u093E\u0932\u0942 \u0915\u0930\u0947\u0902" : "\u0906\u0935\u093E\u091C\u093C \u092C\u0902\u0926 \u0915\u0930\u0947\u0902"
       },
       /* @__PURE__ */ import_react9.default.createElement("span", { className: "mute-icon", "aria-hidden": "true" }, isMuted ? "\u{1F507}" : "\u{1F50A}")
     ))));
@@ -884,6 +910,7 @@ Looking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!
   function CinematicFireworksIntro({ onComplete }) {
     const canvasRef = (0, import_react10.useRef)(null);
     const [isFadingOut, setIsFadingOut] = (0, import_react10.useState)(false);
+    const [isMusicPlaying, setIsMusicPlaying] = (0, import_react10.useState)(false);
     const animFrameIdRef = (0, import_react10.useRef)(null);
     const colorPalette = [
       "#B88A3B",
@@ -910,13 +937,29 @@ Looking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!
     const handleFinish = () => {
       if (isFadingOut) return;
       setIsFadingOut(true);
-      if (typeof window.playWeddingMusic === "function") {
+      if (typeof window.playWeddingMusic === "function" && !window.isWeddingMusicPlaying) {
         window.playWeddingMusic();
       }
       setTimeout(() => {
         if (onComplete) onComplete();
       }, 850);
     };
+    const handleStartMusic = (e) => {
+      e.stopPropagation();
+      if (typeof window.playWeddingMusic === "function") {
+        window.playWeddingMusic();
+        setIsMusicPlaying(true);
+      }
+    };
+    (0, import_react10.useEffect)(() => {
+      const handleMusicStatus = (e) => {
+        if (e && e.detail) {
+          setIsMusicPlaying(!!e.detail.isPlaying);
+        }
+      };
+      window.addEventListener("weddingMusicStatus", handleMusicStatus);
+      return () => window.removeEventListener("weddingMusicStatus", handleMusicStatus);
+    }, []);
     (0, import_react10.useEffect)(() => {
       const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       if (prefersReducedMotion) {
@@ -1086,15 +1129,25 @@ Looking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!
           onClick: handleCanvasClick
         }
       ),
-      /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-content-center" }, /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-royal-card", onClick: (e) => e.stopPropagation() }, /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-crown-badge" }, /* @__PURE__ */ import_react10.default.createElement("span", { className: "badge-star" }, "\u2726"), /* @__PURE__ */ import_react10.default.createElement("span", { className: "badge-crown" }, "\u{1F451}"), /* @__PURE__ */ import_react10.default.createElement("span", { className: "badge-star" }, "\u2726")), /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-shubh-vivah" }, "|| SHUBH VIVAH ||"), /* @__PURE__ */ import_react10.default.createElement("h1", { className: "fireworks-grand-title" }, "LET THE CELEBRATIONS BEGIN!"), /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-ornament-line" }, /* @__PURE__ */ import_react10.default.createElement("span", { className: "line-arm" }), /* @__PURE__ */ import_react10.default.createElement("span", { className: "line-gem" }, "\u2756"), /* @__PURE__ */ import_react10.default.createElement("span", { className: "line-arm" })), /* @__PURE__ */ import_react10.default.createElement("h2", { className: "fireworks-subtitle" }, "DOUBLE THE JOY, DOUBLE THE CELEBRATION"), /* @__PURE__ */ import_react10.default.createElement("p", { className: "fireworks-couples" }, "AKASH & REENA ", /* @__PURE__ */ import_react10.default.createElement("span", { className: "ampersand" }, "&"), " SHIVANI & DHEERAJ"), /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-date-pill" }, /* @__PURE__ */ import_react10.default.createElement("span", null, "DECEMBER 2026 \u2022 PALI, RAJASTHAN")), /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-action-row" }, /* @__PURE__ */ import_react10.default.createElement(
+      /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-content-center" }, /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-royal-card", onClick: (e) => e.stopPropagation() }, /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-crown-badge" }, /* @__PURE__ */ import_react10.default.createElement("span", { className: "badge-star" }, "\u2726"), /* @__PURE__ */ import_react10.default.createElement("span", { className: "badge-crown" }, "\u{1F451}"), /* @__PURE__ */ import_react10.default.createElement("span", { className: "badge-star" }, "\u2726")), /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-shubh-vivah" }, "\u0965 \u0936\u0941\u092D \u0935\u093F\u0935\u093E\u0939 \u0965"), /* @__PURE__ */ import_react10.default.createElement("h1", { className: "fireworks-grand-title" }, "\u0936\u0941\u092D \u0935\u093F\u0935\u093E\u0939 \u0938\u092E\u093E\u0930\u094B\u0939 \u092E\u0947\u0902 \u0906\u092A\u0915\u093E \u0939\u093E\u0930\u094D\u0926\u093F\u0915 \u0938\u094D\u0935\u093E\u0917\u0924 \u0939\u0948"), /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-ornament-line" }, /* @__PURE__ */ import_react10.default.createElement("span", { className: "line-arm" }), /* @__PURE__ */ import_react10.default.createElement("span", { className: "line-gem" }, "\u2756"), /* @__PURE__ */ import_react10.default.createElement("span", { className: "line-arm" })), /* @__PURE__ */ import_react10.default.createElement("h2", { className: "fireworks-subtitle" }, "\u0916\u0941\u0936\u093F\u092F\u094B\u0902 \u0915\u093E \u0926\u094B\u0939\u0930\u093E \u0909\u0924\u094D\u0938\u0935, \u0906\u0928\u0902\u0926 \u0915\u0940 \u0926\u094B\u0939\u0930\u0940 \u0938\u094C\u0917\u093E\u0924"), /* @__PURE__ */ import_react10.default.createElement("p", { className: "fireworks-couples" }, "\u0906\u0915\u093E\u0936 \u090F\u0935\u0902 \u0930\u0940\u0928\u093E ", /* @__PURE__ */ import_react10.default.createElement("span", { className: "ampersand" }, "\u2022"), " \u0936\u093F\u0935\u093E\u0928\u0940 \u090F\u0935\u0902 \u0927\u0940\u0930\u091C"), /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-date-pill" }, /* @__PURE__ */ import_react10.default.createElement("span", null, "\u0926\u093F\u0938\u0902\u092C\u0930 2026 \u2022 \u092A\u093E\u0932\u0940, \u0930\u093E\u091C\u0938\u094D\u0925\u093E\u0928")), /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-music-prompt-box" }, /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-music-prompt-text" }, /* @__PURE__ */ import_react10.default.createElement("span", null, "\u{1F3BA}"), /* @__PURE__ */ import_react10.default.createElement("span", null, "\u0936\u0939\u0928\u093E\u0908 \u0915\u0940 \u092E\u0927\u0941\u0930 \u0927\u0941\u0928 \u0938\u0941\u0928\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u092F\u0939\u093E\u0901 \u0915\u094D\u0932\u093F\u0915 \u0915\u0930\u0947\u0902")), /* @__PURE__ */ import_react10.default.createElement(
+        "button",
+        {
+          type: "button",
+          className: "btn-start-music-prompt",
+          onClick: handleStartMusic,
+          title: "\u0938\u0902\u0917\u0940\u0924 \u0936\u0941\u0930\u0942 \u0915\u0930\u0947\u0902 (14 \u0938\u0947\u0915\u0902\u0921 \u0938\u0947)",
+          "aria-label": "\u0938\u0902\u0917\u0940\u0924 \u0936\u0941\u0930\u0942 \u0915\u0930\u0947\u0902"
+        },
+        /* @__PURE__ */ import_react10.default.createElement("span", null, isMusicPlaying ? "\u{1F3B5} \u0938\u0902\u0917\u0940\u0924 \u092C\u091C \u0930\u0939\u093E \u0939\u0948" : "\u25B6 \u0938\u0902\u0917\u0940\u0924 \u0936\u0941\u0930\u0942 \u0915\u0930\u0947\u0902")
+      )), /* @__PURE__ */ import_react10.default.createElement("div", { className: "fireworks-action-row" }, /* @__PURE__ */ import_react10.default.createElement(
         "button",
         {
           type: "button",
           className: "btn-enter-celebration",
           onClick: handleFinish,
-          "aria-label": "Enter Wedding Invitation"
+          "aria-label": "\u0906\u092E\u0902\u0924\u094D\u0930\u0923 \u092A\u0924\u094D\u0930 \u0926\u0947\u0916\u0947\u0902"
         },
-        /* @__PURE__ */ import_react10.default.createElement("span", null, "ENTER INVITATION"),
+        /* @__PURE__ */ import_react10.default.createElement("span", null, "\u0906\u092E\u0902\u0924\u094D\u0930\u0923 \u092A\u0924\u094D\u0930 \u0926\u0947\u0916\u0947\u0902"),
         /* @__PURE__ */ import_react10.default.createElement("span", { className: "arrow-icon" }, "\u2794")
       )))),
       /* @__PURE__ */ import_react10.default.createElement(
@@ -1103,10 +1156,10 @@ Looking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!
           type: "button",
           className: "btn-skip-fireworks",
           onClick: handleFinish,
-          title: "Skip Fireworks & Open Invitation",
-          "aria-label": "Skip introduction animation"
+          title: "\u091B\u094B\u0921\u093C\u0947\u0902 \u090F\u0935\u0902 \u0906\u092E\u0902\u0924\u094D\u0930\u0923 \u0926\u0947\u0916\u0947\u0902",
+          "aria-label": "\u091B\u094B\u0921\u093C\u0947\u0902"
         },
-        /* @__PURE__ */ import_react10.default.createElement("span", null, "Skip \u2715")
+        /* @__PURE__ */ import_react10.default.createElement("span", null, "\u091B\u094B\u0921\u093C\u0947\u0902 \u2715")
       )
     );
   }
@@ -1132,25 +1185,25 @@ Looking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!
         window.playWeddingMusic();
       }
     };
-    return /* @__PURE__ */ import_react11.default.createElement("div", { className: "royal-wedding-app" }, showFireworks && /* @__PURE__ */ import_react11.default.createElement(CinematicFireworksIntro, { onComplete: handleFireworksComplete }), /* @__PURE__ */ import_react11.default.createElement(MusicPlayer, null), /* @__PURE__ */ import_react11.default.createElement("header", { className: "sticky-royal-nav", role: "banner" }, /* @__PURE__ */ import_react11.default.createElement("div", { className: "nav-container" }, /* @__PURE__ */ import_react11.default.createElement("div", { className: "nav-brand", onClick: () => scrollTo("hero-section") }, /* @__PURE__ */ import_react11.default.createElement("span", { className: "brand-crest" }, "\u{1F451}"), /* @__PURE__ */ import_react11.default.createElement("span", { className: "brand-title" }, "AKASH & REENA \u2022 SHIVANI & DHEERAJ")), /* @__PURE__ */ import_react11.default.createElement("nav", { className: "nav-links-row", "aria-label": "Wedding sections navigation" }, /* @__PURE__ */ import_react11.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("hero-section") }, "Welcome"), /* @__PURE__ */ import_react11.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("couples-section") }, "Couples"), /* @__PURE__ */ import_react11.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("events-section") }, "Celebrations"), /* @__PURE__ */ import_react11.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("venue-section") }, "Venue"), /* @__PURE__ */ import_react11.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("countdown-section") }, "Countdown"), /* @__PURE__ */ import_react11.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("family-section") }, "Family & Blessings")), /* @__PURE__ */ import_react11.default.createElement("div", { className: "nav-actions-group" }, /* @__PURE__ */ import_react11.default.createElement(
+    return /* @__PURE__ */ import_react11.default.createElement("div", { className: "royal-wedding-app" }, showFireworks && /* @__PURE__ */ import_react11.default.createElement(CinematicFireworksIntro, { onComplete: handleFireworksComplete }), /* @__PURE__ */ import_react11.default.createElement(MusicPlayer, null), /* @__PURE__ */ import_react11.default.createElement("header", { className: "sticky-royal-nav", role: "banner" }, /* @__PURE__ */ import_react11.default.createElement("div", { className: "nav-container" }, /* @__PURE__ */ import_react11.default.createElement("div", { className: "nav-brand", onClick: () => scrollTo("hero-section") }, /* @__PURE__ */ import_react11.default.createElement("span", { className: "brand-crest" }, "\u{1F451}"), /* @__PURE__ */ import_react11.default.createElement("span", { className: "brand-title" }, "\u0906\u0915\u093E\u0936 \u090F\u0935\u0902 \u0930\u0940\u0928\u093E \u2022 \u0936\u093F\u0935\u093E\u0928\u0940 \u090F\u0935\u0902 \u0927\u0940\u0930\u091C")), /* @__PURE__ */ import_react11.default.createElement("nav", { className: "nav-links-row", "aria-label": "\u0935\u093F\u0935\u093E\u0939 \u0905\u0928\u0941\u092D\u093E\u0917 \u0928\u0947\u0935\u093F\u0917\u0947\u0936\u0928" }, /* @__PURE__ */ import_react11.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("hero-section") }, "\u0938\u094D\u0935\u093E\u0917\u0924"), /* @__PURE__ */ import_react11.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("couples-section") }, "\u0935\u0930-\u0935\u0927\u0942"), /* @__PURE__ */ import_react11.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("events-section") }, "\u092E\u093E\u0902\u0917\u0932\u093F\u0915 \u0915\u093E\u0930\u094D\u092F\u0915\u094D\u0930\u092E"), /* @__PURE__ */ import_react11.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("venue-section") }, "\u0935\u093F\u0935\u093E\u0939 \u0938\u094D\u0925\u0932"), /* @__PURE__ */ import_react11.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("countdown-section") }, "\u0936\u0941\u092D \u092E\u0941\u0939\u0942\u0930\u094D\u0924"), /* @__PURE__ */ import_react11.default.createElement("button", { className: "nav-link-btn", onClick: () => scrollTo("family-section") }, "\u092A\u0930\u093F\u0935\u093E\u0930 \u090F\u0935\u0902 \u0906\u0936\u0940\u0930\u094D\u0935\u093E\u0926")), /* @__PURE__ */ import_react11.default.createElement("div", { className: "nav-actions-group" }, /* @__PURE__ */ import_react11.default.createElement(
       "button",
       {
         className: "nav-btn-view-card",
         onClick: () => setIsViewerOpen(true),
-        title: "Open Royal Wedding Invitation Card"
+        title: "\u0921\u093F\u091C\u093F\u091F\u0932 \u0935\u093F\u0935\u093E\u0939 \u0906\u092E\u0902\u0924\u094D\u0930\u0923 \u092A\u0924\u094D\u0930\u093F\u0915\u093E \u0916\u094B\u0932\u0947\u0902"
       },
       /* @__PURE__ */ import_react11.default.createElement("span", { className: "btn-icon" }, "\u{1F4DC}"),
-      /* @__PURE__ */ import_react11.default.createElement("span", { className: "btn-text" }, "VIEW CARD")
+      /* @__PURE__ */ import_react11.default.createElement("span", { className: "btn-text" }, "\u092A\u0924\u094D\u0930\u093F\u0915\u093E \u0926\u0947\u0916\u0947\u0902")
     ), /* @__PURE__ */ import_react11.default.createElement(
       "a",
       {
         href: "dual-jain-wedding-invitation.pdf",
         download: "dual-jain-wedding-invitation.pdf",
         className: "nav-btn-download-pdf",
-        title: "Download High-Resolution PDF Invitation"
+        title: "\u0906\u0927\u093F\u0915\u093E\u0930\u093F\u0915 \u090F\u0915-\u092A\u0943\u0937\u094D\u0920\u0940\u092F \u092A\u0940\u0921\u0940\u090F\u092B \u0906\u092E\u0902\u0924\u094D\u0930\u0923 \u0921\u093E\u0909\u0928\u0932\u094B\u0921 \u0915\u0930\u0947\u0902"
       },
       /* @__PURE__ */ import_react11.default.createElement("span", { className: "btn-icon" }, "\u{1F4E5}"),
-      /* @__PURE__ */ import_react11.default.createElement("span", { className: "btn-text" }, "PDF")
+      /* @__PURE__ */ import_react11.default.createElement("span", { className: "btn-text" }, "\u092A\u0940\u0921\u0940\u090F\u092B")
     )))), /* @__PURE__ */ import_react11.default.createElement("main", { className: "invitation-content-column" }, /* @__PURE__ */ import_react11.default.createElement(
       WeddingHero,
       {

@@ -7,110 +7,110 @@ export default function WeddingTimeline() {
     {
       id: 'e1',
       dayId: 'day1',
-      dayLabel: 'Day 1 — Monday',
-      dateStr: '07 DECEMBER 2026',
-      timeStr: '3:15 PM',
-      title: 'Ghritpaan Ceremony',
+      dayLabel: 'दिवस 1 — सोमवार',
+      dateStr: '07 दिसंबर 2026',
+      timeStr: 'दोपहर 3:15 बजे',
+      title: 'घृतपान संस्कार',
       icon: '🪔',
-      desc: 'Traditional sacred offering of purified ghee, invoking supreme divine benevolence and purity for the upcoming ceremonies.',
+      desc: 'मांगलिक कार्यक्रमों के शुभारंभ पर शुद्ध घी की पावन आहुति एवं प्रभु कृपा व पवित्रता की प्रार्थना।',
       calDate: '20261207T151500/20261207T170000',
-      badge: 'SACRED COMMENCEMENT'
+      badge: 'मांगलिक शुभारंभ'
     },
     {
       id: 'e2',
       dayId: 'day1',
-      dayLabel: 'Day 1 — Monday',
-      dateStr: '07 DECEMBER 2026',
-      timeStr: '5:15 PM',
-      title: 'Vinayak Sthapana Puja',
+      dayLabel: 'दिवस 1 — सोमवार',
+      dateStr: '07 दिसंबर 2026',
+      timeStr: 'सायं 5:15 बजे',
+      title: 'विनायक स्थापना पूजा',
       icon: '🕉️',
-      desc: 'Holy installation and Vedic worship of Lord Vinayaka, sanctifying the wedding festivities for peaceful and obstacle-free completion.',
+      desc: 'विघ्नहर्ता भगवान श्री गणेश जी की वैदिक विधि-विधान से स्थापना एवं निर्विघ्न कार्य सिद्धि की प्रार्थना।',
       calDate: '20261207T171500/20261207T193000',
-      badge: 'VEDIC RITUAL'
+      badge: 'वैदिक पूजन'
     },
     {
       id: 'e3',
       dayId: 'day2',
-      dayLabel: 'Day 2 — Tuesday',
-      dateStr: '08 DECEMBER 2026',
-      timeStr: '1:15 PM',
-      title: 'Haldi & Mehendi Ceremony',
+      dayLabel: 'दिवस 2 — मंगलवार',
+      dateStr: '08 दिसंबर 2026',
+      timeStr: 'दोपहर 1:15 बजे',
+      title: 'हल्दी एवं मेहंदी रस्म',
       icon: '🌿',
-      desc: 'A joyous celebration adorned with radiant turmeric pastes and intricate bridal henna designs applied by loved ones with traditional songs.',
+      desc: 'पारंपरिक मांगलिक गीतों के साथ वर-वधू को हल्दी लेपन एवं सखियों द्वारा हाथों में सजी सुंदर मेहंदी।',
       calDate: '20261208T131500/20261208T170000',
-      badge: 'COLOR & FRAGRANCE'
+      badge: 'रंग एवं सुगंध'
     },
     {
       id: 'e4',
       dayId: 'day3',
-      dayLabel: 'Day 3 — Wednesday',
-      dateStr: '09 DECEMBER 2026',
-      timeStr: '12:15 PM',
-      title: 'Mayra Ceremony',
+      dayLabel: 'दिवस 3 — बुधवार',
+      dateStr: '09 दिसंबर 2026',
+      timeStr: 'दोपहर 12:15 बजे',
+      title: 'मायरा (भात) संस्कार',
       icon: '🎁',
-      desc: 'Cherished maternal uncle (Nanihal) tradition presenting wedding gifts, fine fabrics, and auspicious blessings to the family.',
+      desc: 'ननिहाल पक्ष द्वारा स्नेहिल मायरा, मंगल चुनरी एवं परिजनों को प्रेम व आशीर्वाद की भेंट।',
       calDate: '20261209T121500/20261209T150000',
-      badge: 'MATERNAL TRADITION'
+      badge: 'ननिहाल परम्परा'
     },
     {
       id: 'e5',
       dayId: 'day3',
-      dayLabel: 'Day 3 — Wednesday',
-      dateStr: '09 DECEMBER 2026',
-      timeStr: '8:15 PM',
-      title: 'Bandoli Ceremony',
+      dayLabel: 'दिवस 3 — बुधवार',
+      dateStr: '09 दिसंबर 2026',
+      timeStr: 'रात्रि 8:15 बजे',
+      title: 'बन्नोली (शोभा यात्रा)',
       icon: '🥁',
-      desc: 'Joyful musical celebration and traditional village procession celebrating the sacred wedding couples with festive dhol and dhum-dham.',
+      desc: 'ढोल-नगाड़ों की थाप पर परिजनों एवं मित्रों के संग पारंपरिक शोभायात्रा व उल्लासमय नृत्य।',
       calDate: '20261209T201500/20261209T223000',
-      badge: 'ROYAL PROCESSION'
+      badge: 'पारंपरिक शोभायात्रा'
     },
     {
       id: 'e6',
       dayId: 'day4',
-      dayLabel: 'Day 4 — Thursday',
-      dateStr: '10 DECEMBER 2026',
-      timeStr: '12:15 PM',
-      title: 'Baraat Prasthan (Departure of Baraat to Samdari)',
+      dayLabel: 'दिवस 4 — गुरुवार',
+      dateStr: '10 दिसंबर 2026',
+      timeStr: 'दोपहर 12:15 बजे',
+      title: 'बारात प्रस्थान (समदड़ी हेतु)',
       icon: '🚌',
-      desc: 'Festive departure of Groom Ayushman Akash\'s wedding procession to Samdari to the residence of Shriman Byaiji Dhanraj Ji Chauhan\'s family.',
+      desc: 'वर आयुष्मान आकाश की बारात का बस द्वारा समदड़ी में श्रीमान ब्याईजी धनराज जी चौहान के परिवार के निवास हेतु प्रस्थान।',
       calDate: '20261210T121500/20261210T150000',
-      badge: 'BARAAT DEPARTURE'
+      badge: 'बारात प्रस्थान'
     },
     {
       id: 'e7',
       dayId: 'day4',
-      dayLabel: 'Day 4 — Thursday',
-      dateStr: '10 DECEMBER 2026',
-      timeStr: '7:15 PM',
-      title: 'Ladies Sangeet & Cultural Evening',
+      dayLabel: 'दिवस 4 — गुरुवार',
+      dateStr: '10 दिसंबर 2026',
+      timeStr: 'सायं 7:15 बजे',
+      title: 'महिला संगीत एवं सांस्कृतिक संध्या',
       icon: '🪕',
-      desc: 'An enchanting evening of vibrant Rajasthani folk dances, melodious geet, and celebratory performances by dear family & friends.',
+      desc: 'राजस्थानी लोकगीतों, पारंपरिक घूमर एवं परिवारजनों की मनमोहक प्रस्तुतियों से सजी रंगारंग संध्या।',
       calDate: '20261210T191500/20261210T230000',
-      badge: 'MUSIC & DANCE'
+      badge: 'संगीत एवं नृत्य'
     },
     {
       id: 'e8',
       dayId: 'day5',
-      dayLabel: 'Day 5 — Saturday (Grand Wedding)',
-      dateStr: '12 DECEMBER 2026',
-      timeStr: '5:15 PM',
-      title: 'Baraat Swagat (Welcome of Baraat from Balotra)',
+      dayLabel: 'दिवस 5 — शनिवार (मुख्य विवाह)',
+      dateStr: '12 दिसंबर 2026',
+      timeStr: 'सायं 5:15 बजे',
+      title: 'बारात स्वागत (बालोतरा से आगमन)',
       icon: '🎺',
-      desc: 'Ceremonial welcome of Groom Ayushman Dheeraj Ji\'s Baraat arriving from Balotra from the residence of Shriman Byaiji Madanlalji Parihar\'s family to Kumawat Vatika, Pali.',
+      desc: 'बालोतरा से पधारी वर आयुष्मान धीरज जी की बारात का कुमावत वाटिका, पाली में भव्य आत्मीय स्वागत।',
       calDate: '20261212T171500/20261212T181500',
-      badge: 'BARAAT WELCOME'
+      badge: 'बारात स्वागत'
     },
     {
       id: 'e9',
       dayId: 'day5',
-      dayLabel: 'Day 5 — Saturday (Grand Wedding)',
-      dateStr: '12 DECEMBER 2026',
-      timeStr: '6:15 PM',
-      title: 'Grand Wedding Ceremony (Hastamelap & Reception)',
+      dayLabel: 'दिवस 5 — शनिवार (मुख्य विवाह)',
+      dateStr: '12 दिसंबर 2026',
+      timeStr: 'सायं 6:15 बजे से',
+      title: 'पाणिग्रहण संस्कार एवं प्रीतिभोज',
       icon: '👑',
-      desc: 'The divine Vedic marriage rituals, sacred pheras, and auspicious blessings under the royal mandap, followed by the grand wedding dinner.',
+      desc: 'पवित्र वैदिक विवाह संस्कार, सप्तपदी फेरे, हस्तमिलाप एवं शाही राजस्थानी प्रीतिभोज।',
       calDate: '20261212T181500/20261212T233000',
-      badge: 'ROYAL WEDDING'
+      badge: 'मुख्य विवाह समारोह'
     }
   ];
 
@@ -119,9 +119,9 @@ export default function WeddingTimeline() {
     : eventsList.filter(ev => ev.dayId === activeDay);
 
   const makeGoogleCalendarUrl = (ev) => {
-    const text = encodeURIComponent(ev.title + ' — Akash & Reena | Shivani & Dheeraj Wedding');
+    const text = encodeURIComponent(ev.title + ' — आकाश एवं रीना | शिवानी एवं धीरज विवाह');
     const dates = ev.calDate;
-    const details = encodeURIComponent(ev.desc + ' Venue: Kumawat Vatika, Punayata Road, Pali, Rajasthan.');
+    const details = encodeURIComponent(ev.desc + ' स्थान: कुमावत वाटिका, पुनायता रोड, पाली (राजस्थान)।');
     const location = encodeURIComponent('Kumawat Vatika, Punayata Road, Pali, Rajasthan, India');
     return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${text}&dates=${dates}&details=${details}&location=${location}`;
   };
@@ -136,12 +136,12 @@ export default function WeddingTimeline() {
         <div className="section-header-flourish">
           <div className="shloka-header-group">
             <span className="shloka-ornament">❖</span>
-            <span className="shloka-text">|| MANGALIK KARYAKRAM ||</span>
+            <span className="shloka-text">॥ मांगलिक कार्यक्रम ॥</span>
             <span className="shloka-ornament">❖</span>
           </div>
-          <h2 className="section-title-gold">THE WEDDING CELEBRATIONS</h2>
+          <h2 className="section-title-gold">मांगलिक कार्यक्रम विवरण</h2>
           <p className="section-subtitle-script">
-            Every Ritual, Every Blessing, Every Beautiful Moment.
+            हर रस्म, हर मंगल आशीष, हर पावन पल
           </p>
           <div className="section-title-divider">
             <span className="divider-line"></span>
@@ -151,42 +151,42 @@ export default function WeddingTimeline() {
         </div>
 
         {/* Day Filter Pills */}
-        <nav className="timeline-filter-pills-row" aria-label="Event days filter">
+        <nav className="timeline-filter-pills-row" aria-label="मांगलिक दिवस चयन">
           <button
             className={`timeline-filter-btn ${activeDay === 'all' ? 'active' : ''}`}
             onClick={() => setActiveDay('all')}
           >
-            All Celebrations (9)
+            सभी मांगलिक कार्यक्रम (9)
           </button>
           <button
             className={`timeline-filter-btn ${activeDay === 'day1' ? 'active' : ''}`}
             onClick={() => setActiveDay('day1')}
           >
-            Mon, 7 Dec
+            सोम, 7 दिस
           </button>
           <button
             className={`timeline-filter-btn ${activeDay === 'day2' ? 'active' : ''}`}
             onClick={() => setActiveDay('day2')}
           >
-            Tue, 8 Dec
+            मंगल, 8 दिस
           </button>
           <button
             className={`timeline-filter-btn ${activeDay === 'day3' ? 'active' : ''}`}
             onClick={() => setActiveDay('day3')}
           >
-            Wed, 9 Dec
+            बुध, 9 दिस
           </button>
           <button
             className={`timeline-filter-btn ${activeDay === 'day4' ? 'active' : ''}`}
             onClick={() => setActiveDay('day4')}
           >
-            Thu, 10 Dec
+            गुरु, 10 दिस
           </button>
           <button
             className={`timeline-filter-btn ${activeDay === 'day5' ? 'active' : ''}`}
             onClick={() => setActiveDay('day5')}
           >
-            Sat, 12 Dec (Main)
+            शनि, 12 दिस (मुख्य)
           </button>
         </nav>
 
@@ -231,10 +231,10 @@ export default function WeddingTimeline() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="btn-add-calendar"
-                        title={`Add ${ev.title} to Google Calendar`}
+                        title={`${ev.title} को गूगल कैलेंडर में जोड़ें`}
                       >
                         <span className="cal-icon">📅</span>
-                        <span>Add to Calendar</span>
+                        <span>कैलेंडर में जोड़ें</span>
                       </a>
                     </div>
                   </article>

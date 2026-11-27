@@ -51,27 +51,27 @@ export default function App() {
         <div className="nav-container">
           <div className="nav-brand" onClick={() => scrollTo('hero-section')}>
             <span className="brand-crest">👑</span>
-            <span className="brand-title">AKASH &amp; REENA • SHIVANI &amp; DHEERAJ</span>
+            <span className="brand-title">आकाश एवं रीना • शिवानी एवं धीरज</span>
           </div>
 
-          <nav className="nav-links-row" aria-label="Wedding sections navigation">
+          <nav className="nav-links-row" aria-label="विवाह अनुभाग नेविगेशन">
             <button className="nav-link-btn" onClick={() => scrollTo('hero-section')}>
-              Welcome
+              स्वागत
             </button>
             <button className="nav-link-btn" onClick={() => scrollTo('couples-section')}>
-              Couples
+              वर-वधू
             </button>
             <button className="nav-link-btn" onClick={() => scrollTo('events-section')}>
-              Celebrations
+              मांगलिक कार्यक्रम
             </button>
             <button className="nav-link-btn" onClick={() => scrollTo('venue-section')}>
-              Venue
+              विवाह स्थल
             </button>
             <button className="nav-link-btn" onClick={() => scrollTo('countdown-section')}>
-              Countdown
+              शुभ मुहूर्त
             </button>
             <button className="nav-link-btn" onClick={() => scrollTo('family-section')}>
-              Family &amp; Blessings
+              परिवार एवं आशीर्वाद
             </button>
           </nav>
 
@@ -79,20 +79,20 @@ export default function App() {
             <button
               className="nav-btn-view-card"
               onClick={() => setIsViewerOpen(true)}
-              title="Open Royal Wedding Invitation Card"
+              title="डिजिटल विवाह आमंत्रण पत्रिका खोलें"
             >
               <span className="btn-icon">📜</span>
-              <span className="btn-text">VIEW CARD</span>
+              <span className="btn-text">पत्रिका देखें</span>
             </button>
 
             <a
               href="dual-jain-wedding-invitation.pdf"
               download="dual-jain-wedding-invitation.pdf"
               className="nav-btn-download-pdf"
-              title="Download High-Resolution PDF Invitation"
+              title="आधिकारिक एक-पृष्ठीय पीडीएफ आमंत्रण डाउनलोड करें"
             >
               <span className="btn-icon">📥</span>
-              <span className="btn-text">PDF</span>
+              <span className="btn-text">पीडीएफ</span>
             </a>
           </div>
         </div>

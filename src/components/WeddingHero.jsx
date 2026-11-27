@@ -1,6 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function WeddingHero({ onExplore }) {
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
+
+  useEffect(() => {
+    const handleStatus = (e) => {
+      if (e && e.detail) {
+        setIsMusicPlaying(!!e.detail.isPlaying);
+      }
+    };
+    window.addEventListener('weddingMusicStatus', handleStatus);
+    return () => window.removeEventListener('weddingMusicStatus', handleStatus);
+  }, []);
+
+  const handleStartMusic = () => {
+    if (typeof window.playWeddingMusic === 'function') {
+      window.playWeddingMusic();
+      setIsMusicPlaying(true);
+    }
+  };
+
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
     if (el) {
@@ -41,7 +60,7 @@ export default function WeddingHero({ onExplore }) {
           <div className="divine-artwork-jharokha">
             <img
               src="assets/shiva_parvati_top_artwork.png"
-              alt="Lord Shiva and Mata Parvati"
+              alt="भगवान शिव एवं माता पार्वती"
               className="shiva-parvati-art-img"
               width="440"
               height="260"
@@ -55,15 +74,15 @@ export default function WeddingHero({ onExplore }) {
           <div className="hero-ganesha-emblem">
             <img
               src="assets/champagne_ganesha_bright.png"
-              alt="Lord Ganesha"
+              alt="भगवान श्री गणेश"
               className="hero-ganesha-img"
               width="44"
               height="44"
             />
           </div>
-          <div className="hero-shloka-text">|| SHREE GANESHAY NAMAH ||</div>
+          <div className="hero-shloka-text">॥ श्री गणेशाय नमः ॥</div>
           <p className="hero-divine-subtitle">
-            With the Divine Blessings of Lord Ganesha &amp; Our Respected Ancestors
+            भगवान श्री गणेश एवं पूज्य पितरों के पावन आशीर्वाद से
           </p>
         </div>
 
@@ -76,8 +95,8 @@ export default function WeddingHero({ onExplore }) {
             <span className="flourish-dash"></span>
             <span className="flourish-leaf">🌿</span>
           </div>
-          <h1 className="hero-grand-title">THE WEDDING INVITATION</h1>
-          <div className="hero-shubh-vivah">Auspicious Wedding Celebration</div>
+          <h1 className="hero-grand-title">विवाह आमंत्रण</h1>
+          <div className="hero-shubh-vivah">मांगलिक विवाह महोत्सव</div>
         </div>
 
         {/* Symmetrical Dual-Couples Composition */}
@@ -85,16 +104,16 @@ export default function WeddingHero({ onExplore }) {
           
           {/* Couple 1: Akash & Reena */}
           <div className="hero-couple-unit">
-            <span className="couple-sacred-label">First Couple</span>
+            <span className="couple-sacred-label">— प्रथम पावन परिणय —</span>
             <h2 className="couple-names-headline">
-              AYUSHMAN AKASH
+              आयुष्मान आकाश
             </h2>
-            <div className="couple-ampersand-sign">&amp;</div>
+            <div className="couple-ampersand-sign">एवं</div>
             <h2 className="couple-names-headline">
-              AYUSHMATI REENA
+              आयुष्मती रीना
             </h2>
             <div className="couple-date-tag">
-              Thursday, 10 December 2026
+              गुरुवार, 10 दिसंबर 2026
             </div>
           </div>
 
@@ -110,16 +129,16 @@ export default function WeddingHero({ onExplore }) {
 
           {/* Couple 2: Shivani & Dheeraj */}
           <div className="hero-couple-unit">
-            <span className="couple-sacred-label">Second Couple</span>
+            <span className="couple-sacred-label">— द्वितीय पावन परिणय —</span>
             <h2 className="couple-names-headline">
-              AYUSHMATI SHIVANI (JEENU)
+              आयुष्मती शिवानी (जीनू)
             </h2>
-            <div className="couple-ampersand-sign">&amp;</div>
+            <div className="couple-ampersand-sign">एवं</div>
             <h2 className="couple-names-headline">
-              AYUSHMAN DHEERAJ JI
+              आयुष्मान धीरज जी
             </h2>
             <div className="couple-date-tag">
-              Saturday, 12 December 2026
+              शनिवार, 12 दिसंबर 2026
             </div>
           </div>
 
@@ -129,28 +148,45 @@ export default function WeddingHero({ onExplore }) {
         <div className="hero-venue-announcement-banner">
           <div className="banner-date-highlight">
             <span className="cal-icon">🗓️</span>
-            <span className="date-str">WEDDING CELEBRATION: 12 DECEMBER 2026</span>
+            <span className="date-str">मुख्य विवाह समारोह: 12 दिसंबर 2026</span>
           </div>
           <div className="banner-venue-location">
             <span className="pin-icon">📍</span>
-            <span className="venue-str">KUMAWAT VATIKA, PALI, RAJASTHAN</span>
+            <span className="venue-str">कुमावत वाटिका, पाली (राजस्थान)</span>
           </div>
         </div>
 
         {/* Romantic Heritage Quote */}
         <blockquote className="hero-heritage-quote">
-          “Two Sacred Unions, Four Blessed Families, One Grand Joyous Celebration”
+          “दो पावन परिणय सूत्र, चार परिवारों का संगम, एक भव्य मंगल उत्सव”
         </blockquote>
 
+        {/* User-Requested Interactive Music Prompt Banner */}
+        <div className="hero-music-prompt-banner">
+          <div className="hero-music-prompt-text">
+            <span>🎺</span>
+            <span>शहनाई की मधुर धुन सुनने के लिए यहाँ क्लिक करें</span>
+          </div>
+          <button
+            type="button"
+            className="btn-start-music-prompt"
+            onClick={handleStartMusic}
+            title="विवाह संगीत चालू करें (14 सेकंड से)"
+            aria-label="संगीत शुरू करें"
+          >
+            <span>{isMusicPlaying ? '🎵 संगीत बज रहा है' : '▶ संगीत शुरू करें'}</span>
+          </button>
+        </div>
+
         {/* Elegant ENTER INVITATION Button with Subtle Golden Shimmer */}
-        <div className="hero-enter-action-wrap">
+        <div className="hero-enter-action-wrap" style={{ marginTop: '20px' }}>
           <button
             onClick={handleEnterInvitation}
             className="btn-enter-invitation"
-            aria-label="Enter complete wedding invitation"
+            aria-label="आमंत्रण में प्रवेश करें"
           >
             <span className="btn-sparkle">✦</span>
-            <span className="btn-text">ENTER INVITATION</span>
+            <span className="btn-text">आमंत्रण में प्रवेश करें</span>
             <span className="btn-sparkle">✦</span>
             <span className="btn-shimmer-sweep" aria-hidden="true"></span>
           </button>
@@ -162,9 +198,9 @@ export default function WeddingHero({ onExplore }) {
           onClick={handleEnterInvitation}
           role="button"
           tabIndex={0}
-          aria-label="Scroll down to wedding couples details"
+          aria-label="वर-वधू विवरण देखने हेतु नीचे स्क्रॉल करें"
         >
-          <span className="scroll-label">Scroll to Explore</span>
+          <span className="scroll-label">नीचे देखें</span>
           <div className="scroll-chevron-bounce">
             <svg viewBox="0 0 24 24" className="chevron-svg" aria-hidden="true">
               <path d="M7 10l5 5 5-5" fill="none" stroke="#8B3038" strokeWidth="2.2" strokeLinecap="round" />

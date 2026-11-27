@@ -65,8 +65,8 @@ export default function InvitationViewerModal({ isOpen, onClose }) {
         {/* Top Control Bar */}
         <header className="viewer-top-toolbar">
           <div className="viewer-info-strip">
-            <span className="viewer-brand-title">👑 DIGITAL WEDDING CARD VIEWER</span>
-            <span className="viewer-page-counter">Single Page Official Cover</span>
+            <span className="viewer-brand-title">👑 डिजिटल विवाह आमंत्रण पत्रिका</span>
+            <span className="viewer-page-counter">एक-पृष्ठीय आधिकारिक पत्रिका</span>
           </div>
 
           <div className="viewer-action-controls">
@@ -76,16 +76,16 @@ export default function InvitationViewerModal({ isOpen, onClose }) {
                 className="viewer-ctrl-btn"
                 onClick={handleZoomOut}
                 disabled={zoomLevel <= 0.75}
-                title="Zoom Out"
-                aria-label="Zoom out"
+                title="छोटा करें"
+                aria-label="ज़ूम आउट"
               >
                 🔍-
               </button>
               <button
                 className="viewer-ctrl-btn zoom-level-display"
                 onClick={handleResetZoom}
-                title="Reset Zoom to 100%"
-                aria-label="Reset zoom"
+                title="100% आकार पर लाएं"
+                aria-label="रीसेट ज़ूम"
               >
                 {Math.round(zoomLevel * 100)}%
               </button>
@@ -93,8 +93,8 @@ export default function InvitationViewerModal({ isOpen, onClose }) {
                 className="viewer-ctrl-btn"
                 onClick={handleZoomIn}
                 disabled={zoomLevel >= 2.0}
-                title="Zoom In"
-                aria-label="Zoom in"
+                title="बड़ा करें"
+                aria-label="ज़ूम इन"
               >
                 🔍+
               </button>
@@ -104,10 +104,10 @@ export default function InvitationViewerModal({ isOpen, onClose }) {
             <button
               className="viewer-ctrl-btn"
               onClick={toggleFullscreen}
-              title={isFullscreen ? 'Exit Fullscreen' : 'Enter Fullscreen'}
-              aria-label="Toggle fullscreen"
+              title={isFullscreen ? 'सामान्य स्क्रीन' : 'पूर्ण स्क्रीन'}
+              aria-label="पूर्ण स्क्रीन"
             >
-              {isFullscreen ? '⤓ Normal' : '⤢ Fullscreen'}
+              {isFullscreen ? '⤓ सामान्य' : '⤢ पूर्ण स्क्रीन'}
             </button>
 
             {/* Open in New Tab */}
@@ -116,9 +116,9 @@ export default function InvitationViewerModal({ isOpen, onClose }) {
               target="_blank"
               rel="noopener noreferrer"
               className="viewer-ctrl-btn btn-new-tab"
-              title="Open PDF directly in a new browser tab"
+              title="पीडीएफ को नई टैब में खोलें"
             >
-              ↗ Open in Tab
+              ↗ नई टैब
             </a>
 
             {/* Download PDF Button */}
@@ -126,19 +126,19 @@ export default function InvitationViewerModal({ isOpen, onClose }) {
               href={pdfUrl}
               download="dual-jain-wedding-invitation.pdf"
               className="viewer-ctrl-btn btn-download-gold"
-              title="Download high-resolution official 1-page vector PDF"
+              title="आधिकारिक एक-पृष्ठीय पीडीएफ डाउनलोड करें"
             >
-              📥 Download PDF
+              📥 पीडीएफ
             </a>
 
             {/* Close Button */}
             <button
               className="viewer-ctrl-btn btn-close-modal"
               onClick={onClose}
-              title="Close Viewer (Esc)"
-              aria-label="Close invitation viewer"
+              title="बंद करें (Esc)"
+              aria-label="आमंत्रण पत्रिका बंद करें"
             >
-              ✕
+              ✕ बंद करें
             </button>
           </div>
         </header>
@@ -157,17 +157,16 @@ export default function InvitationViewerModal({ isOpen, onClose }) {
                 padding: '16px 0'
               }}
             >
-              <iframe
-                src="print_new_luxury_cover.html"
-                title="Invitation Card Cover"
+              <img
+                src="assets/shiva_parvati_wedding_card.png"
+                alt="विवाह आमंत्रण पत्रिका"
                 style={{
-                  width: '148mm',
-                  height: '210mm',
-                  maxWidth: '92vw',
-                  border: 'none',
-                  borderRadius: '8px',
+                  width: '100%',
+                  maxWidth: '520px',
+                  height: 'auto',
+                  borderRadius: '12px',
                   boxShadow: '0 10px 40px rgba(0,0,0,0.7)',
-                  background: '#FFF'
+                  display: 'block'
                 }}
               />
             </div>

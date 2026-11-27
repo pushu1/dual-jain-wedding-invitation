@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 export default function VenueSection() {
   const [copied, setCopied] = useState(false);
 
-  const venueName = 'KUMAWAT VATIKA';
-  const venueAddress = 'Punayata Road, Pali, Rajasthan 306401, India.';
+  const venueName = 'कुमावत वाटिका';
+  const venueAddress = 'पुनायता रोड, पाली, राजस्थान 306401';
   const mapsUrl = 'https://www.google.com/maps/search/?api=1&query=Kumawat+Vatika+Punayata+Road+Pali+Rajasthan';
 
   const handleCopyAddress = () => {
@@ -24,14 +24,14 @@ export default function VenueSection() {
         <div className="section-header-flourish">
           <div className="shloka-header-group">
             <span className="shloka-ornament">❖</span>
-            <span className="shloka-text">|| VIVAH STHAL &amp; PREETIBHOJ ||</span>
+            <span className="shloka-text">॥ विवाह स्थल एवं प्रीतिभोज ॥</span>
             <span className="shloka-ornament">❖</span>
           </div>
           <h2 className="section-title-gold">
-            BLESSING CEREMONY &amp; GRAND WEDDING RECEPTION
+            शुभ विवाह स्थल एवं भव्य प्रीतिभोज
           </h2>
           <p className="section-subtitle-script">
-            The sacred royal destination where beloved families, relatives &amp; cherished guests unite
+            जहाँ चार परिवारों का पावन संगम एवं स्नेहिल मिलन होगा
           </p>
           <div className="section-title-divider">
             <span className="divider-line"></span>
@@ -68,8 +68,8 @@ export default function VenueSection() {
 
           {/* Timing & Reception Details Highlight */}
           <div className="reception-timing-box">
-            <span className="reception-date-tag">Saturday, 12 December 2026</span>
-            <span className="reception-time-tag">From 6:15 PM Onwards</span>
+            <span className="reception-date-tag">शनिवार, 12 दिसंबर 2026</span>
+            <span className="reception-time-tag">सायं 6:15 बजे से प्रभु इच्छा तक</span>
           </div>
 
           {/* Venue Title & Sacred Address */}
@@ -82,8 +82,7 @@ export default function VenueSection() {
             </div>
 
             <p className="venue-welcome-note">
-              We warmly invite you and your esteemed family to join us in blessing the auspicious marriages
-              of Akash &amp; Reena and Shivani &amp; Dheeraj, followed by royal Rajasthani hospitality and dinner.
+              आप सपरिवार पधारकर नवदंपतियों को अपना स्नेह व मंगल आशीर्वाद प्रदान करें तथा राजस्थानी प्रीतिभोज का आनंद लें।
             </p>
           </div>
 
@@ -94,19 +93,19 @@ export default function VenueSection() {
               target="_blank"
               rel="noopener noreferrer"
               className="venue-btn btn-google-maps"
-              title="Open venue location in Google Maps"
+              title="गूगल मैप्स पर स्थल का स्थान देखें"
             >
               <span className="btn-icon">🗺️</span>
-              <span>Open in Google Maps</span>
+              <span>गूगल मैप्स पर देखें</span>
             </a>
 
             <button
               onClick={handleCopyAddress}
               className={`venue-btn btn-copy-address ${copied ? 'copied' : ''}`}
-              title="Copy complete venue address to clipboard"
+              title="पूरा पता कॉपी करें"
             >
               <span className="btn-icon">{copied ? '✓' : '📋'}</span>
-              <span>{copied ? 'Address Copied!' : 'Copy Venue Address'}</span>
+              <span>{copied ? 'पता कॉपी हो गया!' : 'पता कॉपी करें'}</span>
             </button>
           </div>
 

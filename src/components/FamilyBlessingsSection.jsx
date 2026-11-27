@@ -3,15 +3,14 @@ import React, { useState } from 'react';
 export default function FamilyBlessingsSection() {
   const [guestName, setGuestName] = useState('');
   const [guestCity, setGuestCity] = useState('');
-  const [blessingMsg, setBlessingMsg] = useState('Heartiest congratulations to Akash & Reena and Shivani & Dheeraj on your royal weddings! Wishing both couples a lifetime of divine happiness, love, and prosperity.');
+  const [blessingMsg, setBlessingMsg] = useState('आकाश एवं रीना तथा शिवानी एवं धीरज को पावन परिणय सूत्र में बंधने पर हार्दिक बधाई एवं अनंत शुभकामनाएँ! दोनों जोड़ों का वैवाहिक जीवन सदैव सुख, समृद्धि और आनंद से परिपूर्ण रहे।');
   const [sentSuccess, setSentSuccess] = useState(false);
 
   const phone1 = '+919214537106'; // Kailashchandra Gehlot
   const phone2 = '+918824338255'; // Akash Gehlot
-  const phone3 = '+917014922660';
 
   const handleSendWhatsApp = (phoneTarget) => {
-    const formattedText = `Namaste! 🙏\n\n*Wedding Blessings for Akash & Reena and Shivani & Dheeraj*\nFrom: ${guestName || 'Well-Wisher'}${guestCity ? ` (${guestCity})` : ''}\n\n"${blessingMsg}"\n\nLooking forward to celebrating this grand royal wedding at Kumawat Vatika, Pali!`;
+    const formattedText = `सादर प्रणाम! 🙏\n\n*आकाश एवं रीना तथा शिवानी एवं धीरज के पावन विवाह हेतु मंगल शुभकामनाएँ*\nप्रेषक: ${guestName || 'शुभचिंतक'}${guestCity ? ` (${guestCity})` : ''}\n\n"${blessingMsg}"\n\nकुमावत वाटिका, पाली में आयोजित इस भव्य विवाह समारोह में सम्मिलित होने की मंगल अभिलाषा!`;
     const cleanPhone = phoneTarget.replace(/[^0-9]/g, '');
     const url = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(formattedText)}`;
     window.open(url, '_blank');
@@ -27,10 +26,10 @@ export default function FamilyBlessingsSection() {
 
         {/* Section Header */}
         <div className="section-header-flourish">
-          <span className="shloka-text">|| SASNEH NIMANTRAN ||</span>
-          <h2 className="section-title-gold">WITH BEST COMPLIMENTS FROM</h2>
+          <span className="shloka-text">॥ सस्नेह निमंत्रण ॥</span>
+          <h2 className="section-title-gold">दर्शनाभिलाषी एवं विनीत</h2>
           <p className="section-subtitle-script">
-            Warmest hospitality from the Gehlot Parivar &amp; beloved extended kinfolk
+            गहलोत परिवार एवं समस्त स्नेही स्वजन, पाली (मारवाड़)
           </p>
           <div className="section-title-divider">
             <span className="divider-line"></span>
@@ -41,12 +40,12 @@ export default function FamilyBlessingsSection() {
 
         {/* Traditional Welcome Quote Inscription */}
         <div className="family-invitation-quote-box" style={{ maxWidth: '780px', margin: '0 auto 28px' }}>
-          <p className="quote-text" style={{ fontStyle: 'italic', color: 'var(--c-headings)', fontSize: '15px' }}>
-            “We have penned this invitation with boundless affection, please accept our humble respect;<br />
-            This sacred occasion is truly priceless, please bestow upon us your cherished moments.”
+          <p className="quote-text" style={{ fontStyle: 'italic', color: 'var(--c-headings)', fontSize: '15.5px' }}>
+            “स्नेह भरा निमंत्रण भेजा है, आदर सहित स्वीकार करें;<br />
+            पावन यह अवसर अनुपम है, पधारकर हमें कृतार्थ करें।”
           </p>
-          <p className="quote-text" style={{ marginTop: '12px', fontSize: '14px' }}>
-            With the divine blessings of Lord Vinayaka and our revered ancestors, the <strong>Gehlot Family</strong> cordially invites you and your family to grace the auspicious dual wedding celebrations of <strong>Akash &amp; Reena</strong> and <strong>Shivani &amp; Dheeraj</strong>.
+          <p className="quote-text" style={{ marginTop: '12px', fontSize: '14.5px' }}>
+            भगवान श्री विनायक एवं पूज्य पितरों के पावन आशीर्वाद से, <strong>गहलोत परिवार</strong> आप सभी आत्मीय स्नेहीजनों को <strong>आकाश एवं रीना</strong> तथा <strong>शिवानी एवं धीरज</strong> के पावन विवाह समारोह में सपरिवार सादर आमंत्रित करता है।
           </p>
         </div>
 
@@ -57,14 +56,14 @@ export default function FamilyBlessingsSection() {
           <div className="host-contact-card">
             <div className="host-ornament-header">
               <span className="host-namaste-icon">🙏</span>
-              <span className="host-honorific">FAMILY ELDER &amp; HOST</span>
+              <span className="host-honorific">परिवार के वरिष्ठ एवं निमंत्रक</span>
             </div>
 
-            <h3 className="host-name">Mr. Kailashchandra Gehlot</h3>
-            <p className="host-relation">Father of Akash &amp; Shivani</p>
+            <h3 className="host-name">श्री कैलाशचंद्र गहलोत</h3>
+            <p className="host-relation">पिता: आकाश एवं शिवानी</p>
 
             <div className="host-contact-action-row">
-              <a href={`tel:${phone1}`} className="contact-action-btn btn-call" title="Call Kailashchandra Gehlot">
+              <a href={`tel:${phone1}`} className="contact-action-btn btn-call" title="कॉल करें">
                 <span className="action-icon">📞</span>
                 <span className="action-text">+91 9214537106</span>
               </a>
@@ -74,10 +73,10 @@ export default function FamilyBlessingsSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="contact-action-btn btn-whatsapp"
-                title="Message on WhatsApp"
+                title="व्हाट्सएप पर संदेश भेजें"
               >
                 <span className="action-icon">💬</span>
-                <span className="action-text">WhatsApp</span>
+                <span className="action-text">व्हाट्सएप</span>
               </a>
             </div>
           </div>
@@ -86,14 +85,14 @@ export default function FamilyBlessingsSection() {
           <div className="host-contact-card">
             <div className="host-ornament-header">
               <span className="host-namaste-icon">🙏</span>
-              <span className="host-honorific">GROOM &amp; HOST</span>
+              <span className="host-honorific">वर एवं संयोजक</span>
             </div>
 
-            <h3 className="host-name">Ayushman Akash Gehlot</h3>
-            <p className="host-relation">Wedding Host &amp; Coordinator</p>
+            <h3 className="host-name">आयुष्मान आकाश गहलोत</h3>
+            <p className="host-relation">विवाह संयोजक</p>
 
             <div className="host-contact-action-row">
-              <a href={`tel:${phone2}`} className="contact-action-btn btn-call" title="Call Akash Gehlot">
+              <a href={`tel:${phone2}`} className="contact-action-btn btn-call" title="कॉल करें">
                 <span className="action-icon">📞</span>
                 <span className="action-text">+91 8824338255</span>
               </a>
@@ -103,46 +102,44 @@ export default function FamilyBlessingsSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="contact-action-btn btn-whatsapp"
-                title="Message on WhatsApp"
+                title="व्हाट्सएप पर संदेश भेजें"
               >
                 <span className="action-icon">💬</span>
-                <span className="action-text">WhatsApp</span>
+                <span className="action-text">व्हाट्सएप</span>
               </a>
             </div>
           </div>
 
         </div>
 
-
-
         {/* Interactive RSVP & Blessing Sender */}
         <div className="direct-blessings-card" style={{ maxWidth: '680px', margin: '0 auto' }}>
           <div className="blessings-card-header">
-            <h4 className="blessings-title">💌 Send Your RSVP &amp; Blessings to the Family</h4>
+            <h4 className="blessings-title">💌 नवदंपतियों को अपनी शुभकामनाएँ व मंगल आशीर्वाद भेजें</h4>
             <p className="blessings-subtitle">
-              Send your personal congratulations and arrival confirmation directly to the hosts on WhatsApp.
+              अपनी व्यक्तिगत शुभकामनाएँ एवं आगमन की सूचना सीधे परिवार को व्हाट्सएप पर प्रेषित करें।
             </p>
           </div>
 
           <div className="blessings-inputs-form">
             <div className="form-row-dual">
               <div className="form-input-group">
-                <label className="input-label">Your Name / Family Name</label>
+                <label className="input-label">आपका शुभ नाम / परिवार का नाम</label>
                 <input
                   type="text"
                   className="royal-text-input"
-                  placeholder="e.g. Parihar Family / Rajesh Sharma"
+                  placeholder="उदा. परिहार परिवार / राजेश शर्मा"
                   value={guestName}
                   onChange={(e) => setGuestName(e.target.value)}
                 />
               </div>
 
               <div className="form-input-group">
-                <label className="input-label">Your City</label>
+                <label className="input-label">आपका शहर</label>
                 <input
                   type="text"
                   className="royal-text-input"
-                  placeholder="e.g. Pali, Jodhpur, Balotra, Jaipur"
+                  placeholder="उदा. पाली, जोधपुर, बालोतरा, जयपुर"
                   value={guestCity}
                   onChange={(e) => setGuestCity(e.target.value)}
                 />
@@ -150,7 +147,7 @@ export default function FamilyBlessingsSection() {
             </div>
 
             <div className="form-input-group">
-              <label className="input-label">Your Heartfelt Blessings</label>
+              <label className="input-label">आपका मंगल संदेश व आशीर्वाद</label>
               <textarea
                 className="royal-text-area"
                 rows={3}
@@ -166,7 +163,7 @@ export default function FamilyBlessingsSection() {
                 onClick={() => handleSendWhatsApp(phone1)}
               >
                 <span>💬</span>
-                <span>Send to Host (Kailashchandra Ji)</span>
+                <span>कैलाशचंद्र जी को भेजें</span>
               </button>
 
               <button
@@ -176,14 +173,14 @@ export default function FamilyBlessingsSection() {
                 onClick={() => handleSendWhatsApp(phone2)}
               >
                 <span>💬</span>
-                <span>Send to Host (Akash Ji)</span>
+                <span>आकाश जी को भेजें</span>
               </button>
             </div>
 
             {sentSuccess && (
               <div className="blessing-sent-confirmation">
                 <span>✓</span>
-                <span>WhatsApp opened! Thank you for sharing your auspicious blessings!</span>
+                <span>व्हाट्सएप खुल गया है! आपके मंगल आशीर्वाद हेतु सहृदय धन्यवाद!</span>
               </div>
             )}
           </div>

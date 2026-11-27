@@ -28,8 +28,8 @@ export default function MusicPlayer() {
 
       try {
         playerRef.current = new window.YT.Player('youtube-bgm-container', {
-          height: '1',
-          width: '1',
+          height: '200',
+          width: '200',
           videoId: YOUTUBE_VIDEO_ID,
           playerVars: {
             autoplay: 0,
@@ -57,10 +57,14 @@ export default function MusicPlayer() {
               // YT.PlayerState.PLAYING = 1
               if (event.data === 1) {
                 setIsPlaying(true);
+                window.isWeddingMusicPlaying = true;
+                window.dispatchEvent(new CustomEvent('weddingMusicStatus', { detail: { isPlaying: true } }));
               } 
               // YT.PlayerState.PAUSED = 2
               else if (event.data === 2) {
                 setIsPlaying(false);
+                window.isWeddingMusicPlaying = false;
+                window.dispatchEvent(new CustomEvent('weddingMusicStatus', { detail: { isPlaying: false } }));
               } 
               // YT.PlayerState.ENDED = 0 -> Loop back to 14 seconds
               else if (event.data === 0) {
@@ -71,7 +75,7 @@ export default function MusicPlayer() {
               }
             },
             onError: (err) => {
-              console.warn('YouTube BGM Player notice, using fallback audio if needed:', err);
+              console.warn('YouTube BGM Player notice:', err);
               setIsFallbackActive(true);
             }
           }
@@ -107,8 +111,10 @@ export default function MusicPlayer() {
           playerRef.current.playVideo();
           setIsPlaying(true);
           setIsMuted(false);
+          window.isWeddingMusicPlaying = true;
+          window.dispatchEvent(new CustomEvent('weddingMusicStatus', { detail: { isPlaying: true } }));
         } catch (e) {
-          console.warn('Autoplay prevented or deferred:', e);
+          console.warn('Autoplay deferred for user gesture:', e);
           pendingPlayRef.current = true;
         }
       } else {
@@ -125,9 +131,8 @@ export default function MusicPlayer() {
       if (playerRef.current && playerRef.current.pauseVideo) {
         playerRef.current.pauseVideo();
         setIsPlaying(false);
-      } else if (audioCtxRef.current) {
-        try { audioCtxRef.current.suspend(); } catch (e) {}
-        setIsPlaying(false);
+        window.isWeddingMusicPlaying = false;
+        window.dispatchEvent(new CustomEvent('weddingMusicStatus', { detail: { isPlaying: false } }));
       }
     };
 
@@ -181,19 +186,19 @@ export default function MusicPlayer() {
         id="youtube-bgm-container"
         style={{
           position: 'fixed',
-          bottom: '-100px',
-          left: '-100px',
-          width: '1px',
-          height: '1px',
-          opacity: 0.01,
+          top: '0px',
+          left: '0px',
+          width: '200px',
+          height: '200px',
+          opacity: 0.001,
           pointerEvents: 'none',
-          zIndex: -1
+          zIndex: -9999
         }}
         aria-hidden="true"
       />
 
-      {/* Floating Audio Controller Badge */}
-      <aside className="floating-music-widget" aria-label="Wedding Background Music Controls">
+      {/* Floating Audio Controller Badge in Hindi */}
+      <aside className="floating-music-widget" aria-label="विवाह पृष्ठभूमि संगीत नियंत्रण">
         <div className={`royal-music-pill-btn ${isPlaying ? 'is-playing' : 'is-paused'}`}>
           
           {/* Main Play / Pause Trigger */}
@@ -201,14 +206,14 @@ export default function MusicPlayer() {
             type="button"
             className="music-action-trigger"
             onClick={handlePlayToggle}
-            title={isPlaying ? 'Pause Royal Wedding Music' : 'Play Royal Wedding Music (from 00:14)'}
-            aria-label={isPlaying ? 'Pause music' : 'Play music'}
+            title={isPlaying ? 'विवाह संगीत रोकें' : 'विवाह संगीत चालू करें (14 सेकंड से)'}
+            aria-label={isPlaying ? 'संगीत रोकें' : 'संगीत चालू करें'}
           >
             <span className="music-pill-icon" aria-hidden="true">
               {isPlaying ? '🎵' : '▶'}
             </span>
             <span className="music-pill-text">
-              {isPlaying ? 'Royal Shehnai' : 'Play Music'}
+              {isPlaying ? 'मांगलिक शहनाई' : 'संगीत शुरू करें'}
             </span>
 
             {/* Sound Wave Equalizer Bars Animation */}
@@ -228,8 +233,8 @@ export default function MusicPlayer() {
               type="button"
               className="music-mute-trigger"
               onClick={handleMuteToggle}
-              title={isMuted ? 'Unmute Music' : 'Mute Music'}
-              aria-label={isMuted ? 'Unmute music' : 'Mute music'}
+              title={isMuted ? 'आवाज़ चालू करें' : 'आवाज़ बंद करें'}
+              aria-label={isMuted ? 'आवाज़ चालू करें' : 'आवाज़ बंद करें'}
             >
               <span className="mute-icon" aria-hidden="true">
                 {isMuted ? '🔇' : '🔊'}

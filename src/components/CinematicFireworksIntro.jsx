@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 export default function CinematicFireworksIntro({ onComplete }) {
   const canvasRef = useRef(null);
   const [isFadingOut, setIsFadingOut] = useState(false);
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const animFrameIdRef = useRef(null);
 
   // Fireworks Color Palette: Golden, Burgundy, Maroon, Festive Coral, Emerald & Shimmer
@@ -23,8 +24,8 @@ export default function CinematicFireworksIntro({ onComplete }) {
     if (isFadingOut) return;
     setIsFadingOut(true);
 
-    // Attempt to start wedding background music from 00:14 on user exit or automatic transition
-    if (typeof window.playWeddingMusic === 'function') {
+    // If music is not already started, attempt to start wedding music from 00:14
+    if (typeof window.playWeddingMusic === 'function' && !window.isWeddingMusicPlaying) {
       window.playWeddingMusic();
     }
 
@@ -33,6 +34,24 @@ export default function CinematicFireworksIntro({ onComplete }) {
       if (onComplete) onComplete();
     }, 850);
   };
+
+  const handleStartMusic = (e) => {
+    e.stopPropagation();
+    if (typeof window.playWeddingMusic === 'function') {
+      window.playWeddingMusic();
+      setIsMusicPlaying(true);
+    }
+  };
+
+  useEffect(() => {
+    const handleMusicStatus = (e) => {
+      if (e && e.detail) {
+        setIsMusicPlaying(!!e.detail.isPlaying);
+      }
+    };
+    window.addEventListener('weddingMusicStatus', handleMusicStatus);
+    return () => window.removeEventListener('weddingMusicStatus', handleMusicStatus);
+  }, []);
 
   useEffect(() => {
     // Respect user's reduced motion accessibility preference
@@ -252,12 +271,12 @@ export default function CinematicFireworksIntro({ onComplete }) {
           </div>
 
           <div className="fireworks-shubh-vivah">
-            || SHUBH VIVAH ||
+            ॥ शुभ विवाह ॥
           </div>
 
-          {/* Primary Celebration Headings Requested by User */}
+          {/* Primary Celebration Headings in Hindi */}
           <h1 className="fireworks-grand-title">
-            LET THE CELEBRATIONS BEGIN!
+            शुभ विवाह समारोह में आपका हार्दिक स्वागत है
           </h1>
 
           <div className="fireworks-ornament-line">
@@ -267,15 +286,32 @@ export default function CinematicFireworksIntro({ onComplete }) {
           </div>
 
           <h2 className="fireworks-subtitle">
-            DOUBLE THE JOY, DOUBLE THE CELEBRATION
+            खुशियों का दोहरा उत्सव, आनंद की दोहरी सौगात
           </h2>
 
           <p className="fireworks-couples">
-            AKASH &amp; REENA <span className="ampersand">&amp;</span> SHIVANI &amp; DHEERAJ
+            आकाश एवं रीना <span className="ampersand">•</span> शिवानी एवं धीरज
           </p>
 
           <div className="fireworks-date-pill">
-            <span>DECEMBER 2026 • PALI, RAJASTHAN</span>
+            <span>दिसंबर 2026 • पाली, राजस्थान</span>
+          </div>
+
+          {/* User Requested Interactive Music Prompt */}
+          <div className="fireworks-music-prompt-box">
+            <div className="fireworks-music-prompt-text">
+              <span>🎺</span>
+              <span>शहनाई की मधुर धुन सुनने के लिए यहाँ क्लिक करें</span>
+            </div>
+            <button
+              type="button"
+              className="btn-start-music-prompt"
+              onClick={handleStartMusic}
+              title="संगीत शुरू करें (14 सेकंड से)"
+              aria-label="संगीत शुरू करें"
+            >
+              <span>{isMusicPlaying ? '🎵 संगीत बज रहा है' : '▶ संगीत शुरू करें'}</span>
+            </button>
           </div>
 
           {/* Enter & Skip Action */}
@@ -284,9 +320,9 @@ export default function CinematicFireworksIntro({ onComplete }) {
               type="button"
               className="btn-enter-celebration"
               onClick={handleFinish}
-              aria-label="Enter Wedding Invitation"
+              aria-label="आमंत्रण पत्र देखें"
             >
-              <span>ENTER INVITATION</span>
+              <span>आमंत्रण पत्र देखें</span>
               <span className="arrow-icon">➔</span>
             </button>
           </div>
@@ -299,10 +335,10 @@ export default function CinematicFireworksIntro({ onComplete }) {
         type="button"
         className="btn-skip-fireworks"
         onClick={handleFinish}
-        title="Skip Fireworks &amp; Open Invitation"
-        aria-label="Skip introduction animation"
+        title="छोड़ें एवं आमंत्रण देखें"
+        aria-label="छोड़ें"
       >
-        <span>Skip ✕</span>
+        <span>छोड़ें ✕</span>
       </button>
 
     </div>

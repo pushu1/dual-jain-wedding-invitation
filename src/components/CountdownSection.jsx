@@ -57,14 +57,14 @@ export default function CountdownSection() {
         <div className="section-header-flourish">
           <div className="shloka-header-group">
             <span className="shloka-ornament">❖</span>
-            <span className="shloka-text">|| SHUBH MUHURAT ||</span>
+            <span className="shloka-text">॥ शुभ मुहूर्त ॥</span>
             <span className="shloka-ornament">❖</span>
           </div>
           <h2 className="section-title-gold">
-            COUNTING DOWN TO THE AUSPICIOUS MOMENT
+            मंगल घड़ियों की उल्टी गिनती
           </h2>
           <p className="section-subtitle-script">
-            Anticipating the blessed day when two divine couples unite in holy matrimony
+            उस पावन दिन की प्रतीक्षा जब दो जोड़े पवित्र परिणय सूत्र में बंधेंगे
           </p>
           <div className="section-title-divider">
             <span className="divider-line"></span>
@@ -77,12 +77,12 @@ export default function CountdownSection() {
         <div className="countdown-event-meta-banner">
           <div className="meta-badge-date">
             <span className="meta-icon">🗓️</span>
-            <span className="meta-text">12 DECEMBER 2026</span>
+            <span className="meta-text">12 दिसंबर 2026</span>
           </div>
           <div className="meta-separator">✦</div>
           <div className="meta-badge-venue">
             <span className="meta-icon">📍</span>
-            <span className="meta-text">KUMAWAT VATIKA, PALI</span>
+            <span className="meta-text">कुमावत वाटिका, पाली</span>
           </div>
         </div>
 
@@ -96,7 +96,7 @@ export default function CountdownSection() {
                 <div className="countdown-circle-badge">
                   <span className="unit-number">{String(timeLeft.days).padStart(2, '0')}</span>
                 </div>
-                <span className="unit-label">DAYS</span>
+                <span className="unit-label">दिन</span>
               </div>
 
               <div className="countdown-colon-divider" aria-hidden="true">:</div>
@@ -106,7 +106,7 @@ export default function CountdownSection() {
                 <div className="countdown-circle-badge">
                   <span className="unit-number">{String(timeLeft.hours).padStart(2, '0')}</span>
                 </div>
-                <span className="unit-label">HOURS</span>
+                <span className="unit-label">घंटे</span>
               </div>
 
               <div className="countdown-colon-divider" aria-hidden="true">:</div>
@@ -116,7 +116,7 @@ export default function CountdownSection() {
                 <div className="countdown-circle-badge">
                   <span className="unit-number">{String(timeLeft.minutes).padStart(2, '0')}</span>
                 </div>
-                <span className="unit-label">MINUTES</span>
+                <span className="unit-label">मिनट</span>
               </div>
 
               <div className="countdown-colon-divider" aria-hidden="true">:</div>
@@ -126,16 +126,16 @@ export default function CountdownSection() {
                 <div className="countdown-circle-badge seconds-pulse">
                   <span className="unit-number">{String(timeLeft.seconds).padStart(2, '0')}</span>
                 </div>
-                <span className="unit-label">SECONDS</span>
+                <span className="unit-label">सेकंड</span>
               </div>
 
             </div>
           ) : (
             <div className="countdown-completed-banner">
               <span className="completed-sparkles">🎊 👑 🎊</span>
-              <h3 className="completed-title">The Royal Wedding Celebration Has Commenced!</h3>
+              <h3 className="completed-title">शुभ विवाह महोत्सव प्रारंभ हो चुका है!</h3>
               <p className="completed-subtitle">
-                May Lord Shiva and Mata Parvati forever bless Akash &amp; Reena and Shivani &amp; Dheeraj with eternal bliss!
+                भगवान शिव एवं माता पार्वती नवदंपतियों आकाश व रीना तथा शिवानी व धीरज को अखंड सौभाग्य एवं आनंद प्रदान करें!
               </p>
             </div>
           )}
@@ -145,7 +145,7 @@ export default function CountdownSection() {
         <div className="countdown-muhurat-strip">
           <span className="muhurat-icon">🕉️</span>
           <span className="muhurat-text">
-            Auspicious Margashirsha Shukla Paksh • Vedic Wedding Rituals
+            पावन मार्गशीर्ष शुक्ल पक्ष • वैदिक विवाह संस्कार
           </span>
           <span className="muhurat-icon">🕉️</span>
         </div>
