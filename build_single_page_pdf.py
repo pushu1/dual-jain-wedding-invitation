@@ -58,61 +58,61 @@ def create_shiva_parvati_card():
         draw.line([(mid_x + 26, y_pos), (mid_x + w_sep, y_pos)], fill=c_gold_border, width=1)
         draw.text((mid_x, y_pos), "❖", fill=c_gold, font=font_section, anchor="mm")
     
-    # 0. Ganesh Invocation & Divine Blessing
+    # 0. Ganesh Invocation & Divine Blessing (Audited against original card)
     draw.text((mid_x, curr_y), "॥ श्री गणेशाय नमः ॥", fill=c_burgundy, font=font_ganesh, anchor="mt")
     curr_y += 34
-    draw.text((mid_x, curr_y), "भगवान शिव, माता पार्वती एवं हमारे पूज्य पूर्वजों के दिव्य आशीर्वाद से", fill=c_warm_brown, font=font_blessing, anchor="mt")
+    draw.text((mid_x, curr_y), "भगवान शिव, माता पार्वती एवं पूज्य पितरों के पावन आशीर्वाद से", fill=c_warm_brown, font=font_blessing, anchor="mt")
     curr_y += 36
     
     draw_sep(curr_y)
     curr_y += 20
     
-    # 1. First Couple: Akash & Reena
+    # 1. First Couple: Akash & Reena (Exact spellings: गहलोत, जशोदा देवी)
     draw.text((mid_x, curr_y), "— प्रथम पावन परिणय —", fill=c_leaf_green, font=font_section, anchor="mt")
     curr_y += 28
     draw.text((mid_x, curr_y), "आयुष्मान आकाश", fill=c_dark_maroon, font=font_name, anchor="mt")
     curr_y += 38
-    draw.text((mid_x, curr_y), "सुपुत्र श्रीमती अनुराधा एवं श्री कैलाश गेहलोत", fill=c_warm_brown, font=font_parents, anchor="mt")
+    draw.text((mid_x, curr_y), "सुपुत्र : श्रीमती अनुराधा – श्री कैलाश गहलोत", fill=c_warm_brown, font=font_parents, anchor="mt")
     curr_y += 28
     draw.text((mid_x, curr_y), "✦ शुभ विवाह ✦", fill=c_gold, font=font_sang, anchor="mt")
     curr_y += 28
     draw.text((mid_x, curr_y), "आयुष्मती रीना", fill=c_dark_maroon, font=font_name, anchor="mt")
     curr_y += 38
-    draw.text((mid_x, curr_y), "सुपुत्री श्रीमती जसोधा देवी एवं श्री गोपालजी चौहान", fill=c_warm_brown, font=font_parents, anchor="mt")
+    draw.text((mid_x, curr_y), "सुपुत्री : श्रीमती जशोदा देवी – श्री गोपालजी चौहान", fill=c_warm_brown, font=font_parents, anchor="mt")
     curr_y += 28
-    draw.text((mid_x, curr_y), "विवाह दिनांक: गुरुवार, 10 दिसंबर 2026", fill=c_burgundy, font=font_date, anchor="mt")
+    draw.text((mid_x, curr_y), "शुभ विवाह : गुरुवार, 10 दिसंबर 2026", fill=c_burgundy, font=font_date, anchor="mt")
     curr_y += 38
     
     draw_sep(curr_y)
     curr_y += 20
     
-    # 2. Second Couple: Shivani & Dheeraj
+    # 2. Second Couple: Shivani & Dheeraj (Exact spellings: गहलोत, रेणु जी)
     draw.text((mid_x, curr_y), "— द्वितीय पावन परिणय —", fill=c_leaf_green, font=font_section, anchor="mt")
     curr_y += 28
     draw.text((mid_x, curr_y), "आयुष्मती शिवानी (जीनू)", fill=c_dark_maroon, font=font_name, anchor="mt")
     curr_y += 38
-    draw.text((mid_x, curr_y), "सुपुत्री श्रीमती अनुराधा एवं श्री कैलाश गेहलोत", fill=c_warm_brown, font=font_parents, anchor="mt")
+    draw.text((mid_x, curr_y), "सुपुत्री : श्रीमती अनुराधा – श्री कैलाश गहलोत", fill=c_warm_brown, font=font_parents, anchor="mt")
     curr_y += 28
     draw.text((mid_x, curr_y), "✦ शुभ विवाह ✦", fill=c_gold, font=font_sang, anchor="mt")
     curr_y += 28
     draw.text((mid_x, curr_y), "आयुष्मान धीरज जी", fill=c_dark_maroon, font=font_name, anchor="mt")
     curr_y += 38
-    draw.text((mid_x, curr_y), "सुपुत्र श्रीमती रेनू जी एवं श्री मुकेशजी परिहार", fill=c_warm_brown, font=font_parents, anchor="mt")
+    draw.text((mid_x, curr_y), "सुपुत्र : श्रीमती रेणु जी – श्री मुकेशजी परिहार", fill=c_warm_brown, font=font_parents, anchor="mt")
     curr_y += 28
-    draw.text((mid_x, curr_y), "विवाह दिनांक: शनिवार, 12 दिसंबर 2026", fill=c_burgundy, font=font_date, anchor="mt")
+    draw.text((mid_x, curr_y), "शुभ विवाह : शनिवार, 12 दिसंबर 2026", fill=c_burgundy, font=font_date, anchor="mt")
     curr_y += 38
     
     draw_sep(curr_y)
     curr_y += 20
     
-    # 3. Auspicious Venue Details
-    draw.text((mid_x, curr_y), "विवाह स्थल:", fill=c_leaf_green, font=font_venue_lbl, anchor="mt")
+    # 3. Auspicious Venue Details (Audited: कुमावत वाटिका, पुनायता रोड़, पाली)
+    draw.text((mid_x, curr_y), "विवाह स्थल एवं प्रीतिभोज", fill=c_leaf_green, font=font_venue_lbl, anchor="mt")
     curr_y += 26
     draw.text((mid_x, curr_y), "कुमावत वाटिका", fill=c_dark_maroon, font=font_venue_name, anchor="mt")
     curr_y += 34
-    draw.text((mid_x, curr_y), "पुनायता रोड, पाली, राजस्थान", fill=c_warm_brown, font=font_venue_sub, anchor="mt")
+    draw.text((mid_x, curr_y), "पुनायता रोड़, पाली (राजस्थान)", fill=c_warm_brown, font=font_venue_sub, anchor="mt")
     curr_y += 28
-    draw.text((mid_x, curr_y), "भव्य विवाह समारोह: शनिवार, 12 दिसंबर 2026", fill=c_burgundy, font=font_date, anchor="mt")
+    draw.text((mid_x, curr_y), "भव्य विवाह समारोह : शनिवार, 12 दिसंबर 2026", fill=c_burgundy, font=font_date, anchor="mt")
     curr_y += 42
     
     # 4. Animated-styled Clickable Invitation Button
@@ -143,7 +143,7 @@ def build_pdf(output_path, btn_coords):
     page_w, page_h = A4
     c = canvas.Canvas(output_path, pagesize=A4)
     c.setTitle("शुभ विवाह महोत्सव 2026 — आकाश एवं रीना | शिवानी एवं धीरज")
-    c.setAuthor("गेहलोत परिवार, पाली-मारवाड़")
+    c.setAuthor("गहलोत परिवार, पाली-मारवाड़")
     c.setSubject("पावन विवाह आमंत्रण — आयुष्मान आकाश एवं आयुष्मती रीना तथा आयुष्मती शिवानी एवं आयुष्मान धीरज जी")
 
     c_ivory = colors.HexColor('#FFF5E6')
@@ -200,11 +200,11 @@ def verify_single_page_pdf(pdf_path):
         action = obj.get('/A')
         if action and action.get('/URI') == PRODUCTION_URL:
             found_url = True
-    assert found_url, "Production URL not found in PDF annotations!"
+    assert found_url, f"Production URL {PRODUCTION_URL} not found in PDF annotations!"
 
 if __name__ == "__main__":
     btn_coords = create_shiva_parvati_card()
     build_pdf(OUT_PDF, btn_coords)
     build_pdf(OUT_PDF_COPY, btn_coords)
     verify_single_page_pdf(OUT_PDF)
-    print("✓ Successfully built and verified Shiva-Parvati Single-Page PDF with Clickable Link!")
+    print("✓ Successfully built and verified Shiva-Parvati Single-Page PDF with Clickable Link & Verified Spellings!")

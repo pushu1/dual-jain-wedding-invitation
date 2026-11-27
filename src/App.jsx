@@ -9,11 +9,12 @@ import FinalBlessingsFooter from './components/FinalBlessingsFooter';
 import InvitationViewerModal from './components/InvitationViewerModal';
 import MusicPlayer from './components/MusicPlayer';
 import CinematicFireworksIntro from './components/CinematicFireworksIntro';
+import FloatingPetalsCanvas from './components/FloatingPetalsCanvas';
 
 export default function App() {
   const [isViewerOpen, setIsViewerOpen] = useState(false);
 
-  // Requirement 1 & 4: Instant fireworks on website load when opened via PDF link (?celebrate=1)
+  // Requirement: Instant fireworks on website load when opened via PDF link (?celebrate=1)
   const [showFireworks, setShowFireworks] = useState(() => {
     try {
       if (typeof window !== 'undefined') {
@@ -88,6 +89,9 @@ export default function App() {
 
   return (
     <div className="royal-wedding-app">
+      {/* Cinematic Golden Sparkles & Floating Marigold/Rose Petals Canvas */}
+      <FloatingPetalsCanvas />
+
       {/* Background Royal Wedding Music Player (YouTube Video ID: qJFPtcK8qBg from 00:30, independent of fireworks) */}
       <MusicPlayer />
 
@@ -159,10 +163,10 @@ export default function App() {
         {/* SECTION 3: WEDDING CELEBRATIONS & TIMELINE */}
         <WeddingTimeline />
 
-        {/* SECTION 4: WEDDING VENUE */}
+        {/* SECTION 4: WEDDING VENUE & MANDAP */}
         <VenueSection />
 
-        {/* SECTION 5: LIVE WEDDING COUNTDOWN */}
+        {/* SECTION 5: LIVE WEDDING COUNTDOWN & SUNDIAL */}
         <CountdownSection />
 
         {/* SECTION 6: FAMILY BLESSINGS & COMPLIMENTS */}

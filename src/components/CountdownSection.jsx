@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
 export default function CountdownSection() {
-  // Target: Saturday, 12 December 2026, 18:15:00 IST (UTC+5:30)
-  const targetDate = new Date('2026-12-12T18:15:00+05:30').getTime();
+  const [selectedMilestone, setSelectedMilestone] = useState('dec12'); // 'dec10' or 'dec12'
+
+  // Milestone 1: 10 Dec 2026, 12:15 IST (Akash & Reena - Baraat Prasthan & Wedding)
+  // Milestone 2: 12 Dec 2026, 18:15 IST (Shivani & Dheeraj - Grand Wedding & Reception)
+  const targetDate10 = new Date('2026-12-10T12:15:00+05:30').getTime();
+  const targetDate12 = new Date('2026-12-12T18:15:00+05:30').getTime();
+
+  const activeTarget = selectedMilestone === 'dec10' ? targetDate10 : targetDate12;
 
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -15,7 +21,7 @@ export default function CountdownSection() {
   useEffect(() => {
     const calculateTime = () => {
       const now = new Date().getTime();
-      const difference = targetDate - now;
+      const difference = activeTarget - now;
 
       if (difference <= 0) {
         setTimeLeft({
@@ -45,11 +51,27 @@ export default function CountdownSection() {
     calculateTime();
     const interval = setInterval(calculateTime, 1000);
     return () => clearInterval(interval);
-  }, [targetDate]);
+  }, [activeTarget]);
+
+  const makeCalendarUrl = () => {
+    if (selectedMilestone === 'dec10') {
+      const text = encodeURIComponent('आकाश संग रीना शुभ विवाह — समदड़ी');
+      const dates = '20261210T121500/20261210T220000';
+      const details = encodeURIComponent('आयुष्मान आकाश संग आयुष्मती रीना पावन परिणय संस्कार। बारात प्रस्थान दोपहर 12:15 बजे।');
+      const loc = encodeURIComponent('Samdari, Rajasthan');
+      return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${text}&dates=${dates}&details=${details}&location=${loc}`;
+    } else {
+      const text = encodeURIComponent('शिवानी संग धीरज शुभ विवाह एवं भव्य प्रीतिभोज — पाली');
+      const dates = '20261212T181500/20261212T235900';
+      const details = encodeURIComponent('आयुष्मती शिवानी संग आयुष्मान धीरज जी पावन परिणय संस्कार एवं भव्य प्रीतिभोज। स्थल: कुमावत वाटिका, पुनायता रोड़, पाली।');
+      const loc = encodeURIComponent('Kumawat Vatika, Punayata Road, Pali, Rajasthan 306401');
+      return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${text}&dates=${dates}&details=${details}&location=${loc}`;
+    }
+  };
 
   return (
     <section className="wedding-section countdown-section" id="countdown-section">
-      <div className="section-royal-card">
+      <div className="section-royal-card palace-sundial-pavilion">
         <div className="card-border-gold-outer" aria-hidden="true"></div>
         <div className="card-border-gold-inner" aria-hidden="true"></div>
 
@@ -57,14 +79,12 @@ export default function CountdownSection() {
         <div className="section-header-flourish">
           <div className="shloka-header-group">
             <span className="shloka-ornament">❖</span>
-            <span className="shloka-text">॥ शुभ मुहूर्त ॥</span>
+            <span className="shloka-text">॥ शुभ मुहूर्त उल्टी गिनती ॥</span>
             <span className="shloka-ornament">❖</span>
           </div>
-          <h2 className="section-title-gold">
-            मंगल घड़ियों की उल्टी गिनती
-          </h2>
+          <h2 className="section-title-gold">मंगल घड़ियों की पावन प्रतीक्षा</h2>
           <p className="section-subtitle-script">
-            उस पावन दिन की प्रतीक्षा जब दो जोड़े पवित्र परिणय सूत्र में बंधेंगे
+            उस शुभ वेला की ओर अग्रसर जब दो पवित्र युगलों का पावन परिणय सम्पन्न होगा
           </p>
           <div className="section-title-divider">
             <span className="divider-line"></span>
@@ -73,24 +93,54 @@ export default function CountdownSection() {
           </div>
         </div>
 
-        {/* Auspicious Target Date & Venue Banner */}
+        {/* Milestone Selector Tabs */}
+        <div className="countdown-milestone-tabs" role="tablist">
+          <button
+            type="button"
+            role="tab"
+            aria-selected={selectedMilestone === 'dec10'}
+            className={`milestone-tab-btn ${selectedMilestone === 'dec10' ? 'active' : ''}`}
+            onClick={() => setSelectedMilestone('dec10')}
+          >
+            <span className="tab-date">१० दिसंबर २०२६</span>
+            <span className="tab-couple">आकाश संग रीना (प्रथम विवाह)</span>
+          </button>
+
+          <button
+            type="button"
+            role="tab"
+            aria-selected={selectedMilestone === 'dec12'}
+            className={`milestone-tab-btn ${selectedMilestone === 'dec12' ? 'active' : ''}`}
+            onClick={() => setSelectedMilestone('dec12')}
+          >
+            <span className="tab-date">१२ दिसंबर २०२६</span>
+            <span className="tab-couple">शिवानी संग धीरज (मुख्य विवाह व प्रीतिभोज)</span>
+          </button>
+        </div>
+
+        {/* Active Target Banner */}
         <div className="countdown-event-meta-banner">
           <div className="meta-badge-date">
             <span className="meta-icon">🗓️</span>
-            <span className="meta-text">12 दिसंबर 2026</span>
+            <span className="meta-text">
+              {selectedMilestone === 'dec10'
+                ? 'गुरूवार, 10 दिसम्बर 2026 (दोपहर 12:15 बजे)'
+                : 'शनिवार, 12 दिसम्बर 2026 (सायं 6:15 बजे से)'}
+            </span>
           </div>
           <div className="meta-separator">✦</div>
           <div className="meta-badge-venue">
             <span className="meta-icon">📍</span>
-            <span className="meta-text">कुमावत वाटिका, पाली</span>
+            <span className="meta-text">
+              {selectedMilestone === 'dec10' ? 'समदड़ी (श्रीमान ब्याईजी धनराज जी चौहान निवास)' : 'कुमावत वाटिका, पुनायता रोड़, पाली'}
+            </span>
           </div>
         </div>
 
-        {/* Live Countdown Clock Grid */}
+        {/* Live Countdown Clock Grid with Royal Sundial Frame */}
         <div className="countdown-clock-container" aria-live="polite">
           {!timeLeft.isCompleted ? (
-            <div className="countdown-units-grid">
-              
+            <div className="countdown-units-grid sundial-units-grid">
               {/* Days */}
               <div className="countdown-unit-box">
                 <div className="countdown-circle-badge">
@@ -128,28 +178,44 @@ export default function CountdownSection() {
                 </div>
                 <span className="unit-label">सेकंड</span>
               </div>
-
             </div>
           ) : (
             <div className="countdown-completed-banner">
               <span className="completed-sparkles">🎊 👑 🎊</span>
               <h3 className="completed-title">शुभ विवाह महोत्सव प्रारंभ हो चुका है!</h3>
               <p className="completed-subtitle">
-                भगवान शिव एवं माता पार्वती नवदंपतियों आकाश व रीना तथा शिवानी व धीरज को अखंड सौभाग्य एवं आनंद प्रदान करें!
+                भगवान शिव एवं माता पार्वती नवदंपतियों आकाश व रीना तथा शिवानी व धीरज को अखंड सौभाग्य एवं अनंत आनंद प्रदान करें!
               </p>
             </div>
           )}
+        </div>
+
+        {/* Action Button: Add to Google Calendar */}
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+          <a
+            href={makeCalendarUrl()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-add-countdown-cal"
+            title="इस मांगलिक उत्सव को अपने गूगल कैलेंडर में सेव करें"
+          >
+            <span className="btn-cal-icon">📅</span>
+            <span>
+              {selectedMilestone === 'dec10'
+                ? '१० दिसंबर विवाह को कैलेंडर में जोड़ें'
+                : '१२ दिसंबर मुख्य उत्सव को कैलेंडर में जोड़ें'}
+            </span>
+          </a>
         </div>
 
         {/* Auspicious Muhurat Strip */}
         <div className="countdown-muhurat-strip">
           <span className="muhurat-icon">🕉️</span>
           <span className="muhurat-text">
-            पावन मार्गशीर्ष शुक्ल पक्ष • वैदिक विवाह संस्कार
+            वि.सं. 2083 मार्गशीर्ष शुक्ल पक्ष • वैदिक पाणिग्रहण संस्कार
           </span>
           <span className="muhurat-icon">🕉️</span>
         </div>
-
       </div>
     </section>
   );

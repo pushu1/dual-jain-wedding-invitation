@@ -4,7 +4,7 @@ export default function VenueSection() {
   const [copied, setCopied] = useState(false);
 
   const venueName = 'कुमावत वाटिका';
-  const venueAddress = 'पुनायता रोड, पाली, राजस्थान 306401';
+  const venueAddress = 'पुनायता रोड़, पाली (राजस्थान) 306401';
   const mapsUrl = 'https://www.google.com/maps/search/?api=1&query=Kumawat+Vatika+Punayata+Road+Pali+Rajasthan';
 
   const handleCopyAddress = () => {
@@ -16,7 +16,7 @@ export default function VenueSection() {
 
   return (
     <section className="wedding-section reception-venue-section" id="venue-section">
-      <div className="section-royal-card">
+      <div className="section-royal-card mandap-architectural-card">
         <div className="card-border-gold-outer" aria-hidden="true"></div>
         <div className="card-border-gold-inner" aria-hidden="true"></div>
 
@@ -28,10 +28,10 @@ export default function VenueSection() {
             <span className="shloka-ornament">❖</span>
           </div>
           <h2 className="section-title-gold">
-            शुभ विवाह स्थल एवं भव्य प्रीतिभोज
+            शुभ विवाह स्थल एवं आशीर्वाद समारोह
           </h2>
           <p className="section-subtitle-script">
-            जहाँ चार परिवारों का पावन संगम एवं स्नेहिल मिलन होगा
+            जहाँ चार परिवारों का पावन संगम, आत्मीय मिलन एवं वैदिक विवाह संस्कार संपन्न होंगे
           </p>
           <div className="section-title-divider">
             <span className="divider-line"></span>
@@ -40,36 +40,37 @@ export default function VenueSection() {
           </div>
         </div>
 
-        {/* Grand Reception Showcase Card */}
-        <article className="reception-grand-card">
+        {/* Grand Reception Showcase Card with Mandap Arch */}
+        <article className="reception-grand-card royal-mandap-pavilion">
           
           {/* Traditional Wedding Mandap Decorative Arch */}
           <div className="reception-mandap-illustration" aria-hidden="true">
-            <svg viewBox="0 0 500 140" className="mandap-arch-svg" preserveAspectRatio="xMidYMid meet">
+            <svg viewBox="0 0 540 130" className="mandap-arch-svg" preserveAspectRatio="xMidYMid meet">
               <defs>
-                <linearGradient id="goldArchGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <linearGradient id="goldArchGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stopColor="#C9A45C" />
                   <stop offset="50%" stopColor="#B88A3B" />
                   <stop offset="100%" stopColor="#8C6A28" />
                 </linearGradient>
               </defs>
-              {/* Outer Temple Dome & Columns */}
-              <rect x="50" y="30" width="400" height="95" rx="10" fill="rgba(139, 48, 56, 0.05)" />
-              <path d="M 50,45 Q 250,5 450,45" fill="none" stroke="url(#goldArchGrad)" strokeWidth="2.5" />
-              <path d="M 90,45 Q 250,20 410,45" fill="none" stroke="#C9A45C" strokeWidth="1" strokeDasharray="3 3" />
-              {/* Left & Right Floral Pillars */}
-              <line x1="80" y1="45" x2="80" y2="125" stroke="#C9A45C" strokeWidth="3" />
-              <line x1="420" y1="45" x2="420" y2="125" stroke="#C9A45C" strokeWidth="3" />
-              {/* Mandap Kalash Finial */}
-              <circle cx="250" cy="18" r="6" fill="#B88A3B" />
-              <path d="M 245,18 L 250,8 L 255,18 Z" fill="#8B3038" />
+              {/* Outer Pavilion Arch */}
+              <rect x="40" y="24" width="460" height="96" rx="12" fill="rgba(139, 48, 56, 0.04)" stroke="rgba(184, 138, 59, 0.25)" strokeWidth="1" />
+              <path d="M 40,38 Q 270,-4 500,38" fill="none" stroke="url(#goldArchGrad2)" strokeWidth="3" />
+              <path d="M 80,44 Q 270,12 460,44" fill="none" stroke="#C9A45C" strokeWidth="1.2" strokeDasharray="4 3" />
+              {/* Left & Right Floral Pillars with Diya Pots */}
+              <line x1="75" y1="38" x2="75" y2="120" stroke="#B88A3B" strokeWidth="3.5" />
+              <line x1="465" y1="38" x2="465" y2="120" stroke="#B88A3B" strokeWidth="3.5" />
+              {/* Central Mandap Kalash & Flame */}
+              <circle cx="270" cy="14" r="8" fill="#B88A3B" />
+              <path d="M 264,14 L 270,3 L 276,14 Z" fill="#8B3038" />
+              <circle cx="270" cy="2" r="3" fill="#E65100" />
             </svg>
           </div>
 
           {/* Timing & Reception Details Highlight */}
           <div className="reception-timing-box">
             <span className="reception-date-tag">शनिवार, 12 दिसंबर 2026</span>
-            <span className="reception-time-tag">सायं 6:15 बजे से प्रभु इच्छा तक</span>
+            <span className="reception-time-tag">सायं 6:15 बजे से आगमन तक</span>
           </div>
 
           {/* Venue Title & Sacred Address */}
@@ -86,6 +87,22 @@ export default function VenueSection() {
             </p>
           </div>
 
+          {/* Transportation & Procession Bus Notes Grid */}
+          <div className="reception-transport-grid">
+            <div className="transport-note-card">
+              <div className="note-badge">बारात प्रस्थान (समदड़ी)</div>
+              <p className="note-desc">
+                <strong>१० दिसंबर २०२६ (दोपहर १२:१५ बजे)</strong>: समदड़ी में श्रीमान ब्याईजी धनराज जी चौहान के निवास स्थान पर बारात प्रस्थान।
+              </p>
+            </div>
+            <div className="transport-note-card">
+              <div className="note-badge">बारात स्वागत (बालोतरा)</div>
+              <p className="note-desc">
+                <strong>१२ दिसंबर २०२६ (सायं ५:१५ बजे)</strong>: बालोतरा से बारात आगमन पर कुमावत वाटिका, पुनायता रोड़, पाली में भव्य स्वागत।
+              </p>
+            </div>
+          </div>
+
           {/* Action Buttons: Google Maps & Copy Address */}
           <div className="venue-buttons-row">
             <a
@@ -100,6 +117,7 @@ export default function VenueSection() {
             </a>
 
             <button
+              type="button"
               onClick={handleCopyAddress}
               className={`venue-btn btn-copy-address ${copied ? 'copied' : ''}`}
               title="पूरा पता कॉपी करें"

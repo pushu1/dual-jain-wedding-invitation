@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 export default function FamilyBlessingsSection() {
   const [guestName, setGuestName] = useState('');
   const [guestCity, setGuestCity] = useState('');
-  const [blessingMsg, setBlessingMsg] = useState('आकाश एवं रीना तथा शिवानी एवं धीरज को पावन परिणय सूत्र में बंधने पर हार्दिक बधाई एवं अनंत शुभकामनाएँ! दोनों जोड़ों का वैवाहिक जीवन सदैव सुख, समृद्धि और आनंद से परिपूर्ण रहे।');
+  const [blessingMsg, setBlessingMsg] = useState('आकाश एवं रीना तथा शिवानी एवं धीरज को पावन परिणय सूत्र में बंधने पर हार्दिक बधाई एवं अनंत शुभकामनाएँ! दोनों युगलों का वैवाहिक जीवन सदैव सुख, समृद्धि और आनंद से परिपूर्ण रहे।');
   const [sentSuccess, setSentSuccess] = useState(false);
 
   const phone1 = '+919214537106'; // Kailashchandra Gehlot
@@ -20,16 +20,16 @@ export default function FamilyBlessingsSection() {
 
   return (
     <section className="wedding-section family-compliments-section" id="family-section">
-      <div className="section-royal-card">
-        <div className="card-border-gold-outer"></div>
-        <div className="card-border-gold-inner"></div>
+      <div className="section-royal-card family-darbar-card">
+        <div className="card-border-gold-outer" aria-hidden="true"></div>
+        <div className="card-border-gold-inner" aria-hidden="true"></div>
 
         {/* Section Header */}
         <div className="section-header-flourish">
           <span className="shloka-text">॥ सस्नेह निमंत्रण ॥</span>
           <h2 className="section-title-gold">दर्शनाभिलाषी एवं विनीत</h2>
           <p className="section-subtitle-script">
-            गहलोत परिवार एवं समस्त स्नेही स्वजन, पाली (मारवाड़)
+            गहलोत परिवार एवं समस्त स्नेही स्वजन, पाली–मारवाड़ (राजस्थान)
           </p>
           <div className="section-title-divider">
             <span className="divider-line"></span>
@@ -41,12 +41,46 @@ export default function FamilyBlessingsSection() {
         {/* Traditional Welcome Quote Inscription */}
         <div className="family-invitation-quote-box" style={{ maxWidth: '780px', margin: '0 auto 28px' }}>
           <p className="quote-text" style={{ fontStyle: 'italic', color: 'var(--c-headings)', fontSize: '15.5px' }}>
-            “स्नेह भरा निमंत्रण भेजा है, आदर सहित स्वीकार करें;<br />
-            पावन यह अवसर अनुपम है, पधारकर हमें कृतार्थ करें।”
+            “लिख्यों निमंत्रण प्रेमसू, आवारी फर्सी राखजो ।<br />
+            मौको बडो अनमोल है, थोडी सी फुर्सत राखजो ॥”
           </p>
           <p className="quote-text" style={{ marginTop: '12px', fontSize: '14.5px' }}>
-            भगवान श्री विनायक एवं पूज्य पितरों के पावन आशीर्वाद से, <strong>गहलोत परिवार</strong> आप सभी आत्मीय स्नेहीजनों को <strong>आकाश एवं रीना</strong> तथा <strong>शिवानी एवं धीरज</strong> के पावन विवाह समारोह में सपरिवार सादर आमंत्रित करता है।
+            भगवान शिव एवं माता पार्वती तथा पूज्य पितरों के पावन आशीर्वाद से, <strong>गहलोत परिवार</strong> आप सभी आत्मीय स्नेहीजनों को <strong>आकाश एवं रीना</strong> तथा <strong>शिवानी एवं धीरज</strong> के पावन परिणयोत्सव में सपरिवार सादर आमंत्रित करता है।
           </p>
+        </div>
+
+        {/* Sweet Child Inviter & Awaiting Eyes Showcase */}
+        <div className="bal-manuhar-card-wrapper" style={{ maxWidth: '780px', margin: '0 auto 30px' }}>
+          <div className="bal-manuhar-box">
+            <div className="manuhar-badge">👶 मिठी मनुहार</div>
+            <blockquote className="manuhar-quote">
+              “म्‍हारे मामा व मासी की शादी में जलूल–जलूल पधारजों सा”
+            </blockquote>
+            <p className="manuhar-child-name">कुंवर राज सोलंकी (लाडु)</p>
+          </div>
+
+          <div className="awaiting-children-strip">
+            <span className="awaiting-label">✨ निहारती पलके :</span>
+            <span className="awaiting-names">
+              जानवी, पिहु, अधिश्री, स्वरूपा, यक्षिता, परी, यशवी, तनुश्री, कोमल, वीरा
+            </span>
+          </div>
+        </div>
+
+        {/* Special Blessings & Guests Row */}
+        <div className="special-mentions-grid" style={{ maxWidth: '780px', margin: '0 auto 30px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '14px' }}>
+          <div className="mention-item-card">
+            <h4 className="mention-title">विशेष आशीर्वाद</h4>
+            <p className="mention-text">दुर्गा देवी, कमला देवी, अन्नू देवी</p>
+          </div>
+          <div className="mention-item-card">
+            <h4 className="mention-title">विशेष अतिथि</h4>
+            <p className="mention-text">दिनेशजी (भोपाजी), संजय जी राठौड़</p>
+          </div>
+          <div className="mention-item-card">
+            <h4 className="mention-title">विशेष अनुरोध</h4>
+            <p className="mention-text">राकेशजी, राजेशजी, विनोदजी</p>
+          </div>
         </div>
 
         {/* Host Contacts Cards */}
@@ -60,7 +94,7 @@ export default function FamilyBlessingsSection() {
             </div>
 
             <h3 className="host-name">श्री कैलाशचंद्र गहलोत</h3>
-            <p className="host-relation">पिता: आकाश एवं शिवानी</p>
+            <p className="host-relation">सुपुत्र स्व. श्री मदनलालजी गहलोत</p>
 
             <div className="host-contact-action-row">
               <a href={`tel:${phone1}`} className="contact-action-btn btn-call" title="कॉल करें">
@@ -139,7 +173,7 @@ export default function FamilyBlessingsSection() {
                 <input
                   type="text"
                   className="royal-text-input"
-                  placeholder="उदा. पाली, जोधपुर, बालोतरा, जयपुर"
+                  placeholder="उदा. पाली, जोधपुर, बालोतरा, समदड़ी"
                   value={guestCity}
                   onChange={(e) => setGuestCity(e.target.value)}
                 />

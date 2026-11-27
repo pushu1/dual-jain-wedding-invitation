@@ -35,7 +35,7 @@ export default function WeddingHero({ onEnterInvitation }) {
 
   return (
     <section className="wedding-hero-section" id="hero-section">
-      {/* Decorative Traditional Arch & Temple Top Frame */}
+      {/* Decorative Traditional Palace Arch Header */}
       <div className="hero-temple-arch-frame" aria-hidden="true">
         <svg viewBox="0 0 500 120" className="temple-arch-svg" preserveAspectRatio="none">
           <path
@@ -53,7 +53,7 @@ export default function WeddingHero({ onEnterInvitation }) {
 
       <div className="hero-content-wrapper">
         
-        {/* Lord Shiva & Mata Parvati Sacred Artwork Crown */}
+        {/* Lord Shiva & Mata Parvati Sacred Artwork Crown in Royal Palace Jharokha */}
         <div className="hero-divine-crown-frame">
           <div className="divine-artwork-jharokha">
             <img
@@ -67,18 +67,24 @@ export default function WeddingHero({ onEnterInvitation }) {
           </div>
         </div>
 
-        {/* Sacred Lord Ganesha Invocation */}
-        <div className="hero-invocation-group">
-          <div className="hero-ganesha-emblem">
-            <img
-              src="assets/champagne_ganesha_bright.png"
-              alt="भगवान श्री गणेश"
-              className="hero-ganesha-img"
-              width="48"
-              height="48"
-            />
-          </div>
-          <div className="hero-shloka-text">॥ श्री गणेशाय नमः ॥</div>
+        {/* Sacred Traditional Invocations Audited from Original Reference Cards */}
+        <div className="hero-pantheon-invocations">
+          <span>॥ श्री बाण माता नमः ॥</span>
+          <span className="dot-sep">•</span>
+          <span>॥ श्री गणेशाय नमः ॥</span>
+          <span className="dot-sep">•</span>
+          <span>॥ श्री माजीसा नमः ॥</span>
+          <span className="dot-sep">•</span>
+          <span>॥ श्री भोमियाजी नमः ॥</span>
+          <span className="dot-sep">•</span>
+          <span>॥ श्री पितरदेवाय नमः ॥</span>
+        </div>
+
+        {/* Traditional Marwari Invitation Couplet from Card */}
+        <div className="hero-traditional-marwari-verse">
+          <span className="verse-flourish">“</span>
+          <span>लिख्यों निमंत्रण प्रेमसू, आवारी फर्सी राखजो । मौको बडो अनमोल है, थोडी सी फुर्सत राखजो ॥</span>
+          <span className="verse-flourish">”</span>
         </div>
 
         {/* Main Royal Heading */}
@@ -92,11 +98,11 @@ export default function WeddingHero({ onEnterInvitation }) {
           </div>
           <h1 className="hero-grand-title">॥ विवाह आमंत्रण ॥</h1>
           <p className="hero-divine-subtitle">
-            भगवान शिव, माता पार्वती एवं हमारे पूज्य पूर्वजों के दिव्य आशीर्वाद से
+            भगवान शिव, माता पार्वती, श्री विनायक जी महाराज एवं पूज्य पितरों के पावन आशीर्वाद से
           </p>
         </div>
 
-        {/* Symmetrical Dual-Couples Composition with Large Mobile Typography */}
+        {/* Symmetrical Dual-Couples Composition with Verified Names and Large Mobile Typography */}
         <div className="hero-couples-showcase-card">
           
           {/* Couple 1: Akash & Reena */}
@@ -106,7 +112,7 @@ export default function WeddingHero({ onEnterInvitation }) {
               आयुष्मान आकाश
             </h2>
             <div className="couple-parents-line">
-              सुपुत्र श्रीमती अनुराधा एवं श्री कैलाश गेहलोत
+              सुपुत्र : श्रीमती अनुराधा – श्री कैलाश गहलोत
             </div>
             <div className="couple-subh-vivah-badge">
               ✦ शुभ विवाह ✦
@@ -115,10 +121,10 @@ export default function WeddingHero({ onEnterInvitation }) {
               आयुष्मती रीना
             </h2>
             <div className="couple-parents-line">
-              सुपुत्री श्रीमती जसोधा देवी एवं श्री गोपालजी चौहान
+              सुपुत्री : श्रीमती जशोदा देवी – श्री गोपालजी चौहान
             </div>
             <div className="couple-date-tag">
-              विवाह दिनांक: गुरुवार, 10 दिसंबर 2026
+              शुभ विवाह : गुरुवार, 10 दिसंबर 2026
             </div>
           </div>
 
@@ -139,7 +145,7 @@ export default function WeddingHero({ onEnterInvitation }) {
               आयुष्मती शिवानी (जीनू)
             </h2>
             <div className="couple-parents-line">
-              सुपुत्री श्रीमती अनुराधा एवं श्री कैलाश गेहलोत
+              सुपुत्री : श्रीमती अनुराधा – श्री कैलाश गहलोत
             </div>
             <div className="couple-subh-vivah-badge">
               ✦ शुभ विवाह ✦
@@ -148,10 +154,10 @@ export default function WeddingHero({ onEnterInvitation }) {
               आयुष्मान धीरज जी
             </h2>
             <div className="couple-parents-line">
-              सुपुत्र श्रीमती रेनू जी एवं श्री मुकेशजी परिहार
+              सुपुत्र : श्रीमती रेणु जी – श्री मुकेशजी परिहार
             </div>
             <div className="couple-date-tag">
-              विवाह दिनांक: शनिवार, 12 दिसंबर 2026
+              शुभ विवाह : शनिवार, 12 दिसंबर 2026
             </div>
           </div>
 
@@ -159,17 +165,17 @@ export default function WeddingHero({ onEnterInvitation }) {
 
         {/* Auspicious Wedding Venue Section */}
         <div className="hero-venue-announcement-banner">
-          <div className="venue-title-label">विवाह स्थल:</div>
+          <div className="venue-title-label">विवाह स्थल एवं प्रीतिभोज :</div>
           <div className="banner-venue-location">
             <span className="pin-icon">📍</span>
             <span className="venue-name-bold">कुमावत वाटिका</span>
           </div>
           <div className="banner-venue-address">
-            पुनायता रोड, पाली, राजस्थान
+            पुनायता रोड़, पाली (राजस्थान)
           </div>
           <div className="banner-date-highlight">
             <span className="cal-icon">🗓️</span>
-            <span className="date-str">भव्य विवाह समारोह: शनिवार, 12 दिसंबर 2026</span>
+            <span className="date-str">मुख्य विवाह समारोह : शनिवार, 12 दिसंबर 2026</span>
           </div>
         </div>
 
@@ -190,7 +196,7 @@ export default function WeddingHero({ onEnterInvitation }) {
           </button>
         </div>
 
-        {/* User-Requested Beautifully Animated CLICK HERE Invitation Button */}
+        {/* Beautifully Animated CLICK HERE Invitation Button */}
         <div className="hero-animated-button-stage">
           {/* Golden Sparkling Stars Particle Glow Container */}
           <div className="sparkle-stars-cluster" aria-hidden="true">

@@ -6,9 +6,9 @@ export default function InvitationViewerModal({ isOpen, onClose }) {
   const modalRef = useRef(null);
 
   const coverPage = {
-    src: 'assets/dual-jain-wedding-invitation-cover.png',
-    title: 'Single-Page Digital Wedding Invitation Cover',
-    sub: 'Akash & Reena • Shivani & Dheeraj • Saturday, 12 December 2026 • Pali'
+    src: 'assets/shiva_parvati_wedding_card.png',
+    title: 'एक-पृष्ठीय डिजिटल विवाह आमंत्रण पत्रिका',
+    sub: 'आकाश एवं रीना • शिवानी एवं धीरज • शनिवार, 12 दिसंबर 2026 • पाली'
   };
 
   const pdfUrl = 'dual-jain-wedding-invitation.pdf';
