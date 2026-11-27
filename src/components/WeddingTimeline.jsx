@@ -145,9 +145,9 @@ export default function WeddingTimeline() {
   };
 
   return (
-    <section className="wedding-section timeline-section" id="events-section">
-      <div className="section-royal-card heritage-timeline-card">
-        <div className="card-border-gold-outer" aria-hidden="true"></div>
+    <section className="wedding-section timeline-section 3d-timeline-section" id="events-section">
+      <div className="section-royal-card heritage-timeline-card 3d-heritage-timeline">
+        <div className="card-border-gold-outer 3d-bevel-gold" aria-hidden="true"></div>
         <div className="card-border-gold-inner" aria-hidden="true"></div>
 
         {/* Section Header with Invocations from Card Image 2 */}
@@ -163,7 +163,7 @@ export default function WeddingTimeline() {
             रिद्धी सिद्धी सहित पधारजो पुरण करजो काज ॥”
           </p>
 
-          <h2 className="section-title-gold">मांगलिक कार्यक्रम विवरण</h2>
+          <h2 className="section-title-gold 3d-gold-title">मांगलिक कार्यक्रम विवरण</h2>
           <p className="section-subtitle-script">
             समस्त वैदिक रस्में, मांगलिक मुहूर्त एवं पावन संस्कारों की समय-सारणी
           </p>
@@ -175,90 +175,90 @@ export default function WeddingTimeline() {
         </div>
 
         {/* Day Filter Pills */}
-        <nav className="timeline-filter-pills-row" aria-label="मांगलिक दिवस चयन">
+        <nav className="timeline-filter-pills-row 3d-filter-pills" aria-label="मांगलिक दिवस चयन">
           <button
             type="button"
-            className={`timeline-filter-btn ${activeDay === 'all' ? 'active' : ''}`}
+            className={`timeline-filter-btn 3d-filter-btn ${activeDay === 'all' ? 'active' : ''}`}
             onClick={() => setActiveDay('all')}
           >
             सभी ९ कार्यक्रम
           </button>
           <button
             type="button"
-            className={`timeline-filter-btn ${activeDay === 'day1' ? 'active' : ''}`}
+            className={`timeline-filter-btn 3d-filter-btn ${activeDay === 'day1' ? 'active' : ''}`}
             onClick={() => setActiveDay('day1')}
           >
             सोम, 7 दिस
           </button>
           <button
             type="button"
-            className={`timeline-filter-btn ${activeDay === 'day2' ? 'active' : ''}`}
+            className={`timeline-filter-btn 3d-filter-btn ${activeDay === 'day2' ? 'active' : ''}`}
             onClick={() => setActiveDay('day2')}
           >
             मंगल, 8 दिस
           </button>
           <button
             type="button"
-            className={`timeline-filter-btn ${activeDay === 'day3' ? 'active' : ''}`}
+            className={`timeline-filter-btn 3d-filter-btn ${activeDay === 'day3' ? 'active' : ''}`}
             onClick={() => setActiveDay('day3')}
           >
             बुध, 9 दिस
           </button>
           <button
             type="button"
-            className={`timeline-filter-btn ${activeDay === 'day4' ? 'active' : ''}`}
+            className={`timeline-filter-btn 3d-filter-btn ${activeDay === 'day4' ? 'active' : ''}`}
             onClick={() => setActiveDay('day4')}
           >
             गुरु, 10 दिस
           </button>
           <button
             type="button"
-            className={`timeline-filter-btn ${activeDay === 'day5' ? 'active' : ''}`}
+            className={`timeline-filter-btn 3d-filter-btn ${activeDay === 'day5' ? 'active' : ''}`}
             onClick={() => setActiveDay('day5')}
           >
             शनि, 12 दिस (मुख्य)
           </button>
         </nav>
 
-        {/* Illuminated Curved Pathway Timeline */}
-        <div className="vertical-alternating-timeline illuminated-pathway">
-          <div className="timeline-central-spine" aria-hidden="true"></div>
+        {/* 3D Illuminated Curved Pathway Timeline */}
+        <div className="vertical-alternating-timeline illuminated-pathway 3d-pathway">
+          <div className="timeline-central-spine 3d-golden-spine" aria-hidden="true"></div>
 
           {filteredEvents.map((ev, idx) => {
             const isEven = idx % 2 === 0;
             return (
               <div
                 key={ev.id}
-                className={`timeline-alternating-row ${isEven ? 'row-left' : 'row-right'}`}
+                className={`timeline-alternating-row ${isEven ? 'row-left' : 'row-right'} 3d-timeline-row`}
               >
-                {/* Center Diya/Kalash Node Marker */}
-                <div className="timeline-center-node">
-                  <div className="node-icon-circle glowing-diya-node" title={ev.title}>
+                {/* Center Diya/Kalash 3D Node Marker */}
+                <div className="timeline-center-node 3d-node-marker">
+                  <div className="node-icon-circle glowing-diya-node 3d-diya-globe" title={ev.title}>
                     <span className="node-emoji">{ev.icon}</span>
                   </div>
-                  <span className="node-number-tag">{ev.num}</span>
+                  <span className="node-number-tag 3d-node-num">{ev.num}</span>
                 </div>
 
-                {/* Event Card Block */}
+                {/* Event Card Block with 3D Depth */}
                 <div className="timeline-event-card-wrap">
-                  <article className="timeline-event-card architectural-event-card">
+                  <article className="timeline-event-card architectural-event-card 3d-event-card">
                     <div className="event-card-header">
-                      <span className="event-badge-tag">{ev.badge}</span>
+                      <span className="event-badge-tag 3d-event-badge">{ev.badge}</span>
                       <span className="event-date-chip">{ev.dateStr}</span>
                     </div>
 
                     <div className="event-time-row">
                       <span className="time-clock-icon">⏰</span>
-                      <strong className="time-text">{ev.timeStr}</strong>
+                      <strong className="time-text 3d-time-text">{ev.timeStr}</strong>
                       <span className="day-name">({ev.dayLabel.split(',')[0]?.trim()})</span>
                     </div>
 
-                    <h3 className="event-card-title">{ev.title}</h3>
+                    <h3 className="event-card-title 3d-event-title">{ev.title}</h3>
                     <p className="event-card-desc">{ev.desc}</p>
 
                     {/* Official Bus / Travel Note from Card */}
                     {ev.note && (
-                      <div className="event-bus-note-box">
+                      <div className="event-bus-note-box 3d-note-box">
                         <span className="note-icon">ℹ️</span>
                         <span className="note-text">{ev.note}</span>
                       </div>
@@ -269,7 +269,7 @@ export default function WeddingTimeline() {
                         href={makeGoogleCalendarUrl(ev)}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn-add-calendar"
+                        className="btn-add-calendar 3d-cal-btn"
                         title={`${ev.title} को गूगल कैलेंडर में जोड़ें`}
                       >
                         <span className="cal-icon">📅</span>
@@ -284,8 +284,8 @@ export default function WeddingTimeline() {
         </div>
 
         {/* Reception Highlight Strip Directly in Timeline */}
-        <div className="timeline-reception-highlight-banner">
-          <div className="highlight-icon">👑</div>
+        <div className="timeline-reception-highlight-banner 3d-reception-highlight">
+          <div className="highlight-icon 3d-crown-icon">👑</div>
           <div className="highlight-content">
             <h4 className="highlight-title">आशीर्वाद समारोह व प्रीतिभोज</h4>
             <p className="highlight-time">12 दिसंबर 2026, शनिवार — सायं 6:15 बजे से आगमन तक</p>

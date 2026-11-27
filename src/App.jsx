@@ -77,14 +77,14 @@ export default function App() {
     }
     // 2. Trigger celebration fireworks greeting
     setShowFireworks(true);
+    // 3. Smoothly scroll down to complete wedding invitation
+    setTimeout(() => {
+      scrollTo('couples-section');
+    }, 350);
   };
 
   const handleFireworksComplete = () => {
     setShowFireworks(false);
-    // Smoothly scroll down to complete wedding invitation
-    setTimeout(() => {
-      scrollTo('couples-section');
-    }, 200);
   };
 
   return (

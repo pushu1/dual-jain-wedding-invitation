@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 export default function CountdownSection() {
-  const [selectedMilestone, setSelectedMilestone] = useState('dec12'); // 'dec10' or 'dec12'
+  const [selectedMilestone, setSelectedMilestone] = useState('dec12'); // 'dec12' or 'dec10'
 
-  // Milestone 1: 10 Dec 2026, 12:15 IST (Akash & Reena - Baraat Prasthan & Wedding)
+  // Milestone 1: 10 Dec 2026, 12:15 IST (Akash & Reena - Baraat Prasthan)
   // Milestone 2: 12 Dec 2026, 18:15 IST (Shivani & Dheeraj - Grand Wedding & Reception)
   const targetDate10 = new Date('2026-12-10T12:15:00+05:30').getTime();
   const targetDate12 = new Date('2026-12-12T18:15:00+05:30').getTime();
@@ -70,9 +70,9 @@ export default function CountdownSection() {
   };
 
   return (
-    <section className="wedding-section countdown-section" id="countdown-section">
-      <div className="section-royal-card palace-sundial-pavilion">
-        <div className="card-border-gold-outer" aria-hidden="true"></div>
+    <section className="wedding-section countdown-section 3d-countdown-section" id="countdown-section">
+      <div className="section-royal-card palace-sundial-pavilion 3d-sundial-card">
+        <div className="card-border-gold-outer 3d-bevel-gold" aria-hidden="true"></div>
         <div className="card-border-gold-inner" aria-hidden="true"></div>
 
         {/* Section Header */}
@@ -82,7 +82,7 @@ export default function CountdownSection() {
             <span className="shloka-text">॥ शुभ मुहूर्त उल्टी गिनती ॥</span>
             <span className="shloka-ornament">❖</span>
           </div>
-          <h2 className="section-title-gold">मंगल घड़ियों की पावन प्रतीक्षा</h2>
+          <h2 className="section-title-gold 3d-gold-title">मंगल घड़ियों की पावन प्रतीक्षा</h2>
           <p className="section-subtitle-script">
             उस शुभ वेला की ओर अग्रसर जब दो पवित्र युगलों का पावन परिणय सम्पन्न होगा
           </p>
@@ -94,93 +94,95 @@ export default function CountdownSection() {
         </div>
 
         {/* Milestone Selector Tabs */}
-        <div className="countdown-milestone-tabs" role="tablist">
-          <button
-            type="button"
-            role="tab"
-            aria-selected={selectedMilestone === 'dec10'}
-            className={`milestone-tab-btn ${selectedMilestone === 'dec10' ? 'active' : ''}`}
-            onClick={() => setSelectedMilestone('dec10')}
-          >
-            <span className="tab-date">१० दिसंबर २०२६</span>
-            <span className="tab-couple">आकाश संग रीना (प्रथम विवाह)</span>
-          </button>
-
+        <div className="countdown-milestone-tabs 3d-milestone-tabs" role="tablist">
           <button
             type="button"
             role="tab"
             aria-selected={selectedMilestone === 'dec12'}
-            className={`milestone-tab-btn ${selectedMilestone === 'dec12' ? 'active' : ''}`}
+            className={`milestone-tab-btn 3d-tab-btn ${selectedMilestone === 'dec12' ? 'active' : ''}`}
             onClick={() => setSelectedMilestone('dec12')}
           >
             <span className="tab-date">१२ दिसंबर २०२६</span>
             <span className="tab-couple">शिवानी संग धीरज (मुख्य विवाह व प्रीतिभोज)</span>
           </button>
+
+          <button
+            type="button"
+            role="tab"
+            aria-selected={selectedMilestone === 'dec10'}
+            className={`milestone-tab-btn 3d-tab-btn ${selectedMilestone === 'dec10' ? 'active' : ''}`}
+            onClick={() => setSelectedMilestone('dec10')}
+          >
+            <span className="tab-date">१० दिसंबर २०२६</span>
+            <span className="tab-couple">आकाश संग रीना (प्रथम विवाह)</span>
+          </button>
         </div>
 
         {/* Active Target Banner */}
-        <div className="countdown-event-meta-banner">
+        <div className="countdown-event-meta-banner 3d-meta-banner">
           <div className="meta-badge-date">
             <span className="meta-icon">🗓️</span>
             <span className="meta-text">
-              {selectedMilestone === 'dec10'
-                ? 'गुरूवार, 10 दिसम्बर 2026 (दोपहर 12:15 बजे)'
-                : 'शनिवार, 12 दिसम्बर 2026 (सायं 6:15 बजे से)'}
+              {selectedMilestone === 'dec12'
+                ? 'शनिवार, 12 दिसम्बर 2026 (सायं 6:15 बजे से)'
+                : 'गुरूवार, 10 दिसम्बर 2026 (दोपहर 12:15 बजे)'}
             </span>
           </div>
           <div className="meta-separator">✦</div>
           <div className="meta-badge-venue">
             <span className="meta-icon">📍</span>
             <span className="meta-text">
-              {selectedMilestone === 'dec10' ? 'समदड़ी (श्रीमान ब्याईजी धनराज जी चौहान निवास)' : 'कुमावत वाटिका, पुनायता रोड़, पाली'}
+              {selectedMilestone === 'dec12' ? 'कुमावत वाटिका, पुनायता रोड़, पाली' : 'समदड़ी (श्रीमान ब्याईजी धनराज जी चौहान निवास)'}
             </span>
           </div>
         </div>
 
-        {/* Live Countdown Clock Grid with Royal Sundial Frame */}
+        {/* Live Countdown Clock Grid with 3D Dimensional Metallic Gold Numbers */}
         <div className="countdown-clock-container" aria-live="polite">
           {!timeLeft.isCompleted ? (
-            <div className="countdown-units-grid sundial-units-grid">
+            <div className="countdown-units-grid sundial-units-grid 3d-units-grid">
+              
               {/* Days */}
-              <div className="countdown-unit-box">
-                <div className="countdown-circle-badge">
-                  <span className="unit-number">{String(timeLeft.days).padStart(2, '0')}</span>
+              <div className="countdown-unit-box 3d-unit-box">
+                <div className="countdown-circle-badge 3d-gold-circle">
+                  <span className="unit-number 3d-metallic-number">{String(timeLeft.days).padStart(2, '0')}</span>
                 </div>
-                <span className="unit-label">दिन</span>
+                <span className="unit-label 3d-unit-label">दिन</span>
               </div>
 
-              <div className="countdown-colon-divider" aria-hidden="true">:</div>
+              <div className="countdown-colon-divider 3d-colon-divider" aria-hidden="true">:</div>
 
               {/* Hours */}
-              <div className="countdown-unit-box">
-                <div className="countdown-circle-badge">
-                  <span className="unit-number">{String(timeLeft.hours).padStart(2, '0')}</span>
+              <div className="countdown-unit-box 3d-unit-box">
+                <div className="countdown-circle-badge 3d-gold-circle">
+                  <span className="unit-number 3d-metallic-number">{String(timeLeft.hours).padStart(2, '0')}</span>
                 </div>
-                <span className="unit-label">घंटे</span>
+                <span className="unit-label 3d-unit-label">घंटे</span>
               </div>
 
-              <div className="countdown-colon-divider" aria-hidden="true">:</div>
+              <div className="countdown-colon-divider 3d-colon-divider" aria-hidden="true">:</div>
 
               {/* Minutes */}
-              <div className="countdown-unit-box">
-                <div className="countdown-circle-badge">
-                  <span className="unit-number">{String(timeLeft.minutes).padStart(2, '0')}</span>
+              <div className="countdown-unit-box 3d-unit-box">
+                <div className="countdown-circle-badge 3d-gold-circle">
+                  <span className="unit-number 3d-metallic-number">{String(timeLeft.minutes).padStart(2, '0')}</span>
                 </div>
-                <span className="unit-label">मिनट</span>
+                <span className="unit-label 3d-unit-label">मिनट</span>
               </div>
 
-              <div className="countdown-colon-divider" aria-hidden="true">:</div>
+              <div className="countdown-colon-divider 3d-colon-divider" aria-hidden="true">:</div>
 
               {/* Seconds */}
-              <div className="countdown-unit-box">
-                <div className="countdown-circle-badge seconds-pulse">
-                  <span className="unit-number">{String(timeLeft.seconds).padStart(2, '0')}</span>
+              <div className="countdown-unit-box 3d-unit-box">
+                <div className="countdown-circle-badge 3d-gold-circle seconds-pulse">
+                  <span className="unit-number 3d-metallic-number">{String(timeLeft.seconds).padStart(2, '0')}</span>
                 </div>
-                <span className="unit-label">सेकंड</span>
+                <span className="unit-label 3d-unit-label">सेकंड</span>
               </div>
+
             </div>
           ) : (
-            <div className="countdown-completed-banner">
+            <div className="countdown-completed-banner 3d-completed-banner">
               <span className="completed-sparkles">🎊 👑 🎊</span>
               <h3 className="completed-title">शुभ विवाह महोत्सव प्रारंभ हो चुका है!</h3>
               <p className="completed-subtitle">
@@ -191,25 +193,25 @@ export default function CountdownSection() {
         </div>
 
         {/* Action Button: Add to Google Calendar */}
-        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+        <div style={{ textAlign: 'center', marginTop: '24px' }}>
           <a
             href={makeCalendarUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-add-countdown-cal"
+            className="btn-add-countdown-cal 3d-cal-button"
             title="इस मांगलिक उत्सव को अपने गूगल कैलेंडर में सेव करें"
           >
             <span className="btn-cal-icon">📅</span>
             <span>
-              {selectedMilestone === 'dec10'
-                ? '१० दिसंबर विवाह को कैलेंडर में जोड़ें'
-                : '१२ दिसंबर मुख्य उत्सव को कैलेंडर में जोड़ें'}
+              {selectedMilestone === 'dec12'
+                ? '१२ दिसंबर मुख्य उत्सव को कैलेंडर में जोड़ें'
+                : '१० दिसंबर विवाह को कैलेंडर में जोड़ें'}
             </span>
           </a>
         </div>
 
         {/* Auspicious Muhurat Strip */}
-        <div className="countdown-muhurat-strip">
+        <div className="countdown-muhurat-strip 3d-muhurat-strip">
           <span className="muhurat-icon">🕉️</span>
           <span className="muhurat-text">
             वि.सं. 2083 मार्गशीर्ष शुक्ल पक्ष • वैदिक पाणिग्रहण संस्कार

@@ -6,50 +6,51 @@ export default function FinalBlessingsFooter({ onOpenCardViewer, onDownloadPDF }
   };
 
   return (
-    <footer className="wedding-final-blessings-footer" id="footer-section">
-      {/* Animated Golden Flowers Floating Band */}
-      <div className="footer-golden-flowers-band" aria-hidden="true">
+    <footer className="wedding-final-blessings-footer 3d-closing-scene" id="footer-section">
+      {/* Animated 3D Floating Flowers Band */}
+      <div className="footer-golden-flowers-band 3d-flower-band" aria-hidden="true">
         <span className="floating-flower fl-1">🌸</span>
         <span className="floating-flower fl-2">✨</span>
         <span className="floating-flower fl-3">🌺</span>
         <span className="floating-flower fl-4">✨</span>
         <span className="floating-flower fl-5">🌸</span>
+        <span className="floating-flower fl-6">✨</span>
       </div>
 
-      <div className="footer-content-container">
+      <div className="footer-content-container 3d-footer-container">
         
-        {/* Lord Ganesha Small Emblem */}
-        <div className="footer-ganesha-wrapper">
+        {/* Lord Ganesha Radiant 3D Emblem */}
+        <div className="footer-ganesha-wrapper 3d-ganesha-wrapper">
           <img
             src="assets/champagne_ganesha_bright.png"
             alt="Lord Ganesha"
-            className="footer-ganesha-img"
+            className="footer-ganesha-img 3d-ganesha-img"
           />
         </div>
 
         {/* Sacred Shloka in Hindi */}
-        <div className="footer-sacred-blessing">
+        <div className="footer-sacred-blessing 3d-sacred-blessing">
           ॥ ॐ श्री गणेशाय नमः • शुभं भवतु ॥
         </div>
 
-        {/* Golden Quote */}
-        <blockquote className="footer-treasured-quote">
+        {/* Traditional Vedic Blessing Couplet */}
+        <blockquote className="footer-treasured-quote 3d-treasured-quote">
           “आपकी गरिमामयी उपस्थिति हमारा सबसे बड़ा उपहार है,<br />
           आपका पावन आशीर्वाद हमारा अनमोल खजाना है।”
         </blockquote>
 
-        {/* Couple Signoff */}
-        <div className="footer-couple-signature">
-          <h2 className="footer-couple-names" style={{ fontSize: 'clamp(20px, 4.2vw, 30px)' }}>
+        {/* Couple Signoff with 3D Metallic Gradient */}
+        <div className="footer-couple-signature 3d-couple-sign">
+          <h2 className="footer-couple-names 3d-footer-names">
             आकाश एवं रीना • शिवानी एवं धीरज
           </h2>
           <p className="footer-regards-line">सस्नेह एवं सादर आभार</p>
           <p className="footer-family-signoff">
-            गहलोत परिवार • रामदेव रोड, पाली (राजस्थान)
+            गहलोत परिवार • रामदेव रोड़, पाली–मारवाड़ (राजस्थान)
           </p>
         </div>
 
-        <div className="footer-bottom-divider"></div>
+        <div className="footer-bottom-divider 3d-bottom-divider"></div>
 
         {/* Bottom Year & Traditional Copyright */}
         <div className="footer-sub-bar">
@@ -58,17 +59,9 @@ export default function FinalBlessingsFooter({ onOpenCardViewer, onDownloadPDF }
           </p>
           <button
             onClick={scrollToTop}
-            style={{
-              background: 'transparent',
-              border: '1px solid var(--c-border-gold)',
-              borderRadius: '20px',
-              color: 'var(--c-headings)',
-              fontFamily: 'Noto Sans Devanagari, sans-serif',
-              fontSize: '11px',
-              padding: '4px 16px',
-              marginTop: '10px',
-              cursor: 'pointer'
-            }}
+            className="btn-scroll-to-top 3d-btn-top"
+            title="शीर्ष पर जाएँ"
+            aria-label="शीर्ष पर जाएँ"
           >
             ↑ ऊपर जाएँ
           </button>

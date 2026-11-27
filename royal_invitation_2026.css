@@ -2743,3 +2743,502 @@ button, a, input, textarea, select {
   color: var(--c-body);
   margin: 0;
 }
+
+
+/* ==========================================================================
+   COMPLETE 3D IMMERSIVE WEDDING INVITATION EXPERIENCES & CRITICAL FIXES
+   ========================================================================== */
+
+/* CRITICAL FIX: Ensure floating petals canvas is ALWAYS fixed & non-blocking */
+.floating-petals-canvas {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+/* CRITICAL FIX: Transparent, non-blocking fireworks overlay */
+.cinematic-fireworks-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  pointer-events: none !important;
+  z-index: 99999 !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+}
+
+/* 3D PERSPECTIVE GLOBAL UTILITIES */
+.3d-hero-experience,
+.3d-couples-section,
+.3d-countdown-section,
+.3d-timeline-section,
+.3d-mandap-section {
+  perspective: 1200px;
+}
+
+/* 1. 3D HERO ENTRANCE & ARCHITECTURE */
+.3d-arch-layer {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.hanging-toran-banner {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(92%, 480px);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.toran-garland-img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 4px 8px rgba(118, 45, 50, 0.25));
+  animation: toranSway 4s ease-in-out infinite alternate;
+}
+
+@keyframes toranSway {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(3px) rotate(0.4deg); }
+}
+
+.3d-jharokha-container {
+  perspective: 1000px;
+  margin: 10px auto 20px;
+}
+
+.3d-scalloped-pavilion {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.35s ease;
+  box-shadow: 0 20px 45px -10px rgba(118, 45, 50, 0.28), 0 0 30px rgba(201, 164, 92, 0.35);
+  border-radius: 18px 18px 24px 24px;
+}
+
+.3d-bevel-gold {
+  border: 2px solid #C9A45C;
+  box-shadow: inset 0 2px 4px #FFF5E6, inset 0 -2px 4px #8C6A28, 0 6px 18px rgba(118, 45, 50, 0.18);
+}
+
+.jharokha-depth-shadow {
+  position: absolute;
+  inset: -8px;
+  border-radius: 24px;
+  background: radial-gradient(ellipse at center, rgba(201, 164, 92, 0.25) 0%, transparent 70%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Sacred Ganesh Ji 3D Radiant Halo */
+.hero-ganesha-radiant-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 12px auto 16px;
+}
+
+.ganesha-radiant-halo {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 248, 235, 0.95) 0%, rgba(247, 233, 210, 0.9) 70%, rgba(201, 164, 92, 0.3) 100%);
+  border: 1.5px solid var(--c-border-gold);
+  box-shadow: 0 0 20px rgba(201, 164, 92, 0.5), inset 0 0 10px rgba(255, 255, 255, 0.8);
+  animation: ganeshaHaloPulse 3.5s ease-in-out infinite;
+}
+
+@keyframes ganeshaHaloPulse {
+  0%, 100% {
+    box-shadow: 0 0 14px rgba(201, 164, 92, 0.4), inset 0 0 8px rgba(255, 255, 255, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 26px rgba(201, 164, 92, 0.75), inset 0 0 14px rgba(255, 255, 255, 0.95);
+  }
+}
+
+.hero-ganesha-emblem-img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(118, 45, 50, 0.2));
+}
+
+.ganesha-blessing-shloka {
+  font-family: 'Noto Sans Devanagari', var(--font-royal-heading);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--c-headings);
+  margin-top: 6px;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* 3D Embossed Heading */
+.3d-embossed-title {
+  font-size: clamp(30px, 6vw, 44px) !important;
+  color: #762D32;
+  text-shadow: 0 1px 0 #FFF, 0 2px 0 #E5C378, 0 3px 6px rgba(118, 45, 50, 0.22);
+  letter-spacing: 0.8px;
+}
+
+/* 3D Tilt Showcase Card in Hero */
+.3d-tilt-showcase {
+  transform-style: preserve-3d;
+  transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
+  box-shadow: 0 16px 40px rgba(118, 45, 50, 0.12), 0 0 20px rgba(201, 164, 92, 0.15);
+  border-radius: 18px;
+}
+
+.3d-name-headline {
+  font-size: clamp(22px, 4.5vw, 29px) !important;
+  color: #762D32 !important;
+  font-weight: 800 !important;
+  text-shadow: 0 1px 0 #FFF, 0 2px 4px rgba(118, 45, 50, 0.15);
+}
+
+.3d-shubh-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  background: linear-gradient(135deg, rgba(201, 164, 92, 0.2) 0%, rgba(184, 138, 59, 0.3) 100%);
+  border: 1px solid var(--c-border-gold);
+  border-radius: 20px;
+  color: var(--c-headings);
+  font-size: 12px;
+  font-weight: 700;
+  margin: 6px 0;
+  box-shadow: 0 2px 6px rgba(118, 45, 50, 0.08);
+}
+
+.3d-date-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(184, 138, 59, 0.35);
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--c-headings);
+  margin-top: 8px;
+  box-shadow: 0 2px 8px rgba(118, 45, 50, 0.06);
+}
+
+.3d-rotating-kalash {
+  animation: kalashGentleFloat 3.8s ease-in-out infinite alternate;
+}
+
+@keyframes kalashGentleFloat {
+  0% { transform: translateY(0px) scale(1); }
+  100% { transform: translateY(-4px) scale(1.08); }
+}
+
+.3d-cta-button {
+  transform: perspective(600px) translateZ(0);
+  transition: transform 0.24s ease, box-shadow 0.24s ease;
+  box-shadow: 0 10px 25px rgba(118, 45, 50, 0.25), 0 0 18px rgba(201, 164, 92, 0.4);
+}
+
+.3d-cta-button:hover {
+  transform: perspective(600px) translateY(-3px) translateZ(8px) scale(1.03);
+  box-shadow: 0 16px 35px rgba(118, 45, 50, 0.32), 0 0 26px rgba(201, 164, 92, 0.6);
+}
+
+/* 2. 3D COUPLES PRESENTATION PANELS */
+.3d-couples-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 18px;
+  perspective: 1200px;
+}
+
+@media (max-width: 860px) {
+  .3d-couples-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.3d-couple-card {
+  transform-style: preserve-3d;
+  transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.4, 1), box-shadow 0.28s ease;
+  border: 1.5px solid var(--c-border-gold);
+  border-radius: 18px;
+  background: radial-gradient(circle at 50% 0%, #FFFDF9 0%, #FAF2E3 70%, #F5E6CC 100%);
+  box-shadow: 0 12px 30px rgba(118, 45, 50, 0.1), 0 0 14px rgba(201, 164, 92, 0.12);
+}
+
+.3d-couple-card:hover {
+  box-shadow: 0 18px 45px rgba(118, 45, 50, 0.2), 0 0 24px rgba(201, 164, 92, 0.25);
+}
+
+.3d-profile-name {
+  font-size: clamp(21px, 4.2vw, 27px) !important;
+  color: #762D32 !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.3px;
+}
+
+.3d-icon-float {
+  font-size: 24px;
+  display: inline-block;
+  margin-bottom: 4px;
+  filter: drop-shadow(0 2px 4px rgba(118, 45, 50, 0.15));
+}
+
+.3d-weds-badge {
+  background: linear-gradient(135deg, #8B3038 0%, #6E232B 100%) !important;
+  color: #FFF2D6 !important;
+  border: 1px solid var(--c-gold-bright) !important;
+  border-radius: 50% !important;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(118, 45, 50, 0.25);
+}
+
+/* 3. 3D WEDDING COUNTDOWN WITH DIMENSIONAL METALLIC NUMBERS */
+.3d-sundial-card {
+  border-radius: 22px;
+  box-shadow: 0 16px 40px rgba(118, 45, 50, 0.12), inset 0 2px 6px #FFF5E6;
+}
+
+.3d-units-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(6px, 2vw, 16px);
+  margin: 22px auto;
+  perspective: 800px;
+}
+
+.3d-unit-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-style: preserve-3d;
+}
+
+.3d-gold-circle {
+  width: clamp(68px, 15vw, 92px) !important;
+  height: clamp(68px, 15vw, 92px) !important;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #FFFDF9 0%, #FDF4E2 50%, #EBD5B0 100%);
+  border: 2.5px solid #C9A45C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 8px 20px rgba(118, 45, 50, 0.18),
+    inset 0 3px 6px #FFFDF9,
+    inset 0 -4px 8px rgba(140, 106, 40, 0.4),
+    0 0 14px rgba(201, 164, 92, 0.25);
+  transition: transform 0.25s ease;
+}
+
+.3d-unit-box:hover .3d-gold-circle {
+  transform: translateY(-3px) scale(1.05);
+}
+
+.3d-metallic-number {
+  font-family: 'Cinzel', serif !important;
+  font-size: clamp(26px, 6vw, 38px) !important;
+  font-weight: 800 !important;
+  color: #762D32 !important;
+  text-shadow: 
+    0 1px 0 #FFF,
+    0 2px 0 #E5C378,
+    0 3px 0 #B88A3B,
+    0 4px 6px rgba(118, 45, 50, 0.35);
+  letter-spacing: 1px;
+}
+
+.3d-unit-label {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--c-headings);
+  margin-top: 8px;
+  letter-spacing: 0.5px;
+}
+
+.3d-colon-divider {
+  font-size: clamp(24px, 5vw, 36px);
+  color: var(--c-border-gold);
+  font-weight: 800;
+  margin-bottom: 24px;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.3d-cal-button {
+  box-shadow: 0 6px 16px rgba(118, 45, 50, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.3d-cal-button:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 22px rgba(118, 45, 50, 0.28);
+}
+
+/* 4. 3D ILLUMINATED TIMELINE */
+.3d-pathway .3d-golden-spine {
+  width: 4px;
+  background: linear-gradient(180deg, 
+    transparent 0%, 
+    #B88A3B 5%, 
+    #FFD700 30%, 
+    #C9A45C 70%, 
+    #8C6A28 95%, 
+    transparent 100%);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.6);
+}
+
+.3d-diya-globe {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #FFFDF9 0%, #FCE8C8 60%, #E2BA70 100%);
+  border: 2px solid #C9A45C;
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.7), inset 0 2px 4px #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.3d-event-card {
+  transform-style: preserve-3d;
+  transition: transform 0.24s ease, box-shadow 0.24s ease;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(118, 45, 50, 0.08);
+}
+
+.3d-event-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(118, 45, 50, 0.16);
+}
+
+.3d-time-text {
+  color: #762D32 !important;
+  font-size: 14.5px !important;
+  font-weight: 700 !important;
+}
+
+.3d-event-title {
+  color: #762D32 !important;
+  font-size: clamp(17px, 3.5vw, 21px) !important;
+  font-weight: 700 !important;
+}
+
+/* 5. 3D MANDAP ARCH & VENUE */
+.3d-mandap-pavilion {
+  border-radius: 20px;
+  box-shadow: 0 16px 40px rgba(118, 45, 50, 0.12);
+}
+
+.3d-pulsing-pin {
+  animation: pinPulse 2.5s infinite ease-in-out;
+  display: inline-block;
+  font-size: 32px;
+}
+
+@keyframes pinPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15) translateY(-3px); }
+}
+
+.3d-venue-title {
+  font-size: clamp(24px, 5vw, 32px) !important;
+  color: #762D32 !important;
+  font-weight: 800 !important;
+  text-shadow: 0 1px 0 #FFF, 0 2px 4px rgba(118, 45, 50, 0.15);
+}
+
+.3d-address-badge {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--c-border-gold);
+  border-radius: 14px;
+  box-shadow: 0 3px 10px rgba(118, 45, 50, 0.06);
+}
+
+.3d-btn-maps,
+.3d-btn-copy {
+  box-shadow: 0 4px 14px rgba(118, 45, 50, 0.16);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.3d-btn-maps:hover,
+.3d-btn-copy:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(118, 45, 50, 0.24);
+}
+
+/* 6. 3D CLOSING SCENE & FOOTER */
+.3d-closing-scene {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 0%, #2A0C12 0%, #170407 100%) !important;
+  color: #FFF5E6 !important;
+}
+
+.3d-ganesha-wrapper {
+  animation: ganeshaFloat 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes ganeshaFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-4px); }
+}
+
+.3d-footer-names {
+  color: #FFF2D6 !important;
+  text-shadow: 0 0 14px rgba(212, 175, 55, 0.5);
+}
+
+.3d-btn-top {
+  border: 1px solid var(--c-gold-bright) !important;
+  color: #FFF2D6 !important;
+  border-radius: 20px;
+  padding: 5px 18px;
+  background: rgba(212, 175, 55, 0.12) !important;
+  transition: all 0.22s ease;
+}
+
+.3d-btn-top:hover {
+  background: rgba(212, 175, 55, 0.3) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.35);
+}
+
+/* RESPONSIVE PERFECTION FOR ALL MOBILE VIEWPORTS */
+@media (max-width: 480px) {
+  .hero-grand-title {
+    font-size: 26px !important;
+  }
+  .3d-name-headline {
+    font-size: 21px !important;
+  }
+  .3d-gold-circle {
+    width: 62px !important;
+    height: 62px !important;
+  }
+  .3d-metallic-number {
+    font-size: 23px !important;
+  }
+  .hanging-toran-banner {
+    width: 95%;
+  }
+}

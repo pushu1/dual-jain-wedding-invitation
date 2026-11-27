@@ -22,17 +22,18 @@ export default function FloatingPetalsCanvas() {
     };
     window.addEventListener('resize', handleResize);
 
-    // Subtle traditional items: marigold petals, rose petals, golden shimmer sparkles
+    // Traditional festive particles: marigold orange & yellow, gold sparkles, rose pink, royal maroon
     const petalColors = [
-      'rgba(212, 175, 55, 0.45)', // Golden sparkle
-      'rgba(255, 165, 0, 0.40)',  // Marigold orange
-      'rgba(255, 215, 0, 0.50)',  // Marigold yellow
-      'rgba(184, 138, 59, 0.35)', // Antique gold
-      'rgba(214, 51, 108, 0.35)', // Soft Rose pink
-      'rgba(139, 48, 56, 0.30)'   // Traditional burgundy
+      'rgba(212, 175, 55, 0.55)', // Shimmer Gold
+      'rgba(255, 170, 0, 0.45)',  // Warm Marigold
+      'rgba(255, 215, 0, 0.50)',  // Bright Haldi Gold
+      'rgba(201, 164, 92, 0.45)', // Antique Gold
+      'rgba(230, 81, 0, 0.40)',   // Festive Saffron
+      'rgba(214, 51, 108, 0.35)', // Rose Petal
+      'rgba(139, 48, 56, 0.30)'   // Traditional Maroon
     ];
 
-    const particleCount = width < 768 ? 22 : 36;
+    const particleCount = width < 768 ? 20 : 35;
     const particles = [];
 
     for (let i = 0; i < particleCount; i++) {
@@ -40,12 +41,12 @@ export default function FloatingPetalsCanvas() {
         x: Math.random() * width,
         y: Math.random() * height,
         size: Math.random() * 5 + 3,
-        speedY: Math.random() * 0.7 + 0.3,
-        speedX: Math.sin(Math.random() * Math.PI) * 0.4,
+        speedY: Math.random() * 0.6 + 0.3,
+        speedX: (Math.random() - 0.5) * 0.5,
         angle: Math.random() * 360,
         spinSpeed: (Math.random() - 0.5) * 1.5,
         color: petalColors[Math.floor(Math.random() * petalColors.length)],
-        opacity: Math.random() * 0.6 + 0.2,
+        opacity: Math.random() * 0.5 + 0.3,
         isSparkle: Math.random() > 0.65
       });
     }
@@ -57,7 +58,7 @@ export default function FloatingPetalsCanvas() {
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
         p.y += p.speedY;
-        p.x += Math.sin(p.y * 0.008) * 0.5 + p.speedX;
+        p.x += Math.sin(p.y * 0.007) * 0.4 + p.speedX;
         p.angle += p.spinSpeed;
 
         if (p.y > height + 20) {
@@ -73,12 +74,12 @@ export default function FloatingPetalsCanvas() {
         ctx.globalAlpha = p.opacity;
 
         if (p.isSparkle) {
-          // 4-point golden sparkle
+          // 4-point golden star sparkle
           ctx.fillStyle = p.color;
           ctx.beginPath();
-          ctx.arc(0, 0, p.size * 0.6, 0, Math.PI * 2);
+          ctx.arc(0, 0, p.size * 0.5, 0, Math.PI * 2);
           ctx.fill();
-          ctx.strokeStyle = 'rgba(255, 235, 175, 0.7)';
+          ctx.strokeStyle = 'rgba(255, 240, 190, 0.75)';
           ctx.lineWidth = 1;
           ctx.beginPath();
           ctx.moveTo(-p.size * 1.4, 0);
@@ -87,10 +88,10 @@ export default function FloatingPetalsCanvas() {
           ctx.lineTo(0, p.size * 1.4);
           ctx.stroke();
         } else {
-          // Organic curved petal shape
+          // Organic curved 3D petal shape
           ctx.fillStyle = p.color;
           ctx.beginPath();
-          ctx.ellipse(0, 0, p.size * 0.9, p.size * 1.6, Math.PI / 4, 0, 2 * Math.PI);
+          ctx.ellipse(0, 0, p.size * 0.85, p.size * 1.5, Math.PI / 4, 0, 2 * Math.PI);
           ctx.fill();
         }
 
@@ -113,6 +114,15 @@ export default function FloatingPetalsCanvas() {
       ref={canvasRef}
       className="floating-petals-canvas"
       aria-hidden="true"
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100vw',
+        height: '100vh',
+        pointerEvents: 'none',
+        zIndex: 1
+      }}
     />
   );
 }
